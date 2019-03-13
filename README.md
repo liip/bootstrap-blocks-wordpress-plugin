@@ -8,7 +8,6 @@ This makes it possible to overwrite the template of a block in your theme.
 To overwrite a block template create a folder called `bootstrap-blocks/` in your theme directory.
 You can copy the original template from `bootstrap-blocks/src/templates/<blockname>.php` as a starting point and adjust it to your needs.
 
-
 ## Filters
 
 ### bootstrap_blocks_template_path

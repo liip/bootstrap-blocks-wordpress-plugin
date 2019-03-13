@@ -20,6 +20,8 @@ if ( array_key_exists( 'sizeXl', $attributes ) && $attributes['sizeXl'] > 0 ) {
 if ( array_key_exists( 'className', $attributes ) ) {
 	$classes = array_merge( $classes, explode( ' ', $attributes['className'] ) );
 }
+
+$classes = apply_filters( 'bootstrap_blocks_column_classes', $classes, $attributes );
 ?>
 <div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 	<?php echo $content; ?>
