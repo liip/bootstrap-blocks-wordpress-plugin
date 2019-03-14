@@ -11,3 +11,4 @@
 
 import './column/block.js';
 import './row/block.js';
+import './button/block.js';
