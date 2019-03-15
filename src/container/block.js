@@ -14,11 +14,8 @@ const { Fragment } = wp.element;
 const { applyFilters } = wp.hooks;
 
 const useFluidContainerPerDefault = applyFilters( 'bootstrapBlocks.container.useFluidContainerPerDefault', true );
-let marginOptions = [
-	{
-		label: __( 'None', config.textDomain ),
-		value: 'mb-0',
-	},
+
+let customMarginOptions = [
 	{
 		label: __( 'Small', config.textDomain ),
 		value: 'mb-2',
@@ -30,9 +27,17 @@ let marginOptions = [
 	{
 		label: __( 'Large', config.textDomain ),
 		value: 'mb-5',
-	}
+	},
+]
+customMarginOptions = applyFilters( 'bootstrapBlocks.container.customMarginOptions', customMarginOptions );
+
+const marginOptions = [
+	{
+		label: __( 'None', config.textDomain ),
+		value: 'mb-0',
+	},
+	...customMarginOptions
 ];
-marginOptions = applyFilters( 'bootstrapBlocks.container.marginOptions', marginOptions );
 
 registerBlockType( `${ config.namespace }/container`, {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
@@ -55,6 +60,7 @@ registerBlockType( `${ config.namespace }/container`, {
 		},
 		marginAfter: {
 			type: 'string',
+			default: marginOptions[0].value,
 		}
 	},
 
