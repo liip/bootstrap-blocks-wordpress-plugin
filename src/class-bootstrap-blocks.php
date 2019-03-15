@@ -86,6 +86,7 @@ class BootstrapBlocks {
 	public function includes() {
 		// Load plugin class files
 		require_once BOOTSTRAP_BLOCKS_ABSPATH . 'src/bootstrap-blocks-functions.php';
+		require_once BOOTSTRAP_BLOCKS_ABSPATH . 'src/container/block.php';
 		require_once BOOTSTRAP_BLOCKS_ABSPATH . 'src/row/block.php';
 		require_once BOOTSTRAP_BLOCKS_ABSPATH . 'src/column/block.php';
 		require_once BOOTSTRAP_BLOCKS_ABSPATH . 'src/button/block.php';

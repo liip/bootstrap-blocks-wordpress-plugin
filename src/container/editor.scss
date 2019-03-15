@@ -1,0 +1,11 @@
+@import "../assets/gutenberg/gutenberg";
+
+.wp-block {
+	max-width: initial;
+}
+
+.wp-block-bootstrap-blocks-container {
+	max-width: $content-width;
+	margin-left: auto;
+	margin-right: auto;
+}
