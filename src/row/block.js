@@ -10,11 +10,10 @@ import config from '../config';
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
 const { InnerBlocks, InspectorControls } = wp.editor;
-const { SelectControl } = wp.components;
+const { SelectControl, CheckboxControl, PanelBody } = wp.components;
 const { Fragment } = wp.element;
 const { dispatch, select } = wp.data;
 const { applyFilters } = wp.hooks;
-const { CheckboxControl, PanelBody } = wp.components;
 
 const ALLOWED_BLOCKS = [ `${ config.namespace }/column` ];
 let templates = {
