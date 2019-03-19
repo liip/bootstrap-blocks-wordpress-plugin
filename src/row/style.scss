@@ -4,5 +4,9 @@
  * CSS for both Frontend+Backend.
  */
 
-.wp-block-bootstrap-blocks-row  {
+.bootstrap-blocks-row {
+	&.full-width > .row {
+		margin-left: 0;
+		margin-right: 0;
+	}
 }
