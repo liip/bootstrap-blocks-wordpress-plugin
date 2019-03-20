@@ -9,10 +9,6 @@ const { Dashicon, IconButton, SelectControl, PanelBody } = wp.components;
 const { applyFilters } = wp.hooks;
 
 class BootstrapButtonEdit extends Component {
-	updateAlignment( nextAlign ) {
-		this.props.setAttributes( { align: nextAlign } );
-	}
-
 	render() {
 		const { attributes, className, setAttributes, isSelected } = this.props;
 		const { url, text, style, alignment } = attributes;
