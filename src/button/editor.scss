@@ -1,5 +1,15 @@
 @import "../assets/gutenberg/gutenberg";
 
+[data-type="bootstrap-blocks/button"] {
+	&[data-alignment="center"]{
+		text-align: center;
+	}
+
+	&[data-alignment="right"]{
+		text-align: right;
+	}
+}
+
 .wp-block-bootstrap-blocks-button {
 	display: inline-block;
 	padding: 8px 16px;

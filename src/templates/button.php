@@ -2,6 +2,10 @@
 $classes = array( 'bootstrap-blocks-button' );
 $btn_classes = array( 'btn' );
 
+if ( array_key_exists( 'alignment', $attributes ) ) {
+	array_push( $classes, ( 'text-' . $attributes[ 'alignment' ] ) );
+}
+
 if ( array_key_exists( 'className', $attributes ) ) {
 	array_push( $btn_classes, $attributes['className'] );
 }
