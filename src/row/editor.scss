@@ -40,15 +40,10 @@
 		// Responsiveness: Allow wrapping on mobile.
 		flex-wrap: wrap;
 
-		@include break-medium() {
-			flex-wrap: nowrap;
-		}
-
 		// Adjust the individual column block.
 		> [data-type="bootstrap-blocks/column"] {
 			display: flex;
 			flex-direction: column;
-			flex: 1;
 
 			// The Column block is a child of the Columns block and is mostly a passthrough container.
 			// Therefore it shouldn't add additional paddings and margins, so we reset these, and compensate for margins.
@@ -78,8 +73,10 @@
 			margin-left: -$block-padding;
 			margin-right: -$block-padding;
 			@include break-small() {
-				margin-left: $block-padding;
-				margin-right: $block-padding;
+				padding-left: $block-padding;
+				padding-right: $block-padding;
+				margin-left: 0;
+				margin-right: 0;
 			}
 
 			// Prevent the columns from growing wider than their distributed sizes.
@@ -88,31 +85,6 @@
 			// Prevent long unbroken words from overflowing.
 			word-break: break-word; // For back-compat.
 			overflow-wrap: break-word; // New standard.
-
-			// Responsiveness: Show at most one columns on mobile.
-			flex-basis: 100%;
-
-			// Beyond mobile, allow 2 columns.
-			@include break-small() {
-				flex-basis: calc(50% - (#{$grid-size-large} + #{$block-padding * 2}));
-				flex-grow: 0;
-			}
-
-			// Add space between columns. Themes can customize this if they wish to work differently.
-			// This has to match the same padding applied in style.scss.
-			// Only apply this beyond the mobile breakpoint, as there's only a single column on mobile.
-			@include break-small() {
-				&:nth-child(even) {
-					margin-left: calc(#{$grid-size-large * 2} + #{$block-padding});
-				}
-			}
-
-			// When columns are in a single row, add space before all except the first.
-			@include break-medium() {
-				&:not(:first-child) {
-					margin-left: calc(#{$grid-size-large * 2} + #{$block-padding});
-				}
-			}
 		}
 	}
 }
