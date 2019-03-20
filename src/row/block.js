@@ -9,7 +9,7 @@ import config from '../config';
 
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
-const { InnerBlocks, InspectorControls } = wp.editor;
+const { InnerBlocks, InspectorControls, BlockControls, AlignmentToolbar } = wp.editor;
 const { SelectControl, CheckboxControl, PanelBody } = wp.components;
 const { Fragment } = wp.element;
 const { dispatch, select } = wp.data;
@@ -140,10 +140,17 @@ registerBlockType( `${ config.namespace }/row`, {
 			type: 'boolean',
 			default: false,
 		},
+		alignment: {
+			type: 'string',
+		},
+	},
+
+	getEditWrapperProps( attributes ) {
+		return { 'data-alignment': attributes.alignment };
 	},
 
 	edit( { className, attributes, setAttributes, clientId } ) {
-		const { template } = attributes;
+		const { template, noGutters, alignment } = attributes;
 		const templateOptions = [];
 		Object.keys( templates ).forEach( ( templateName ) => {
 			templateOptions.push( {
@@ -188,13 +195,19 @@ registerBlockType( `${ config.namespace }/row`, {
 						/>
 						<CheckboxControl
 							label={ __( 'No Gutters', config.textDomain ) }
-							checked={ attributes.noGutters }
+							checked={ noGutters }
 							onChange={ ( isChecked ) => {
 								onChangeGutters( isChecked );
 							} }
 						/>
 					</PanelBody>
 				</InspectorControls>
+				<BlockControls>
+					<AlignmentToolbar
+						value={ alignment }
+						onChange={ ( newAlignment ) => ( setAttributes( { alignment: newAlignment } ) ) }
+					/>
+				</BlockControls>
 				<div className={ className }>
 					<InnerBlocks
 						allowedBlocks={ ALLOWED_BLOCKS }
