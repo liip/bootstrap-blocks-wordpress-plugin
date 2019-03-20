@@ -1,4 +1,4 @@
-// We use the official editor styles for the core/columns block (only classnames and data-type selectors are changed).
+// We use the official editor styles for the core/columns block and adapt it to our needs.
 // Source: https://github.com/WordPress/gutenberg/blob/master/packages/block-library/src/columns/editor.scss
 
 @import "../assets/gutenberg/gutenberg";
@@ -28,6 +28,15 @@
 	@include break-small() {
 		padding-left: $block-padding + $block-padding + $block-side-ui-width + $block-side-ui-clearance + $block-side-ui-clearance;
 		padding-right: $block-padding + $block-padding + $block-side-ui-width + $block-side-ui-clearance + $block-side-ui-clearance;
+	}
+}
+
+[data-type="bootstrap-blocks/row"] {
+	&[data-alignment="center"] .wp-block-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
+		justify-content: center;
+	}
+	&[data-alignment="right"] .wp-block-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
+		justify-content: flex-end;
 	}
 }
 
