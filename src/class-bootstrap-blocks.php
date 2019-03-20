@@ -102,6 +102,9 @@ class BootstrapBlocks {
 		// Hook: Editor assets.
 		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_assets' ) );
 
+		// Register custom block category
+		add_filter( 'block_categories', array( $this, 'register_custom_block_category' ), 10, 2 );
+
 		// Load textdomain
 		add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain' ) );
 
@@ -147,6 +150,26 @@ class BootstrapBlocks {
 			esc_url( $this->assets_url ) . 'blocks.editor.build.css', // Block editor CSS.
 			array( 'wp-edit-blocks' ), // Dependency to include the CSS after it.
 			$this->_version
+		);
+	}
+
+	/**
+	 * Register custom block category
+	 *
+	 * @param array $categories List of all registered categories.
+	 * @param \WP_Post $post    Current post object.
+	 *
+	 * @return array
+	 */
+	public function register_custom_block_category( $categories, $post ) {
+		return array_merge(
+			$categories,
+			array(
+				array(
+					'slug' => 'bootstrap-blocks',
+					'title' => __( 'Bootstrap Blocks', $this->_token ),
+				),
+			)
 		);
 	}
 
