@@ -41,9 +41,9 @@ const marginOptions = [
 
 registerBlockType( `${ config.namespace }/container`, {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
-	title: __( 'Bootstrap Blocks Container', config.textDomain ), // Block title.
+	title: __( 'Container', config.textDomain ), // Block title.
 	icon: 'feedback', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
-	category: 'layout', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
+	category: 'bootstrap-blocks', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
 		__( 'Bootstrap Blocks', config.textDomain ),
 		__( 'Bootstrap', config.textDomain ),
