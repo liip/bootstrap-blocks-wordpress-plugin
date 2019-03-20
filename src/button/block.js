@@ -4,19 +4,11 @@
 
 import './editor.scss';
 import config from '../config';
+import edit from './edit';
 
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
-const { RichText, URLInput, InspectorControls } = wp.editor;
-const { Dashicon, IconButton, G, Path, SVG, SelectControl, PanelBody } = wp.components;
-const { Fragment } = wp.element;
-const { applyFilters } = wp.hooks;
-
-let styleOptions = [
-	{ label: __( 'Primary', config.textDomain ), value: 'primary' },
-	{ label: __( 'Secondary', config.textDomain ), value: 'secondary' },
-];
-styleOptions = applyFilters( 'bootstrapBlocks.buttonStyleOptions', styleOptions );
+const { G, Path, SVG } = wp.components;
 
 registerBlockType( `${ config.namespace }/button`, {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
@@ -39,49 +31,16 @@ registerBlockType( `${ config.namespace }/button`, {
 		style: {
 			type: 'string',
 		},
+		alignment: {
+			type: 'string',
+		},
 	},
 
-	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { url, text, style } = attributes;
-
-		return (
-			<Fragment>
-				<div className={ className }>
-					<RichText
-						placeholder={ __( 'Add text…' ) }
-						value={ text }
-						onChange={ ( value ) => setAttributes( { text: value } ) }
-						formattingControls={ [] }
-						keepPlaceholderOnFocus
-					/>
-					<InspectorControls>
-						<PanelBody>
-							<SelectControl
-								label={ __( 'Style', config.textDomain ) }
-								value={ style }
-								options={ styleOptions }
-								onChange={ ( selectedStyle ) => {
-									setAttributes( { style: selectedStyle } );
-								} }
-							/>
-						</PanelBody>
-					</InspectorControls>
-				</div>
-				{ isSelected && (
-					<form
-						className="wp-block-bootstrap-blocks-button-link"
-						onSubmit={ ( event ) => event.preventDefault() }>
-						<Dashicon icon="admin-links" />
-						<URLInput
-							value={ url }
-							onChange={ ( value ) => setAttributes( { url: value } ) }
-						/>
-						<IconButton icon="editor-break" label={ __( 'Apply' ) } type="submit" />
-					</form>
-				) }
-			</Fragment>
-		);
+	getEditWrapperProps( attributes ) {
+		return { 'data-alignment': attributes.alignment };
 	},
+
+	edit,
 
 	save() {
 		return null;
