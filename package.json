@@ -8,6 +8,7 @@
     "eject": "cgb-scripts eject"
   },
   "dependencies": {
-    "cgb-scripts": "1.15.0"
+    "cgb-scripts": "1.15.0",
+    "lodash.noop": "^3.0.1"
   }
 }
