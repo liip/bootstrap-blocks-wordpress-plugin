@@ -2,8 +2,6 @@
  * BLOCK: bootstrap-blocks/column
  */
 
-//  Import CSS.
-import './editor.scss';
 import config from '../config';
 import edit from './edit';
 
