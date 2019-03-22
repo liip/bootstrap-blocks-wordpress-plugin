@@ -1,5 +1,22 @@
 @import "../assets/gutenberg/gutenberg";
 
+@mixin make-grid-columns($current-size-index: 1, $sizes: ('xl', 'lg', 'md', 'sm', 'xs'), $grid-columns: 12) {
+	@if $current-size-index <= length($sizes) {
+		$size: nth($sizes, $current-size-index);
+
+		@for $i from 1 through $grid-columns {
+			&[data-size-#{$size}="#{$i}"] {
+				width: percentage(($i / $grid-columns));
+			}
+		}
+		&[data-size-#{$size}="0"] {
+			@include make-grid-columns($current-size-index + 1);
+		}
+	} @else {
+		flex-grow: 1;
+	}
+}
+
 [data-type="bootstrap-blocks/row"] {
 	// Horizontal alignment
 	&[data-alignment="center"] .wp-block-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
@@ -29,44 +46,7 @@
 				margin-right: 0;
 
 				// Grid implementation
-				$grid-columns: 12;
-
-				@for $i from 1 through $grid-columns {
-					&[data-size-xl="#{$i}"] {
-						width: percentage(($i / $grid-columns));
-					}
-					&[data-size-xl="0"] {
-						@for $i from 1 through $grid-columns {
-							&[data-size-lg="#{$i}"] {
-								width: percentage(($i / $grid-columns));
-							}
-						}
-						&[data-size-lg="0"] {
-							@for $i from 1 through $grid-columns {
-								&[data-size-md="#{$i}"] {
-									width: percentage(($i / $grid-columns));
-								}
-							}
-							&[data-size-md="0"] {
-								@for $i from 1 through $grid-columns {
-									&[data-size-sm="#{$i}"] {
-										width: percentage(($i / $grid-columns));
-									}
-								}
-								&[data-size-sm="0"] {
-									@for $i from 1 through $grid-columns {
-										&[data-size-xs="#{$i}"] {
-											width: percentage(($i / $grid-columns));
-										}
-										&[data-size-xs="0"] {
-											flex-grow: 1;
-										}
-									}
-								}
-							}
-						}
-					}
-				}
+				@include make-grid-columns();
 
 				// Prevent long unbroken words from overflowing.
 				word-break: break-word; // For back-compat.
