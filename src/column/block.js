@@ -44,7 +44,15 @@ registerBlockType( 'bootstrap-blocks/column', {
 	},
 
 	getEditWrapperProps( attributes ) {
-		return { 'data-size-md': attributes.sizeMd };
+		const { sizeXl, sizeLg, sizeMd, sizeSm, sizeXs } = attributes;
+
+		return {
+			'data-size-xs': sizeXs,
+			'data-size-sm': sizeSm,
+			'data-size-md': sizeMd,
+			'data-size-lg': sizeLg,
+			'data-size-xl': sizeXl,
+		};
 	},
 
 	edit,

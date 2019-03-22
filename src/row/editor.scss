@@ -32,12 +32,40 @@
 				$grid-columns: 12;
 
 				@for $i from 1 through $grid-columns {
-					&[data-size-md="#{$i}"] {
+					&[data-size-xl="#{$i}"] {
 						width: percentage(($i / $grid-columns));
 					}
-				}
-				&[data-size-md="0"] {
-					flex-grow: 1;
+					&[data-size-xl="0"] {
+						@for $i from 1 through $grid-columns {
+							&[data-size-lg="#{$i}"] {
+								width: percentage(($i / $grid-columns));
+							}
+						}
+						&[data-size-lg="0"] {
+							@for $i from 1 through $grid-columns {
+								&[data-size-md="#{$i}"] {
+									width: percentage(($i / $grid-columns));
+								}
+							}
+							&[data-size-md="0"] {
+								@for $i from 1 through $grid-columns {
+									&[data-size-sm="#{$i}"] {
+										width: percentage(($i / $grid-columns));
+									}
+								}
+								&[data-size-sm="0"] {
+									@for $i from 1 through $grid-columns {
+										&[data-size-xs="#{$i}"] {
+											width: percentage(($i / $grid-columns));
+										}
+										&[data-size-xs="0"] {
+											flex-grow: 1;
+										}
+									}
+								}
+							}
+						}
+					}
 				}
 
 				// Prevent long unbroken words from overflowing.
