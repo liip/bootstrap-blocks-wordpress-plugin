@@ -1,5 +1,11 @@
 # Bootstrap 4 Gutenberg Blocks for WordPress
 
+Currently available blocks:
+
+* Container
+* Grid (Row / Column)
+* Button
+
 ## Templates
 
 All blocks are implemented as [dynamic blocks](https://wordpress.org/gutenberg/handbook/designers-developers/developers/tutorials/block-tutorial/creating-dynamic-blocks/).
@@ -63,18 +69,47 @@ function my_template_locater( $template, $template_name, $template_path ) {
 
 ## Developer information
 
+### Installation
+
+1. Clone this repository
+
+1. Install composer dependencies
+
+    ```
+    $ curl -s https://getcomposer.org/installer | php
+    $ php composer.phar install
+    $ vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs
+    ```
+
+1. Install Node dependencies
+
+    ```
+    $ npm install
+    ```
+
+### Compile assets
+
 This project was bootstrapped with [Create Guten Block](https://github.com/ahmadawais/create-guten-block).
 
-## 👉  `npm start`
+#### `npm start`
 - Use to compile and run the block in development mode.
 - Watches for any changes and reports back any errors in your code.
 
-## 👉  `npm run build`
+#### `npm run build`
 - Use to build production code for your block inside `dist` folder.
 - Runs once and reports back the gzip file sizes of the produced code.
 
-## 👉  `npm run eject`
+#### `npm run eject`
 - Use to eject your plugin out of `create-guten-block`.
 - Provides all the configurations so you can customize the project as you want.
 - It's a one-way street, `eject` and you have to maintain everything yourself.
 - You don't normally have to `eject` a project because by ejecting you lose the connection with `create-guten-block` and from there onwards you have to update and maintain all the dependencies on your own.
+
+### Extract labels
+
+To extract the labels and generate the `languages/bootstrap-blocks.pot` file run the following command:
+
+```
+$ curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+$ php wp-cli.phar i18n make-pot .
+```
