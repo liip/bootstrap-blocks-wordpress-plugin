@@ -1,35 +1,4 @@
-// We use the official editor styles for the core/columns block and adapt it to our needs.
-// Source: https://github.com/WordPress/gutenberg/blob/master/packages/block-library/src/columns/editor.scss
-
 @import "../assets/gutenberg/gutenberg";
-
-// These margins make sure that nested blocks stack/overlay with the parent block chrome
-// This is sort of an experiment at making sure the editor looks as much like the end result as possible
-// Potentially the rules here can apply to all nested blocks and enable stacking, in which case it should be moved elsewhere
-// When using CSS grid, margins do not collapse on the container.
-.wp-block-bootstrap-blocks-row .editor-block-list__layout {
-	margin-left: 0;
-	margin-right: 0;
-
-	// This max-width is used to constrain the main editor column, it should not cascade into columns
-	.editor-block-list__block {
-		max-width: none;
-	}
-}
-
-// Fullwide: show margin left/right to ensure there's room for the side UI.
-// This is not a 1:1 preview with the front-end where these margins would presumably be zero.
-// @todo This could be revisited, by for example showing this margin only when the parent block was selected first.
-// Then at least an unselected columns block would be an accurate preview.
-.editor-block-list__block[data-align="full"] .wp-block-bootstrap-blocks-row > .editor-inner-blocks {
-	padding-left: $block-padding;
-	padding-right: $block-padding;
-
-	@include break-small() {
-		padding-left: $block-padding + $block-padding + $block-side-ui-width + $block-side-ui-clearance + $block-side-ui-clearance;
-		padding-right: $block-padding + $block-padding + $block-side-ui-width + $block-side-ui-clearance + $block-side-ui-clearance;
-	}
-}
 
 [data-type="bootstrap-blocks/row"] {
 	// Horizontal alignment
@@ -50,98 +19,36 @@
 }
 
 .wp-block-bootstrap-blocks-row {
-	display: block;
-
-	> .editor-inner-blocks > .editor-block-list__layout {
-		display: flex;
-
-		// Responsiveness: Allow wrapping on mobile.
-		flex-wrap: wrap;
-
-		// Adjust the individual column block.
-		> [data-type="bootstrap-blocks/column"] {
+	@include break-small() {
+		> .editor-inner-blocks > .editor-block-list__layout {
 			display: flex;
-			flex-direction: column;
+			flex-wrap: wrap;
 
-			// Grid implementation
-			$grid-columns: 12;
-			width: 100%;
+			> [data-type="bootstrap-blocks/column"] {
+				margin-left: 0;
+				margin-right: 0;
 
-			@include break-small() {
+				// Grid implementation
+				$grid-columns: 12;
+
 				@for $i from 1 through $grid-columns {
 					&[data-size-md="#{$i}"] {
 						width: percentage(($i / $grid-columns));
 					}
 				}
 				&[data-size-md="0"] {
-					flex: 1;
+					flex-grow: 1;
 				}
+
+				// Prevent long unbroken words from overflowing.
+				word-break: break-word; // For back-compat.
+				overflow-wrap: break-word; // New standard.
 			}
 
-			// The Column block is a child of the Columns block and is mostly a passthrough container.
-			// Therefore it shouldn't add additional paddings and margins, so we reset these, and compensate for margins.
-			// @todo In the future, if a passthrough feature lands, it would be good to apply these rules to such an element in a more generic way.
-			> .editor-block-list__block-edit > div > .editor-inner-blocks {
-				margin-top: -$block-padding - $block-padding;
-				margin-bottom: -$block-padding - $block-padding;
+			// Set block list appender width to use full width of container to wrap to new line
+			> .block-list-appender {
+				width: 100%;
 			}
-
-			> .editor-block-list__block-edit {
-				margin-top: 0;
-				margin-bottom: 0;
-			}
-
-			// Extend the passthrough concept to the block paddings, which we zero out.
-			> .editor-block-list__block-edit::before {
-				left: 0;
-				right: 0;
-			}
-			> .editor-block-list__block-edit > .editor-block-contextual-toolbar {
-				margin-left: -$border-width;
-			}
-
-			// On mobile, only a single column is shown, so match adjacent block paddings.
-			padding-left: 0;
-			padding-right: 0;
-			margin-left: -$block-padding;
-			margin-right: -$block-padding;
-			@include break-small() {
-				padding-left: $block-padding;
-				padding-right: $block-padding;
-				margin-left: 0;
-				margin-right: 0;
-			}
-
-			// Prevent the columns from growing wider than their distributed sizes.
-			min-width: 0;
-
-			// Prevent long unbroken words from overflowing.
-			word-break: break-word; // For back-compat.
-			overflow-wrap: break-word; // New standard.
 		}
 	}
-}
-
-// In absence of making the individual columns resizable, we prevent them from being clickable.
-// This makes them less fiddly. @todo: This should be revisited as the interface is refined.
-.wp-block-bootstrap-blocks-row [data-type="bootstrap-blocks/column"] {
-	pointer-events: none;
-
-	// The empty state of a columns block has the default appenders.
-	// Since those appenders are not blocks, the parent, actual block, appears "hovered" when hovering the appenders.
-	// Because the column shouldn't be hovered as part of this temporary passthrough, we unset the hover style.
-	&.is-hovered {
-		> .editor-block-list__block-edit::before {
-			content: none;
-		}
-
-		.editor-block-list__breadcrumb {
-			display: none;
-		}
-	}
-}
-
-// This selector re-enables clicking on any child of a column block.
-:not(.components-disabled) > .wp-block-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout > [data-type="bootstrap-blocks/column"] > .editor-block-list__block-edit > * {
-	pointer-events: all;
 }
