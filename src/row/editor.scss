@@ -32,11 +32,20 @@
 }
 
 [data-type="bootstrap-blocks/row"] {
+	// Horizontal alignment
 	&[data-alignment="center"] .wp-block-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
 		justify-content: center;
 	}
 	&[data-alignment="right"] .wp-block-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
 		justify-content: flex-end;
+	}
+
+	// Vertical alignment
+	&[data-vertical-alignment="center"] .wp-block-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
+		align-items: center;
+	}
+	&[data-vertical-alignment="bottom"] .wp-block-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
+		align-items: end;
 	}
 }
 
