@@ -1,5 +1,7 @@
 # Bootstrap 4 Gutenberg Blocks for WordPress
 
+[![Build Status](https://travis-ci.org/liip/bootstrap-blocks-wordpress-plugin.svg?branch=master)](https://travis-ci.org/liip/bootstrap-blocks-wordpress-plugin)
+
 Currently available blocks:
 
 * Container
