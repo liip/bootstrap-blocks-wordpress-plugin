@@ -1,4 +1,13 @@
 <?php
+/**
+ * Template for bootstrap-blocks/column
+ *
+ * This template can be overridden by copying it to theme/bootstrap-blocks/column.php.
+ *
+ * @package bootstrap-blocks/templates/column
+ * @version 1.0.0
+ */
+
 $classes = array();
 if ( array_key_exists( 'sizeXs', $attributes ) && $attributes['sizeXs'] > 0 ) {
 	array_push( $classes, 'col-' . $attributes['sizeXs'] );
@@ -24,5 +33,5 @@ if ( array_key_exists( 'className', $attributes ) ) {
 $classes = apply_filters( 'bootstrap_blocks_column_classes', $classes, $attributes );
 ?>
 <div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
-	<?php echo $content; ?>
+	<?php echo $content; // phpcs:ignore ?>
 </div>

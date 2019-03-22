@@ -1,9 +1,18 @@
 <?php
+/**
+ * Template for bootstrap-blocks/button
+ *
+ * This template can be overridden by copying it to theme/bootstrap-blocks/button.php.
+ *
+ * @package bootstrap-blocks/templates/button
+ * @version 1.0.0
+ */
+
 $classes = array( 'bootstrap-blocks-button' );
 $btn_classes = array( 'btn' );
 
 if ( array_key_exists( 'alignment', $attributes ) ) {
-	array_push( $classes, ( 'text-' . $attributes[ 'alignment' ] ) );
+	array_push( $classes, ( 'text-' . $attributes['alignment'] ) );
 }
 
 if ( array_key_exists( 'className', $attributes ) ) {

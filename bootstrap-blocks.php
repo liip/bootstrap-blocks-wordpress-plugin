@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Bootstrap Blocks
- * Plugin URI: https://liip.ch
- * Description: Bootstrap Blocks - Bootstrap 4 Gutenberg Block library for WordPress.
+ * Plugin URI: https://github.com/liip/bootstrap-blocks-wordpress-plugin
+ * Description: Bootstrap 4 Gutenberg Blocks for WordPress.
  * Author: Team Jazz, Liip AG
  * Author URI: https://liip.ch
  * Version: 1.0.0
@@ -24,10 +24,10 @@ if ( ! defined( 'BOOTSTRAP_BLOCKS_PLUGIN_FILE' ) ) {
 	define( 'BOOTSTRAP_BLOCKS_PLUGIN_FILE', __FILE__ );
 }
 
-// Include the main BootstrapBlocks class.
-if ( ! class_exists( \BootstrapBlocks\BootstrapBlocks::class ) ) {
+// Include the main Bootstrap_Blocks class.
+if ( ! class_exists( \Bootstrap_Blocks\Bootstrap_Blocks::class ) ) {
 	require_once plugin_dir_path( BOOTSTRAP_BLOCKS_PLUGIN_FILE ) . 'src/class-bootstrap-blocks.php';
 }
 
 // Initialize plugin
-\BootstrapBlocks\BootstrapBlocks::instance();
+\Bootstrap_Blocks\Bootstrap_Blocks::instance();

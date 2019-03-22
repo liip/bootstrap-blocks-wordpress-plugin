@@ -1,4 +1,13 @@
 <?php
+/**
+ * Template for bootstrap-blocks/row
+ *
+ * This template can be overridden by copying it to theme/bootstrap-blocks/row.php.
+ *
+ * @package bootstrap-blocks/templates/row
+ * @version 1.0.0
+ */
+
 $classes = array( 'bootstrap-blocks-row' );
 if ( array_key_exists( 'className', $attributes ) ) {
 	array_push( $classes, $attributes['className'] );
@@ -7,29 +16,29 @@ if ( array_key_exists( 'align', $attributes ) && 'full' === $attributes['align']
 	array_push( $classes, 'full-width' );
 }
 
-$rowClasses = array( 'row' );
+$row_classes = array( 'row' );
 if ( array_key_exists( 'noGutters', $attributes ) ) {
-	array_push( $rowClasses, 'no-gutters' );
+	array_push( $row_classes, 'no-gutters' );
 }
 if ( array_key_exists( 'alignment', $attributes ) ) {
 	if ( 'center' === $attributes['alignment'] ) {
-		array_push( $rowClasses, 'justify-content-center' );
+		array_push( $row_classes, 'justify-content-center' );
 	}
 	if ( 'right' === $attributes['alignment'] ) {
-		array_push( $rowClasses, 'justify-content-end' );
+		array_push( $row_classes, 'justify-content-end' );
 	}
 }
 if ( array_key_exists( 'verticalAlignment', $attributes ) ) {
 	if ( 'center' === $attributes['verticalAlignment'] ) {
-		array_push( $rowClasses, 'align-items-center' );
+		array_push( $row_classes, 'align-items-center' );
 	}
 	if ( 'bottom' === $attributes['verticalAlignment'] ) {
-		array_push( $rowClasses, 'align-items-end' );
+		array_push( $row_classes, 'align-items-end' );
 	}
 }
 ?>
 <div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
-	<div class="<?php echo esc_attr( implode( ' ', $rowClasses ) ); ?>">
-		<?php echo $content; ?>
+	<div class="<?php echo esc_attr( implode( ' ', $row_classes ) ); ?>">
+		<?php echo $content; // phpcs:ignore ?>
 	</div>
 </div>

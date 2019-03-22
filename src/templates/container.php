@@ -1,4 +1,13 @@
 <?php
+/**
+ * Template for bootstrap-blocks/container
+ *
+ * This template can be overridden by copying it to theme/bootstrap-blocks/container.php.
+ *
+ * @package bootstrap-blocks/templates/container
+ * @version 1.0.0
+ */
+
 $classes = array( 'bootstrap-blocks-container' );
 
 if ( array_key_exists( 'isFluid', $attributes ) && $attributes['isFluid'] ) {
@@ -14,5 +23,5 @@ if ( array_key_exists( 'className', $attributes ) ) {
 }
 ?>
 <div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
-	<?php echo $content; ?>
+	<?php echo $content; // phpcs:ignore ?>
 </div>

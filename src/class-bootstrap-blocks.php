@@ -5,37 +5,37 @@
  * @package bootstrap-blocks
  */
 
-namespace BootstrapBlocks;
+namespace Bootstrap_Blocks;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
- * Class BootstrapBlocks
+ * Class Bootstrap_Blocks
  */
-class BootstrapBlocks {
+class Bootstrap_Blocks {
 
 	/**
-	 * BootstrapBlocks instance.
+	 * Bootstrap_Blocks instance.
 	 *
-	 * @var BootstrapBlocks
+	 * @var Bootstrap_Blocks
 	 */
-	protected static $_instance = null;
+	protected static $instance = null;
 
 	/**
 	 * The plugin version number.
 	 *
 	 * @var string
 	 */
-	public $_version = '1.0.0';
+	public $version = '1.0.0';
 
 	/**
 	 * The plugin token.
 	 *
 	 * @var string
 	 */
-	public $_token = 'bootstrap-blocks';
+	public $token = 'bootstrap-blocks';
 
 	/**
 	 * The plugin assets directory.
@@ -52,14 +52,13 @@ class BootstrapBlocks {
 	public $assets_url;
 
 	/**
-	 * BootstrapBlocks constructor.
+	 * Bootstrap_Blocks constructor.
 	 */
 	public function __construct() {
 		$this->define_constants();
 		$this->init_plugin_environment();
 		$this->includes();
 		$this->init_hooks();
-		$this->init_plugin();
 	}
 
 	/**
@@ -113,21 +112,15 @@ class BootstrapBlocks {
 	}
 
 	/**
-	 * Initialize plugin dependencies.
-	 */
-	public function init_plugin() {
-	}
-
-	/**
 	 * Load frontend block assets.
 	 */
 	public function enqueue_block_assets() {
 		// Styles.
 		wp_enqueue_style(
-			$this->_token . '-styles', // Handle.
+			$this->token . '-styles', // Handle.
 			esc_url( $this->assets_url ) . 'blocks.style.build.css', // Block style CSS.
 			array( 'wp-editor' ), // Dependency to include the CSS after it.
-			$this->_version
+			$this->version
 		);
 	}
 
@@ -137,26 +130,26 @@ class BootstrapBlocks {
 	public function enqueue_block_editor_assets() {
 		// Scripts.
 		wp_enqueue_script(
-			$this->_token . '-js', // Handle.
+			$this->token . '-js', // Handle.
 			esc_url( $this->assets_url ) . 'blocks.build.js', // block.build.js: We register the block here. Built with Webpack.
 			array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ), // Dependencies, defined above.
-			$this->_version,
+			$this->version,
 			true // Enqueue the script in the footer.
 		);
 
 		// Styles.
 		wp_enqueue_style(
-			$this->_token . '-editor-styles', // Handle.
+			$this->token . '-editor-styles', // Handle.
 			esc_url( $this->assets_url ) . 'blocks.editor.build.css', // Block editor CSS.
 			array( 'wp-edit-blocks' ), // Dependency to include the CSS after it.
-			$this->_version
+			$this->version
 		);
 	}
 
 	/**
 	 * Register custom block category
 	 *
-	 * @param array $categories List of all registered categories.
+	 * @param array    $categories List of all registered categories.
 	 * @param \WP_Post $post    Current post object.
 	 *
 	 * @return array
@@ -167,7 +160,7 @@ class BootstrapBlocks {
 			array(
 				array(
 					'slug' => 'bootstrap-blocks',
-					'title' => __( 'Bootstrap Blocks', $this->_token ),
+					'title' => __( 'Bootstrap Blocks', 'bootstrap-blocks' ),
 				),
 			)
 		);
@@ -182,31 +175,31 @@ class BootstrapBlocks {
 	}
 
 	/**
-	 * Main BootstrapBlocks Instance
-	 * Ensures only one instance of BootstrapBlocks is loaded or can be loaded.
+	 * Main Bootstrap_Blocks Instance
+	 * Ensures only one instance of Bootstrap_Blocks is loaded or can be loaded.
 	 *
-	 * @return BootstrapBlocks Plugin instance
+	 * @return Bootstrap_Blocks Plugin instance
 	 */
 	public static function instance() {
-		if ( is_null( self::$_instance ) ) {
-			self::$_instance = new self();
+		if ( is_null( self::$instance ) ) {
+			self::$instance = new self();
 		}
 
-		return self::$_instance;
+		return self::$instance;
 	}
 
 	/**
 	 * Cloning is forbidden.
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?' ), esc_attr( $this->_version ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?' ), esc_attr( $this->version ) );
 	}
 
 	/**
 	 * Unserializing instances of this class is forbidden.
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?' ), esc_attr( $this->_version ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?' ), esc_attr( $this->version ) );
 	}
 
 	/**
@@ -215,9 +208,9 @@ class BootstrapBlocks {
 	 * This check is done on all requests and runs if the versions do not match.
 	 */
 	public function check_version() {
-		if ( ! defined( 'IFRAME_REQUEST' ) && get_option( $this->_token . '_version' ) !== $this->_version ) {
+		if ( ! defined( 'IFRAME_REQUEST' ) && get_option( $this->token . '_version' ) !== $this->version ) {
 			$this->log_version_number();
-			do_action( $this->_token . '_updated' );
+			do_action( $this->token . '_updated' );
 		}
 	}
 
@@ -225,8 +218,8 @@ class BootstrapBlocks {
 	 * Log the plugin version number in database.
 	 */
 	protected function log_version_number() {
-		delete_option( $this->_token . '_version' );
-		update_option( $this->_token . '_version', $this->_version );
+		delete_option( $this->token . '_version' );
+		update_option( $this->token . '_version', $this->version );
 	}
 
 }
