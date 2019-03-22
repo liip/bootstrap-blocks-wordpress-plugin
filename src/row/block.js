@@ -186,6 +186,24 @@ registerBlockType( 'bootstrap-blocks/row', {
 			} );
 		};
 
+		const alignmentControls = [
+			{
+				icon: 'editor-alignleft',
+				title: __( 'Align columns left', 'bootstrap-blocks' ),
+				align: 'left',
+			},
+			{
+				icon: 'editor-aligncenter',
+				title: __( 'Align columns center', 'bootstrap-blocks' ),
+				align: 'center',
+			},
+			{
+				icon: 'editor-alignright',
+				title: __( 'Align columns right', 'bootstrap-blocks' ),
+				align: 'right',
+			},
+		];
+
 		const verticalAlignmentControls = [
 			{
 				icon: (
@@ -199,7 +217,7 @@ registerBlockType( 'bootstrap-blocks/row', {
 						<Path d="M59,4.5H1c-0.552,0-1,0.448-1,1s0.448,1,1,1h58c0.552,0,1-0.448,1-1S59.552,4.5,59,4.5z" />
 					</SVG>
 				),
-				title: __( 'Align top', 'bootstrap-blocks' ),
+				title: __( 'Align columns top', 'bootstrap-blocks' ),
 				align: 'top',
 			},
 			{
@@ -212,7 +230,7 @@ registerBlockType( 'bootstrap-blocks/row', {
 							C35.654,46,35,45.346,35,44.542V15.458C35,14.654,35.654,14,36.458,14h15.083C52.346,14,53,14.654,53,15.458V16v6v6V34z" />
 					</SVG>
 				),
-				title: __( 'Align center', 'bootstrap-blocks' ),
+				title: __( 'Align columns center', 'bootstrap-blocks' ),
 				align: 'center',
 			},
 			{
@@ -228,7 +246,7 @@ registerBlockType( 'bootstrap-blocks/row', {
 						<Path d="M59,53.5H1c-0.553,0-1,0.448-1,1s0.447,1,1,1h58c0.553,0,1-0.448,1-1S59.553,53.5,59,53.5z" />
 					</SVG>
 				),
-				title: __( 'Align bottom', 'bootstrap-blocks' ),
+				title: __( 'Align columns bottom', 'bootstrap-blocks' ),
 				align: 'bottom',
 			},
 		];
@@ -258,6 +276,7 @@ registerBlockType( 'bootstrap-blocks/row', {
 					<AlignmentToolbar
 						value={ alignment }
 						onChange={ ( newAlignment ) => ( setAttributes( { alignment: newAlignment } ) ) }
+						alignmentControls={ alignmentControls }
 					/>
 					<AlignmentToolbar
 						value={ verticalAlignment }
