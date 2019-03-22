@@ -1,2 +1,5 @@
 node_modules
-dist/
+vendor
+build/
+wp-cli.phar
+composer.phar
