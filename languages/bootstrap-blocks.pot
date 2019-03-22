@@ -1,0 +1,121 @@
+# Copyright (C) 2019 Team Jazz, Liip AG
+# This file is distributed under the same license as the Bootstrap Blocks plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Bootstrap Blocks 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/bootstrap-blocks\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-03-22T19:38:12+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.1.0\n"
+"X-Domain: bootstrap-blocks\n"
+
+#. Plugin Name of the plugin
+#: src/class-bootstrap-blocks.php:163
+#: src/column/block.js:17
+#: src/container/block.js:47
+#: src/button/block.js:18
+msgid "Bootstrap Blocks"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://github.com/liip/bootstrap-blocks-wordpress-plugin"
+msgstr ""
+
+#. Description of the plugin
+msgid "Bootstrap 4 Gutenberg Blocks for WordPress."
+msgstr ""
+
+#. Author of the plugin
+msgid "Team Jazz, Liip AG"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://liip.ch"
+msgstr ""
+
+#. translators: %s template
+#: src/bootstrap-blocks-functions.php:24
+msgid "%s does not exist."
+msgstr ""
+
+#: src/column/edit.js:41
+msgid "Xl Columns"
+msgstr ""
+
+#: src/column/edit.js:47
+msgid "Lg Columns"
+msgstr ""
+
+#: src/column/edit.js:53
+msgid "Md Columns"
+msgstr ""
+
+#: src/column/edit.js:59
+msgid "Sm Columns"
+msgstr ""
+
+#: src/column/edit.js:65
+msgid "Xs Columns"
+msgstr ""
+
+#: src/column/block.js:13
+#: src/column/block.js:19
+msgid "Column"
+msgstr ""
+
+#: src/column/block.js:18
+#: src/container/block.js:48
+#: src/button/block.js:19
+msgid "Bootstrap"
+msgstr ""
+
+#: src/container/block.js:19
+msgid "Small"
+msgstr ""
+
+#: src/container/block.js:23
+msgid "Medium"
+msgstr ""
+
+#: src/container/block.js:27
+msgid "Large"
+msgstr ""
+
+#: src/container/block.js:35
+msgid "None"
+msgstr ""
+
+#: src/container/block.js:43
+#: src/container/block.js:49
+msgid "Container"
+msgstr ""
+
+#: src/container/block.js:79
+msgid "Fluid"
+msgstr ""
+
+#: src/container/block.js:86
+msgid "Margin After"
+msgstr ""
+
+#: src/button/edit.js:16
+msgid "Primary"
+msgstr ""
+
+#: src/button/edit.js:17
+msgid "Secondary"
+msgstr ""
+
+#: src/button/edit.js:37
+msgid "Style"
+msgstr ""
+
+#: src/button/block.js:14
+#: src/button/block.js:20
+msgid "Button"
+msgstr ""
