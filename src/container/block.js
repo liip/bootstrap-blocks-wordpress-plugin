@@ -4,7 +4,6 @@
 
 //  Import CSS.
 import './editor.scss';
-import config from '../config';
 
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
@@ -17,15 +16,15 @@ const useFluidContainerPerDefault = applyFilters( 'bootstrapBlocks.container.use
 
 let customMarginOptions = [
 	{
-		label: __( 'Small', config.textDomain ),
+		label: __( 'Small', 'bootstrap-blocks' ),
 		value: 'mb-2',
 	},
 	{
-		label: __( 'Medium', config.textDomain ),
+		label: __( 'Medium', 'bootstrap-blocks' ),
 		value: 'mb-3',
 	},
 	{
-		label: __( 'Large', config.textDomain ),
+		label: __( 'Large', 'bootstrap-blocks' ),
 		value: 'mb-5',
 	},
 ]
@@ -33,21 +32,21 @@ customMarginOptions = applyFilters( 'bootstrapBlocks.container.customMarginOptio
 
 const marginOptions = [
 	{
-		label: __( 'None', config.textDomain ),
+		label: __( 'None', 'bootstrap-blocks' ),
 		value: 'mb-0',
 	},
 	...customMarginOptions
 ];
 
-registerBlockType( `${ config.namespace }/container`, {
+registerBlockType( 'bootstrap-blocks/container', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
-	title: __( 'Container', config.textDomain ), // Block title.
+	title: __( 'Container', 'bootstrap-blocks' ), // Block title.
 	icon: 'feedback', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
 	category: 'bootstrap-blocks', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
-		__( 'Bootstrap Blocks', config.textDomain ),
-		__( 'Bootstrap', config.textDomain ),
-		__( 'Container', config.textDomain ),
+		__( 'Bootstrap Blocks', 'bootstrap-blocks' ),
+		__( 'Bootstrap', 'bootstrap-blocks' ),
+		__( 'Container', 'bootstrap-blocks' ),
 	],
 
 	supports: {
@@ -77,14 +76,14 @@ registerBlockType( `${ config.namespace }/container`, {
 				<InspectorControls>
 					<PanelBody>
 						<CheckboxControl
-							label={ __( 'Fluid', config.textDomain ) }
+							label={ __( 'Fluid', 'bootstrap-blocks' ) }
 							checked={ isFluid }
 							onChange={ ( isChecked ) => {
 								setAttributes( { isFluid: isChecked } );
 							} }
 						/>
 						<SelectControl
-							label={ __( 'Margin After', config.textDomain ) }
+							label={ __( 'Margin After', 'bootstrap-blocks' ) }
 							value={ marginAfter }
 							options={ marginOptions }
 							onChange={ ( selectedMargin ) => {

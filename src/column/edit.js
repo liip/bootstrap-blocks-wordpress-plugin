@@ -1,14 +1,16 @@
 /**
  * WordPress dependencies
  */
-import config from '../config';
-import { withBlockEditContext } from '../block-edit-context';
-
-const { __ } = wp.i18n; // Import __() from wp.i18n
+const { __ } = wp.i18n;
 const { InnerBlocks, InspectorControls } = wp.editor;
 const { PanelBody, RangeControl } = wp.components;
 const { Component, Fragment } = wp.element;
 const { compose } = wp.compose;
+
+/**
+ * Internal dependencies
+ */
+import { withBlockEditContext } from '../block-edit-context';
 
 const ColumnSizeRangeControl = ( { label, attributeName, value, setAttributes } ) => {
 	return (
@@ -36,31 +38,31 @@ class BootstrapColumnEdit extends Component {
 				<InspectorControls>
 					<PanelBody>
 						<ColumnSizeRangeControl
-							label={ __( 'Xl Columns', config.textDomain ) }
+							label={ __( 'Xl Columns', 'bootstrap-blocks' ) }
 							attributeName="sizeXl"
 							value={ sizeXl }
 							setAttributes={ setAttributes }
 						/>
 						<ColumnSizeRangeControl
-							label={ __( 'Lg Columns', config.textDomain ) }
+							label={ __( 'Lg Columns', 'bootstrap-blocks' ) }
 							attributeName="sizeLg"
 							value={ sizeLg }
 							setAttributes={ setAttributes }
 						/>
 						<ColumnSizeRangeControl
-							label={ __( 'Md Columns', config.textDomain ) }
+							label={ __( 'Md Columns', 'bootstrap-blocks' ) }
 							attributeName="sizeMd"
 							value={ sizeMd }
 							setAttributes={ setAttributes }
 						/>
 						<ColumnSizeRangeControl
-							label={ __( 'Sm Columns', config.textDomain ) }
+							label={ __( 'Sm Columns', 'bootstrap-blocks' ) }
 							attributeName="sizeSm"
 							value={ sizeSm }
 							setAttributes={ setAttributes }
 						/>
 						<ColumnSizeRangeControl
-							label={ __( 'Xs Columns', config.textDomain ) }
+							label={ __( 'Xs Columns', 'bootstrap-blocks' ) }
 							attributeName="sizeXs"
 							value={ sizeXs }
 							setAttributes={ setAttributes }

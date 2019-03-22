@@ -5,7 +5,6 @@
 //  Import CSS.
 import './style.scss';
 import './editor.scss';
-import config from '../config';
 
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
@@ -15,20 +14,20 @@ const { Fragment } = wp.element;
 const { dispatch, select } = wp.data;
 const { applyFilters } = wp.hooks;
 
-const ALLOWED_BLOCKS = [ `${ config.namespace }/column` ];
+const ALLOWED_BLOCKS = [ 'bootstrap-blocks/column' ];
 let templates = {
 	'1-1': {
-		label: __( '2 Columns (1:1)', config.textDomain ),
+		label: __( '2 Columns (1:1)', 'bootstrap-blocks' ),
 		templateLock: 'all',
 		blocks: [
 			[
-				`${ config.namespace }/column`,
+				'bootstrap-blocks/column',
 				{
 					sizeMd: 6,
 				},
 			],
 			[
-				`${ config.namespace }/column`,
+				'bootstrap-blocks/column',
 				{
 					sizeMd: 6,
 				},
@@ -36,17 +35,17 @@ let templates = {
 		],
 	},
 	'1-2': {
-		label: __( '2 Columns (1:2)', config.textDomain ),
+		label: __( '2 Columns (1:2)', 'bootstrap-blocks' ),
 		templateLock: 'all',
 		blocks: [
 			[
-				`${ config.namespace }/column`,
+				'bootstrap-blocks/column',
 				{
 					sizeMd: 4,
 				},
 			],
 			[
-				`${ config.namespace }/column`,
+				'bootstrap-blocks/column',
 				{
 					sizeMd: 8,
 				},
@@ -54,17 +53,17 @@ let templates = {
 		],
 	},
 	'2-1': {
-		label: __( '2 Columns (2:1)', config.textDomain ),
+		label: __( '2 Columns (2:1)', 'bootstrap-blocks' ),
 		templateLock: 'all',
 		blocks: [
 			[
-				`${ config.namespace }/column`,
+				'bootstrap-blocks/column',
 				{
 					sizeMd: 8,
 				},
 			],
 			[
-				`${ config.namespace }/column`,
+				'bootstrap-blocks/column',
 				{
 					sizeMd: 4,
 				},
@@ -72,23 +71,23 @@ let templates = {
 		],
 	},
 	'1-1-1': {
-		label: __( '3 Columns (1:1:1)', config.textDomain ),
+		label: __( '3 Columns (1:1:1)', 'bootstrap-blocks' ),
 		templateLock: 'all',
 		blocks: [
 			[
-				`${ config.namespace }/column`,
+				'bootstrap-blocks/column',
 				{
 					sizeMd: 4,
 				},
 			],
 			[
-				`${ config.namespace }/column`,
+				'bootstrap-blocks/column',
 				{
 					sizeMd: 4,
 				},
 			],
 			[
-				`${ config.namespace }/column`,
+				'bootstrap-blocks/column',
 				{
 					sizeMd: 4,
 				},
@@ -101,10 +100,10 @@ templates = applyFilters( 'bootstrapBlocks.bootstrapRowTemplates', templates );
 const enableCustomTemplate = applyFilters( 'bootstrapBlocks.enableCustomTemplate', true );
 if ( enableCustomTemplate ) {
 	templates.custom = {
-		label: __( 'Custom', config.textDomain ),
+		label: __( 'Custom', 'bootstrap-blocks' ),
 		templateLock: false,
 		blocks: [
-			[ `${ config.namespace }/column` ],
+			[ 'bootstrap-blocks/column' ],
 		],
 	};
 }
@@ -116,15 +115,15 @@ const getColumnsTemplateLock = ( template ) => {
 	return templates[ template ] ? templates[ template ].templateLock : false;
 };
 
-registerBlockType( `${ config.namespace }/row`, {
+registerBlockType( 'bootstrap-blocks/row', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
-	title: __( 'Row', config.textDomain ), // Block title.
+	title: __( 'Row', 'bootstrap-blocks' ), // Block title.
 	icon: 'layout', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
 	category: 'bootstrap-blocks', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
-		__( 'Bootstrap Blocks', config.textDomain ),
-		__( 'Bootstrap', config.textDomain ),
-		__( 'Row', config.textDomain ),
+		__( 'Bootstrap Blocks', 'bootstrap-blocks' ),
+		__( 'Bootstrap', 'bootstrap-blocks' ),
+		__( 'Row', 'bootstrap-blocks' ),
 	],
 
 	supports: {
@@ -236,7 +235,7 @@ registerBlockType( `${ config.namespace }/row`, {
 				<InspectorControls>
 					<PanelBody>
 						<SelectControl
-							label={ __( 'Template', config.textDomain ) }
+							label={ __( 'Template', 'bootstrap-blocks' ) }
 							value={ template }
 							options={ templateOptions }
 							onChange={ ( selectedTemplate ) => {
@@ -244,7 +243,7 @@ registerBlockType( `${ config.namespace }/row`, {
 							} }
 						/>
 						<CheckboxControl
-							label={ __( 'No Gutters', config.textDomain ) }
+							label={ __( 'No Gutters', 'bootstrap-blocks' ) }
 							checked={ noGutters }
 							onChange={ ( isChecked ) => {
 								onChangeGutters( isChecked );
