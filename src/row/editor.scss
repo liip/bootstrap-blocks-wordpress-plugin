@@ -45,7 +45,7 @@
 		align-items: center;
 	}
 	&[data-vertical-alignment="bottom"] .wp-block-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
-		align-items: end;
+		align-items: flex-end;
 	}
 }
 
