@@ -27,7 +27,7 @@ let customMarginOptions = [
 		label: __( 'Large', 'bootstrap-blocks' ),
 		value: 'mb-5',
 	},
-]
+];
 customMarginOptions = applyFilters( 'bootstrapBlocks.container.customMarginOptions', customMarginOptions );
 
 const marginOptions = [
@@ -35,7 +35,7 @@ const marginOptions = [
 		label: __( 'None', 'bootstrap-blocks' ),
 		value: 'mb-0',
 	},
-	...customMarginOptions
+	...customMarginOptions,
 ];
 
 registerBlockType( 'bootstrap-blocks/container', {
@@ -59,8 +59,8 @@ registerBlockType( 'bootstrap-blocks/container', {
 		},
 		marginAfter: {
 			type: 'string',
-			default: marginOptions[0].value,
-		}
+			default: marginOptions[ 0 ].value,
+		},
 	},
 
 	edit( { className, attributes, setAttributes } ) {

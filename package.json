@@ -5,7 +5,8 @@
   "scripts": {
     "start": "cgb-scripts start",
     "build": "cgb-scripts build",
-    "eject": "cgb-scripts eject"
+    "eject": "cgb-scripts eject",
+    "lint": "eslint src/"
   },
   "dependencies": {
     "cgb-scripts": "1.15.0",
