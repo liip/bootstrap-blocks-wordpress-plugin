@@ -19,6 +19,14 @@ if ( array_key_exists( 'alignment', $attributes ) ) {
 		array_push( $rowClasses, 'justify-content-end' );
 	}
 }
+if ( array_key_exists( 'verticalAlignment', $attributes ) ) {
+	if ( 'center' === $attributes['verticalAlignment'] ) {
+		array_push( $rowClasses, 'align-items-center' );
+	}
+	if ( 'bottom' === $attributes['verticalAlignment'] ) {
+		array_push( $rowClasses, 'align-items-end' );
+	}
+}
 ?>
 <div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 	<div class="<?php echo esc_attr( implode( ' ', $rowClasses ) ); ?>">
