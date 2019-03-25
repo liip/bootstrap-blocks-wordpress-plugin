@@ -10,6 +10,7 @@
  */
 
 import './custom-category-icon';
+import './alert/block.js';
 import './container/block.js';
 import './column/block.js';
 import './row/block.js';

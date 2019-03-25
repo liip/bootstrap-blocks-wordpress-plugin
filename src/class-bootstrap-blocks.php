@@ -89,6 +89,7 @@ class Bootstrap_Blocks {
 		require_once BOOTSTRAP_BLOCKS_ABSPATH . 'src/row/block.php';
 		require_once BOOTSTRAP_BLOCKS_ABSPATH . 'src/column/block.php';
 		require_once BOOTSTRAP_BLOCKS_ABSPATH . 'src/button/block.php';
+		require_once BOOTSTRAP_BLOCKS_ABSPATH . 'src/alert/block.php';
 	}
 
 	/**

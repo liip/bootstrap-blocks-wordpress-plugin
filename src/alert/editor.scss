@@ -1,0 +1,43 @@
+$theme-colors: (
+        primary: #525ddc
+);
+
+
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+
+@import "../../node_modules/bootstrap/scss/alert";
+@import "../../node_modules/bootstrap/scss/close";
+
+// Uses the bootstrap default font stack
+.edit-post-visual-editor.editor-styles-wrapper {
+  font-family: $font-family-sans-serif;
+}
+
+// Alignments
+[data-type="bootstrap-blocks/alert"] {
+  &[data-alignment="center"]{
+    text-align: center;
+  }
+
+  &[data-alignment="right"]{
+    text-align: right;
+  }
+}
+
+.alert__close--editor {
+
+  // Overwrite font specifications of admin
+  font-family: $font-family-sans-serif;
+  font-size: 1.5rem;
+
+  // Remove all focus and hover effects in admin editor
+  cursor: initial;
+
+  &:not(:disabled):not(.disabled):focus,
+  &:not(:disabled):not(.disabled):hover {
+    color: inherit;
+    opacity: 0.5;
+  }
+}
