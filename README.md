@@ -113,5 +113,5 @@ To extract the labels and generate the `languages/wp-bootstrap-blocks.pot` file 
 
 ```
 $ curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-$ php wp-cli.phar i18n make-pot .
+$ php wp-cli.phar i18n make-pot . languages/wp-bootstrap-blocks.pot
 ```
