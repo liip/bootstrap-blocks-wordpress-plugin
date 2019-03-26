@@ -16,7 +16,7 @@ class BootstrapButtonEdit extends Component {
 			{ label: __( 'Primary', 'wp-bootstrap-blocks' ), value: 'primary' },
 			{ label: __( 'Secondary', 'wp-bootstrap-blocks' ), value: 'secondary' },
 		];
-		styleOptions = applyFilters( 'wpBootstrapBlocks.buttonStyleOptions', styleOptions );
+		styleOptions = applyFilters( 'wpBootstrapBlocks.button.styleOptions', styleOptions );
 
 		return (
 			<Fragment>

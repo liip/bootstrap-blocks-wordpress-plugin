@@ -95,9 +95,9 @@ let templates = {
 		],
 	},
 };
-templates = applyFilters( 'wpBootstrapBlocks.bootstrapRowTemplates', templates );
+templates = applyFilters( 'wpBootstrapBlocks.row.templates', templates );
 
-const enableCustomTemplate = applyFilters( 'wpBootstrapBlocks.enableCustomTemplate', true );
+const enableCustomTemplate = applyFilters( 'wpBootstrapBlocks.row.enableCustomTemplate', true );
 if ( enableCustomTemplate ) {
 	templates.custom = {
 		label: __( 'Custom', 'wp-bootstrap-blocks' ),

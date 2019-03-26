@@ -13,7 +13,7 @@ if ( array_key_exists( 'className', $attributes ) ) {
 	array_push( $classes, $attributes['className'] );
 }
 if ( array_key_exists( 'align', $attributes ) && 'full' === $attributes['align'] ) {
-	array_push( $classes, 'full-width' );
+	array_push( $classes, 'alignfull' );
 }
 
 $row_classes = array( 'row' );
@@ -36,6 +36,9 @@ if ( array_key_exists( 'verticalAlignment', $attributes ) ) {
 		array_push( $row_classes, 'align-items-end' );
 	}
 }
+
+$classes = apply_filters( 'wp_bootstrap_blocks_row_wrapper_classes', $classes, $attributes );
+$row_classes = apply_filters( 'wp_bootstrap_blocks_row_classes', $row_classes, $attributes );
 ?>
 <div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 	<div class="<?php echo esc_attr( implode( ' ', $row_classes ) ); ?>">

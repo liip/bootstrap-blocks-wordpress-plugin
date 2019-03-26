@@ -21,6 +21,8 @@ if ( array_key_exists( 'marginAfter', $attributes ) ) {
 if ( array_key_exists( 'className', $attributes ) ) {
 	array_push( $classes, $attributes['className'] );
 }
+
+$classes = apply_filters( 'wp_bootstrap_blocks_container_classes', $classes, $attributes );
 ?>
 <div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 	<?php echo $content; // phpcs:ignore ?>
