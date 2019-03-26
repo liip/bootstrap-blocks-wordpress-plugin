@@ -1,10 +1,10 @@
 <?php
 /**
- * Template for bootstrap-blocks/column
+ * Template for wp-bootstrap-blocks/column
  *
- * This template can be overridden by copying it to theme/bootstrap-blocks/column.php.
+ * This template can be overridden by copying it to theme/wp-bootstrap-blocks/column.php.
  *
- * @package bootstrap-blocks/templates/column
+ * @package wp-bootstrap-blocks/templates/column
  * @version 1.0.0
  */
 
@@ -30,7 +30,7 @@ if ( array_key_exists( 'className', $attributes ) ) {
 	$classes = array_merge( $classes, explode( ' ', $attributes['className'] ) );
 }
 
-$classes = apply_filters( 'bootstrap_blocks_column_classes', $classes, $attributes );
+$classes = apply_filters( 'wp_bootstrap_blocks_column_classes', $classes, $attributes );
 ?>
 <div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 	<?php echo $content; // phpcs:ignore ?>

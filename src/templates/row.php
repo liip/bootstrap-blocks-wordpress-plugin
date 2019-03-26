@@ -1,14 +1,14 @@
 <?php
 /**
- * Template for bootstrap-blocks/row
+ * Template for wp-bootstrap-blocks/row
  *
- * This template can be overridden by copying it to theme/bootstrap-blocks/row.php.
+ * This template can be overridden by copying it to theme/wp-bootstrap-blocks/row.php.
  *
- * @package bootstrap-blocks/templates/row
+ * @package wp-bootstrap-blocks/templates/row
  * @version 1.0.0
  */
 
-$classes = array( 'bootstrap-blocks-row' );
+$classes = array( 'wp-bootstrap-blocks-row' );
 if ( array_key_exists( 'className', $attributes ) ) {
 	array_push( $classes, $attributes['className'] );
 }

@@ -38,31 +38,31 @@ class BootstrapColumnEdit extends Component {
 				<InspectorControls>
 					<PanelBody>
 						<ColumnSizeRangeControl
-							label={ __( 'Xl Columns', 'bootstrap-blocks' ) }
+							label={ __( 'Xl Columns', 'wp-bootstrap-blocks' ) }
 							attributeName="sizeXl"
 							value={ sizeXl }
 							setAttributes={ setAttributes }
 						/>
 						<ColumnSizeRangeControl
-							label={ __( 'Lg Columns', 'bootstrap-blocks' ) }
+							label={ __( 'Lg Columns', 'wp-bootstrap-blocks' ) }
 							attributeName="sizeLg"
 							value={ sizeLg }
 							setAttributes={ setAttributes }
 						/>
 						<ColumnSizeRangeControl
-							label={ __( 'Md Columns', 'bootstrap-blocks' ) }
+							label={ __( 'Md Columns', 'wp-bootstrap-blocks' ) }
 							attributeName="sizeMd"
 							value={ sizeMd }
 							setAttributes={ setAttributes }
 						/>
 						<ColumnSizeRangeControl
-							label={ __( 'Sm Columns', 'bootstrap-blocks' ) }
+							label={ __( 'Sm Columns', 'wp-bootstrap-blocks' ) }
 							attributeName="sizeSm"
 							value={ sizeSm }
 							setAttributes={ setAttributes }
 						/>
 						<ColumnSizeRangeControl
-							label={ __( 'Xs Columns', 'bootstrap-blocks' ) }
+							label={ __( 'Xs Columns', 'wp-bootstrap-blocks' ) }
 							attributeName="sizeXs"
 							value={ sizeXs }
 							setAttributes={ setAttributes }

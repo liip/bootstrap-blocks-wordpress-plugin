@@ -1,7 +1,7 @@
 const { updateCategory } = wp.blocks;
 const { Path, SVG } = wp.components;
 
-updateCategory( 'bootstrap-blocks', {
+updateCategory( 'wp-bootstrap-blocks', {
 	icon: (
 		<SVG viewBox="0 0 612 612" xmlns="http://www.w3.org/2000/svg">
 			<Path fill="#563D7C" d="M612 510c0 56.1-45.9 102-102 102H102C45.9 612 0 566.1 0 510V102C0 45.9 45.9 0 102 0h408c56.1 0 102 45.9 102 102v408z" />

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="bootstrap-blocks">
-	<description>Coding standards for bootstrap-blocks</description>
+<ruleset name="wp-bootstrap-blocks">
+	<description>Coding standards for wp-bootstrap-blocks</description>
 
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<exclude-pattern>*/node_modules/*</exclude-pattern>

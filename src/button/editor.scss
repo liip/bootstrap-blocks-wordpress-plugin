@@ -1,6 +1,6 @@
 @import "../assets/gutenberg/gutenberg";
 
-[data-type="bootstrap-blocks/button"] {
+[data-type="wp-bootstrap-blocks/button"] {
 	&[data-alignment="center"]{
 		text-align: center;
 	}
@@ -10,7 +10,7 @@
 	}
 }
 
-.wp-block-bootstrap-blocks-button {
+.wp-block-wp-bootstrap-blocks-button {
 	display: inline-block;
 	padding: 8px 16px;
 	background-color: $blue-wordpress-700;
@@ -18,7 +18,7 @@
 }
 
 // Source: https://github.com/WordPress/gutenberg/blob/master/packages/block-library/src/button/editor.scss
-.wp-block-bootstrap-blocks-button-link {
+.wp-block-wp-bootstrap-blocks-button-link {
 	background: $white;
 	display: flex;
 	flex-wrap: wrap;

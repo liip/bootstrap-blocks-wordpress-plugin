@@ -12,7 +12,7 @@ HERE="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # All paths have to be absolute!
 # Set SVNPASSWORD environment variable to not promt password during deployment
-PLUGINSLUG="bootstrap-blocks"
+PLUGINSLUG="wp-bootstrap-blocks"
 SVNURL="https://plugins.svn.wordpress.org/$PLUGINSLUG"
 SVNUSER=liip
 SOURCEPATH="$HERE/.." # this file should be in the base of your git repository
@@ -65,7 +65,7 @@ Thumbs.db" "$BUILDPATH/trunk/"
 
 echo "Copying required plugin files to SVN trunk"
 cp $SOURCEPATH/readme.txt $BUILDPATH/trunk/
-cp $SOURCEPATH/bootstrap-blocks.php $BUILDPATH/trunk/
+cp $SOURCEPATH/wp-bootstrap-blocks.php $BUILDPATH/trunk/
 cp $SOURCEPATH/screenshot* $BUILDPATH/trunk/
 cp -R $SOURCEPATH/dist $BUILDPATH/trunk/
 cp -R $SOURCEPATH/languages $BUILDPATH/trunk/

@@ -1,5 +1,5 @@
 /**
- * BLOCK: bootstrap-blocks/container
+ * BLOCK: wp-bootstrap-blocks/container
  */
 
 //  Import CSS.
@@ -12,41 +12,41 @@ const { SelectControl, CheckboxControl, PanelBody } = wp.components;
 const { Fragment } = wp.element;
 const { applyFilters } = wp.hooks;
 
-const useFluidContainerPerDefault = applyFilters( 'bootstrapBlocks.container.useFluidContainerPerDefault', true );
+const useFluidContainerPerDefault = applyFilters( 'wpBootstrapBlocks.container.useFluidContainerPerDefault', true );
 
 let customMarginOptions = [
 	{
-		label: __( 'Small', 'bootstrap-blocks' ),
+		label: __( 'Small', 'wp-bootstrap-blocks' ),
 		value: 'mb-2',
 	},
 	{
-		label: __( 'Medium', 'bootstrap-blocks' ),
+		label: __( 'Medium', 'wp-bootstrap-blocks' ),
 		value: 'mb-3',
 	},
 	{
-		label: __( 'Large', 'bootstrap-blocks' ),
+		label: __( 'Large', 'wp-bootstrap-blocks' ),
 		value: 'mb-5',
 	},
 ];
-customMarginOptions = applyFilters( 'bootstrapBlocks.container.customMarginOptions', customMarginOptions );
+customMarginOptions = applyFilters( 'wpBootstrapBlocks.container.customMarginOptions', customMarginOptions );
 
 const marginOptions = [
 	{
-		label: __( 'None', 'bootstrap-blocks' ),
+		label: __( 'None', 'wp-bootstrap-blocks' ),
 		value: 'mb-0',
 	},
 	...customMarginOptions,
 ];
 
-registerBlockType( 'bootstrap-blocks/container', {
+registerBlockType( 'wp-bootstrap-blocks/container', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
-	title: __( 'Container', 'bootstrap-blocks' ), // Block title.
+	title: __( 'Container', 'wp-bootstrap-blocks' ), // Block title.
 	icon: 'feedback', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
-	category: 'bootstrap-blocks', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
+	category: 'wp-bootstrap-blocks', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
-		__( 'Bootstrap Blocks', 'bootstrap-blocks' ),
-		__( 'Bootstrap', 'bootstrap-blocks' ),
-		__( 'Container', 'bootstrap-blocks' ),
+		__( 'Bootstrap Blocks', 'wp-bootstrap-blocks' ),
+		__( 'Bootstrap', 'wp-bootstrap-blocks' ),
+		__( 'Container', 'wp-bootstrap-blocks' ),
 	],
 
 	supports: {
@@ -76,14 +76,14 @@ registerBlockType( 'bootstrap-blocks/container', {
 				<InspectorControls>
 					<PanelBody>
 						<CheckboxControl
-							label={ __( 'Fluid', 'bootstrap-blocks' ) }
+							label={ __( 'Fluid', 'wp-bootstrap-blocks' ) }
 							checked={ isFluid }
 							onChange={ ( isChecked ) => {
 								setAttributes( { isFluid: isChecked } );
 							} }
 						/>
 						<SelectControl
-							label={ __( 'Margin After', 'bootstrap-blocks' ) }
+							label={ __( 'Margin After', 'wp-bootstrap-blocks' ) }
 							value={ marginAfter }
 							options={ marginOptions }
 							onChange={ ( selectedMargin ) => {

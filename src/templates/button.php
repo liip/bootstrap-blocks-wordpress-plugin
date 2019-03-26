@@ -1,14 +1,14 @@
 <?php
 /**
- * Template for bootstrap-blocks/button
+ * Template for wp-bootstrap-blocks/button
  *
- * This template can be overridden by copying it to theme/bootstrap-blocks/button.php.
+ * This template can be overridden by copying it to theme/wp-bootstrap-blocks/button.php.
  *
- * @package bootstrap-blocks/templates/button
+ * @package wp-bootstrap-blocks/templates/button
  * @version 1.0.0
  */
 
-$classes = array( 'bootstrap-blocks-button' );
+$classes = array( 'wp-bootstrap-blocks-button' );
 $btn_classes = array( 'btn' );
 
 if ( array_key_exists( 'alignment', $attributes ) ) {
@@ -24,9 +24,9 @@ if ( array_key_exists( 'style', $attributes ) ) {
 	array_push( $btn_classes, 'btn-primary' );
 }
 
-$btn_classes = apply_filters( 'bootstrap_blocks_button_classes', $btn_classes, $attributes );
+$btn_classes = apply_filters( 'wp_bootstrap_blocks_button_classes', $btn_classes, $attributes );
 
-$classes = apply_filters( 'bootstrap_blocks_button_wrapper_classes', $classes, $attributes );
+$classes = apply_filters( 'wp_bootstrap_blocks_button_wrapper_classes', $classes, $attributes );
 ?>
 <div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 	<a href="<?php echo esc_url( $attributes['url'] ); ?>" class="<?php echo esc_attr( implode( ' ', $btn_classes ) ); ?>">

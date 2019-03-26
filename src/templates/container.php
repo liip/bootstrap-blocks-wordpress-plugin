@@ -1,14 +1,14 @@
 <?php
 /**
- * Template for bootstrap-blocks/container
+ * Template for wp-bootstrap-blocks/container
  *
- * This template can be overridden by copying it to theme/bootstrap-blocks/container.php.
+ * This template can be overridden by copying it to theme/wp-bootstrap-blocks/container.php.
  *
- * @package bootstrap-blocks/templates/container
+ * @package wp-bootstrap-blocks/templates/container
  * @version 1.0.0
  */
 
-$classes = array( 'bootstrap-blocks-container' );
+$classes = array( 'wp-bootstrap-blocks-container' );
 
 if ( array_key_exists( 'isFluid', $attributes ) && $attributes['isFluid'] ) {
 	array_push( $classes, 'container-fluid' );

@@ -13,22 +13,22 @@ Currently available blocks:
 All blocks are implemented as [dynamic blocks](https://wordpress.org/gutenberg/handbook/designers-developers/developers/tutorials/block-tutorial/creating-dynamic-blocks/).
 This makes it possible to overwrite the template of a block in your theme.
 
-To overwrite a block template create a folder called `bootstrap-blocks/` in your theme directory.
-You can copy the original template from `bootstrap-blocks/src/templates/<blockname>.php` as a starting point and adjust it to your needs.
+To overwrite a block template create a folder called `wp-bootstrap-blocks/` in your theme directory.
+You can copy the original template from `wp-bootstrap-blocks/src/templates/<blockname>.php` as a starting point and adjust it to your needs.
 
 ## Filters
 
-### bootstrap_blocks_template_path
+### wp_bootstrap_blocks_template_path
 
-Changes the default theme directory name (`bootstrap-blocks/`).
+Changes the default theme directory name (`wp-bootstrap-blocks/`).
 
 #### Usage:
 
 ```php
-add_filter( 'bootstrap_blocks_template_path', 'block-templates' );
+add_filter( 'wp_bootstrap_blocks_template_path', 'block-templates' );
 ```
 
-### bootstrap_blocks_get_template
+### wp_bootstrap_blocks_get_template
 
 Possibility to overwrite the located template path before it gets loaded.
 
@@ -42,14 +42,14 @@ Possibility to overwrite the located template path before it gets loaded.
 #### Usage:
 
 ```php
-add_filter( 'bootstrap_blocks_get_template', 'my_located_template', 10, 4 );
+add_filter( 'wp_bootstrap_blocks_get_template', 'my_located_template', 10, 4 );
 
 function my_located_template( $located, $template_name, $template_path, $default_path ) {
 	return 'mytheme/special-templates/block.php';
 }
 ```
 
-### bootstrap_blocks_locate_template
+### wp_bootstrap_blocks_locate_template
 
 Possibility to overwrite the located template path.
 
@@ -62,7 +62,7 @@ Possibility to overwrite the located template path.
 #### Usage:
 
 ```php
-add_filter( 'bootstrap_blocks_locate_template', 'my_template_locater', 10, 4 );
+add_filter( 'wp_bootstrap_blocks_locate_template', 'my_template_locater', 10, 4 );
 
 function my_template_locater( $template, $template_name, $template_path ) {
 	return 'mytheme/special-templates/block.php';
@@ -109,7 +109,7 @@ This project was bootstrapped with [Create Guten Block](https://github.com/ahmad
 
 ### Extract labels
 
-To extract the labels and generate the `languages/bootstrap-blocks.pot` file run the following command:
+To extract the labels and generate the `languages/wp-bootstrap-blocks.pot` file run the following command:
 
 ```
 $ curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
