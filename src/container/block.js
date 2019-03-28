@@ -53,15 +53,7 @@ registerBlockType( 'wp-bootstrap-blocks/container', {
 		align: false,
 	},
 
-	attributes: {
-		isFluid: {
-			type: 'boolean',
-		},
-		marginAfter: {
-			type: 'string',
-			default: marginOptions[ 0 ].value,
-		},
-	},
+	// attributes are defined server side with register_block_type(). This is needed to make default attributes available in the blocks render callback.
 
 	edit( { className, attributes, setAttributes } ) {
 		const { isFluid, marginAfter } = attributes;

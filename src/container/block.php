@@ -1,24 +1,30 @@
 <?php
 /**
- * Register render callback for wp-bootstrap-blocks/container.
+ * Register wp-bootstrap-blocks/container block type.
  *
- * @package wp-bootstrap-blocks
+ * @package wp-bootstrap-blocks/container
  */
 
-/**
- * Render callback for wp-bootstrap-blocks/container block.
- *
- * @param array  $attributes Block attributes.
- * @param string $content HTML content of block.
- * @return string Rendered block.
- */
-function wp_bootstrap_blocks_container_render_callback( $attributes, $content ) {
-	return wp_bootstrap_blocks_get_template( 'container', $attributes, $content );
+namespace WP_Bootstrap_Blocks\Container;
+
+use WP_Bootstrap_Blocks\Block_Type;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
-register_block_type(
-	'wp-bootstrap-blocks/container',
-	array(
-		'render_callback' => 'wp_bootstrap_blocks_container_render_callback',
-	)
+$container_default_attributes = array(
+	'isFluid' => false,
+	'marginAfter' => 'mb-2',
 );
+
+$container_attributes = array(
+	'isFluid' => array(
+		'type' => 'boolean',
+	),
+	'marginAfter' => array(
+		'type' => 'string',
+	),
+);
+
+new Block_Type( 'wp-bootstrap-blocks/container', $container_attributes, $container_default_attributes );
