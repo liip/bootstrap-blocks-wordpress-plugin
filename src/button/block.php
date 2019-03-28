@@ -1,24 +1,38 @@
 <?php
 /**
- * Register render callback for wp-bootstrap-blocks/button.
+ * Register wp-bootstrap-blocks/button block type.
  *
- * @package wp-bootstrap-blocks
+ * @package wp-bootstrap-blocks/button
  */
 
-/**
- * Render callback for wp-bootstrap-blocks/button block.
- *
- * @param array  $attributes Block attributes.
- * @param string $content HTML content of block.
- * @return string Rendered block.
- */
-function wp_bootstrap_blocks_button_render_callback( $attributes, $content ) {
-	return wp_bootstrap_blocks_get_template( 'button', $attributes, $content );
+namespace WP_Bootstrap_Blocks\Button;
+
+use WP_Bootstrap_Blocks\Block_Type;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
-register_block_type(
-	'wp-bootstrap-blocks/button',
-	array(
-		'render_callback' => 'wp_bootstrap_blocks_button_render_callback',
-	)
+$button_default_attributes = array(
+	'url' => '',
+	'text' => '',
+	'style' => '',
+	'alignment' => '',
 );
+
+$button_attributes = array(
+	'url' => array(
+		'type' => 'string',
+	),
+	'text' => array(
+		'type' => 'string',
+	),
+	'style' => array(
+		'type' => 'string',
+	),
+	'alignment' => array(
+		'type' => 'string',
+	),
+);
+
+new Block_Type( 'wp-bootstrap-blocks/button', $button_attributes, $button_default_attributes );
