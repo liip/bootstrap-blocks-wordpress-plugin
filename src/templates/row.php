@@ -8,6 +8,20 @@
  * @version 1.0.0
  */
 
+/**
+ * Block attributes.
+ * Defined in wp_bootstrap_blocks_get_template() which requires this template.
+ *
+ * @var $attributes array
+ */
+
+/**
+ * Block content.
+ * Defined in wp_bootstrap_blocks_get_template() which requires this template.
+ *
+ * @var $content string
+ */
+
 $classes = array( 'wp-bootstrap-blocks-row' );
 if ( array_key_exists( 'className', $attributes ) ) {
 	array_push( $classes, $attributes['className'] );

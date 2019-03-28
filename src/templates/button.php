@@ -8,6 +8,13 @@
  * @version 1.0.0
  */
 
+/**
+ * Block attributes.
+ * Defined in wp_bootstrap_blocks_get_template() which requires this template.
+ *
+ * @var $attributes array
+ */
+
 $classes = array( 'wp-bootstrap-blocks-button' );
 $btn_classes = array( 'btn' );
 
