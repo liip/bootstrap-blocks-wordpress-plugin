@@ -1,24 +1,38 @@
 <?php
 /**
- * Register render callback for wp-bootstrap-blocks/row.
+ * Register wp-bootstrap-blocks/row block type.
  *
- * @package wp-bootstrap-blocks
+ * @package wp-bootstrap-blocks/row
  */
 
-/**
- * Render callback for wp-bootstrap-blocks/row block.
- *
- * @param array  $attributes Block attributes.
- * @param string $content HTML content of block.
- * @return string Rendered block.
- */
-function wp_bootstrap_blocks_row_render_callback( $attributes, $content ) {
-	return wp_bootstrap_blocks_get_template( 'row', $attributes, $content );
+namespace WP_Bootstrap_Blocks\Row;
+
+use WP_Bootstrap_Blocks\Block_Type;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
-register_block_type(
-	'wp-bootstrap-blocks/row',
-	array(
-		'render_callback' => 'wp_bootstrap_blocks_row_render_callback',
-	)
+$row_default_attributes = array(
+	'template' => '1-1',
+	'noGutters' => false,
+	'alignment' => '',
+	'verticalAlignment' => '',
 );
+
+$row_attributes = array(
+	'template' => array(
+		'type' => 'string',
+	),
+	'noGutters' => array(
+		'type' => 'boolean',
+	),
+	'alignment' => array(
+		'type' => 'string',
+	),
+	'verticalAlignment' => array(
+		'type' => 'string',
+	),
+);
+
+new Block_Type( 'wp-bootstrap-blocks/row', $row_attributes, $row_default_attributes );

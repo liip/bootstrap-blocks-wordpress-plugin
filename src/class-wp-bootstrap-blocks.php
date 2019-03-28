@@ -85,6 +85,7 @@ class WP_Bootstrap_Blocks {
 	public function includes() {
 		// Load plugin class files
 		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/wp-bootstrap-blocks-functions.php';
+		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/class-block-type.php';
 		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/container/block.php';
 		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/row/block.php';
 		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/column/block.php';

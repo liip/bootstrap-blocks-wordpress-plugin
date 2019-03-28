@@ -130,22 +130,7 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 		align: [ 'full' ],
 	},
 
-	attributes: {
-		template: {
-			type: 'string',
-			default: Object.keys( templates )[ 0 ],
-		},
-		noGutters: {
-			type: 'boolean',
-			default: false,
-		},
-		alignment: {
-			type: 'string',
-		},
-		verticalAlignment: {
-			type: 'string',
-		},
-	},
+	// attributes are defined server side with register_block_type(). This is needed to make default attributes available in the blocks render callback.
 
 	getEditWrapperProps( attributes ) {
 		return {
