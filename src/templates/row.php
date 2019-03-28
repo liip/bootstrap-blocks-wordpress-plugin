@@ -31,7 +31,7 @@ if ( array_key_exists( 'align', $attributes ) && 'full' === $attributes['align']
 }
 
 $row_classes = array( 'row' );
-if ( array_key_exists( 'noGutters', $attributes ) ) {
+if ( array_key_exists( 'noGutters', $attributes ) && $attributes['noGutters'] ) {
 	array_push( $row_classes, 'no-gutters' );
 }
 if ( array_key_exists( 'alignment', $attributes ) ) {

@@ -29,7 +29,7 @@ if ( array_key_exists( 'isFluid', $attributes ) && $attributes['isFluid'] ) {
 } else {
 	array_push( $classes, 'container' );
 }
-if ( array_key_exists( 'marginAfter', $attributes ) ) {
+if ( array_key_exists( 'marginAfter', $attributes ) && ! empty( $attributes['marginAfter'] ) ) {
 	array_push( $classes, $attributes['marginAfter'] );
 }
 if ( array_key_exists( 'className', $attributes ) ) {

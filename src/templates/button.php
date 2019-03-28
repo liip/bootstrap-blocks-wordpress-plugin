@@ -18,14 +18,14 @@
 $classes = array( 'wp-bootstrap-blocks-button' );
 $btn_classes = array( 'btn' );
 
-if ( array_key_exists( 'alignment', $attributes ) ) {
+if ( array_key_exists( 'alignment', $attributes ) && ! empty( $attributes['alignment'] ) ) {
 	array_push( $classes, ( 'text-' . $attributes['alignment'] ) );
 }
 
 if ( array_key_exists( 'className', $attributes ) ) {
 	array_push( $btn_classes, $attributes['className'] );
 }
-if ( array_key_exists( 'style', $attributes ) ) {
+if ( array_key_exists( 'style', $attributes ) && ! empty( $attributes['style'] ) ) {
 	array_push( $btn_classes, 'btn-' . $attributes['style'] );
 } else {
 	array_push( $btn_classes, 'btn-primary' );
