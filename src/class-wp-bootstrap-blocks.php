@@ -2,24 +2,24 @@
 /**
  * Main class
  *
- * @package bootstrap-blocks
+ * @package wp-bootstrap-blocks
  */
 
-namespace Bootstrap_Blocks;
+namespace WP_Bootstrap_Blocks;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
- * Class Bootstrap_Blocks
+ * Class WP_Bootstrap_Blocks
  */
-class Bootstrap_Blocks {
+class WP_Bootstrap_Blocks {
 
 	/**
-	 * Bootstrap_Blocks instance.
+	 * WP_Bootstrap_Blocks instance.
 	 *
-	 * @var Bootstrap_Blocks
+	 * @var WP_Bootstrap_Blocks
 	 */
 	protected static $instance = null;
 
@@ -35,7 +35,7 @@ class Bootstrap_Blocks {
 	 *
 	 * @var string
 	 */
-	public $token = 'bootstrap-blocks';
+	public $token = 'wp-bootstrap-blocks';
 
 	/**
 	 * The plugin assets directory.
@@ -52,7 +52,7 @@ class Bootstrap_Blocks {
 	public $assets_url;
 
 	/**
-	 * Bootstrap_Blocks constructor.
+	 * WP_Bootstrap_Blocks constructor.
 	 */
 	public function __construct() {
 		$this->define_constants();
@@ -65,8 +65,8 @@ class Bootstrap_Blocks {
 	 * Define plugin constants.
 	 */
 	protected function define_constants() {
-		if ( ! defined( 'BOOTSTRAP_BLOCKS_ABSPATH' ) ) {
-			define( 'BOOTSTRAP_BLOCKS_ABSPATH', trailingslashit( dirname( BOOTSTRAP_BLOCKS_PLUGIN_FILE ) ) );
+		if ( ! defined( 'WP_BOOTSTRAP_BLOCKS_ABSPATH' ) ) {
+			define( 'WP_BOOTSTRAP_BLOCKS_ABSPATH', trailingslashit( dirname( WP_BOOTSTRAP_BLOCKS_PLUGIN_FILE ) ) );
 		}
 	}
 
@@ -75,8 +75,8 @@ class Bootstrap_Blocks {
 	 */
 	protected function init_plugin_environment() {
 		// Load plugin environment variables
-		$this->assets_dir = BOOTSTRAP_BLOCKS_ABSPATH . 'dist';
-		$this->assets_url = esc_url( trailingslashit( plugins_url( '/dist/', BOOTSTRAP_BLOCKS_PLUGIN_FILE ) ) );
+		$this->assets_dir = WP_BOOTSTRAP_BLOCKS_ABSPATH . 'dist';
+		$this->assets_url = esc_url( trailingslashit( plugins_url( '/dist/', WP_BOOTSTRAP_BLOCKS_PLUGIN_FILE ) ) );
 	}
 
 	/**
@@ -84,12 +84,12 @@ class Bootstrap_Blocks {
 	 */
 	public function includes() {
 		// Load plugin class files
-		require_once BOOTSTRAP_BLOCKS_ABSPATH . 'src/bootstrap-blocks-functions.php';
-		require_once BOOTSTRAP_BLOCKS_ABSPATH . 'src/container/block.php';
-		require_once BOOTSTRAP_BLOCKS_ABSPATH . 'src/row/block.php';
-		require_once BOOTSTRAP_BLOCKS_ABSPATH . 'src/column/block.php';
-		require_once BOOTSTRAP_BLOCKS_ABSPATH . 'src/button/block.php';
-		require_once BOOTSTRAP_BLOCKS_ABSPATH . 'src/alert/block.php';
+		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/wp-bootstrap-blocks-functions.php';
+		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/alert/block.php';
+		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/container/block.php';
+		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/row/block.php';
+		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/column/block.php';
+		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/button/block.php';
 	}
 
 	/**
@@ -160,8 +160,8 @@ class Bootstrap_Blocks {
 			$categories,
 			array(
 				array(
-					'slug' => 'bootstrap-blocks',
-					'title' => __( 'Bootstrap Blocks', 'bootstrap-blocks' ),
+					'slug' => 'wp-bootstrap-blocks',
+					'title' => __( 'Bootstrap Blocks', 'wp-bootstrap-blocks' ),
 				),
 			)
 		);
@@ -171,15 +171,15 @@ class Bootstrap_Blocks {
 	 * Load plugin textdomain
 	 */
 	public function load_plugin_textdomain() {
-		$domain = 'bootstrap-blocks'; // textdomain can't be stored in class variable since it must be a single string literal
-		load_plugin_textdomain( $domain, false, dirname( plugin_basename( BOOTSTRAP_BLOCKS_PLUGIN_FILE ) ) . '/languages/' );
+		$domain = 'wp-bootstrap-blocks'; // textdomain can't be stored in class variable since it must be a single string literal
+		load_plugin_textdomain( $domain, false, dirname( plugin_basename( WP_BOOTSTRAP_BLOCKS_PLUGIN_FILE ) ) . '/languages/' );
 	}
 
 	/**
-	 * Main Bootstrap_Blocks Instance
-	 * Ensures only one instance of Bootstrap_Blocks is loaded or can be loaded.
+	 * Main WP_Bootstrap_Blocks Instance
+	 * Ensures only one instance of WP_Bootstrap_Blocks is loaded or can be loaded.
 	 *
-	 * @return Bootstrap_Blocks Plugin instance
+	 * @return WP_Bootstrap_Blocks Plugin instance
 	 */
 	public static function instance() {
 		if ( is_null( self::$instance ) ) {

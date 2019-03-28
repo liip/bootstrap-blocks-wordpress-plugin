@@ -33,7 +33,7 @@ Currently available blocks:
 
 == Installation ==
 
-1. Upload the `bootstrap-blocks` directory into the `/wp-content/plugins/` directory
+1. Upload the `wp-bootstrap-blocks` directory into the `/wp-content/plugins/` directory
 1. Activate the plugin through the `Plugins` menu in WordPress
 1. Start adding blocks from the `Bootstrap Blocks` category
 

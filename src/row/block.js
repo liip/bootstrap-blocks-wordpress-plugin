@@ -1,5 +1,5 @@
 /**
- * BLOCK: bootstrap-blocks/row
+ * BLOCK: wp-bootstrap-blocks/row
  */
 
 //  Import CSS.
@@ -14,20 +14,20 @@ const { Fragment } = wp.element;
 const { dispatch, select } = wp.data;
 const { applyFilters } = wp.hooks;
 
-const ALLOWED_BLOCKS = [ 'bootstrap-blocks/column' ];
+const ALLOWED_BLOCKS = [ 'wp-bootstrap-blocks/column' ];
 let templates = {
 	'1-1': {
-		label: __( '2 Columns (1:1)', 'bootstrap-blocks' ),
+		label: __( '2 Columns (1:1)', 'wp-bootstrap-blocks' ),
 		templateLock: 'all',
 		blocks: [
 			[
-				'bootstrap-blocks/column',
+				'wp-bootstrap-blocks/column',
 				{
 					sizeMd: 6,
 				},
 			],
 			[
-				'bootstrap-blocks/column',
+				'wp-bootstrap-blocks/column',
 				{
 					sizeMd: 6,
 				},
@@ -35,17 +35,17 @@ let templates = {
 		],
 	},
 	'1-2': {
-		label: __( '2 Columns (1:2)', 'bootstrap-blocks' ),
+		label: __( '2 Columns (1:2)', 'wp-bootstrap-blocks' ),
 		templateLock: 'all',
 		blocks: [
 			[
-				'bootstrap-blocks/column',
+				'wp-bootstrap-blocks/column',
 				{
 					sizeMd: 4,
 				},
 			],
 			[
-				'bootstrap-blocks/column',
+				'wp-bootstrap-blocks/column',
 				{
 					sizeMd: 8,
 				},
@@ -53,17 +53,17 @@ let templates = {
 		],
 	},
 	'2-1': {
-		label: __( '2 Columns (2:1)', 'bootstrap-blocks' ),
+		label: __( '2 Columns (2:1)', 'wp-bootstrap-blocks' ),
 		templateLock: 'all',
 		blocks: [
 			[
-				'bootstrap-blocks/column',
+				'wp-bootstrap-blocks/column',
 				{
 					sizeMd: 8,
 				},
 			],
 			[
-				'bootstrap-blocks/column',
+				'wp-bootstrap-blocks/column',
 				{
 					sizeMd: 4,
 				},
@@ -71,23 +71,23 @@ let templates = {
 		],
 	},
 	'1-1-1': {
-		label: __( '3 Columns (1:1:1)', 'bootstrap-blocks' ),
+		label: __( '3 Columns (1:1:1)', 'wp-bootstrap-blocks' ),
 		templateLock: 'all',
 		blocks: [
 			[
-				'bootstrap-blocks/column',
+				'wp-bootstrap-blocks/column',
 				{
 					sizeMd: 4,
 				},
 			],
 			[
-				'bootstrap-blocks/column',
+				'wp-bootstrap-blocks/column',
 				{
 					sizeMd: 4,
 				},
 			],
 			[
-				'bootstrap-blocks/column',
+				'wp-bootstrap-blocks/column',
 				{
 					sizeMd: 4,
 				},
@@ -95,15 +95,15 @@ let templates = {
 		],
 	},
 };
-templates = applyFilters( 'bootstrapBlocks.bootstrapRowTemplates', templates );
+templates = applyFilters( 'wpBootstrapBlocks.row.templates', templates );
 
-const enableCustomTemplate = applyFilters( 'bootstrapBlocks.enableCustomTemplate', true );
+const enableCustomTemplate = applyFilters( 'wpBootstrapBlocks.row.enableCustomTemplate', true );
 if ( enableCustomTemplate ) {
 	templates.custom = {
-		label: __( 'Custom', 'bootstrap-blocks' ),
+		label: __( 'Custom', 'wp-bootstrap-blocks' ),
 		templateLock: false,
 		blocks: [
-			[ 'bootstrap-blocks/column' ],
+			[ 'wp-bootstrap-blocks/column' ],
 		],
 	};
 }
@@ -115,15 +115,15 @@ const getColumnsTemplateLock = ( template ) => {
 	return templates[ template ] ? templates[ template ].templateLock : false;
 };
 
-registerBlockType( 'bootstrap-blocks/row', {
+registerBlockType( 'wp-bootstrap-blocks/row', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
-	title: __( 'Row', 'bootstrap-blocks' ), // Block title.
+	title: __( 'Row', 'wp-bootstrap-blocks' ), // Block title.
 	icon: 'layout', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
-	category: 'bootstrap-blocks', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
+	category: 'wp-bootstrap-blocks', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
-		__( 'Bootstrap Blocks', 'bootstrap-blocks' ),
-		__( 'Bootstrap', 'bootstrap-blocks' ),
-		__( 'Row', 'bootstrap-blocks' ),
+		__( 'Bootstrap Blocks', 'wp-bootstrap-blocks' ),
+		__( 'Bootstrap', 'wp-bootstrap-blocks' ),
+		__( 'Row', 'wp-bootstrap-blocks' ),
 	],
 
 	supports: {
@@ -186,6 +186,24 @@ registerBlockType( 'bootstrap-blocks/row', {
 			} );
 		};
 
+		const alignmentControls = [
+			{
+				icon: 'editor-alignleft',
+				title: __( 'Align columns left', 'wp-bootstrap-blocks' ),
+				align: 'left',
+			},
+			{
+				icon: 'editor-aligncenter',
+				title: __( 'Align columns center', 'wp-bootstrap-blocks' ),
+				align: 'center',
+			},
+			{
+				icon: 'editor-alignright',
+				title: __( 'Align columns right', 'wp-bootstrap-blocks' ),
+				align: 'right',
+			},
+		];
+
 		const verticalAlignmentControls = [
 			{
 				icon: (
@@ -199,7 +217,7 @@ registerBlockType( 'bootstrap-blocks/row', {
 						<Path d="M59,4.5H1c-0.552,0-1,0.448-1,1s0.448,1,1,1h58c0.552,0,1-0.448,1-1S59.552,4.5,59,4.5z" />
 					</SVG>
 				),
-				title: __( 'Align top', 'bootstrap-blocks' ),
+				title: __( 'Align columns top', 'wp-bootstrap-blocks' ),
 				align: 'top',
 			},
 			{
@@ -212,7 +230,7 @@ registerBlockType( 'bootstrap-blocks/row', {
 							C35.654,46,35,45.346,35,44.542V15.458C35,14.654,35.654,14,36.458,14h15.083C52.346,14,53,14.654,53,15.458V16v6v6V34z" />
 					</SVG>
 				),
-				title: __( 'Align center', 'bootstrap-blocks' ),
+				title: __( 'Align columns center', 'wp-bootstrap-blocks' ),
 				align: 'center',
 			},
 			{
@@ -228,7 +246,7 @@ registerBlockType( 'bootstrap-blocks/row', {
 						<Path d="M59,53.5H1c-0.553,0-1,0.448-1,1s0.447,1,1,1h58c0.553,0,1-0.448,1-1S59.553,53.5,59,53.5z" />
 					</SVG>
 				),
-				title: __( 'Align bottom', 'bootstrap-blocks' ),
+				title: __( 'Align columns bottom', 'wp-bootstrap-blocks' ),
 				align: 'bottom',
 			},
 		];
@@ -238,7 +256,7 @@ registerBlockType( 'bootstrap-blocks/row', {
 				<InspectorControls>
 					<PanelBody>
 						<SelectControl
-							label={ __( 'Template', 'bootstrap-blocks' ) }
+							label={ __( 'Template', 'wp-bootstrap-blocks' ) }
 							value={ template }
 							options={ templateOptions }
 							onChange={ ( selectedTemplate ) => {
@@ -246,7 +264,7 @@ registerBlockType( 'bootstrap-blocks/row', {
 							} }
 						/>
 						<CheckboxControl
-							label={ __( 'No Gutters', 'bootstrap-blocks' ) }
+							label={ __( 'No Gutters', 'wp-bootstrap-blocks' ) }
 							checked={ noGutters }
 							onChange={ ( isChecked ) => {
 								onChangeGutters( isChecked );
@@ -258,6 +276,7 @@ registerBlockType( 'bootstrap-blocks/row', {
 					<AlignmentToolbar
 						value={ alignment }
 						onChange={ ( newAlignment ) => ( setAttributes( { alignment: newAlignment } ) ) }
+						alignmentControls={ alignmentControls }
 					/>
 					<AlignmentToolbar
 						value={ verticalAlignment }

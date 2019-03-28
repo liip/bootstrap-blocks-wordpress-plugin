@@ -1,5 +1,5 @@
 {
-	"name": "liip/bootstrap-blocks",
+	"name": "liip/wp-bootstrap-blocks",
 	"description": "Bootstrap 4 Gutenberg Blocks for WordPress",
 	"type": "wordpress-plugin",
 	"license": "GPL-2.0",

@@ -1,5 +1,5 @@
 /**
- * BLOCK: bootstrap-blocks/column
+ * BLOCK: wp-bootstrap-blocks/column
  */
 
 import edit from './edit';
@@ -8,17 +8,17 @@ const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
 const { InnerBlocks } = wp.editor;
 
-registerBlockType( 'bootstrap-blocks/column', {
+registerBlockType( 'wp-bootstrap-blocks/column', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
-	title: __( 'Column', 'bootstrap-blocks' ), // Block title.
+	title: __( 'Column', 'wp-bootstrap-blocks' ), // Block title.
 	icon: 'menu', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
-	category: 'bootstrap-blocks', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
+	category: 'wp-bootstrap-blocks', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
-		__( 'Bootstrap Blocks', 'bootstrap-blocks' ),
-		__( 'Bootstrap', 'bootstrap-blocks' ),
-		__( 'Column', 'bootstrap-blocks' ),
+		__( 'Bootstrap Blocks', 'wp-bootstrap-blocks' ),
+		__( 'Bootstrap', 'wp-bootstrap-blocks' ),
+		__( 'Column', 'wp-bootstrap-blocks' ),
 	],
-	parent: [ 'bootstrap-blocks/row' ],
+	parent: [ 'wp-bootstrap-blocks/row' ],
 
 	attributes: {
 		sizeXl: {
