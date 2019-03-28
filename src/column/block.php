@@ -1,24 +1,42 @@
 <?php
 /**
- * Register render callback for wp-bootstrap-blocks/column.
+ * Register wp-bootstrap-blocks/column block type.
  *
- * @package wp-bootstrap-blocks
+ * @package wp-bootstrap-blocks/column
  */
 
-/**
- * Render callback for wp-bootstrap-blocks/column block.
- *
- * @param array  $attributes Block attributes.
- * @param string $content HTML content of block.
- * @return string Rendered block.
- */
-function wp_bootstrap_blocks_column_render_callback( $attributes, $content ) {
-	return wp_bootstrap_blocks_get_template( 'column', $attributes, $content );
+namespace WP_Bootstrap_Blocks\Column;
+
+use WP_Bootstrap_Blocks\Block_Type;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
-register_block_type(
-	'wp-bootstrap-blocks/column',
-	array(
-		'render_callback' => 'wp_bootstrap_blocks_column_render_callback',
-	)
+$column_default_attributes = array(
+	'sizeXl' => 0,
+	'sizeLg' => 0,
+	'sizeMd' => 0,
+	'sizeSm' => 0,
+	'sizeXs' => 12,
 );
+
+$column_attributes = array(
+	'sizeXl' => array(
+		'type' => 'number',
+	),
+	'sizeLg' => array(
+		'type' => 'number',
+	),
+	'sizeMd' => array(
+		'type' => 'number',
+	),
+	'sizeSm' => array(
+		'type' => 'number',
+	),
+	'sizeXs' => array(
+		'type' => 'number',
+	),
+);
+
+new Block_Type( 'wp-bootstrap-blocks/column', $column_attributes, $column_default_attributes );
