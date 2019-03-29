@@ -23,33 +23,15 @@ The following blocks are currently available:
 
 = Bootstrap library =
 
-Please be aware that this plugin does not include the Bootstrap library in your website. You need to do this for yourself.
-We decided not to include the library so that you can modify Bootstrap to your own needs before loading it.
+Please be aware that this plugin does not include the Bootstrap library in your website. You need to do this for yourself. We decided not to include the library so that you can modify Bootstrap to your own needs before loading it.
 
-The easiest way to do this is to add the following to your theme's `function.php`:
-
-```php
-function mytheme_load_bootstrap() {
-    if ( is_admin() ) {
-       return;
-    }
-
-    wp_enqueue_style( 'bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', array(), '4.3.1' );
-    wp_deregister_script( 'jquery' ); // Remove WP jQuery version
-    wp_enqueue_script( 'jquery', 'https://code.jquery.com/jquery-3.3.1.slim.min.js', array(), '3.3.1', true );
-    wp_enqueue_script( 'popper.js', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', array(), '1.14.7', true );
-    wp_enqueue_script( 'bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', array(), '4.3.1', true );
-}
-add_action( 'wp_enqueue_scripts', 'mytheme_load_bootstrap' );
-```
+The easiest way to do this is to add the following to your theme's `function.php`. You'll find an example for that in the [documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin).
 
 = Templates =
 
-All blocks are implemented as [dynamic blocks](https://wordpress.org/gutenberg/handbook/designers-developers/developers/tutorials/block-tutorial/creating-dynamic-blocks/).
-This makes it possible to overwrite the template of a block in your theme.
+All blocks are implemented as [dynamic blocks](https://wordpress.org/gutenberg/handbook/designers-developers/developers/tutorials/block-tutorial/creating-dynamic-blocks/). This makes it possible to overwrite the template of a block in your theme.
 
-To overwrite a block template create a folder called `wp-bootstrap-blocks/` in your theme directory.
-You can copy the original template from `wp-bootstrap-blocks/src/templates/<blockname>.php` as a starting point and adjust it to your needs.
+To overwrite a block template create a folder called `wp-bootstrap-blocks/` in your theme directory. You can copy the original template from `wp-bootstrap-blocks/src/templates/<blockname>.php` as a starting point and adjust it to your needs.
 
 = Requirements =
 * WordPress >= 5.0
