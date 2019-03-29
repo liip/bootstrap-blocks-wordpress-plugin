@@ -13,7 +13,7 @@ Bootstrap 4 Gutenberg Blocks for WordPress.
 
 == Description ==
 
-This plugin adds bootstrap components and layout options as Gutenberg blocks.
+This plugin adds Bootstrap components and layout options as Gutenberg blocks.
 
 The following blocks are currently available:
 
