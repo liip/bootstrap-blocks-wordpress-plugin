@@ -50,9 +50,7 @@
      * due to the negative margins on .editor-block-list__layout
      */
 	&[data-align="full"] {
-
 		.wp-block {
-
 			.editor-block-toolbar {
 				left: $block-padding;
 			}
