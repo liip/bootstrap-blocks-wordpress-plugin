@@ -9,13 +9,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-03-26T10:42:52+00:00\n"
+"POT-Creation-Date: 2019-03-29T15:22:53+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.1.0\n"
 "X-Domain: wp-bootstrap-blocks\n"
 
 #. Plugin Name of the plugin
-#: src/class-wp-bootstrap-blocks.php:163
+#: src/class-wp-bootstrap-blocks.php:170
 #: src/column/block.js:17
 #: src/container/block.js:47
 #: src/button/block.js:18
@@ -43,23 +43,27 @@ msgstr ""
 msgid "%s does not exist."
 msgstr ""
 
-#: src/column/edit.js:41
+#: src/column/edit.js:40
+msgid "Column size"
+msgstr ""
+
+#: src/column/edit.js:44
 msgid "Xl Columns"
 msgstr ""
 
-#: src/column/edit.js:47
+#: src/column/edit.js:50
 msgid "Lg Columns"
 msgstr ""
 
-#: src/column/edit.js:53
+#: src/column/edit.js:56
 msgid "Md Columns"
 msgstr ""
 
-#: src/column/edit.js:59
+#: src/column/edit.js:62
 msgid "Sm Columns"
 msgstr ""
 
-#: src/column/edit.js:65
+#: src/column/edit.js:68
 msgid "Xs Columns"
 msgstr ""
 
@@ -95,11 +99,11 @@ msgstr ""
 msgid "Container"
 msgstr ""
 
-#: src/container/block.js:79
+#: src/container/block.js:71
 msgid "Fluid"
 msgstr ""
 
-#: src/container/block.js:86
+#: src/container/block.js:78
 msgid "Margin After"
 msgstr ""
 
