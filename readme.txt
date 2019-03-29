@@ -13,11 +13,43 @@ Bootstrap 4 Gutenberg Blocks for WordPress.
 
 == Description ==
 
-Currently available blocks:
+This plugin adds bootstrap components and layout options as Gutenberg blocks.
+
+The following blocks are currently available:
 
 * Container
 * Grid (Row / Column)
 * Button
+
+= Bootstrap library =
+
+Please be aware that this plugin does not include the Bootstrap library in your website. You need to do this for yourself.
+We decided not to include the library so that you can modify Bootstrap to your own needs before loading it.
+
+The easiest way to do this is to add the following to your theme's `function.php`:
+
+```php
+function mytheme_load_bootstrap() {
+    if ( is_admin() ) {
+       return;
+    }
+
+    wp_enqueue_style( 'bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', array(), '4.3.1' );
+    wp_deregister_script( 'jquery' ); // Remove WP jQuery version
+    wp_enqueue_script( 'jquery', 'https://code.jquery.com/jquery-3.3.1.slim.min.js', array(), '3.3.1', true );
+    wp_enqueue_script( 'popper.js', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', array(), '1.14.7', true );
+    wp_enqueue_script( 'bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', array(), '4.3.1', true );
+}
+add_action( 'wp_enqueue_scripts', 'mytheme_load_bootstrap' );
+```
+
+= Templates =
+
+All blocks are implemented as [dynamic blocks](https://wordpress.org/gutenberg/handbook/designers-developers/developers/tutorials/block-tutorial/creating-dynamic-blocks/).
+This makes it possible to overwrite the template of a block in your theme.
+
+To overwrite a block template create a folder called `wp-bootstrap-blocks/` in your theme directory.
+You can copy the original template from `wp-bootstrap-blocks/src/templates/<blockname>.php` as a starting point and adjust it to your needs.
 
 = Requirements =
 * WordPress >= 5.0
@@ -41,7 +73,7 @@ Currently available blocks:
 
 = Is Bootstrap included? =
 
-No. This plugin doesn't load the Bootstrap library for you. You have to do this for yourself in your theme.
+No. This plugin doesn't load the Bootstrap library for you. You have to do this for yourself in your theme. Please read more about this in the [documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin).
 
 = Have you found a bug or do you have a feature request? =
 
@@ -56,3 +88,9 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 = 1.0.0 =
 
 * Initial release of this plugin
+
+== Upgrade Notice ==
+
+= 1.0.0=
+
+Initial release.

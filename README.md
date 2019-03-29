@@ -2,11 +2,35 @@
 
 [![Build Status](https://travis-ci.org/liip/bootstrap-blocks-wordpress-plugin.svg?branch=master)](https://travis-ci.org/liip/bootstrap-blocks-wordpress-plugin)
 
-Currently available blocks:
+This plugin adds bootstrap components and layout options as Gutenberg blocks.
+
+The following blocks are currently available:
 
 * Container
 * Grid (Row / Column)
 * Button
+
+## Bootstrap library
+
+Please be aware that this plugin does not include the Bootstrap library in your website. You need to do this for yourself. 
+We decided not to include the library so that you can modify Bootstrap to your own needs before loading it.
+
+The easiest way to do this is to add the following to your theme's `function.php`:
+
+```php
+function mytheme_load_bootstrap() {
+    if ( is_admin() ) {
+       return;
+    }
+
+    wp_enqueue_style( 'bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', array(), '4.3.1' );
+    wp_deregister_script( 'jquery' ); // Remove WP jQuery version
+    wp_enqueue_script( 'jquery', 'https://code.jquery.com/jquery-3.3.1.slim.min.js', array(), '3.3.1', true );
+    wp_enqueue_script( 'popper.js', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', array(), '1.14.7', true );
+    wp_enqueue_script( 'bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', array(), '4.3.1', true );
+}
+add_action( 'wp_enqueue_scripts', 'mytheme_load_bootstrap' );
+```
 
 ## Templates
 
