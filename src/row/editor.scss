@@ -33,6 +33,31 @@
 	&[data-vertical-alignment="bottom"] .wp-block-wp-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
 		align-items: flex-end;
 	}
+
+	// Row background
+	> .editor-block-list__block-edit::before {
+		background-color: #e9ecef; // bootstrap $gray-200
+	}
+
+	// Selected row background
+	&.editor-block-list__block.is-selected > .editor-block-list__block-edit::before {
+		background-color: #dee2e6; // bootstrap $gray-300
+	}
+
+	/*
+     * If there is a block within a full-width block (align full),
+     * their toolbar must be offset by 14 px
+     * due to the negative margins on .editor-block-list__layout
+     */
+	&[data-align="full"] {
+
+		.wp-block {
+
+			.editor-block-toolbar {
+				left: $block-padding;
+			}
+		}
+	}
 }
 
 .wp-block-wp-bootstrap-blocks-row {
