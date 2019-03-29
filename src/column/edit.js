@@ -36,7 +36,10 @@ class BootstrapColumnEdit extends Component {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody>
+					<PanelBody
+						title={ __( 'Column size', 'wp-bootstrap-blocks' ) }
+						initialOpen={ true }
+					>
 						<ColumnSizeRangeControl
 							label={ __( 'Xl Columns', 'wp-bootstrap-blocks' ) }
 							attributeName="sizeXl"
