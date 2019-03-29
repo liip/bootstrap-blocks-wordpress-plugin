@@ -3,7 +3,7 @@
  * Plugin Name: Bootstrap Blocks
  * Plugin URI: https://github.com/liip/bootstrap-blocks-wordpress-plugin
  * Description: Bootstrap 4 Gutenberg Blocks for WordPress.
- * Author: Team Jazz, Liip AG
+ * Author: Liip AG
  * Author URI: https://liip.ch
  * Version: 1.0.0
  * License: GPL2+
