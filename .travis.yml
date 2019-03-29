@@ -17,3 +17,14 @@ install:
 script:
   - scripts/phpcodesniffer.sh
   - npm run lint
+
+deploy:
+  provider: script
+  script: scripts/deploy-wp-plugin.sh
+  on:
+    php: 7.2
+    all_branches: true
+
+env:
+  global:
+    secure: sAbUpdBYxID6+qxE2/QwyQ0l3hZMXk082sMz/WMSwH9ka/mJiaPm/Is16yV9k78deDWQ66VrRCJGRDpegs5/ulSHpkq2OUeuyuQPP9V00H3L99xiuUmrjIqlqB/xUByyt5P4AUvTnhMGUKe88D87KM5AS/m1/tlXojV4xPyY3aZiViSGAxyI5uooRLTFLgG+XHWSaBbM7TWMbTxFZT1M4hMBLtuW02o9qkEgcXA8tbuSXyTJRP3aTBPrwa3uO3eFzqrTHIIIAOAEcE+Ld/OjvauEZMnHVbLOxgPmZLvWOLlJIB6lltuFl/OaSOBVgiMy8cIkQudhukLvGOB4xtvPfGPTXuJO7s+Wy9CyQ98nFU+xltIZGx+/GUrUlf1JemKvHYLu0TmoB44tp6E2td/kTqAghXeJ9BoIazRRWynWI1gKgy1KmyWGoAGBEeBdh91oAH7MYydIXrg2HpcA8ysy7sHDdzSC6P8p9VVPXa5kAtdKc3Pfuo1OFRyzpAHSo8ICPynvmUrK4U39+8a6Ee4CetVPyVrGjvSEqntH47kh7GN9WQfyh3zUgZyinRCrhCw3fP+yfW6WZfgencGPAUQBMSiufKjAGbyFMXLKNdX0VEmwOSRCEGmCIWdM76uMfFs6SERHs7SQrrnbq/F7zJzepMlAITxXWUWHY9a4wkjUUEo=
