@@ -7,6 +7,11 @@
 
 namespace WP_Bootstrap_Blocks;
 
+use WP_Bootstrap_Blocks\Button\Button_Block_Type;
+use WP_Bootstrap_Blocks\Column\Column_Block_Type;
+use WP_Bootstrap_Blocks\Container\Container_Block_Type;
+use WP_Bootstrap_Blocks\Row\Row_Block_Type;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -59,6 +64,7 @@ class WP_Bootstrap_Blocks {
 		$this->init_plugin_environment();
 		$this->includes();
 		$this->init_hooks();
+		$this->register_block_types();
 	}
 
 	/**
@@ -86,10 +92,10 @@ class WP_Bootstrap_Blocks {
 		// Load plugin class files
 		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/wp-bootstrap-blocks-functions.php';
 		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/class-block-type.php';
-		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/container/block.php';
-		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/row/block.php';
-		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/column/block.php';
-		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/button/block.php';
+		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/container/class-container-block-type.php';
+		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/row/class-row-block-type.php';
+		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/column/class-column-block-type.php';
+		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/button/class-button-block-type.php';
 	}
 
 	/**
@@ -173,6 +179,16 @@ class WP_Bootstrap_Blocks {
 	public function load_plugin_textdomain() {
 		$domain = 'wp-bootstrap-blocks'; // textdomain can't be stored in class variable since it must be a single string literal
 		load_plugin_textdomain( $domain, false, dirname( plugin_basename( WP_BOOTSTRAP_BLOCKS_PLUGIN_FILE ) ) . '/languages/' );
+	}
+
+	/**
+	 * Register block types
+	 */
+	public function register_block_types() {
+		new Container_Block_Type();
+		new Row_Block_Type();
+		new Column_Block_Type();
+		new Button_Block_Type();
 	}
 
 	/**
