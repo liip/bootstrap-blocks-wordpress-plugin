@@ -45,7 +45,7 @@ Possibility to overwrite the located template path before it gets loaded.
 add_filter( 'wp_bootstrap_blocks_get_template', 'my_located_template', 10, 4 );
 
 function my_located_template( $located, $template_name, $template_path, $default_path ) {
-	return 'mytheme/special-templates/block.php';
+    return 'mytheme/special-templates/block.php';
 }
 ```
 
@@ -65,7 +65,7 @@ Possibility to overwrite the located template path.
 add_filter( 'wp_bootstrap_blocks_locate_template', 'my_template_locater', 10, 3 );
 
 function my_template_locater( $template, $template_name, $template_path ) {
-	return 'mytheme/special-templates/block.php';
+    return 'mytheme/special-templates/block.php';
 }
 ```
 
@@ -84,7 +84,26 @@ Change classes of &lt;blockname&gt;.
 add_filter( 'wp_bootstrap_blocks_container_classes', 'my_custom_container_classes', 10, 2 );
 
 function my_custom_container_classes( $classes, $attributes ) {
-	return [ 'my', 'custom', 'classes' ];
+    return [ 'my', 'custom', 'classes' ];
+}
+```
+
+### wp_bootstrap_blocks_&lt;blockname&gt;_default_attributes
+
+Modify default attributes of &lt;blockname&gt;.
+
+#### Parameters:
+
+* `$default_attributes` (array) Default attributes of block.
+
+#### Usage:
+
+```php
+add_filter( 'wp_bootstrap_blocks_row_default_attributes', 'my_row_default_attributes', 10, 1 );
+
+function my_row_default_attributes( $default_attributes ) {
+    $default_attributes['alignment'] = 'center';
+    return $default_attributes;
 }
 ```
 
