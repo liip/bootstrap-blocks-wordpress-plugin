@@ -11,10 +11,10 @@ const { RichText, InspectorControls, BlockControls, AlignmentToolbar } = wp.edit
 const { SelectControl, PanelBody, ToggleControl } = wp.components;
 const { __ } = wp.i18n;
 
-registerBlockType( 'bootstrap-blocks/alert', {
+registerBlockType( 'wp-bootstrap-blocks/alert', {
 	title: __( 'Alert' ),
 	icon: 'info',
-	category: 'bootstrap-blocks',
+	category: 'wp-bootstrap-blocks',
 	keywords: [
 		__( 'Alert' ),
 		__( 'Notice' ),

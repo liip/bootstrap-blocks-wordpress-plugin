@@ -12,13 +12,13 @@
  * @param string $content HTML content of block.
  * @return string Rendered block.
  */
-function bootstrap_blocks_alert_render_callback( $attributes, $content ) {
-	return bootstrap_blocks_get_template( 'alert', $attributes, $content );
+function wp_bootstrap_blocks_alert_render_callback( $attributes, $content ) {
+	return wp_bootstrap_blocks_get_template( 'alert', $attributes, $content );
 }
 
 register_block_type(
-	'bootstrap-blocks/alert',
+	'wp-bootstrap-blocks/alert',
 	array(
-		'render_callback' => 'bootstrap_blocks_alert_render_callback',
+		'render_callback' => 'wp_bootstrap_blocks_alert_render_callback',
 	)
 );
