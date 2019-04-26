@@ -32,7 +32,7 @@ if ( array_key_exists( 'style', $attributes ) && ! empty( $attributes['style'] )
 }
 
 $classes = apply_filters( 'wp_bootstrap_blocks_button_wrapper_classes', $classes, $attributes );
-$btn_classes = apply_filters( 'wp_bootstrap_blocks_classes', $btn_classes, $attributes );
+$btn_classes = apply_filters( 'wp_bootstrap_blocks_button_classes', $btn_classes, $attributes );
 ?>
 <div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 	<a href="<?php echo esc_url( $attributes['url'] ); ?>" class="<?php echo esc_attr( implode( ' ', $btn_classes ) ); ?>">
