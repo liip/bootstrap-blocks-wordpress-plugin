@@ -3,9 +3,10 @@
  */
 const { __ } = wp.i18n;
 const { InnerBlocks, InspectorControls } = wp.editor;
-const { PanelBody, RangeControl } = wp.components;
+const { CheckboxControl, ColorPalette, PanelBody, RangeControl, SelectControl } = wp.components;
 const { Component, Fragment } = wp.element;
 const { compose } = wp.compose;
+const { applyFilters } = wp.hooks;
 
 /**
  * Internal dependencies
@@ -28,17 +29,48 @@ const ColumnSizeRangeControl = ( { label, attributeName, value, setAttributes } 
 	);
 };
 
+let bgColors = [
+	{ name: 'primary', color: '#007bff' },
+	{ name: 'secondary', color: '#6c757d' },
+	{ name: 'white', color: '#fff' },
+	/* $theme-colors: map-merge(
+  (
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "success":    $success,
+    "info":       $info,
+    "warning":    $warning,
+    "danger":     $danger,
+    "light":      $light,
+    "dark":       $dark
+  ),
+  $theme-colors
+);
+*/
+];
+
+bgColors = applyFilters( 'wpBootstrapBlocks.columns.bgColors', bgColors );
+
+let columnPadding = [
+	{ label: __( 'None', 'wp-bootstrap-blocks' ), value: '0' },
+	{ label: __( 'Gutter', 'wp-bootstrap-blocks' ), value: 'gutter' },
+	{ label: __( 'Medium', 'wp-bootstrap-blocks' ), value: '3' },
+	{ label: __( 'Large', 'wp-bootstrap-blocks' ), value: '5' },
+];
+
+columnPadding = applyFilters( 'wpBootstrapBlocks.columns.columnPadding', columnPadding );
+
 class BootstrapColumnEdit extends Component {
 	render() {
 		const { attributes, className, setAttributes } = this.props;
-		const { sizeXl, sizeLg, sizeMd, sizeSm, sizeXs } = attributes;
+		const { sizeXl, sizeLg, sizeMd, sizeSm, sizeXs, bgColor, padding, centerInStretch } = attributes;
 
 		return (
 			<Fragment>
 				<InspectorControls>
 					<PanelBody
 						title={ __( 'Column size', 'wp-bootstrap-blocks' ) }
-						initialOpen={ true }
+						initialOpen={ false }
 					>
 						<ColumnSizeRangeControl
 							label={ __( 'Xl Columns', 'wp-bootstrap-blocks' ) }
@@ -69,6 +101,42 @@ class BootstrapColumnEdit extends Component {
 							attributeName="sizeXs"
 							value={ sizeXs }
 							setAttributes={ setAttributes }
+						/>
+					</PanelBody>
+					<PanelBody
+						title={ __( 'Background color', 'wp-bootstrap-blocks' ) }
+						initialOpen={ false }>
+						<ColorPalette
+							colors={ bgColors }
+							value={ bgColor }
+							onChange={ ( value ) => {
+								const colorPair = bgColors.filter( color => color.color === value )[ 0 ];
+								if ( colorPair ) {
+									setAttributes( {
+										bgColor: colorPair.name,
+									} );
+								}
+							} }
+							disableCustomColors
+						/>
+						<CheckboxControl
+							label={ __( 'Centered in Stretch Row', 'wp-bootstrap-blocks' ) }
+							checked={ centerInStretch }
+							onChange={ ( isChecked ) => setAttributes( { centerInStretch: isChecked } ) }
+						/>
+					</PanelBody>
+					<PanelBody
+						title={ __( 'Padding', 'wp-bootstrap-blocks' ) }
+						initialOpen={ false }>
+						<SelectControl
+							label={ __( 'Size', 'wp-bootstrap-blocks' ) }
+							value={ padding }
+							options={ columnPadding }
+							onChange={ ( value ) => {
+								setAttributes( {
+									padding: value,
+								} );
+							} }
 						/>
 					</PanelBody>
 				</InspectorControls>

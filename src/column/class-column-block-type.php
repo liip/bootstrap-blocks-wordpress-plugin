@@ -50,6 +50,18 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Column\Column_Block_Type', false ) ) 
 			'bgColor' => array(
 				'type' => 'string',
 			),
+			'padding' => array(
+				'type' => 'string',
+			),
+			'centerInStretch' => array(
+				'type' => 'boolean',
+			),
+			'parentNoGutters' => array(
+				'type' => 'boolean',
+			),
+			'parentVerticalAlignment' => array(
+				'type' => 'string',
+			),
 		);
 
 		/**
@@ -64,6 +76,10 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Column\Column_Block_Type', false ) ) 
 			'sizeSm' => 0,
 			'sizeXs' => 12,
 			'bgColor' => '',
+			'padding' => 'gutter',
+			'centerInStretch' => false,
+			'parentNoGutters' => false,
+			'parentVerticalAlignment' => '',
 		);
 	}
 

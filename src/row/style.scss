@@ -9,4 +9,9 @@
 		margin-left: 0;
 		margin-right: 0;
 	}
+
+	> .row :not(.no-gutters) > div {
+		padding-left: 15px !important;
+		padding-right: 15px !important;
+	}
 }

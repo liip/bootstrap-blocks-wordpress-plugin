@@ -22,7 +22,7 @@ registerBlockType( 'wp-bootstrap-blocks/column', {
 	// attributes are defined server side with register_block_type(). This is needed to make default attributes available in the blocks render callback.
 
 	getEditWrapperProps( attributes ) {
-		const { sizeXl, sizeLg, sizeMd, sizeSm, sizeXs } = attributes;
+		const { sizeXl, sizeLg, sizeMd, sizeSm, sizeXs, bgColor, padding, centerInStretch, parentNoGutters, parentVerticalAlignment } = attributes;
 
 		return {
 			'data-size-xs': sizeXs,
@@ -30,6 +30,11 @@ registerBlockType( 'wp-bootstrap-blocks/column', {
 			'data-size-md': sizeMd,
 			'data-size-lg': sizeLg,
 			'data-size-xl': sizeXl,
+			'data-bg-color': bgColor,
+			'data-padding': padding,
+			'data-center-in-stretch': centerInStretch,
+			'data-parent-no-gutters': parentNoGutters,
+			'data-parent-vertical-alignment': parentVerticalAlignment,
 		};
 	},
 

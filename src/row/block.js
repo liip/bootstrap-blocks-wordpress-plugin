@@ -168,9 +168,27 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 		};
 
 		const onChangeGutters = ( isChecked ) => {
+			// Grab columns of existing block
+			const cols = select( 'core/editor' ).getBlocksByClientId( clientId )[ 0 ].innerBlocks;
+
+			cols.forEach( ( col ) => {
+				dispatch( 'core/editor' ).updateBlockAttributes( col.clientId, { parentNoGutters: isChecked } );
+			} );
+
 			setAttributes( {
 				noGutters: isChecked,
 			} );
+		};
+
+		const onChangeVerticalAlignment = ( newVerticalAlignment ) => {
+			// Grab columns of existing block
+			const cols = select( 'core/editor' ).getBlocksByClientId( clientId )[ 0 ].innerBlocks;
+
+			cols.forEach( ( col ) => {
+				dispatch( 'core/editor' ).updateBlockAttributes( col.clientId, { parentVerticalAlignment: newVerticalAlignment } );
+			} );
+
+			setAttributes( { verticalAlignment: newVerticalAlignment } );
 		};
 
 		const alignmentControls = [
@@ -238,7 +256,7 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 					/>
 					<AlignmentToolbar
 						value={ verticalAlignment }
-						onChange={ ( newVerticalAlignment ) => ( setAttributes( { verticalAlignment: newVerticalAlignment } ) ) }
+						onChange={ ( newVerticalAlignment ) => onChangeVerticalAlignment( newVerticalAlignment ) }
 						alignmentControls={ verticalAlignmentControls }
 					/>
 				</BlockControls>

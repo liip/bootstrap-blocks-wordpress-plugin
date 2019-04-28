@@ -44,8 +44,26 @@ if ( array_key_exists( 'className', $attributes ) ) {
 	$classes = array_merge( $classes, explode( ' ', $attributes['className'] ) );
 }
 
+if ( $attributes['bgColor'] ) {
+	array_push( $classes, 'bg-' . $attributes['bgColor'] );
+}
+
+if ( array_key_exists( 'padding', $attributes ) ) {
+	$attributes['parentNoGutters'] ? $padding_prefix = 'p' : $padding_prefix = 'py';
+
+	array_push( $classes, $padding_prefix . '-' . $attributes['padding'] );
+}
+
 $classes = apply_filters( 'wp_bootstrap_blocks_column_classes', $classes, $attributes );
-?>
+
+if ( $attributes['centerInStretch'] && ! $attributes['parentVerticalAlignment'] ) : ?>
+<div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?> d-flex justify-content-center align-items-center">
+	<div class="last-child-margin-fix">
+		<?php echo $content; // phpcs:ignore ?>
+	</div>
+</div>
+<?php else : ?>
 <div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 	<?php echo $content; // phpcs:ignore ?>
 </div>
+<?php endif; ?>
