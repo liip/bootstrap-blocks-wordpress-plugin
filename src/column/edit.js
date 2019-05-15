@@ -32,21 +32,6 @@ const ColumnSizeRangeControl = ( { label, attributeName, value, setAttributes } 
 let bgColors = [
 	{ name: 'primary', color: '#007bff' },
 	{ name: 'secondary', color: '#6c757d' },
-	{ name: 'white', color: '#fff' },
-	/* $theme-colors: map-merge(
-  (
-    "primary":    $primary,
-    "secondary":  $secondary,
-    "success":    $success,
-    "info":       $info,
-    "warning":    $warning,
-    "danger":     $danger,
-    "light":      $light,
-    "dark":       $dark
-  ),
-  $theme-colors
-);
-*/
 ];
 
 bgColors = applyFilters( 'wpBootstrapBlocks.columns.bgColors', bgColors );
@@ -105,16 +90,24 @@ class BootstrapColumnEdit extends Component {
 					</PanelBody>
 					<PanelBody
 						title={ __( 'Background color', 'wp-bootstrap-blocks' ) }
-						initialOpen={ false }>
+						initialOpen={ false }
+					>
 						<ColorPalette
 							colors={ bgColors }
 							value={ bgColor }
 							onChange={ ( value ) => {
-								const colorPair = bgColors.filter( color => color.color === value )[ 0 ];
-								if ( colorPair ) {
+								// Value is undefined if color gets cleared
+								if ( ! value ) {
 									setAttributes( {
-										bgColor: colorPair.name,
+										bgColor: '',
 									} );
+								} else {
+									const selectedColor = bgColors.find( c => c.color === value )
+									if ( selectedColor ) {
+										setAttributes( {
+											bgColor: selectedColor.name,
+										} );
+									}
 								}
 							} }
 							disableCustomColors
