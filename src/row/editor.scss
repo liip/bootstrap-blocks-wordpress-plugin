@@ -109,4 +109,10 @@
 	&[data-bg-color="secondary"] {
 		background-color: #6c757d;
 	}
+
+	&[data-center-content="true"] {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
 }

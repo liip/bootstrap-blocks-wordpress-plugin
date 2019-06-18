@@ -52,7 +52,8 @@ if ( array_key_exists( 'bgColor', $attributes ) && ! empty( $attributes['bgColor
 
 	if ( array_key_exists( 'centerContent', $attributes ) && $attributes['centerContent'] ) {
 		array_push( $column_content_classes, 'd-flex' );
-		array_push( $column_content_classes, 'align-items-center' );
+		array_push( $column_content_classes, 'flex-column' );
+		array_push( $column_content_classes, 'justify-content-center' );
 	}
 }
 
