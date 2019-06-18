@@ -6,12 +6,12 @@
 import './style.scss';
 import './editor.scss';
 
-import { alignBottom, alignCenter, alignTop } from './icons'
+import { alignBottom, alignCenter, alignTop } from './icons';
 
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
 const { InnerBlocks, InspectorControls, BlockControls, AlignmentToolbar } = wp.editor;
-const { SelectControl, CheckboxControl, PanelBody, Path, SVG } = wp.components;
+const { SelectControl, CheckboxControl, PanelBody } = wp.components;
 const { Fragment } = wp.element;
 const { dispatch, select } = wp.data;
 const { applyFilters } = wp.hooks;
