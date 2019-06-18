@@ -20,6 +20,9 @@
 // Row block
 [data-type="wp-bootstrap-blocks/row"] {
 	// Horizontal alignment
+	&[data-alignment="left"] .wp-block-wp-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
+		justify-content: flex-start;
+	}
 	&[data-alignment="center"] .wp-block-wp-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
 		justify-content: center;
 	}
@@ -28,6 +31,9 @@
 	}
 
 	// Vertical alignment
+	&[data-vertical-alignment="top"] .wp-block-wp-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
+		align-items: start;
+	}
 	&[data-vertical-alignment="center"] .wp-block-wp-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
 		align-items: center;
 	}
