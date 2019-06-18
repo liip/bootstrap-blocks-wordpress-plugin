@@ -6,10 +6,12 @@
 import './style.scss';
 import './editor.scss';
 
+import { alignBottom, alignCenter, alignTop } from './icons';
+
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
 const { InnerBlocks, InspectorControls, BlockControls, AlignmentToolbar } = wp.editor;
-const { SelectControl, CheckboxControl, PanelBody, Path, SVG } = wp.components;
+const { SelectControl, CheckboxControl, PanelBody } = wp.components;
 const { Fragment } = wp.element;
 const { dispatch, select } = wp.data;
 const { applyFilters } = wp.hooks;
@@ -191,46 +193,17 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 
 		const verticalAlignmentControls = [
 			{
-				icon: (
-					<SVG xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
-						<Path d="M51.542,9.5H36.458C34.551,9.5,33,11.051,33,12.958v29.083c0,1.907,1.551,3.458,3.458,3.458h15.083
-							c1.907,0,3.458-1.551,3.458-3.458V12.958C55,11.051,53.449,9.5,51.542,9.5z M53,13.5v6v6v6v6v4.542
-							c0,0.804-0.654,1.458-1.458,1.458H36.458C35.654,43.5,35,42.846,35,42.042V12.958c0-0.804,0.654-1.458,1.458-1.458h15.083
-							c0.804,0,1.458,0.654,1.458,1.458V13.5z" />
-						<Path d="M23.542,9.5H8.458C6.551,9.5,5,11.051,5,12.958v39.083C5,53.949,6.551,55.5,8.458,55.5h15.083
-							c1.907,0,3.458-1.551,3.458-3.458V12.958C27,11.051,25.449,9.5,23.542,9.5z" />
-						<Path d="M59,4.5H1c-0.552,0-1,0.448-1,1s0.448,1,1,1h58c0.552,0,1-0.448,1-1S59.552,4.5,59,4.5z" />
-					</SVG>
-				),
+				icon: alignTop,
 				title: __( 'Align columns top', 'wp-bootstrap-blocks' ),
 				align: 'top',
 			},
 			{
-				icon: (
-					<SVG xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
-						<Path d="M59,29h-4V15.458C55,13.551,53.448,12,51.541,12H36.458C34.551,12,33,13.551,33,15.458V29h-6V10.458
-							C27,8.551,25.449,7,23.542,7H8.458C6.551,7,5,8.551,5,10.458V29H1c-0.552,0-1,0.448-1,1s0.448,1,1,1h4v18.542
-							C5,51.449,6.551,53,8.458,53h15.083C25.449,53,27,51.449,27,49.542V31h6v13.542C33,46.449,34.551,48,36.458,48h15.083
-							C53.449,48,55,46.449,55,44.542V31h4c0.553,0,1-0.448,1-1S59.553,29,59,29z M53,34v6v4.542C53,45.346,52.346,46,51.542,46H36.458
-							C35.654,46,35,45.346,35,44.542V15.458C35,14.654,35.654,14,36.458,14h15.083C52.346,14,53,14.654,53,15.458V16v6v6V34z" />
-					</SVG>
-				),
+				icon: alignCenter,
 				title: __( 'Align columns center', 'wp-bootstrap-blocks' ),
 				align: 'center',
 			},
 			{
-				icon: (
-					<SVG xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
-						<Path d="M36.458,50.5L36.458,50.5h15.083h0.001c1.669,0,3.065-1.188,3.388-2.762C54.976,47.513,55,47.28,55,47.042V17.958
-							c0-1.907-1.551-3.458-3.458-3.458H36.459C34.552,14.5,33,16.051,33,17.958v29.083c0,0.238,0.024,0.471,0.07,0.696
-							C33.393,49.312,34.789,50.5,36.458,50.5z M35,17.958c0-0.804,0.654-1.458,1.459-1.458h15.083c0.804,0,1.458,0.654,1.458,1.458V18.5
-							v6v6v6v6v4.542c0,0.201-0.041,0.393-0.115,0.567c-0.222,0.523-0.741,0.891-1.344,0.891H36.459c-0.604,0-1.122-0.368-1.344-0.891
-							C35.041,47.434,35,47.243,35,47.042V17.958z" />
-						<Path d="M8.458,50.5h15.083c1.907,0,3.459-1.551,3.459-3.458V7.958C27,6.051,25.449,4.5,23.542,4.5H8.459
-							C6.552,4.5,5,6.051,5,7.958v39.083C5,48.949,6.551,50.5,8.458,50.5z" />
-						<Path d="M59,53.5H1c-0.553,0-1,0.448-1,1s0.447,1,1,1h58c0.553,0,1-0.448,1-1S59.553,53.5,59,53.5z" />
-					</SVG>
-				),
+				icon: alignBottom,
 				title: __( 'Align columns bottom', 'wp-bootstrap-blocks' ),
 				align: 'bottom',
 			},
