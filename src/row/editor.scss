@@ -17,6 +17,7 @@
 	}
 }
 
+// Row block
 [data-type="wp-bootstrap-blocks/row"] {
 	// Horizontal alignment
 	&[data-alignment="center"] .wp-block-wp-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
@@ -95,5 +96,17 @@
 				width: 100%;
 			}
 		}
+	}
+}
+
+// Column block
+[data-type="wp-bootstrap-blocks/column"] {
+	background-color: #ffffff;
+
+	&[data-bg-color="primary"] {
+		background-color: #007bff;
+	}
+	&[data-bg-color="secondary"] {
+		background-color: #6c757d;
 	}
 }
