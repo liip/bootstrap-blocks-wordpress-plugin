@@ -53,6 +53,9 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Column\Column_Block_Type', false ) ) 
 			'padding' => array(
 				'type' => 'string',
 			),
+			'centerContent' => array(
+				'type' => 'boolean',
+			),
 		);
 
 		/**
@@ -67,7 +70,8 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Column\Column_Block_Type', false ) ) 
 			'sizeSm' => 0,
 			'sizeXs' => 12,
 			'bgColor' => '',
-			'padding' => 'gutter',
+			'padding' => '',
+			'centerContent' => false,
 		);
 	}
 

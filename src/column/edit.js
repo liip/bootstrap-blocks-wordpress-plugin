@@ -5,13 +5,7 @@ const { __ } = wp.i18n;
 const { InnerBlocks, InspectorControls } = wp.editor;
 const { CheckboxControl, ColorPalette, PanelBody, RangeControl, SelectControl } = wp.components;
 const { Component, Fragment } = wp.element;
-const { compose } = wp.compose;
 const { applyFilters } = wp.hooks;
-
-/**
- * Internal dependencies
- */
-import { withBlockEditContext } from '../block-edit-context';
 
 const ColumnSizeRangeControl = ( { label, attributeName, value, setAttributes } ) => {
 	return (
@@ -37,18 +31,18 @@ let bgColors = [
 bgColors = applyFilters( 'wpBootstrapBlocks.columns.bgColors', bgColors );
 
 let columnPadding = [
-	{ label: __( 'None', 'wp-bootstrap-blocks' ), value: '0' },
-	{ label: __( 'Gutter', 'wp-bootstrap-blocks' ), value: 'gutter' },
-	{ label: __( 'Medium', 'wp-bootstrap-blocks' ), value: '3' },
-	{ label: __( 'Large', 'wp-bootstrap-blocks' ), value: '5' },
+	{ label: __( 'None', 'wp-bootstrap-blocks' ), value: '' },
+	{ label: __( 'Small', 'wp-bootstrap-blocks' ), value: 'p-2' },
+	{ label: __( 'Medium', 'wp-bootstrap-blocks' ), value: 'p-3' },
+	{ label: __( 'Large', 'wp-bootstrap-blocks' ), value: 'p-5' },
 ];
 
 columnPadding = applyFilters( 'wpBootstrapBlocks.columns.columnPadding', columnPadding );
 
-class BootstrapColumnEdit extends Component {
+export default class BootstrapColumnEdit extends Component {
 	render() {
 		const { attributes, className, setAttributes } = this.props;
-		const { sizeXl, sizeLg, sizeMd, sizeSm, sizeXs, bgColor, padding, centerInStretch } = attributes;
+		const { sizeXl, sizeLg, sizeMd, sizeSm, sizeXs, bgColor, padding, centerContent } = attributes;
 
 		return (
 			<Fragment>
@@ -112,14 +106,18 @@ class BootstrapColumnEdit extends Component {
 							} }
 							disableCustomColors
 						/>
-						<CheckboxControl
-							label={ __( 'Centered in Stretch Row', 'wp-bootstrap-blocks' ) }
-							checked={ centerInStretch }
-							onChange={ ( isChecked ) => setAttributes( { centerInStretch: isChecked } ) }
-						/>
+						{ bgColor ?
+							<CheckboxControl
+								label={ __( 'Center content vertically in row', 'wp-bootstrap-blocks' ) }
+								checked={ centerContent }
+								onChange={ ( isChecked ) => setAttributes( { centerContent: isChecked } ) }
+							/>
+							:
+							null
+						}
 					</PanelBody>
 					<PanelBody
-						title={ __( 'Padding', 'wp-bootstrap-blocks' ) }
+						title={ __( 'Padding (inside column)', 'wp-bootstrap-blocks' ) }
 						initialOpen={ false }>
 						<SelectControl
 							label={ __( 'Size', 'wp-bootstrap-blocks' ) }
@@ -140,11 +138,3 @@ class BootstrapColumnEdit extends Component {
 		);
 	}
 }
-
-export default compose(
-	withBlockEditContext( ( { clientId } ) => {
-		return {
-			clientId,
-		};
-	} )
-)( BootstrapColumnEdit );
