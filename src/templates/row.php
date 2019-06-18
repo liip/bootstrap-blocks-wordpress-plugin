@@ -5,7 +5,7 @@
  * This template can be overridden by copying it to theme/wp-bootstrap-blocks/row.php.
  *
  * @package wp-bootstrap-blocks/templates/row
- * @version 1.0.1
+ * @version 1.1.0
  */
 
 /**

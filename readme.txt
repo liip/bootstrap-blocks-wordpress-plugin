@@ -5,7 +5,7 @@ Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.0
 Tested up to: 5.1.1
 Requires PHP: 5.6
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -66,6 +66,11 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 1. Bootstrap Blocks in Gutenberg editor
 
 == Changelog ==
+
+= 1.1.0 =
+
+* [FEATURE] Add possibility to set background color on column block.
+* [IMPROVEMENT] Optimized editor styling of row block.
 
 = 1.0.0 =
 
