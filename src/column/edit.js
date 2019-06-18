@@ -111,6 +111,7 @@ export default class BootstrapColumnEdit extends Component {
 								label={ __( 'Center content vertically in row', 'wp-bootstrap-blocks' ) }
 								checked={ centerContent }
 								onChange={ ( isChecked ) => setAttributes( { centerContent: isChecked } ) }
+								help={ __( 'This setting only applies if there is no vertical alignment set on the parent row block.', 'wp-bootstrap-blocks' ) }
 							/>
 							:
 							null
