@@ -69,7 +69,7 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 = 1.1.0 =
 
-* [FEATURE] Add possibility to set background color on column block.
+* [FEATURE] Added possibility to set background color on column block.
 * [IMPROVEMENT] Optimized editor styling of row block.
 
 = 1.0.0 =
