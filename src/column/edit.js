@@ -96,7 +96,7 @@ export default class BootstrapColumnEdit extends Component {
 										bgColor: '',
 									} );
 								} else {
-									const selectedColor = bgColors.find( c => c.color === value )
+									const selectedColor = bgColors.find( c => c.color === value );
 									if ( selectedColor ) {
 										setAttributes( {
 											bgColor: selectedColor.name,
@@ -112,9 +112,7 @@ export default class BootstrapColumnEdit extends Component {
 								checked={ centerContent }
 								onChange={ ( isChecked ) => setAttributes( { centerContent: isChecked } ) }
 								help={ __( 'This setting only applies if there is no vertical alignment set on the parent row block.', 'wp-bootstrap-blocks' ) }
-							/>
-							:
-							null
+							/> : null
 						}
 					</PanelBody>
 					<PanelBody
