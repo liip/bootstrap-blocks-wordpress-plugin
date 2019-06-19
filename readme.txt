@@ -3,7 +3,7 @@ Contributors: liip, tschortsch
 Donate link: https://liip.ch/
 Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.0
-Tested up to: 5.1.1
+Tested up to: 5.2.2
 Requires PHP: 5.6
 Stable tag: 1.1.0
 License: GPLv2
