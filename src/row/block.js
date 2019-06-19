@@ -150,7 +150,7 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 				value: templateName,
 			} );
 		} );
-		const onChangeTemplate = ( selectedTemplate ) => {
+		const onTemplateChange = ( selectedTemplate ) => {
 			// Grab columns of existing block
 			const cols = select( 'core/editor' ).getBlocksByClientId( clientId )[ 0 ].innerBlocks;
 
@@ -164,12 +164,6 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 
 			setAttributes( {
 				template: selectedTemplate,
-			} );
-		};
-
-		const onChangeGutters = ( isChecked ) => {
-			setAttributes( {
-				noGutters: isChecked,
 			} );
 		};
 
@@ -217,28 +211,26 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 							label={ __( 'Template', 'wp-bootstrap-blocks' ) }
 							value={ template }
 							options={ templateOptions }
-							onChange={ ( selectedTemplate ) => {
-								onChangeTemplate( selectedTemplate );
+							onChange={ selectedTemplate => {
+								onTemplateChange( selectedTemplate );
 							} }
 						/>
 						<CheckboxControl
 							label={ __( 'No Gutters', 'wp-bootstrap-blocks' ) }
 							checked={ noGutters }
-							onChange={ ( isChecked ) => {
-								onChangeGutters( isChecked );
-							} }
+							onChange={ isChecked => setAttributes( { noGutters: isChecked } ) }
 						/>
 					</PanelBody>
 				</InspectorControls>
 				<BlockControls>
 					<AlignmentToolbar
 						value={ alignment }
-						onChange={ ( newAlignment ) => ( setAttributes( { alignment: newAlignment } ) ) }
+						onChange={ newAlignment => setAttributes( { alignment: newAlignment } ) }
 						alignmentControls={ alignmentControls }
 					/>
 					<AlignmentToolbar
 						value={ verticalAlignment }
-						onChange={ ( newVerticalAlignment ) => ( setAttributes( { verticalAlignment: newVerticalAlignment } ) ) }
+						onChange={ newVerticalAlignment => setAttributes( { verticalAlignment: newVerticalAlignment } ) }
 						alignmentControls={ verticalAlignmentControls }
 					/>
 				</BlockControls>

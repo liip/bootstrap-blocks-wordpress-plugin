@@ -5,7 +5,7 @@
  * This template can be overridden by copying it to theme/wp-bootstrap-blocks/column.php.
  *
  * @package wp-bootstrap-blocks/templates/column
- * @version 1.0.0
+ * @version 1.1.0
  */
 
 /**
@@ -23,6 +23,8 @@
  */
 
 $classes = array();
+$column_content_classes = array();
+
 if ( array_key_exists( 'sizeXs', $attributes ) && $attributes['sizeXs'] > 0 ) {
 	array_push( $classes, 'col-' . $attributes['sizeXs'] );
 } else {
@@ -44,8 +46,26 @@ if ( array_key_exists( 'className', $attributes ) ) {
 	$classes = array_merge( $classes, explode( ' ', $attributes['className'] ) );
 }
 
+if ( array_key_exists( 'bgColor', $attributes ) && ! empty( $attributes['bgColor'] ) ) {
+	array_push( $column_content_classes, 'h-100' );
+	array_push( $column_content_classes, 'bg-' . $attributes['bgColor'] );
+
+	if ( array_key_exists( 'centerContent', $attributes ) && $attributes['centerContent'] ) {
+		array_push( $column_content_classes, 'd-flex' );
+		array_push( $column_content_classes, 'flex-column' );
+		array_push( $column_content_classes, 'justify-content-center' );
+	}
+}
+
+if ( array_key_exists( 'padding', $attributes ) ) {
+	array_push( $column_content_classes, $attributes['padding'] );
+}
+
 $classes = apply_filters( 'wp_bootstrap_blocks_column_classes', $classes, $attributes );
 ?>
+
 <div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
-	<?php echo $content; // phpcs:ignore ?>
+	<div class="<?php echo esc_attr( implode( ' ', $column_content_classes ) ); ?>">
+		<?php echo $content; // phpcs:ignore ?>
+	</div>
 </div>

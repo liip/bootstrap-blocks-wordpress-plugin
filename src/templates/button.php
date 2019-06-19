@@ -5,7 +5,7 @@
  * This template can be overridden by copying it to theme/wp-bootstrap-blocks/button.php.
  *
  * @package wp-bootstrap-blocks/templates/button
- * @version 1.0.0
+ * @version 1.1.0
  */
 
 /**

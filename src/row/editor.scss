@@ -6,7 +6,11 @@
 
 		@for $i from 1 through $grid-columns {
 			&[data-size-#{$size}="#{$i}"] {
-				width: percentage(($i / $grid-columns));
+				flex: 0 0 percentage($i / $grid-columns);
+				// Add a `max-width` to ensure content within each column does not blow out
+				// the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+				// do not appear to require this.
+				max-width: percentage($i / $grid-columns);
 			}
 		}
 		&[data-size-#{$size}="0"] {
@@ -17,8 +21,12 @@
 	}
 }
 
+// Row block
 [data-type="wp-bootstrap-blocks/row"] {
 	// Horizontal alignment
+	&[data-alignment="left"] .wp-block-wp-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
+		justify-content: flex-start;
+	}
 	&[data-alignment="center"] .wp-block-wp-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
 		justify-content: center;
 	}
@@ -27,11 +35,24 @@
 	}
 
 	// Vertical alignment
+	&[data-vertical-alignment="top"] .wp-block-wp-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
+		align-items: start;
+	}
 	&[data-vertical-alignment="center"] .wp-block-wp-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
 		align-items: center;
 	}
 	&[data-vertical-alignment="bottom"] .wp-block-wp-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
 		align-items: flex-end;
+	}
+
+	// Row background
+	> .editor-block-list__block-edit::before {
+		background-color: rgba(220, 220, 220, .5);
+	}
+
+	// Selected row background
+	&.editor-block-list__block.is-selected > .editor-block-list__block-edit::before {
+		background-color: rgba(220, 220, 220, .9);
 	}
 
 	/*
@@ -46,30 +67,6 @@
 			}
 		}
 	}
-}
-
-// Only modify background colors if row is not wrapped by another block (InnerBlocks)
-:not(.editor-inner-blocks) > .editor-block-list__layout > [data-type="wp-bootstrap-blocks/row"] {
-	// Row background
-	> .editor-block-list__block-edit::before {
-		background-color: #e9ecef; // bootstrap $gray-200
-	}
-
-	// Selected row background
-	&.editor-block-list__block.is-selected > .editor-block-list__block-edit::before {
-		background-color: #dee2e6; // bootstrap $gray-300
-	}
-
-	[data-type="wp-bootstrap-blocks/column"] {
-		> .editor-block-list__block-edit::before {
-			background-color: #fff;
-		}
-	}
-}
-
-[data-type="wp-bootstrap-blocks/column"] {
-	// Add margin to make rows more easily clickable
-	margin: 3rem 0;
 }
 
 .wp-block-wp-bootstrap-blocks-row {
@@ -95,5 +92,23 @@
 				width: 100%;
 			}
 		}
+	}
+}
+
+// Column block
+[data-type="wp-bootstrap-blocks/column"] {
+	background-color: rgba(255, 255, 255, .7);
+
+	&[data-bg-color="primary"] {
+		background-color: #007bff;
+	}
+	&[data-bg-color="secondary"] {
+		background-color: #6c757d;
+	}
+
+	&[data-center-content="true"] {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 	}
 }

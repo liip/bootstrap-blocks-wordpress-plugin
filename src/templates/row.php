@@ -5,7 +5,7 @@
  * This template can be overridden by copying it to theme/wp-bootstrap-blocks/row.php.
  *
  * @package wp-bootstrap-blocks/templates/row
- * @version 1.0.0
+ * @version 1.1.0
  */
 
 /**
@@ -35,6 +35,9 @@ if ( array_key_exists( 'noGutters', $attributes ) && $attributes['noGutters'] ) 
 	array_push( $row_classes, 'no-gutters' );
 }
 if ( array_key_exists( 'alignment', $attributes ) ) {
+	if ( 'left' === $attributes['alignment'] ) {
+		array_push( $row_classes, 'justify-content-start' );
+	}
 	if ( 'center' === $attributes['alignment'] ) {
 		array_push( $row_classes, 'justify-content-center' );
 	}
@@ -43,6 +46,9 @@ if ( array_key_exists( 'alignment', $attributes ) ) {
 	}
 }
 if ( array_key_exists( 'verticalAlignment', $attributes ) ) {
+	if ( 'top' === $attributes['verticalAlignment'] ) {
+		array_push( $row_classes, 'align-items-start' );
+	}
 	if ( 'center' === $attributes['verticalAlignment'] ) {
 		array_push( $row_classes, 'align-items-center' );
 	}

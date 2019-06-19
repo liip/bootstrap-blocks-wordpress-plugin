@@ -244,6 +244,45 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.row.enableCustomTemplate', 'myplugin/wp-b
 
 * `enableCustomTemplate` (boolean) Return true if custom row template should be enabled.
 
+### wpBootstrapBlocks.column.bgColors
+
+Modify available background colors for column block.
+
+#### Usage:
+
+```javascript
+function myColumnBgColorOptions( bgColorOptions ) {
+    bgColorOptions.push({
+        name: 'brand',
+        color: '#6EA644',
+    });
+    return bgColorOptions;
+}
+wp.hooks.addFilter( 'wpBootstrapBlocks.column.bgColorOptions', 'myplugin/wp-bootstrap-blocks/column/bgColorOptions', myColumnBgColorOptions );
+```
+
+#### Parameters:
+
+* `bgColorOptions` (array) Array of available background colors. Each element should be an object containing the `name` of the color and the `color` itself (see: https://github.com/WordPress/gutenberg/tree/master/packages/components/src/color-palette).
+
+### wpBootstrapBlocks.column.paddingOptions
+
+Modify available padding options for column block.
+
+#### Usage:
+
+```javascript
+function myColumnPaddingOptions( paddingOptions ) {
+    paddingOptions.push( { label: 'Huge', value: 'p-8' } );
+    return paddingOptions;
+}
+wp.hooks.addFilter( 'wpBootstrapBlocks.column.paddingOptions', 'myplugin/wp-bootstrap-blocks/column/paddingOptions', myColumnPaddingOptions );
+```
+
+#### Parameters:
+
+* `paddingOptions` (array) Array of padding options.
+
 ## Developer information
 
 ### Installation
