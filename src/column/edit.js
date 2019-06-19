@@ -23,21 +23,21 @@ const ColumnSizeRangeControl = ( { label, attributeName, value, setAttributes } 
 	);
 };
 
-let bgColors = [
+let bgColorOptions = [
 	{ name: 'primary', color: '#007bff' },
 	{ name: 'secondary', color: '#6c757d' },
 ];
 
-bgColors = applyFilters( 'wpBootstrapBlocks.columns.bgColors', bgColors );
+bgColorOptions = applyFilters( 'wpBootstrapBlocks.column.bgColorOptions', bgColorOptions );
 
-let columnPadding = [
+let paddingOptions = [
 	{ label: __( 'None', 'wp-bootstrap-blocks' ), value: '' },
 	{ label: __( 'Small', 'wp-bootstrap-blocks' ), value: 'p-2' },
 	{ label: __( 'Medium', 'wp-bootstrap-blocks' ), value: 'p-3' },
 	{ label: __( 'Large', 'wp-bootstrap-blocks' ), value: 'p-5' },
 ];
 
-columnPadding = applyFilters( 'wpBootstrapBlocks.columns.columnPadding', columnPadding );
+paddingOptions = applyFilters( 'wpBootstrapBlocks.column.paddingOptions', paddingOptions );
 
 export default class BootstrapColumnEdit extends Component {
 	render() {
@@ -87,7 +87,7 @@ export default class BootstrapColumnEdit extends Component {
 						initialOpen={ false }
 					>
 						<ColorPalette
-							colors={ bgColors }
+							colors={ bgColorOptions }
 							value={ bgColor }
 							onChange={ ( value ) => {
 								// Value is undefined if color gets cleared
@@ -96,7 +96,7 @@ export default class BootstrapColumnEdit extends Component {
 										bgColor: '',
 									} );
 								} else {
-									const selectedColor = bgColors.find( c => c.color === value );
+									const selectedColor = bgColorOptions.find( c => c.color === value );
 									if ( selectedColor ) {
 										setAttributes( {
 											bgColor: selectedColor.name,
@@ -121,7 +121,7 @@ export default class BootstrapColumnEdit extends Component {
 						<SelectControl
 							label={ __( 'Size', 'wp-bootstrap-blocks' ) }
 							value={ padding }
-							options={ columnPadding }
+							options={ paddingOptions }
 							onChange={ ( value ) => {
 								setAttributes( {
 									padding: value,
