@@ -69,8 +69,8 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 = 1.2.0 =
 
-* [FIX] Fix enqueuing of script and style dependencies
 * [FEATURE] Added new filter `wp_bootstrap_blocks_enqueue_block_assets` to disable enqueuing block assets.
+* [FIX] Fix enqueuing of script and style dependencies.
 
 = 1.1.0 =
 
