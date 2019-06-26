@@ -5,7 +5,7 @@ Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.0
 Tested up to: 5.2.2
 Requires PHP: 5.6
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -66,6 +66,11 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 1. Bootstrap Blocks in Gutenberg editor
 
 == Changelog ==
+
+= 1.2.0 =
+
+* [FIX] Fix enqueuing of script and style dependencies
+* [FEATURE] Added new filter `wp_bootstrap_blocks_enqueue_block_assets` to disable enqueuing block assets.
 
 = 1.1.0 =
 

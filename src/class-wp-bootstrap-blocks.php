@@ -33,7 +33,7 @@ class WP_Bootstrap_Blocks {
 	 *
 	 * @var string
 	 */
-	public $version = '1.1.0';
+	public $version = '1.2.0';
 
 	/**
 	 * The plugin token.
@@ -122,11 +122,16 @@ class WP_Bootstrap_Blocks {
 	 * Load frontend block assets.
 	 */
 	public function enqueue_block_assets() {
+		$enqueue_block_assets = apply_filters( 'wp_bootstrap_blocks_enqueue_block_assets', true );
+		if ( ! $enqueue_block_assets ) {
+			return;
+		}
+
 		// Styles.
 		wp_enqueue_style(
 			$this->token . '-styles', // Handle.
 			esc_url( $this->assets_url ) . 'blocks.style.build.css', // Block style CSS.
-			array( 'wp-editor' ), // Dependency to include the CSS after it.
+			array(),
 			$this->version
 		);
 	}
@@ -139,7 +144,15 @@ class WP_Bootstrap_Blocks {
 		wp_enqueue_script(
 			$this->token . '-js', // Handle.
 			esc_url( $this->assets_url ) . 'blocks.build.js', // block.build.js: We register the block here. Built with Webpack.
-			array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ), // Dependencies, defined above.
+			array(
+				'wp-blocks',
+				'wp-i18n',
+				'wp-element',
+				'wp-editor',
+				'wp-components',
+				'wp-data',
+				'wp-hooks',
+			),
 			$this->version,
 			true // Enqueue the script in the footer.
 		);

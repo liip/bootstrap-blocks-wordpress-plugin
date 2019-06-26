@@ -138,6 +138,25 @@ function my_row_default_attributes( $default_attributes ) {
 }
 ```
 
+### wp_bootstrap_blocks_enqueue_block_assets
+
+Possibility to disable enqueuing block assets.
+
+#### Parameters:
+
+* `$enqueue_block_assets` (boolean) Defines if block assets should be enqueued.
+
+#### Usage:
+
+```php
+add_filter( 'wp_bootstrap_blocks_enqueue_block_assets', 'disable_enqueue_block_assets', 10, 1 );
+
+function disable_enqueue_block_assets( $enqueue_block_assets ) {
+    // Disable enqueuing block assets
+    return false;
+}
+```
+
 ## JavaScript Filters
 
 ### wpBootstrapBlocks.button.styleOptions
