@@ -144,7 +144,15 @@ class WP_Bootstrap_Blocks {
 		wp_enqueue_script(
 			$this->token . '-js', // Handle.
 			esc_url( $this->assets_url ) . 'blocks.build.js', // block.build.js: We register the block here. Built with Webpack.
-			array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ), // Dependencies, defined above.
+			array(
+				'wp-blocks',
+				'wp-i18n',
+				'wp-element',
+				'wp-editor',
+				'wp-components',
+				'wp-data',
+				'wp-hooks',
+			),
 			$this->version,
 			true // Enqueue the script in the footer.
 		);
