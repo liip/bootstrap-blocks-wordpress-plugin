@@ -122,11 +122,16 @@ class WP_Bootstrap_Blocks {
 	 * Load frontend block assets.
 	 */
 	public function enqueue_block_assets() {
+		$enqueue_block_assets = apply_filters( 'wp_bootstrap_blocks_enqueue_block_assets', true );
+		if ( ! $enqueue_block_assets ) {
+			return;
+		}
+
 		// Styles.
 		wp_enqueue_style(
 			$this->token . '-styles', // Handle.
 			esc_url( $this->assets_url ) . 'blocks.style.build.css', // Block style CSS.
-			array( 'wp-editor' ), // Dependency to include the CSS after it.
+			array(),
 			$this->version
 		);
 	}
