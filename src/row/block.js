@@ -24,7 +24,6 @@ const ALLOWED_BLOCKS = [ 'wp-bootstrap-blocks/column' ];
 let templates = [
 	{
 		title: __( '2 Columns (1:1)', 'wp-bootstrap-blocks' ),
-		templateLock: 'all',
 		icon: <SVG width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><Path fillRule="evenodd" clipRule="evenodd" d="M39 12C40.1046 12 41 12.8954 41 14V34C41 35.1046 40.1046 36 39 36H9C7.89543 36 7 35.1046 7 34V14C7 12.8954 7.89543 12 9 12H39ZM39 34V14H25V34H39ZM23 34H9V14H23V34Z" /></SVG>,
 		template: [
 			[
@@ -43,7 +42,6 @@ let templates = [
 	},
 	{
 		title: __( '2 Columns (1:2)', 'wp-bootstrap-blocks' ),
-		templateLock: 'all',
 		icon: <SVG width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><Path fillRule="evenodd" clipRule="evenodd" d="M39 12C40.1046 12 41 12.8954 41 14V34C41 35.1046 40.1046 36 39 36H9C7.89543 36 7 35.1046 7 34V14C7 12.8954 7.89543 12 9 12H39ZM39 34V14H20V34H39ZM18 34H9V14H18V34Z" /></SVG>,
 		template: [
 			[
@@ -62,7 +60,6 @@ let templates = [
 	},
 	{
 		title: __( '2 Columns (2:1)', 'wp-bootstrap-blocks' ),
-		templateLock: 'all',
 		icon: <SVG width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><Path fillRule="evenodd" clipRule="evenodd" d="M39 12C40.1046 12 41 12.8954 41 14V34C41 35.1046 40.1046 36 39 36H9C7.89543 36 7 35.1046 7 34V14C7 12.8954 7.89543 12 9 12H39ZM39 34V14H30V34H39ZM28 34H9V14H28V34Z" /></SVG>,
 		template: [
 			[
@@ -81,7 +78,6 @@ let templates = [
 	},
 	{
 		title: __( '3 Columns (1:1:1)', 'wp-bootstrap-blocks' ),
-		templateLock: 'all',
 		icon: <SVG width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><Path fillRule="evenodd" d="M41 14a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h30a2 2 0 0 0 2-2V14zM28.5 34h-9V14h9v20zm2 0V14H39v20h-8.5zm-13 0H9V14h8.5v20z" /></SVG>,
 		template: [
 			[
@@ -107,25 +103,13 @@ let templates = [
 ];
 templates = applyFilters( 'wpBootstrapBlocks.row.templates', templates );
 
-const enableCustomTemplate = applyFilters( 'wpBootstrapBlocks.row.enableCustomTemplate', true );
-if ( enableCustomTemplate ) {
-	templates.custom = {
-		title: __( 'Custom', 'wp-bootstrap-blocks' ),
-		templateLock: false,
-		template: [
-			[ 'wp-bootstrap-blocks/column' ],
-		],
-	};
-}
+const templateLock = applyFilters( 'wpBootstrapBlocks.row.templateLock', false );
 
 const getColumnsTemplate = ( columns ) => {
 	if ( columns === undefined ) {
 		return null;
 	}
 	return times( columns, () => [ 'wp-bootstrap-blocks/column' ] );
-};
-const getColumnsTemplateLock = ( template ) => {
-	return templates[ template ] ? templates[ template ].templateLock : false;
 };
 
 registerBlockType( 'wp-bootstrap-blocks/row', {
@@ -166,23 +150,27 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 		const showTemplateSelector = ( count === 0 && ! forceUseTemplate ) || ! template;
 
 		const templateOptions = [];
-		Object.keys( templates ).forEach( ( templateName ) => {
+		templates.forEach( ( template, i ) => {
 			templateOptions.push( {
-				label: templates[ templateName ].title,
-				value: templateName,
+				label: template.title,
+				value: i,
 			} );
 		} );
-		const onTemplateChange = ( selectedTemplate ) => {
-			// Grab columns of existing block
-			const cols = select( 'core/editor' ).getBlocksByClientId( clientId )[ 0 ].innerBlocks;
+		const onTemplateChange = ( templateIndex ) => {
+			if ( templates[ templateIndex ] ) {
+				// Grab columns of existing block
+				const cols = select( 'core/editor' ).getBlocksByClientId( clientId )[ 0 ].innerBlocks;
 
-			// Update sizes to fit with selected template
-			cols.forEach( ( col, index ) => {
-				if ( templates[ selectedTemplate ] && templates[ selectedTemplate ].template.length > index ) {
-					const newAttributes = templates[ selectedTemplate ].template[ index ][ 1 ];
-					dispatch( 'core/editor' ).updateBlockAttributes( col.clientId, newAttributes );
-				}
-			} );
+				// Update sizes to fit with selected template
+				cols.forEach( ( col, index ) => {
+					if ( templates[ templateIndex ].template.length > index ) {
+						const newAttributes = templates[ templateIndex ].template[ index ][ 1 ];
+						dispatch( 'core/editor' ).updateBlockAttributes( col.clientId, newAttributes );
+					}
+				} );
+
+				setTemplate( templates[ templateIndex ].template );
+			}
 		};
 
 		const alignmentControls = [
@@ -223,34 +211,38 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 
 		return (
 			<Fragment>
-				<InspectorControls>
-					<PanelBody>
-						<SelectControl
-							label={ __( 'Template', 'wp-bootstrap-blocks' ) }
-							options={ templateOptions }
-							onChange={ selectedTemplate => {
-								onTemplateChange( selectedTemplate );
-							} }
-						/>
-						<CheckboxControl
-							label={ __( 'No Gutters', 'wp-bootstrap-blocks' ) }
-							checked={ noGutters }
-							onChange={ isChecked => setAttributes( { noGutters: isChecked } ) }
-						/>
-					</PanelBody>
-				</InspectorControls>
-				<BlockControls>
-					<AlignmentToolbar
-						value={ alignment }
-						onChange={ newAlignment => setAttributes( { alignment: newAlignment } ) }
-						alignmentControls={ alignmentControls }
-					/>
-					<AlignmentToolbar
-						value={ verticalAlignment }
-						onChange={ newVerticalAlignment => setAttributes( { verticalAlignment: newVerticalAlignment } ) }
-						alignmentControls={ verticalAlignmentControls }
-					/>
-				</BlockControls>
+				{ ! showTemplateSelector && (
+					<Fragment>
+						<InspectorControls>
+							<PanelBody>
+								<SelectControl
+									label={ __( 'Template', 'wp-bootstrap-blocks' ) }
+									options={ templateOptions }
+									onChange={ selectedTemplate => {
+										onTemplateChange( selectedTemplate );
+									} }
+								/>
+								<CheckboxControl
+									label={ __( 'No Gutters', 'wp-bootstrap-blocks' ) }
+									checked={ noGutters }
+									onChange={ isChecked => setAttributes( { noGutters: isChecked } ) }
+								/>
+							</PanelBody>
+						</InspectorControls>
+						<BlockControls>
+							<AlignmentToolbar
+								value={ alignment }
+								onChange={ newAlignment => setAttributes( { alignment: newAlignment } ) }
+								alignmentControls={ alignmentControls }
+							/>
+							<AlignmentToolbar
+								value={ verticalAlignment }
+								onChange={ newVerticalAlignment => setAttributes( { verticalAlignment: newVerticalAlignment } ) }
+								alignmentControls={ verticalAlignmentControls }
+							/>
+						</BlockControls>
+					</Fragment>
+				) }
 				<div className={ className }>
 					<InnerBlocks
 						allowedBlocks={ ALLOWED_BLOCKS }
@@ -265,7 +257,7 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 							setForceUseTemplate( true );
 						} }
 						__experimentalAllowTemplateOptionSkip
-						templateLock="all"
+						templateLock={ templateLock }
 					/>
 				</div>
 			</Fragment>
