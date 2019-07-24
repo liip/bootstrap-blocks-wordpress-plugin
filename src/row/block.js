@@ -103,14 +103,22 @@ let templates = [
 ];
 templates = applyFilters( 'wpBootstrapBlocks.row.templates', templates );
 
-const templateLock = applyFilters( 'wpBootstrapBlocks.row.templateLock', false );
-
-const getColumnsTemplate = ( columns ) => {
-	if ( columns === undefined ) {
+const getColumnsTemplate = ( columnCount ) => {
+	if ( columnCount === undefined ) {
 		return null;
 	}
-	return times( columns, () => [ 'wp-bootstrap-blocks/column' ] );
+	return times( columnCount, () => [
+		'wp-bootstrap-blocks/column',
+		{
+			sizeMd: columnCount ? 12 / columnCount : 12,
+		},
+	] );
 };
+
+const enableCustomTemplate = applyFilters( 'wpBootstrapBlocks.row.enableCustomTemplate', true );
+const customTemplateColumnCount = applyFilters( 'wpBootstrapBlocks.row.customTemplateColumnCount', 2 );
+
+const getColumnsTemplateLock = isCustomTemplate => isCustomTemplate ? false : "all";
 
 registerBlockType( 'wp-bootstrap-blocks/row', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
@@ -137,7 +145,7 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 	},
 
 	edit( { className, attributes, setAttributes, clientId } ) {
-		const { noGutters, alignment, verticalAlignment } = attributes;
+		const { isCustomTemplate, noGutters, alignment, verticalAlignment } = attributes;
 
 		const { count } = useSelect( ( select ) => {
 			return {
@@ -250,14 +258,17 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 						__experimentalTemplateOptions={ templates }
 						__experimentalOnSelectTemplateOption={ ( nextTemplate ) => {
 							if ( nextTemplate === undefined ) {
-								nextTemplate = getColumnsTemplate( 2 );
+								nextTemplate = getColumnsTemplate( customTemplateColumnCount );
+								setAttributes( {
+									isCustomTemplate: true,
+								} );
 							}
 	
 							setTemplate( nextTemplate );
 							setForceUseTemplate( true );
 						} }
-						__experimentalAllowTemplateOptionSkip
-						templateLock={ templateLock }
+						__experimentalAllowTemplateOptionSkip={ enableCustomTemplate }
+						templateLock={ getColumnsTemplateLock( isCustomTemplate ) }
 					/>
 				</div>
 			</Fragment>
