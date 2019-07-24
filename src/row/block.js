@@ -6,22 +6,27 @@
 import './style.scss';
 import './editor.scss';
 
+import { times } from 'lodash';
 import { alignBottom, alignCenter, alignTop } from './icons';
+import { useState } from '@wordpress/element';
+import { useSelect } from '@wordpress/data';
 
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
 const { InnerBlocks, InspectorControls, BlockControls, AlignmentToolbar } = wp.editor;
-const { SelectControl, CheckboxControl, PanelBody } = wp.components;
+const { SelectControl, CheckboxControl, PanelBody, SVG, Path } = wp.components;
 const { Fragment } = wp.element;
 const { dispatch, select } = wp.data;
 const { applyFilters } = wp.hooks;
 
 const ALLOWED_BLOCKS = [ 'wp-bootstrap-blocks/column' ];
-let templates = {
-	'1-1': {
-		label: __( '2 Columns (1:1)', 'wp-bootstrap-blocks' ),
+
+let templates = [
+	{
+		title: __( '2 Columns (1:1)', 'wp-bootstrap-blocks' ),
 		templateLock: 'all',
-		blocks: [
+		icon: <SVG width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><Path fillRule="evenodd" clipRule="evenodd" d="M39 12C40.1046 12 41 12.8954 41 14V34C41 35.1046 40.1046 36 39 36H9C7.89543 36 7 35.1046 7 34V14C7 12.8954 7.89543 12 9 12H39ZM39 34V14H25V34H39ZM23 34H9V14H23V34Z" /></SVG>,
+		template: [
 			[
 				'wp-bootstrap-blocks/column',
 				{
@@ -36,10 +41,11 @@ let templates = {
 			],
 		],
 	},
-	'1-2': {
-		label: __( '2 Columns (1:2)', 'wp-bootstrap-blocks' ),
+	{
+		title: __( '2 Columns (1:2)', 'wp-bootstrap-blocks' ),
 		templateLock: 'all',
-		blocks: [
+		icon: <SVG width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><Path fillRule="evenodd" clipRule="evenodd" d="M39 12C40.1046 12 41 12.8954 41 14V34C41 35.1046 40.1046 36 39 36H9C7.89543 36 7 35.1046 7 34V14C7 12.8954 7.89543 12 9 12H39ZM39 34V14H20V34H39ZM18 34H9V14H18V34Z" /></SVG>,
+		template: [
 			[
 				'wp-bootstrap-blocks/column',
 				{
@@ -54,10 +60,11 @@ let templates = {
 			],
 		],
 	},
-	'2-1': {
-		label: __( '2 Columns (2:1)', 'wp-bootstrap-blocks' ),
+	{
+		title: __( '2 Columns (2:1)', 'wp-bootstrap-blocks' ),
 		templateLock: 'all',
-		blocks: [
+		icon: <SVG width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><Path fillRule="evenodd" clipRule="evenodd" d="M39 12C40.1046 12 41 12.8954 41 14V34C41 35.1046 40.1046 36 39 36H9C7.89543 36 7 35.1046 7 34V14C7 12.8954 7.89543 12 9 12H39ZM39 34V14H30V34H39ZM28 34H9V14H28V34Z" /></SVG>,
+		template: [
 			[
 				'wp-bootstrap-blocks/column',
 				{
@@ -72,10 +79,11 @@ let templates = {
 			],
 		],
 	},
-	'1-1-1': {
-		label: __( '3 Columns (1:1:1)', 'wp-bootstrap-blocks' ),
+	{
+		title: __( '3 Columns (1:1:1)', 'wp-bootstrap-blocks' ),
 		templateLock: 'all',
-		blocks: [
+		icon: <SVG width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><Path fillRule="evenodd" d="M41 14a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h30a2 2 0 0 0 2-2V14zM28.5 34h-9V14h9v20zm2 0V14H39v20h-8.5zm-13 0H9V14h8.5v20z" /></SVG>,
+		template: [
 			[
 				'wp-bootstrap-blocks/column',
 				{
@@ -96,22 +104,25 @@ let templates = {
 			],
 		],
 	},
-};
+];
 templates = applyFilters( 'wpBootstrapBlocks.row.templates', templates );
 
 const enableCustomTemplate = applyFilters( 'wpBootstrapBlocks.row.enableCustomTemplate', true );
 if ( enableCustomTemplate ) {
 	templates.custom = {
-		label: __( 'Custom', 'wp-bootstrap-blocks' ),
+		title: __( 'Custom', 'wp-bootstrap-blocks' ),
 		templateLock: false,
-		blocks: [
+		template: [
 			[ 'wp-bootstrap-blocks/column' ],
 		],
 	};
 }
 
-const getColumnsTemplate = ( template ) => {
-	return templates[ template ] ? templates[ template ].blocks : [];
+const getColumnsTemplate = ( columns ) => {
+	if ( columns === undefined ) {
+		return null;
+	}
+	return times( columns, () => [ 'wp-bootstrap-blocks/column' ] );
 };
 const getColumnsTemplateLock = ( template ) => {
 	return templates[ template ] ? templates[ template ].templateLock : false;
@@ -142,11 +153,22 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 	},
 
 	edit( { className, attributes, setAttributes, clientId } ) {
-		const { template, noGutters, alignment, verticalAlignment } = attributes;
+		const { noGutters, alignment, verticalAlignment } = attributes;
+
+		const { count } = useSelect( ( select ) => {
+			return {
+				count: select( 'core/block-editor' ).getBlockCount( clientId ),
+			};
+		} );
+		const [ template, setTemplate ] = useState( getColumnsTemplate( count ) );
+		const [ forceUseTemplate, setForceUseTemplate ] = useState( false );
+
+		const showTemplateSelector = ( count === 0 && ! forceUseTemplate ) || ! template;
+
 		const templateOptions = [];
 		Object.keys( templates ).forEach( ( templateName ) => {
 			templateOptions.push( {
-				label: templates[ templateName ].label,
+				label: templates[ templateName ].title,
 				value: templateName,
 			} );
 		} );
@@ -156,14 +178,10 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 
 			// Update sizes to fit with selected template
 			cols.forEach( ( col, index ) => {
-				if ( templates[ selectedTemplate ] && templates[ selectedTemplate ].blocks.length > index ) {
-					const newAttributes = templates[ selectedTemplate ].blocks[ index ][ 1 ];
+				if ( templates[ selectedTemplate ] && templates[ selectedTemplate ].template.length > index ) {
+					const newAttributes = templates[ selectedTemplate ].template[ index ][ 1 ];
 					dispatch( 'core/editor' ).updateBlockAttributes( col.clientId, newAttributes );
 				}
-			} );
-
-			setAttributes( {
-				template: selectedTemplate,
 			} );
 		};
 
@@ -209,7 +227,6 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 					<PanelBody>
 						<SelectControl
 							label={ __( 'Template', 'wp-bootstrap-blocks' ) }
-							value={ template }
 							options={ templateOptions }
 							onChange={ selectedTemplate => {
 								onTemplateChange( selectedTemplate );
@@ -237,8 +254,18 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 				<div className={ className }>
 					<InnerBlocks
 						allowedBlocks={ ALLOWED_BLOCKS }
-						template={ getColumnsTemplate( template ) }
-						templateLock={ getColumnsTemplateLock( template ) }
+						template={ showTemplateSelector ? null : template }
+						__experimentalTemplateOptions={ templates }
+						__experimentalOnSelectTemplateOption={ ( nextTemplate ) => {
+							if ( nextTemplate === undefined ) {
+								nextTemplate = getColumnsTemplate( 2 );
+							}
+	
+							setTemplate( nextTemplate );
+							setForceUseTemplate( true );
+						} }
+						__experimentalAllowTemplateOptionSkip
+						templateLock="all"
 					/>
 				</div>
 			</Fragment>
