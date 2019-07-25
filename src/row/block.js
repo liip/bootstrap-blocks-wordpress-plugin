@@ -8,15 +8,13 @@ import './editor.scss';
 
 import times from 'lodash.times';
 import { alignBottom, alignCenter, alignTop } from './icons';
-import { useState } from '@wordpress/element';
-import { useSelect } from '@wordpress/data';
 
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
 const { InnerBlocks, InspectorControls, BlockControls, AlignmentToolbar } = wp.editor;
 const { IconButton, Button, CheckboxControl, PanelBody, SVG, Path } = wp.components;
-const { Fragment } = wp.element;
-const { dispatch, select } = wp.data;
+const { Fragment, useState } = wp.element;
+const { dispatch, select, useSelect } = wp.data;
 const { applyFilters } = wp.hooks;
 
 const ALLOWED_BLOCKS = [ 'wp-bootstrap-blocks/column' ];
@@ -118,7 +116,7 @@ const getColumnsTemplate = ( columnCount ) => {
 const enableCustomTemplate = applyFilters( 'wpBootstrapBlocks.row.enableCustomTemplate', true );
 const customTemplateColumnCount = applyFilters( 'wpBootstrapBlocks.row.customTemplateColumnCount', 2 );
 
-const getColumnsTemplateLock = isCustomTemplate => isCustomTemplate ? false : "all";
+const getColumnsTemplateLock = isCustomTemplate => isCustomTemplate ? false : 'all';
 
 registerBlockType( 'wp-bootstrap-blocks/row', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
@@ -147,6 +145,7 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 	edit( { className, attributes, setAttributes, clientId } ) {
 		const { isCustomTemplate, noGutters, alignment, verticalAlignment } = attributes;
 
+		// eslint-disable-next-line no-shadow
 		const { count } = useSelect( ( select ) => {
 			return {
 				count: select( 'core/block-editor' ).getBlockCount( clientId ),
@@ -222,7 +221,7 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 								title={ __( 'Change layout', 'wp-bootstrap-blocks' ) }
 							>
 								<ul className="wp-bootstrap-blocks-template-selector-list">
-									{ templates.map( ( template, index ) => (
+									{ templates.map( ( template, index ) => ( // eslint-disable-line no-shadow
 										<li className="wp-bootstrap-blocks-template-selector-button" key={ index }>
 											<IconButton
 												label={ template.title }
@@ -235,23 +234,23 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 									) ) }
 								</ul>
 								{ enableCustomTemplate && (
-								<Button
-									isLink
-									onClick={ () => {
-										const customTemplate = getColumnsTemplate( customTemplateColumnCount );
-										setAttributes( {
-											isCustomTemplate: true,
-										} );
-										setTemplate( customTemplate );
-									} }
-								>
-									{ __( 'Or use custom layout' ) }
-								</Button>	
-								)}
+									<Button
+										isLink
+										onClick={ () => {
+											const customTemplate = getColumnsTemplate( customTemplateColumnCount );
+											setAttributes( {
+												isCustomTemplate: true,
+											} );
+											setTemplate( customTemplate );
+										} }
+									>
+										{ __( 'Or use custom layout' ) }
+									</Button>
+								) }
 							</PanelBody>
 							<PanelBody
 								title={ __( 'Row options', 'wp-bootstrap-blocks' ) }
-							>							
+							>
 								<CheckboxControl
 									label={ __( 'No Gutters', 'wp-bootstrap-blocks' ) }
 									checked={ noGutters }
@@ -285,7 +284,7 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 									isCustomTemplate: true,
 								} );
 							}
-	
+
 							setTemplate( nextTemplate );
 							setForceUseTemplate( true );
 						} }
