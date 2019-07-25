@@ -14,7 +14,7 @@ import { useSelect } from '@wordpress/data';
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
 const { InnerBlocks, InspectorControls, BlockControls, AlignmentToolbar } = wp.editor;
-const { SelectControl, CheckboxControl, PanelBody, SVG, Path } = wp.components;
+const { IconButton, Button, CheckboxControl, PanelBody, SVG, Path } = wp.components;
 const { Fragment } = wp.element;
 const { dispatch, select } = wp.data;
 const { applyFilters } = wp.hooks;
@@ -157,13 +157,6 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 
 		const showTemplateSelector = ( count === 0 && ! forceUseTemplate ) || ! template;
 
-		const templateOptions = [];
-		templates.forEach( ( template, i ) => {
-			templateOptions.push( {
-				label: template.title,
-				value: i,
-			} );
-		} );
 		const onTemplateChange = ( templateIndex ) => {
 			if ( templates[ templateIndex ] ) {
 				// Grab columns of existing block
@@ -177,6 +170,9 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 					}
 				} );
 
+				setAttributes( {
+					isCustomTemplate: false,
+				} );
 				setTemplate( templates[ templateIndex ].template );
 			}
 		};
@@ -222,14 +218,40 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 				{ ! showTemplateSelector && (
 					<Fragment>
 						<InspectorControls>
-							<PanelBody>
-								<SelectControl
-									label={ __( 'Template', 'wp-bootstrap-blocks' ) }
-									options={ templateOptions }
-									onChange={ selectedTemplate => {
-										onTemplateChange( selectedTemplate );
+							<PanelBody
+								title={ __( 'Change layout', 'wp-bootstrap-blocks' ) }
+							>
+								<ul className="wp-bootstrap-blocks-template-selector-list">
+									{ templates.map( ( template, index ) => (
+										<li className="wp-bootstrap-blocks-template-selector-button" key={ index }>
+											<IconButton
+												label={ template.title }
+												icon={ template.icon }
+												onClick={ () => {
+													onTemplateChange( index );
+												} }
+											/>
+										</li>
+									) ) }
+								</ul>
+								{ enableCustomTemplate && (
+								<Button
+									isLink
+									onClick={ () => {
+										const customTemplate = getColumnsTemplate( customTemplateColumnCount );
+										setAttributes( {
+											isCustomTemplate: true,
+										} );			
+										setTemplate( customTemplate );
 									} }
-								/>
+								>
+									{ __( 'Or use custom layout' ) }
+								</Button>	
+								)}
+							</PanelBody>
+							<PanelBody
+								title={ __( 'Row options', 'wp-bootstrap-blocks' ) }
+							>							
 								<CheckboxControl
 									label={ __( 'No Gutters', 'wp-bootstrap-blocks' ) }
 									checked={ noGutters }
