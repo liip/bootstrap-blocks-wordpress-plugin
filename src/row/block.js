@@ -6,7 +6,7 @@
 import './style.scss';
 import './editor.scss';
 
-import { times } from 'lodash';
+import times from 'lodash.times';
 import { alignBottom, alignCenter, alignTop } from './icons';
 import { useState } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
@@ -241,7 +241,7 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 										const customTemplate = getColumnsTemplate( customTemplateColumnCount );
 										setAttributes( {
 											isCustomTemplate: true,
-										} );			
+										} );
 										setTemplate( customTemplate );
 									} }
 								>
