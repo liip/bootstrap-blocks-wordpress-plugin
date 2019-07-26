@@ -110,20 +110,20 @@ const getColumnsTemplateLock = isCustomTemplate => isCustomTemplate ? false : 'a
 
 export default class BootstrapRowEdit extends Component {
 	constructor( props ) {
-        super( ...props );
+		super( ...props );
 		const count = select( 'core/block-editor' ).getBlockCount( props.clientId );
 		this.state = {
 			count,
 			template: getColumnsTemplate( count ),
 			forceUseTemplate: false,
-        }
+		};
 	}
 
 	render() {
 		const { className, attributes, setAttributes, clientId } = this.props;
 		const { count, template, forceUseTemplate } = this.state;
 		const { isCustomTemplate, noGutters, alignment, verticalAlignment } = attributes;
-		
+
 		const showTemplateSelector = ( count === 0 && ! forceUseTemplate ) || ! template;
 
 		const onTemplateChange = ( templateIndex ) => {
@@ -142,9 +142,9 @@ export default class BootstrapRowEdit extends Component {
 				setAttributes( {
 					isCustomTemplate: false,
 				} );
-				this.setState({
+				this.setState( {
 					template: templates[ templateIndex ].template,
-				});
+				} );
 			}
 		};
 
@@ -213,7 +213,7 @@ export default class BootstrapRowEdit extends Component {
 											setAttributes( {
 												isCustomTemplate: true,
 											} );
-											this.setState({ template: customTemplate });
+											this.setState( { template: customTemplate } );
 										} }
 									>
 										{ __( 'Or use custom layout' ) }
@@ -257,10 +257,10 @@ export default class BootstrapRowEdit extends Component {
 								} );
 							}
 
-							this.setState({
+							this.setState( {
 								template: nextTemplate,
 								forceUseTemplate: true,
-							});
+							} );
 						} }
 						__experimentalAllowTemplateOptionSkip={ enableCustomTemplate }
 						templateLock={ getColumnsTemplateLock( isCustomTemplate ) }
