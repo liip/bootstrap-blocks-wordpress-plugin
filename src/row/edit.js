@@ -2,11 +2,14 @@ import times from 'lodash.times';
 import { alignBottom, alignCenter, alignTop } from './icons';
 
 const { __ } = wp.i18n; // Import __() from wp.i18n
-const { InnerBlocks, InspectorControls, BlockControls, AlignmentToolbar } = wp.editor;
+const { InnerBlocks, InnerBlocksTemplatePicker, InspectorControls, BlockControls, AlignmentToolbar } = wp.editor;
 const { IconButton, Button, CheckboxControl, PanelBody, SVG, Path } = wp.components;
 const { Component, Fragment } = wp.element;
-const { dispatch, select } = wp.data;
+const { withSelect, withDispatch } = wp.data;
 const { applyFilters } = wp.hooks;
+const { compose } = wp.compose;
+
+const templatePickerAvailable = !!InnerBlocksTemplatePicker;
 
 const ALLOWED_BLOCKS = [ 'wp-bootstrap-blocks/column' ];
 let templates = [
@@ -91,6 +94,9 @@ let templates = [
 ];
 templates = applyFilters( 'wpBootstrapBlocks.row.templates', templates );
 
+const enableCustomTemplate = applyFilters( 'wpBootstrapBlocks.row.enableCustomTemplate', true );
+const customTemplateColumnCount = applyFilters( 'wpBootstrapBlocks.row.customTemplateColumnCount', 2 );
+
 const getColumnsTemplate = ( columnCount ) => {
 	if ( columnCount === undefined ) {
 		return null;
@@ -102,40 +108,41 @@ const getColumnsTemplate = ( columnCount ) => {
 		},
 	] );
 };
-
-const enableCustomTemplate = applyFilters( 'wpBootstrapBlocks.row.enableCustomTemplate', true );
-const customTemplateColumnCount = applyFilters( 'wpBootstrapBlocks.row.customTemplateColumnCount', 2 );
-
+const getDefaultTemplate = () => templates.length > 0 ? templates[0].template : null;
 const getColumnsTemplateLock = isCustomTemplate => isCustomTemplate ? false : 'all';
 
-export default class BootstrapRowEdit extends Component {
+class BootstrapRowEdit extends Component {
 	constructor( props ) {
 		super( ...props );
-		const count = select( 'core/block-editor' ).getBlockCount( props.clientId );
+		let template = null;
+		if ( props.columnCount !== 0 ) {
+			template = getColumnsTemplate( props.columnCount )
+		} else {
+			if ( templatePickerAvailable ) {
+				template = null;
+			} else {
+				template = getDefaultTemplate();
+			}
+		}
 		this.state = {
-			count,
-			template: getColumnsTemplate( count ),
-			forceUseTemplate: false,
+			template,
 		};
 	}
 
 	render() {
-		const { className, attributes, setAttributes, clientId } = this.props;
-		const { count, template, forceUseTemplate } = this.state;
+		const { className, attributes, setAttributes, columns, updateBlockAttributes } = this.props;
+		const { template } = this.state;
 		const { isCustomTemplate, noGutters, alignment, verticalAlignment } = attributes;
 
-		const showTemplateSelector = ( count === 0 && ! forceUseTemplate ) || ! template;
+		const showTemplateSelector = templatePickerAvailable && !template;
 
 		const onTemplateChange = ( templateIndex ) => {
 			if ( templates[ templateIndex ] ) {
-				// Grab columns of existing block
-				const cols = select( 'core/editor' ).getBlocksByClientId( clientId )[ 0 ].innerBlocks;
-
 				// Update sizes to fit with selected template
-				cols.forEach( ( col, index ) => {
+				columns.forEach( ( column, index ) => {
 					if ( templates[ templateIndex ].template.length > index ) {
 						const newAttributes = templates[ templateIndex ].template[ index ][ 1 ];
-						dispatch( 'core/editor' ).updateBlockAttributes( col.clientId, newAttributes );
+						updateBlockAttributes( column.clientId, newAttributes );
 					}
 				} );
 
@@ -245,9 +252,11 @@ export default class BootstrapRowEdit extends Component {
 					</Fragment>
 				) }
 				<div className={ className }>
+					{ getColumnsTemplateLock( isCustomTemplate ) }
 					<InnerBlocks
 						allowedBlocks={ ALLOWED_BLOCKS }
-						template={ showTemplateSelector ? null : template }
+						template={ template }
+						templateLock={ getColumnsTemplateLock( isCustomTemplate ) }
 						__experimentalTemplateOptions={ templates }
 						__experimentalOnSelectTemplateOption={ ( nextTemplate ) => {
 							if ( nextTemplate === undefined ) {
@@ -259,14 +268,36 @@ export default class BootstrapRowEdit extends Component {
 
 							this.setState( {
 								template: nextTemplate,
-								forceUseTemplate: true,
 							} );
 						} }
 						__experimentalAllowTemplateOptionSkip={ enableCustomTemplate }
-						templateLock={ getColumnsTemplateLock( isCustomTemplate ) }
 					/>
 				</div>
 			</Fragment>
 		);
 	}
 }
+
+const applyWithSelect = withSelect( ( select, { clientId } ) => {
+	const { getBlocksByClientId } = select( 'core/editor' );
+
+	const columns = getBlocksByClientId( clientId )[ 0 ].innerBlocks;
+
+	return {
+		columnCount: columns.length,
+		columns,
+	};
+} );
+
+const applyWithDispatch = withDispatch( ( dispatch ) => {
+	const { updateBlockAttributes } = dispatch( 'core/editor' );
+
+	return {
+		updateBlockAttributes,
+	};
+} );
+
+export default compose(
+	applyWithSelect,
+	applyWithDispatch,
+)( BootstrapRowEdit );
