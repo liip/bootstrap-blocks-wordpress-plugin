@@ -9,7 +9,7 @@ const { withSelect, withDispatch } = wp.data;
 const { applyFilters } = wp.hooks;
 const { compose } = wp.compose;
 
-const templatePickerAvailable = !!InnerBlocksTemplatePicker;
+const templatePickerAvailable = !! InnerBlocksTemplatePicker;
 
 const ALLOWED_BLOCKS = [ 'wp-bootstrap-blocks/column' ];
 let templates = [
@@ -108,7 +108,7 @@ const getColumnsTemplate = ( columnCount ) => {
 		},
 	] );
 };
-const getDefaultTemplate = () => templates.length > 0 ? templates[0].template : null;
+const getDefaultTemplate = () => templates.length > 0 ? templates[ 0 ].template : null;
 const getColumnsTemplateLock = isCustomTemplate => isCustomTemplate ? false : 'all';
 
 class BootstrapRowEdit extends Component {
@@ -116,13 +116,11 @@ class BootstrapRowEdit extends Component {
 		super( ...props );
 		let template = null;
 		if ( props.columnCount !== 0 ) {
-			template = getColumnsTemplate( props.columnCount )
+			template = getColumnsTemplate( props.columnCount );
+		} else if ( templatePickerAvailable ) {
+			template = null;
 		} else {
-			if ( templatePickerAvailable ) {
-				template = null;
-			} else {
-				template = getDefaultTemplate();
-			}
+			template = getDefaultTemplate();
 		}
 		this.state = {
 			template,
@@ -134,7 +132,7 @@ class BootstrapRowEdit extends Component {
 		const { template } = this.state;
 		const { isCustomTemplate, noGutters, alignment, verticalAlignment } = attributes;
 
-		const showTemplateSelector = templatePickerAvailable && !template;
+		const showTemplateSelector = templatePickerAvailable && ! template;
 
 		const onTemplateChange = ( templateIndex ) => {
 			if ( templates[ templateIndex ] ) {
@@ -281,7 +279,7 @@ class BootstrapRowEdit extends Component {
 const applyWithSelect = withSelect( ( select, { clientId } ) => {
 	const { getBlocksByClientId } = select( 'core/editor' );
 
-	const columns = getBlocksByClientId( clientId )[ 0 ].innerBlocks;
+	const columns = getBlocksByClientId( clientId )[ 0 ] ? getBlocksByClientId( clientId )[ 0 ].innerBlocks : [];
 
 	return {
 		columnCount: columns.length,
