@@ -250,7 +250,6 @@ class BootstrapRowEdit extends Component {
 					</Fragment>
 				) }
 				<div className={ className }>
-					{ getColumnsTemplateLock( isCustomTemplate ) }
 					<InnerBlocks
 						allowedBlocks={ ALLOWED_BLOCKS }
 						template={ template }
