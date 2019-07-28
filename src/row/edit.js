@@ -144,9 +144,6 @@ class BootstrapRowEdit extends Component {
 					}
 				} );
 
-				setAttributes( {
-					isCustomTemplate: false,
-				} );
 				this.setState( {
 					template: templates[ templateIndex ].template,
 				} );
@@ -204,6 +201,9 @@ class BootstrapRowEdit extends Component {
 												label={ template.title }
 												icon={ template.icon }
 												onClick={ () => {
+													setAttributes( {
+														isCustomTemplate: false,
+													} );
 													onTemplateChange( index );
 												} }
 											/>
@@ -214,11 +214,9 @@ class BootstrapRowEdit extends Component {
 									<Button
 										isLink
 										onClick={ () => {
-											const customTemplate = getColumnsTemplate( customTemplateColumnCount );
 											setAttributes( {
 												isCustomTemplate: true,
 											} );
-											this.setState( { template: customTemplate } );
 										} }
 									>
 										{ __( 'Or use custom layout' ) }
