@@ -1,15 +1,22 @@
+/* global wpBootstrapBlocks */
 import times from 'lodash.times';
 import { alignBottom, alignCenter, alignTop, templateIconMissing } from './icons';
+const semver = require( 'semver' );
 
 const { __ } = wp.i18n;
-const { InnerBlocks, InnerBlocksTemplatePicker, InspectorControls, BlockControls, AlignmentToolbar } = wp.editor;
+const { InnerBlocks, InspectorControls, BlockControls, AlignmentToolbar } = wp.editor;
 const { IconButton, Button, CheckboxControl, PanelBody, SVG, Path } = wp.components;
 const { Component, Fragment } = wp.element;
 const { withSelect, withDispatch } = wp.data;
 const { applyFilters } = wp.hooks;
 const { compose } = wp.compose;
 
-const templatePickerAvailable = !! InnerBlocksTemplatePicker;
+let templatePickerAvailable = false;
+if ( wpBootstrapBlocks.gutenbergVersion ) {
+	templatePickerAvailable = semver.gte( wpBootstrapBlocks.gutenbergVersion, semver.coerce( '6.0' ) );
+} else {
+	templatePickerAvailable = semver.gte( wpBootstrapBlocks.wpVersion, semver.coerce( '6' ) ); // Since this feature is not yet in core we don't know the exact WordPress version.
+}
 
 const ALLOWED_BLOCKS = [ 'wp-bootstrap-blocks/column' ];
 

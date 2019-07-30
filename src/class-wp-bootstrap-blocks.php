@@ -141,7 +141,7 @@ class WP_Bootstrap_Blocks {
 	 */
 	public function enqueue_block_editor_assets() {
 		// Scripts.
-		wp_enqueue_script(
+		wp_register_script(
 			$this->token . '-js', // Handle.
 			esc_url( $this->assets_url ) . 'blocks.build.js', // block.build.js: We register the block here. Built with Webpack.
 			array(
@@ -156,6 +156,18 @@ class WP_Bootstrap_Blocks {
 			$this->version,
 			true // Enqueue the script in the footer.
 		);
+
+		global $wp_version;
+		wp_localize_script(
+			$this->token . '-js',
+			'wpBootstrapBlocks',
+			array(
+				'gutenbergVersion' => defined( 'GUTENBERG_VERSION' ) ? GUTENBERG_VERSION : false,
+				'wpVersion' => $wp_version,
+			)
+		);
+
+		wp_enqueue_script( $this->token . '-js' );
 
 		// Styles.
 		wp_enqueue_style(
