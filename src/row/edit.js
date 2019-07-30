@@ -223,7 +223,9 @@ class BootstrapRowEdit extends Component {
 													} );
 													onTemplateChange( index );
 												} }
-											/>
+											>
+												<div className="wp-bootstrap-blocks-template-selector-button-label">{ template.title }</div>
+											</IconButton>
 										</li>
 									) ) }
 								</ul>

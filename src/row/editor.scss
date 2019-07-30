@@ -101,7 +101,15 @@
 }
 
 .wp-bootstrap-blocks-template-selector-button {
-	width: 25%;
+	flex: 0 0 50%;
+
+	> .components-icon-button {
+		flex-direction: column;
+	}
+}
+
+.wp-bootstrap-blocks-template-selector-button-label {
+	font-size: 12px;
 }
 
 // Column block
