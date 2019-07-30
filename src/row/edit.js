@@ -1,5 +1,5 @@
 import times from 'lodash.times';
-import { alignBottom, alignCenter, alignTop } from './icons';
+import { alignBottom, alignCenter, alignTop, templateIconMissing } from './icons';
 
 const { __ } = wp.i18n;
 const { InnerBlocks, InnerBlocksTemplatePicker, InspectorControls, BlockControls, AlignmentToolbar } = wp.editor;
@@ -18,14 +18,14 @@ const perpareTemplates = templates => {
 	if ( Array.isArray( templates ) ) {
 		return templates;
 	}
-	return Object.keys( templates ).map(templateName => {
+	return Object.keys( templates ).map( templateName => {
 		return {
 			title: templates[ templateName ].title || templates[ templateName ].label,
-			icon: templates[ templateName ].icon,
+			icon: templates[ templateName ].icon || templateIconMissing,
 			template: templates[ templateName ].template || templates[ templateName ].blocks,
 			name: templateName,
-		}
-	});
+		};
+	} );
 };
 
 let templates = {
