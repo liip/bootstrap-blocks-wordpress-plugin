@@ -56,8 +56,16 @@ Changes the default theme directory name (`wp-bootstrap-blocks/`).
 #### Usage:
 
 ```php
-add_filter( 'wp_bootstrap_blocks_template_path', 'block-templates/' );
+add_filter( 'wp_bootstrap_blocks_template_path', 'my_template_path', 10, 1 );
+
+function my_template_path( $template_path ) {
+    return 'block-templates/';
+}
 ```
+
+#### Parameters:
+
+* `$template_path` (string) Template directory name in theme.
 
 ### wp_bootstrap_blocks_get_template
 
