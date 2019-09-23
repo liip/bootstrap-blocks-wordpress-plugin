@@ -44,6 +44,9 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Row\Row_Block_Type', false ) ) :
 			'verticalAlignment' => array(
 				'type' => 'string',
 			),
+			'isCustomTemplate' => array(
+				'type' => 'boolean',
+			),
 		);
 
 		/**

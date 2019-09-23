@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "cgb-scripts": "^1.18.1",
-    "lodash.noop": "^3.0.1"
+    "lodash.noop": "^3.0.1",
+    "lodash.times": "^4.3.2",
+    "semver": "^6.3.0"
   }
 }
