@@ -10,7 +10,7 @@ const { compose } = wp.compose;
 
 const ALLOWED_BLOCKS = [ 'wp-bootstrap-blocks/column' ];
 
-const perpareTemplates = templates => {
+const prepareTemplates = templates => {
 	// If templates are already in new structure do nothing
 	if ( Array.isArray( templates ) ) {
 		return templates;
@@ -115,7 +115,7 @@ let templates = [
 	}
 ];
 templates = applyFilters( 'wpBootstrapBlocks.row.templates', templates );
-templates = perpareTemplates( templates ); // Ensure backwards compatibility to older templates structure
+templates = prepareTemplates( templates ); // Ensure backwards compatibility to older templates structure
 
 const enableCustomTemplate = applyFilters( 'wpBootstrapBlocks.row.enableCustomTemplate', true );
 if ( enableCustomTemplate ) {
