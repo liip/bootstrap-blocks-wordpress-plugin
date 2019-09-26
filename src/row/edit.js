@@ -138,7 +138,7 @@ const getColumnsTemplateLock = ( templateName ) => {
 class BootstrapRowEdit extends Component {
 	render() {
 		const { className, attributes, setAttributes, columns, updateBlockAttributes } = this.props;
-		const { template, noGutters, alignment, verticalAlignment } = attributes;
+		const { template: selectedTemplateName, noGutters, alignment, verticalAlignment } = attributes;
 
 		const onTemplateChange = ( selectedTemplateName ) => {
 			const template = templates.find(t => t.name === selectedTemplateName)
@@ -208,6 +208,7 @@ class BootstrapRowEdit extends Component {
 										onClick={ () => {
 											onTemplateChange( template.name );
 										} }
+										className={ selectedTemplateName === template.name ? 'is-active' : null }
 									>
 										<div className="wp-bootstrap-blocks-template-selector-button-label">{ template.title }</div>
 									</IconButton>
@@ -240,8 +241,8 @@ class BootstrapRowEdit extends Component {
 				<div className={ className }>
 					<InnerBlocks
 						allowedBlocks={ ALLOWED_BLOCKS }
-						template={ getColumnsTemplate( template ) }
-						templateLock={ getColumnsTemplateLock( template ) }
+						template={ getColumnsTemplate( selectedTemplateName ) }
+						templateLock={ getColumnsTemplateLock( selectedTemplateName ) }
 					/>
 				</div>
 			</Fragment>
