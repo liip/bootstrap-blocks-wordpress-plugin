@@ -6,7 +6,7 @@
 import './style.scss';
 import './editor.scss';
 
-import edit from './edit'
+import edit from './edit';
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

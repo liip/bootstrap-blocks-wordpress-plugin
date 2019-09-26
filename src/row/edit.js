@@ -127,11 +127,11 @@ if ( enableCustomTemplate ) {
 templates = perpareTemplates( templates ); // Ensure backwards compatibility to older templates structure
 
 const getColumnsTemplate = ( templateName ) => {
-	const template = templates.find(t => t.name === templateName)
+	const template = templates.find( t => t.name === templateName );
 	return template ? template.template : [];
 };
 const getColumnsTemplateLock = ( templateName ) => {
-	const template = templates.find(t => t.name === templateName)
+	const template = templates.find( t => t.name === templateName );
 	return template ? template.templateLock : false;
 };
 
@@ -140,8 +140,8 @@ class BootstrapRowEdit extends Component {
 		const { className, attributes, setAttributes, columns, updateBlockAttributes } = this.props;
 		const { template: selectedTemplateName, noGutters, alignment, verticalAlignment } = attributes;
 
-		const onTemplateChange = ( selectedTemplateName ) => {
-			const template = templates.find(t => t.name === selectedTemplateName)
+		const onTemplateChange = ( newSelectedTemplateName ) => {
+			const template = templates.find( t => t.name === newSelectedTemplateName );
 			if ( template ) {
 				// Update sizes to fit with selected template
 				columns.forEach( ( column, index ) => {
@@ -152,7 +152,7 @@ class BootstrapRowEdit extends Component {
 				} );
 
 				setAttributes( {
-					template: selectedTemplateName,
+					template: newSelectedTemplateName,
 				} );
 			}
 		};
