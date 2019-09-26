@@ -1,20 +1,37 @@
-
-import { alignBottom, alignCenter, alignTop } from './icons';
+import { alignBottom, alignCenter, alignTop, templateIconMissing } from './icons';
 
 const { __ } = wp.i18n;
 const { InnerBlocks, InspectorControls, BlockControls, AlignmentToolbar } = wp.editor;
-const { SelectControl, CheckboxControl, PanelBody } = wp.components;
+const { IconButton, CheckboxControl, PanelBody, SVG, Path } = wp.components;
 const { Component, Fragment } = wp.element;
 const { withSelect, withDispatch } = wp.data;
 const { applyFilters } = wp.hooks;
 const { compose } = wp.compose;
 
 const ALLOWED_BLOCKS = [ 'wp-bootstrap-blocks/column' ];
+
+const perpareTemplates = templates => {
+	// If templates are already in new structure do nothing
+	if ( Array.isArray( templates ) ) {
+		return templates;
+	}
+	return Object.keys( templates ).map( templateName => {
+		return {
+			title: templates[ templateName ].title || templates[ templateName ].label,
+			icon: templates[ templateName ].icon || templateIconMissing,
+			template: templates[ templateName ].template || templates[ templateName ].blocks,
+			templateLock: templates[ templateName ].templateLock !== undefined ? templates[ templateName ].templateLock : 'all',
+			name: templateName,
+		};
+	} );
+};
+
 let templates = {
 	'1-1': {
-		label: __( '2 Columns (1:1)', 'wp-bootstrap-blocks' ),
+		title: __( '2 Columns (1:1)', 'wp-bootstrap-blocks' ),
+		icon: <SVG width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><Path fillRule="evenodd" clipRule="evenodd" d="M39 12C40.1046 12 41 12.8954 41 14V34C41 35.1046 40.1046 36 39 36H9C7.89543 36 7 35.1046 7 34V14C7 12.8954 7.89543 12 9 12H39ZM39 34V14H25V34H39ZM23 34H9V14H23V34Z" /></SVG>,
 		templateLock: 'all',
-		blocks: [
+		template: [
 			[
 				'wp-bootstrap-blocks/column',
 				{
@@ -30,9 +47,10 @@ let templates = {
 		],
 	},
 	'1-2': {
-		label: __( '2 Columns (1:2)', 'wp-bootstrap-blocks' ),
+		title: __( '2 Columns (1:2)', 'wp-bootstrap-blocks' ),
+		icon: <SVG width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><Path fillRule="evenodd" clipRule="evenodd" d="M39 12C40.1046 12 41 12.8954 41 14V34C41 35.1046 40.1046 36 39 36H9C7.89543 36 7 35.1046 7 34V14C7 12.8954 7.89543 12 9 12H39ZM39 34V14H20V34H39ZM18 34H9V14H18V34Z" /></SVG>,
 		templateLock: 'all',
-		blocks: [
+		template: [
 			[
 				'wp-bootstrap-blocks/column',
 				{
@@ -48,9 +66,10 @@ let templates = {
 		],
 	},
 	'2-1': {
-		label: __( '2 Columns (2:1)', 'wp-bootstrap-blocks' ),
+		title: __( '2 Columns (2:1)', 'wp-bootstrap-blocks' ),
+		icon: <SVG width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><Path fillRule="evenodd" clipRule="evenodd" d="M39 12C40.1046 12 41 12.8954 41 14V34C41 35.1046 40.1046 36 39 36H9C7.89543 36 7 35.1046 7 34V14C7 12.8954 7.89543 12 9 12H39ZM39 34V14H30V34H39ZM28 34H9V14H28V34Z" /></SVG>,
 		templateLock: 'all',
-		blocks: [
+		template: [
 			[
 				'wp-bootstrap-blocks/column',
 				{
@@ -66,9 +85,10 @@ let templates = {
 		],
 	},
 	'1-1-1': {
-		label: __( '3 Columns (1:1:1)', 'wp-bootstrap-blocks' ),
+		title: __( '3 Columns (1:1:1)', 'wp-bootstrap-blocks' ),
+		icon: <SVG width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><Path fillRule="evenodd" d="M41 14a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h30a2 2 0 0 0 2-2V14zM28.5 34h-9V14h9v20zm2 0V14H39v20h-8.5zm-13 0H9V14h8.5v20z" /></SVG>,
 		templateLock: 'all',
-		blocks: [
+		template: [
 			[
 				'wp-bootstrap-blocks/column',
 				{
@@ -95,45 +115,44 @@ templates = applyFilters( 'wpBootstrapBlocks.row.templates', templates );
 const enableCustomTemplate = applyFilters( 'wpBootstrapBlocks.row.enableCustomTemplate', true );
 if ( enableCustomTemplate ) {
 	templates.custom = {
-		label: __( 'Custom', 'wp-bootstrap-blocks' ),
+		title: __( 'Custom', 'wp-bootstrap-blocks' ),
+		icon: templateIconMissing,
 		templateLock: false,
-		blocks: [
+		template: [
 			[ 'wp-bootstrap-blocks/column' ],
 		],
 	};
 }
 
-const getColumnsTemplate = ( template ) => {
-	return templates[ template ] ? templates[ template ].blocks : [];
+templates = perpareTemplates( templates ); // Ensure backwards compatibility to older templates structure
+
+const getColumnsTemplate = ( templateName ) => {
+	const template = templates.find(t => t.name === templateName)
+	return template ? template.template : [];
 };
-const getColumnsTemplateLock = ( template ) => {
-	return templates[ template ] ? templates[ template ].templateLock : false;
+const getColumnsTemplateLock = ( templateName ) => {
+	const template = templates.find(t => t.name === templateName)
+	return template ? template.templateLock : false;
 };
 
 class BootstrapRowEdit extends Component {
 	render() {
 		const { className, attributes, setAttributes, columns, updateBlockAttributes } = this.props;
-
 		const { template, noGutters, alignment, verticalAlignment } = attributes;
-		const templateOptions = [];
-		Object.keys( templates ).forEach( ( templateName ) => {
-			templateOptions.push( {
-				label: templates[ templateName ].label,
-				value: templateName,
-			} );
-		} );
-		const onTemplateChange = ( selectedTemplate ) => {
-			if ( templates[ selectedTemplate ] ) {
+
+		const onTemplateChange = ( selectedTemplateName ) => {
+			const template = templates.find(t => t.name === selectedTemplateName)
+			if ( template ) {
 				// Update sizes to fit with selected template
 				columns.forEach( ( column, index ) => {
-					if ( templates[ selectedTemplate ].blocks.length > index ) {
-						const newAttributes = templates[ selectedTemplate ].blocks[ index ][ 1 ];
+					if ( template.template.length > index ) {
+						const newAttributes = template.template[ index ][ 1 ];
 						updateBlockAttributes( column.clientId, newAttributes );
 					}
 				} );
 
 				setAttributes( {
-					template: selectedTemplate,
+					template: selectedTemplateName,
 				} );
 			}
 		};
@@ -177,15 +196,28 @@ class BootstrapRowEdit extends Component {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody>
-						<SelectControl
-							label={ __( 'Template', 'wp-bootstrap-blocks' ) }
-							value={ template }
-							options={ templateOptions }
-							onChange={ selectedTemplate => {
-								onTemplateChange( selectedTemplate );
-							} }
-						/>
+					<PanelBody
+						title={ __( 'Change layout', 'wp-bootstrap-blocks' ) }
+					>
+						<ul className="wp-bootstrap-blocks-template-selector-list">
+							{ templates.map( ( template, index ) => ( // eslint-disable-line no-shadow
+								<li className="wp-bootstrap-blocks-template-selector-button" key={ index }>
+									<IconButton
+										label={ template.title }
+										icon={ template.icon }
+										onClick={ () => {
+											onTemplateChange( template.name );
+										} }
+									>
+										<div className="wp-bootstrap-blocks-template-selector-button-label">{ template.title }</div>
+									</IconButton>
+								</li>
+							) ) }
+						</ul>
+					</PanelBody>
+					<PanelBody
+						title={ __( 'Row options', 'wp-bootstrap-blocks' ) }
+					>
 						<CheckboxControl
 							label={ __( 'No Gutters', 'wp-bootstrap-blocks' ) }
 							checked={ noGutters }

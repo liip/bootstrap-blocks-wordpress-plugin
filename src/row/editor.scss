@@ -95,6 +95,24 @@
 	}
 }
 
+.wp-bootstrap-blocks-template-selector-list {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.wp-bootstrap-blocks-template-selector-button {
+	flex: 0 0 50%;
+
+	> .components-icon-button {
+		flex-direction: column;
+		width: 100%;
+	}
+}
+
+.wp-bootstrap-blocks-template-selector-button-label {
+	font-size: 12px;
+}
+
 // Column block
 [data-type="wp-bootstrap-blocks/column"] {
 	background-color: rgba(255, 255, 255, .7);
