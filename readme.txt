@@ -3,9 +3,9 @@ Contributors: liip, tschortsch
 Donate link: https://liip.ch/
 Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.0
-Tested up to: 5.2.2
+Tested up to: 5.2.3
 Requires PHP: 5.6
-Stable tag: 1.2.0
+Stable tag: 1.3.0
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,6 +67,15 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 == Changelog ==
 
+= 1.3.0 =
+
+In this release we changed the template structure for the `row` block. With this change we try to move towards the new template structure which will be introduced by the `InnerBlocks` template selector feature.
+
+If you used the `wpBootstrapBlocks.row.templates` filter to modify the existing row templates please update your template structure accordingly (see [filter documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin#wpbootstrapblocksrowtemplates)). The old structure will still work but is deprecated.
+
+* [IMPROVEMENT] Improve template selection in row block. Added possibility to set an icon for each template.
+* [IMPROVEMENT] Use withSelect / withDispatch HOCs in row block.
+
 = 1.2.0 =
 
 * [FEATURE] Added new filter `wp_bootstrap_blocks_enqueue_block_assets` to disable enqueuing block assets.
@@ -83,6 +92,6 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 == Upgrade Notice ==
 
-= 1.0.0=
+= 1.0.0 =
 
 Initial release.

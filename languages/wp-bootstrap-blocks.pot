@@ -2,24 +2,23 @@
 # This file is distributed under the same license as the Bootstrap Blocks plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Bootstrap Blocks 1.2.0\n"
+"Project-Id-Version: Bootstrap Blocks 1.3.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-bootstrap-blocks\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-06-26T05:40:39+00:00\n"
+"POT-Creation-Date: 2019-09-28T11:14:30+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.2.0\n"
 "X-Domain: wp-bootstrap-blocks\n"
 
 #. Plugin Name of the plugin
 #: src/class-wp-bootstrap-blocks.php:183
-#: dist/blocks.build.js:1
 #: src/column/block.js:16
 #: src/container/block.js:47
-#: src/row/block.js:126
+#: src/row/block.js:21
 #: src/button/block.js:18
 msgid "Bootstrap Blocks"
 msgstr ""
@@ -45,199 +44,166 @@ msgstr ""
 msgid "%s does not exist."
 msgstr ""
 
-#: dist/blocks.build.js:1
-#: src/column/edit.js:35
-#: src/container/block.js:19
-msgid "Small"
-msgstr ""
-
-#: dist/blocks.build.js:1
-#: src/column/edit.js:36
-#: src/container/block.js:23
-msgid "Medium"
-msgstr ""
-
-#: dist/blocks.build.js:1
-#: src/column/edit.js:37
-#: src/container/block.js:27
-msgid "Large"
-msgstr ""
-
-#: dist/blocks.build.js:1
 #: src/column/edit.js:34
 #: src/container/block.js:35
 msgid "None"
 msgstr ""
 
-#: dist/blocks.build.js:1
-#: src/container/block.js:43
-#: src/container/block.js:49
-msgid "Container"
+#: src/column/edit.js:35
+#: src/container/block.js:19
+msgid "Small"
 msgstr ""
 
-#: dist/blocks.build.js:1
-#: src/column/block.js:17
-#: src/container/block.js:48
-#: src/row/block.js:127
-#: src/button/block.js:19
-msgid "Bootstrap"
+#: src/column/edit.js:36
+#: src/container/block.js:23
+msgid "Medium"
 msgstr ""
 
-#: dist/blocks.build.js:1
-#: src/container/block.js:71
-msgid "Fluid"
+#: src/column/edit.js:37
+#: src/container/block.js:27
+msgid "Large"
 msgstr ""
 
-#: dist/blocks.build.js:1
-#: src/container/block.js:78
-msgid "Margin After"
+#: src/column/edit.js:51
+msgid "Column size"
 msgstr ""
 
-#: dist/blocks.build.js:1
+#: src/column/edit.js:55
+msgid "Xl Columns"
+msgstr ""
+
+#: src/column/edit.js:61
+msgid "Lg Columns"
+msgstr ""
+
+#: src/column/edit.js:67
+msgid "Md Columns"
+msgstr ""
+
+#: src/column/edit.js:73
+msgid "Sm Columns"
+msgstr ""
+
+#: src/column/edit.js:79
+msgid "Xs Columns"
+msgstr ""
+
+#: src/column/edit.js:86
+msgid "Background color"
+msgstr ""
+
+#: src/column/edit.js:111
+msgid "Center content vertically in row"
+msgstr ""
+
+#: src/column/edit.js:114
+msgid "This setting only applies if there is no vertical alignment set on the parent row block."
+msgstr ""
+
+#: src/column/edit.js:119
+msgid "Padding (inside column)"
+msgstr ""
+
+#: src/column/edit.js:122
+msgid "Size"
+msgstr ""
+
 #: src/column/block.js:12
 #: src/column/block.js:18
 msgid "Column"
 msgstr ""
 
-#: dist/blocks.build.js:1
-#: src/column/edit.js:51
-msgid "Column size"
-msgstr ""
-
-#: dist/blocks.build.js:1
-#: src/column/edit.js:55
-msgid "Xl Columns"
-msgstr ""
-
-#: dist/blocks.build.js:1
-#: src/column/edit.js:61
-msgid "Lg Columns"
-msgstr ""
-
-#: dist/blocks.build.js:1
-#: src/column/edit.js:67
-msgid "Md Columns"
-msgstr ""
-
-#: dist/blocks.build.js:1
-#: src/column/edit.js:73
-msgid "Sm Columns"
-msgstr ""
-
-#: dist/blocks.build.js:1
-#: src/column/edit.js:79
-msgid "Xs Columns"
-msgstr ""
-
-#: dist/blocks.build.js:1
-#: src/column/edit.js:86
-msgid "Background color"
-msgstr ""
-
-#: dist/blocks.build.js:1
-#: src/column/edit.js:111
-msgid "Center content vertically in row"
-msgstr ""
-
-#: dist/blocks.build.js:1
-#: src/column/edit.js:114
-msgid "This setting only applies if there is no vertical alignment set on the parent row block."
-msgstr ""
-
-#: dist/blocks.build.js:1
-#: src/column/edit.js:119
-msgid "Padding (inside column)"
-msgstr ""
-
-#: dist/blocks.build.js:1
-#: src/column/edit.js:122
-msgid "Size"
-msgstr ""
-
-#: dist/blocks.build.js:1
+#: src/column/block.js:17
+#: src/container/block.js:48
 #: src/row/block.js:22
+#: src/button/block.js:19
+msgid "Bootstrap"
+msgstr ""
+
+#: src/container/block.js:43
+#: src/container/block.js:49
+msgid "Container"
+msgstr ""
+
+#: src/container/block.js:71
+msgid "Fluid"
+msgstr ""
+
+#: src/container/block.js:78
+msgid "Margin After"
+msgstr ""
+
+#: src/row/edit.js:35
 msgid "2 Columns (1:1)"
 msgstr ""
 
-#: dist/blocks.build.js:1
-#: src/row/block.js:40
+#: src/row/edit.js:55
 msgid "2 Columns (1:2)"
 msgstr ""
 
-#: dist/blocks.build.js:1
-#: src/row/block.js:58
+#: src/row/edit.js:75
 msgid "2 Columns (2:1)"
 msgstr ""
 
-#: dist/blocks.build.js:1
-#: src/row/block.js:76
+#: src/row/edit.js:95
 msgid "3 Columns (1:1:1)"
 msgstr ""
 
-#: dist/blocks.build.js:1
-#: src/row/block.js:105
+#: src/row/edit.js:128
 msgid "Custom"
 msgstr ""
 
-#: dist/blocks.build.js:1
-#: src/row/block.js:122
-#: src/row/block.js:128
-msgid "Row"
-msgstr ""
-
-#: dist/blocks.build.js:1
-#: src/row/block.js:173
+#: src/row/edit.js:172
 msgid "Align columns left"
 msgstr ""
 
-#: dist/blocks.build.js:1
-#: src/row/block.js:178
-#: src/row/block.js:196
+#: src/row/edit.js:177
+#: src/row/edit.js:195
 msgid "Align columns center"
 msgstr ""
 
-#: dist/blocks.build.js:1
-#: src/row/block.js:183
+#: src/row/edit.js:182
 msgid "Align columns right"
 msgstr ""
 
-#: dist/blocks.build.js:1
-#: src/row/block.js:191
+#: src/row/edit.js:190
 msgid "Align columns top"
 msgstr ""
 
-#: dist/blocks.build.js:1
-#: src/row/block.js:201
+#: src/row/edit.js:200
 msgid "Align columns bottom"
 msgstr ""
 
-#: dist/blocks.build.js:1
-#: src/row/block.js:211
-msgid "Template"
+#: src/row/edit.js:209
+msgid "Change layout"
 msgstr ""
 
-#: dist/blocks.build.js:1
-#: src/row/block.js:219
+#: src/row/edit.js:229
+msgid "Row options"
+msgstr ""
+
+#: src/row/edit.js:232
 msgid "No Gutters"
 msgstr ""
 
-#: dist/blocks.build.js:1
-#: src/button/block.js:14
-#: src/button/block.js:20
-msgid "Button"
+#: src/row/block.js:17
+#: src/row/block.js:23
+msgid "Row"
 msgstr ""
 
-#: dist/blocks.build.js:1
 #: src/button/edit.js:16
 msgid "Primary"
 msgstr ""
 
-#: dist/blocks.build.js:1
 #: src/button/edit.js:17
 msgid "Secondary"
 msgstr ""
 
-#: dist/blocks.build.js:1
 #: src/button/edit.js:37
 msgid "Style"
+msgstr ""
+
+#: src/button/block.js:14
+#: src/button/block.js:20
+msgid "Button"
 msgstr ""
