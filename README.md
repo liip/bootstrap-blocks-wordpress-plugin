@@ -65,7 +65,7 @@ function my_template_path( $template_path ) {
 
 #### Parameters:
 
-* `$template_path` (string) Template directory name in theme.
+* `$template_path` (`string`) Template directory name in theme.
 
 ### wp_bootstrap_blocks_get_template
 
@@ -73,10 +73,10 @@ Possibility to overwrite the located template path before it gets loaded.
 
 #### Parameters:
 
-* `$located` (string) located file path.
-* `$template_name` (string) template name which was requested.
-* `$template_path` (string) path to template directory.
-* `$default_path` (string) default template directory path.
+* `$located` (`string`) located file path.
+* `$template_name` (`string`) template name which was requested.
+* `$template_path` (`string`) path to template directory.
+* `$default_path` (`string`) default template directory path.
 
 #### Usage:
 
@@ -94,9 +94,9 @@ Possibility to overwrite the located template path.
 
 #### Parameters:
 
-* `$template` (string) located file path.
-* `$template_name` (string) template name which was requested.
-* `$template_path` (string) path to template directory.
+* `$template` (`string`) located file path.
+* `$template_name` (`string`) template name which was requested.
+* `$template_path` (`string`) path to template directory.
 
 #### Usage:
 
@@ -114,8 +114,8 @@ Change classes of &lt;blockname&gt;.
 
 #### Parameters:
 
-* `$classes` (array) Classes which are added to the block template.
-* `$attributes` (array) Attributes of the block.
+* `$classes` (`array`) Classes which are added to the block template.
+* `$attributes` (`array`) Attributes of the block.
 
 #### Usage:
 
@@ -133,7 +133,7 @@ Modify default attributes of &lt;blockname&gt;.
 
 #### Parameters:
 
-* `$default_attributes` (array) Default attributes of block.
+* `$default_attributes` (`array`) Default attributes of block.
 
 #### Usage:
 
@@ -152,7 +152,7 @@ Possibility to disable enqueuing block assets.
 
 #### Parameters:
 
-* `$enqueue_block_assets` (boolean) Defines if block assets should be enqueued.
+* `$enqueue_block_assets` (`boolean`) Defines if block assets should be enqueued.
 
 #### Usage:
 
@@ -183,7 +183,7 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.button.styleOptions', 'myplugin/wp-bootst
 
 #### Parameters:
 
-* `styleOptions` (array) Array with button style options
+* `styleOptions` (`Array`) Array with button style options
 
 ### wpBootstrapBlocks.container.useFluidContainerPerDefault
 
@@ -198,7 +198,7 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.container.useFluidContainerPerDefault', '
 
 #### Parameters:
 
-* `useFluidContainerPerDefault` (boolean) Return true if fluid layout of containers should be enabled by default.
+* `useFluidContainerPerDefault` (`boolean`) Return true if fluid layout of containers should be enabled by default.
 
 ### wpBootstrapBlocks.container.customMarginOptions
 
@@ -216,7 +216,7 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.container.customMarginOptions', 'myplugin
 
 #### Parameters:
 
-* `customMarginOptions` (array) Array margin options.
+* `customMarginOptions` (`Array`) Array margin options.
 
 ### wpBootstrapBlocks.row.templates
 
@@ -226,10 +226,12 @@ Define block templates.
 
 ```javascript
 function myRowTemplates( templates ) {
-    templates['1-3'] = {
-        label: '2 Columns (1:3)',
+    templates.push( {
+        name: '1-3',
+        title: '2 Columns (1:3)',
+        icon: <SVG />,
         templateLock: 'all',
-        blocks: [
+        template: [
             [
                 'wp-bootstrap-blocks/column',
                 {
@@ -243,7 +245,7 @@ function myRowTemplates( templates ) {
                 },
             ],
         ],
-    };
+    } );
     return templates;
 }
 wp.hooks.addFilter( 'wpBootstrapBlocks.row.templates', 'myplugin/wp-bootstrap-blocks/row/templates', myRowTemplates );
@@ -251,17 +253,73 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.row.templates', 'myplugin/wp-bootstrap-bl
 
 #### Parameters:
 
-* `templates` (object) List of template objects.
+* `templates` (`array`) List of template objects.
 
 Each template has the following attributes:
 
-* `label` (string) Name of template
-* `templateLock` (string|false)
+* `name` (`string`) Unique identifier of the template
+* `title` (`string`) Name of template
+* `icon` (`WPElement|string`) An element or [Dashicon](https://developer.wordpress.org/resource/dashicons/) slug to show as a visual approximation of the template.
+* `templateLock` (`string|false`)
     * `false`: Columns can be added and removed
     * `all`: Columns can't be changed
-* `blocks` (array) see: https://wordpress.org/gutenberg/handbook/designers-developers/developers/block-api/block-templates/#api
+* `template` (`Array<Array>`) see [template documentation](https://wordpress.org/gutenberg/handbook/designers-developers/developers/block-api/block-templates/#api)
     * Name of block. (Only `wp-bootstrap-blocks/column` supported!)
     * Attributes of column
+
+#### Update template structure from <=1.2.0 to 1.3.0+
+
+Before:
+
+```javascript
+let templates = {
+    '1-2': {
+        label: '2 Columns (1:2)',
+        templateLock: 'all',
+        blocks: [
+            [
+                'wp-bootstrap-blocks/column',
+                {
+                    sizeMd: 4,
+                },
+            ],
+            [
+                'wp-bootstrap-blocks/column',
+                {
+                    sizeMd: 8,
+                },
+            ],
+        ],
+    },
+}
+```
+
+After:
+
+```javascript
+let templates = [
+    {
+        name: '1-2',
+        title: '2 Columns (1:2)',
+        icon: <SVG />,
+        templateLock: 'all',
+        template: [
+            [
+                'wp-bootstrap-blocks/column',
+                {
+                    sizeMd: 4,
+                },
+            ],
+            [
+                'wp-bootstrap-blocks/column',
+                {
+                    sizeMd: 8,
+                },
+            ],
+        ],
+    },
+];
+```
 
 ### wpBootstrapBlocks.row.enableCustomTemplate
 
@@ -276,7 +334,7 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.row.enableCustomTemplate', 'myplugin/wp-b
 
 #### Parameters:
 
-* `enableCustomTemplate` (boolean) Return true if custom row template should be enabled.
+* `enableCustomTemplate` (`boolean`) Return true if custom row template should be enabled.
 
 ### wpBootstrapBlocks.column.bgColors
 
@@ -297,7 +355,7 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.column.bgColorOptions', 'myplugin/wp-boot
 
 #### Parameters:
 
-* `bgColorOptions` (array) Array of available background colors. Each element should be an object containing the `name` of the color and the `color` itself (see: https://github.com/WordPress/gutenberg/tree/master/packages/components/src/color-palette).
+* `bgColorOptions` (`Array`) Array of available background colors. Each element should be an object containing the `name` of the color and the `color` itself (see: https://github.com/WordPress/gutenberg/tree/master/packages/components/src/color-palette).
 
 ### wpBootstrapBlocks.column.paddingOptions
 
@@ -315,7 +373,7 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.column.paddingOptions', 'myplugin/wp-boot
 
 #### Parameters:
 
-* `paddingOptions` (array) Array of padding options.
+* `paddingOptions` (`Array`) Array of padding options.
 
 ## Developer information
 
