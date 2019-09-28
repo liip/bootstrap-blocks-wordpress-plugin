@@ -15,6 +15,9 @@ const prepareTemplates = templates => {
 	if ( Array.isArray( templates ) ) {
 		return templates;
 	}
+
+	// eslint-disable-next-line no-console
+	console.warn( 'The old template structure (<= v1.2.0) of the row block is deprecated, please migrate your templates to the new one structure (v1.3.0+).' );
 	return Object.keys( templates ).map( templateName => {
 		return {
 			name: templateName,
