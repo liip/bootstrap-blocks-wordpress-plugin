@@ -19,6 +19,8 @@ registerBlockType( 'wp-bootstrap-blocks/button', {
 		__( 'Bootstrap', 'wp-bootstrap-blocks' ),
 		__( 'Button', 'wp-bootstrap-blocks' ),
 	],
+	example: {
+	},
 
 	// attributes are defined server side with register_block_type(). This is needed to make default attributes available in the blocks render callback.
 
