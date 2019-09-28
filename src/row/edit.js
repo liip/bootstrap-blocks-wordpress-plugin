@@ -115,7 +115,7 @@ let templates = [
 				},
 			],
 		],
-	}
+	},
 ];
 templates = applyFilters( 'wpBootstrapBlocks.row.templates', templates );
 templates = prepareTemplates( templates ); // Ensure backwards compatibility to older templates structure
