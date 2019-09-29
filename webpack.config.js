@@ -10,10 +10,30 @@ const postcssPresetEnv = require( 'postcss-preset-env' );
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
 const IgnoreEmitPlugin = require( 'ignore-emit-webpack-plugin' );
 
-const production = process.env.NODE_ENV === '';
+const isProduction = process.env.NODE_ENV === 'production';
 
-module.exports = {
+const config = {
 	...defaultConfig,
+	optimization: {
+		...defaultConfig.optimization,
+		splitChunks: {
+			cacheGroups: {
+				editor: {
+					name: 'editor',
+					test: /editor\.(sc|sa|c)ss$/,
+					chunks: 'all',
+					enforce: true,
+				},
+				style: {
+					name: 'style',
+					test: /style\.(sc|sa|c)ss$/,
+					chunks: 'all',
+					enforce: true,
+				},
+				default: false,
+			},
+		},
+	},
 	module: {
 		...defaultConfig.module,
 		rules: [
@@ -28,7 +48,7 @@ module.exports = {
 					{
 						loader: 'css-loader',
 						options: {
-							sourceMap: ! production,
+							sourceMap: ! isProduction,
 						},
 					},
 					{
@@ -56,7 +76,10 @@ module.exports = {
 					{
 						loader: 'sass-loader',
 						options: {
-							sourceMap: ! production,
+							sourceMap: ! isProduction,
+							sassOptions: {
+								outputStyle: isProduction ? 'compressed' : 'nested',
+							},
 						},
 					},
 				],
@@ -73,3 +96,5 @@ module.exports = {
 		new IgnoreEmitPlugin( [ 'editor.js', 'style.js' ] ),
 	],
 };
+
+module.exports = config;
