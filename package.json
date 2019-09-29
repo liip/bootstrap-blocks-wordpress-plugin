@@ -9,7 +9,6 @@
     "lint": "eslint src/"
   },
   "dependencies": {
-    "cgb-scripts": "^1.20.0",
-    "lodash.noop": "^3.0.1"
+    "cgb-scripts": "^1.20.0"
   }
 }
