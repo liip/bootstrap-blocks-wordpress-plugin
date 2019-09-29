@@ -5,7 +5,7 @@
 # See https://github.com/GaryJones/wordpress-plugin-git-flow-svn-deploy for instructions and credits.
 
 echo
-echo "WordPress Plugin Git to SVN release script - v1.0.0"
+echo "WordPress Plugin Git to SVN release script - v1.1.0"
 echo
 
 HERE="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -16,13 +16,13 @@ PLUGINSLUG="wp-bootstrap-blocks"
 SVNURL="https://plugins.svn.wordpress.org/$PLUGINSLUG"
 SVNUSER=liip
 SOURCEPATH="$HERE/.." # this file should be in the base of your git repository
-BUILDPATH="$SOURCEPATH/build"
+RELEASEPATH="$SOURCEPATH/release"
 MAINFILE="$PLUGINSLUG.php"
 
 echo "Deploy with following configuration"
 echo
 echo "Slug: $PLUGINSLUG"
-echo "Build path: $BUILDPATH"
+echo "Release path: $RELEASEPATH"
 echo "Remote SVN repo: $SVNURL"
 echo "SVN username: $SVNUSER"
 echo "Source path: $SOURCEPATH"
@@ -54,25 +54,25 @@ fi
 
 echo
 echo "Creating local copy of SVN repo trunk ..."
-svn checkout $SVNURL $BUILDPATH --depth immediates
-svn update --quiet $BUILDPATH/trunk --set-depth infinity
+svn checkout $SVNURL $RELEASEPATH --depth immediates
+svn update --quiet $RELEASEPATH/trunk --set-depth infinity
 echo "Clearing SVN repo trunk so we can overwrite it"
-rm -rf $BUILDPATH/trunk/*
+rm -rf $RELEASEPATH/trunk/*
 
 echo "Ignoring os specific files"
 svn propset svn:ignore ".DS_Store
-Thumbs.db" "$BUILDPATH/trunk/"
+Thumbs.db" "$RELEASEPATH/trunk/"
 
 echo "Copying required plugin files to SVN trunk"
-cp $SOURCEPATH/readme.txt $BUILDPATH/trunk/
-cp $SOURCEPATH/wp-bootstrap-blocks.php $BUILDPATH/trunk/
-cp $SOURCEPATH/screenshot* $BUILDPATH/trunk/
-cp -R $SOURCEPATH/dist $BUILDPATH/trunk/
-cp -R $SOURCEPATH/languages $BUILDPATH/trunk/
-cp -R $SOURCEPATH/src $BUILDPATH/trunk/
+cp $SOURCEPATH/readme.txt $RELEASEPATH/trunk/
+cp $SOURCEPATH/wp-bootstrap-blocks.php $RELEASEPATH/trunk/
+cp $SOURCEPATH/screenshot* $RELEASEPATH/trunk/
+cp -R $SOURCEPATH/build $RELEASEPATH/trunk/
+cp -R $SOURCEPATH/languages $RELEASEPATH/trunk/
+cp -R $SOURCEPATH/src $RELEASEPATH/trunk/
 
 echo "Changing directory to SVN and committing to trunk"
-cd $BUILDPATH/trunk/
+cd $RELEASEPATH/trunk/
 
 # Delete all files that should not now be added.
 svn status | grep -v "^.[ \t]*\..*" | grep "^\!" | awk '{print $2"@"}' | xargs svn del
@@ -91,20 +91,20 @@ fi
 
 # Update WordPress plugin assets
 # Make the directory if it doesn't already exist
-mkdir -p $BUILDPATH/assets/
-svn update --quiet $BUILDPATH/assets --set-depth infinity
+mkdir -p $RELEASEPATH/assets/
+svn update --quiet $RELEASEPATH/assets --set-depth infinity
 echo "Clearing SVN repo assets so we can overwrite it"
-rm -rf $BUILDPATH/assets/*
+rm -rf $RELEASEPATH/assets/*
 echo "Copying assets fiels to SVN assets"
-cp -R $SOURCEPATH/.wordpress/* $BUILDPATH/assets/
+cp -R $SOURCEPATH/.wordpress/* $RELEASEPATH/assets/
 
 echo "Updating WordPress plugin assets and committing"
-cd $BUILDPATH/assets/
+cd $RELEASEPATH/assets/
 # Delete all new files that are not set to be ignored
 svn status | grep -v "^.[ \t]*\..*" | grep "^\!" | awk '{print $2"@"}' | xargs svn del
 # Add all new files that are not set to be ignored
 svn status | grep -v "^.[ \t]*\..*" | grep "^?" | awk '{print $2"@"}' | xargs svn add
-#svn update --accept mine-full $BUILDPATH/assets/*
+#svn update --accept mine-full $RELEASEPATH/assets/*
 # Fix image mime-types (see: https://developer.wordpress.org/plugins/wordpress-org/plugin-assets/)
 svn propset svn:mime-type image/png *.png
 
@@ -117,13 +117,13 @@ else
 fi
 
 echo "Creating new SVN tag and committing it"
-cd $BUILDPATH
-svn update --quiet $BUILDPATH/tags/$PLUGINVERSION
+cd $RELEASEPATH
+svn update --quiet $RELEASEPATH/tags/$PLUGINVERSION
 
 # if tag already exists update sources otherwise create new
-if [ -d "$BUILDPATH/tags/$PLUGINVERSION/" ]; then
-	cd $BUILDPATH/tags/$PLUGINVERSION
-	cp -R $BUILDPATH/trunk/* $BUILDPATH/tags/$PLUGINVERSION/
+if [ -d "$RELEASEPATH/tags/$PLUGINVERSION/" ]; then
+	cd $RELEASEPATH/tags/$PLUGINVERSION
+	cp -R $RELEASEPATH/trunk/* $RELEASEPATH/tags/$PLUGINVERSION/
 	# Delete all files that should not now be added.
 	svn status | grep -v "^.[ \t]*\..*" | grep "^\!" | awk '{print $2"@"}' | xargs svn del
 	# Add all new files that are not set to be ignored
@@ -131,8 +131,8 @@ if [ -d "$BUILDPATH/tags/$PLUGINVERSION/" ]; then
 	# Fix image mime-types (see: https://developer.wordpress.org/plugins/wordpress-org/plugin-assets/)
 	svn propset svn:mime-type image/png *.png
 else
-	svn copy --quiet $BUILDPATH/trunk/ $BUILDPATH/tags/$PLUGINVERSION/
-	cd $BUILDPATH/tags/$PLUGINVERSION
+	svn copy --quiet $RELEASEPATH/trunk/ $RELEASEPATH/tags/$PLUGINVERSION/
+	cd $RELEASEPATH/tags/$PLUGINVERSION
 fi
 
 # Commit plugin version
