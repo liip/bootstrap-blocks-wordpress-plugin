@@ -10,7 +10,7 @@ const { compose } = wp.compose;
 
 const ALLOWED_BLOCKS = [ 'wp-bootstrap-blocks/column' ];
 
-const prepareTemplates = templates => {
+const prepareTemplates = ( templates ) => {
 	// If templates are already in new structure do nothing
 	if ( Array.isArray( templates ) ) {
 		return templates;
@@ -18,7 +18,7 @@ const prepareTemplates = templates => {
 
 	// eslint-disable-next-line no-console
 	console.warn( 'The old template structure (<= v1.2.0) of the row block is deprecated, please migrate your templates to the new one structure (v1.3.0+).' );
-	return Object.keys( templates ).map( templateName => {
+	return Object.keys( templates ).map( ( templateName ) => {
 		return {
 			name: templateName,
 			title: templates[ templateName ].title || templates[ templateName ].label,
@@ -136,11 +136,11 @@ if ( enableCustomTemplate ) {
 }
 
 const getColumnsTemplate = ( templateName ) => {
-	const template = templates.find( t => t.name === templateName );
+	const template = templates.find( ( t ) => t.name === templateName );
 	return template ? template.template : [];
 };
 const getColumnsTemplateLock = ( templateName ) => {
-	const template = templates.find( t => t.name === templateName );
+	const template = templates.find( ( t ) => t.name === templateName );
 	return template ? template.templateLock : false;
 };
 
@@ -150,7 +150,7 @@ class BootstrapRowEdit extends Component {
 		const { template: selectedTemplateName, noGutters, alignment, verticalAlignment } = attributes;
 
 		const onTemplateChange = ( newSelectedTemplateName ) => {
-			const template = templates.find( t => t.name === newSelectedTemplateName );
+			const template = templates.find( ( t ) => t.name === newSelectedTemplateName );
 			if ( template ) {
 				// Update sizes to fit with selected template
 				columns.forEach( ( column, index ) => {
@@ -231,19 +231,19 @@ class BootstrapRowEdit extends Component {
 						<CheckboxControl
 							label={ __( 'No Gutters', 'wp-bootstrap-blocks' ) }
 							checked={ noGutters }
-							onChange={ isChecked => setAttributes( { noGutters: isChecked } ) }
+							onChange={ ( isChecked ) => setAttributes( { noGutters: isChecked } ) }
 						/>
 					</PanelBody>
 				</InspectorControls>
 				<BlockControls>
 					<AlignmentToolbar
 						value={ alignment }
-						onChange={ newAlignment => setAttributes( { alignment: newAlignment } ) }
+						onChange={ ( newAlignment ) => setAttributes( { alignment: newAlignment } ) }
 						alignmentControls={ alignmentControls }
 					/>
 					<AlignmentToolbar
 						value={ verticalAlignment }
-						onChange={ newVerticalAlignment => setAttributes( { verticalAlignment: newVerticalAlignment } ) }
+						onChange={ ( newVerticalAlignment ) => setAttributes( { verticalAlignment: newVerticalAlignment } ) }
 						alignmentControls={ verticalAlignmentControls }
 					/>
 				</BlockControls>

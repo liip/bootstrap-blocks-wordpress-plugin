@@ -2,7 +2,9 @@
  * BLOCK: wp-bootstrap-blocks/button
  */
 
+//  Import CSS.
 import './editor.scss';
+
 import edit from './edit';
 
 const { __ } = wp.i18n; // Import __() from wp.i18n

@@ -1,11 +1,11 @@
 @import "../assets/gutenberg/gutenberg";
 
 [data-type="wp-bootstrap-blocks/button"] {
-	&[data-alignment="center"]{
+	&[data-alignment="center"] {
 		text-align: center;
 	}
 
-	&[data-alignment="right"]{
+	&[data-alignment="right"] {
 		text-align: right;
 	}
 }
