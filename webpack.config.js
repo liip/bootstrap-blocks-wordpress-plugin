@@ -9,30 +9,16 @@ const defaultConfig = require( './node_modules/@wordpress/scripts/config/webpack
 const postcssPresetEnv = require( 'postcss-preset-env' );
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
 const IgnoreEmitPlugin = require( 'ignore-emit-webpack-plugin' );
+const path = require( 'path' );
 
 const isProduction = process.env.NODE_ENV === 'production';
 
 const config = {
 	...defaultConfig,
-	optimization: {
-		...defaultConfig.optimization,
-		splitChunks: {
-			cacheGroups: {
-				editor: {
-					name: 'editor',
-					test: /editor\.(sc|sa|c)ss$/,
-					chunks: 'all',
-					enforce: true,
-				},
-				style: {
-					name: 'style',
-					test: /style\.(sc|sa|c)ss$/,
-					chunks: 'all',
-					enforce: true,
-				},
-				default: false,
-			},
-		},
+	entry: {
+		index: path.resolve( process.cwd(), 'src', 'index.js' ),
+		editor: path.resolve( process.cwd(), 'src', 'editor.scss' ),
+		style: path.resolve( process.cwd(), 'src', 'style.scss' ),
 	},
 	module: {
 		...defaultConfig.module,

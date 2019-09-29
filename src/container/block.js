@@ -2,11 +2,8 @@
  * BLOCK: wp-bootstrap-blocks/container
  */
 
-//  Import CSS.
-import './editor.scss';
-
-const { __ } = wp.i18n; // Import __() from wp.i18n
-const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
+const { __ } = wp.i18n;
+const { registerBlockType } = wp.blocks;
 const { InnerBlocks, InspectorControls } = wp.editor;
 const { SelectControl, CheckboxControl, PanelBody } = wp.components;
 const { Fragment } = wp.element;
