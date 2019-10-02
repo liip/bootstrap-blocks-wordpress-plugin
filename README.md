@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/liip/bootstrap-blocks-wordpress-plugin.svg?branch=master)](https://travis-ci.org/liip/bootstrap-blocks-wordpress-plugin)
 
-This plugin adds Bootstrap components and layout options as Gutenberg blocks.
+	This plugin adds Bootstrap components and layout options as Gutenberg blocks.
 
 The following blocks are currently available:
 
