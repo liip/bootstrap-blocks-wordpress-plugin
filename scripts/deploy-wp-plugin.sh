@@ -18,8 +18,13 @@ SVNUSER=liip
 SOURCEPATH="$HERE/.." # this file should be in the base of your git repository
 RELEASEPATH="$SOURCEPATH/release"
 MAINFILE="$PLUGINSLUG.php"
+DRYRUN="false"
 
-echo "Deploy with following configuration"
+if [[ "${DRYRUN}" == "false" ]] ; then
+  echo "Deploy with following configuration"
+else
+  echo "[DRYRUN] Deploy with following configuration"
+fi
 echo
 echo "Slug: $PLUGINSLUG"
 echo "Release path: $RELEASEPATH"
@@ -83,10 +88,14 @@ svn propset svn:mime-type image/png *.png
 
 # Commit all changes
 # If password is set as environment variable ($SVNPASSWORD) use it otherwise promt password
-if [ ! -z "$SVNPASSWORD" ]; then
-	svn commit --username=$SVNUSER --password=$SVNPASSWORD -m "Preparing for $PLUGINVERSION release" --no-auth-cache
+if [[ "${DRYRUN}" == "false" ]] ; then
+  if [ ! -z "$SVNPASSWORD" ]; then
+    svn commit --username=$SVNUSER --password=$SVNPASSWORD -m "Preparing for $PLUGINVERSION release" --no-auth-cache
+  else
+    svn commit --username=$SVNUSER -m "Preparing for $PLUGINVERSION release" --no-auth-cache
+  fi
 else
-	svn commit --username=$SVNUSER -m "Preparing for $PLUGINVERSION release" --no-auth-cache
+  echo "[DRYRUN] Skipping commit to SVN repository!"
 fi
 
 # Update WordPress plugin assets
@@ -110,10 +119,14 @@ svn propset svn:mime-type image/png *.png
 
 # Commit all changes
 # If password is set as environment variable ($SVNPASSWORD) use it otherwise promt password
-if [ ! -z "$SVNPASSWORD" ]; then
-	svn commit --username=$SVNUSER --password=$SVNPASSWORD -m "Updating assets" --no-auth-cache
+if [[ "${DRYRUN}" == "false" ]] ; then
+  if [ ! -z "$SVNPASSWORD" ]; then
+    svn commit --username=$SVNUSER --password=$SVNPASSWORD -m "Updating assets" --no-auth-cache
+  else
+    svn commit --username=$SVNUSER -m "Updating assets" --no-auth-cache
+  fi
 else
-	svn commit --username=$SVNUSER -m "Updating assets" --no-auth-cache
+  echo "[DRYRUN] Skipping commit to SVN repository!"
 fi
 
 echo "Creating new SVN tag and committing it"
@@ -137,10 +150,14 @@ fi
 
 # Commit plugin version
 # If password is set as environment variable ($SVNPASSWORD) use it otherwise promt password
-if [ ! -z "$SVNPASSWORD" ]; then
-	svn commit --username=$SVNUSER --password=$SVNPASSWORD -m "Tagging version $PLUGINVERSION" --no-auth-cache
+if [[ "${DRYRUN}" == "false" ]] ; then
+  if [ ! -z "$SVNPASSWORD" ]; then
+    svn commit --username=$SVNUSER --password=$SVNPASSWORD -m "Tagging version $PLUGINVERSION" --no-auth-cache
+  else
+    svn commit --username=$SVNUSER -m "Tagging version $PLUGINVERSION" --no-auth-cache
+  fi
 else
-	svn commit --username=$SVNUSER -m "Tagging version $PLUGINVERSION" --no-auth-cache
+  echo "[DRYRUN] Skipping commit to SVN repository!"
 fi
 
 echo "Successfully released v$PLUGINVERSION of the $PLUGINSLUG plugin!"
