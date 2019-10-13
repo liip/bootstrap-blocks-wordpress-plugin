@@ -72,9 +72,12 @@ echo "Copying required plugin files to SVN trunk"
 cp $SOURCEPATH/readme.txt $RELEASEPATH/trunk/
 cp $SOURCEPATH/wp-bootstrap-blocks.php $RELEASEPATH/trunk/
 cp $SOURCEPATH/screenshot* $RELEASEPATH/trunk/
-cp -R $SOURCEPATH/build $RELEASEPATH/trunk/
 cp -R $SOURCEPATH/languages $RELEASEPATH/trunk/
 cp -R $SOURCEPATH/src $RELEASEPATH/trunk/
+mkdir -p $RELEASEPATH/trunk/build/
+cp $SOURCEPATH/build/editor.css $RELEASEPATH/trunk/build/
+cp $SOURCEPATH/build/style.css $RELEASEPATH/trunk/build/
+cp $SOURCEPATH/build/index.js $RELEASEPATH/trunk/build/
 
 echo "Changing directory to SVN and committing to trunk"
 cd $RELEASEPATH/trunk/
