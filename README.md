@@ -221,6 +221,8 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.container.customMarginOptions', 'myplugin
 ### wpBootstrapBlocks.row.templates
 
 Define block templates.
+To use the new array template structure you need to disable the old structure with the `wpBootstrapBlocks.row.useOldObjectTemplateStructure` filter.
+This is needed that we can ensure backwards compatibility for the old object structure.
 
 #### Usage:
 
@@ -321,6 +323,21 @@ let templates = [
 ];
 ```
 
+### wpBootstrapBlocks.row.useOldObjectTemplateStructure
+
+Enable/Disable the old object template structure. This is enabled by default to ensure backwards compatibility!
+
+#### Usage:
+
+```javascript
+// Disable old object template structure
+wp.hooks.addFilter( 'wpBootstrapBlocks.row.useOldObjectTemplateStructure', 'myplugin/wp-bootstrap-blocks/row/useOldObjectTemplateStructure', () => false );
+```
+
+#### Parameters:
+
+* `useOldObjectTemplateStructure` (`boolean`) Return false if new array template structure should be used.
+
 ### wpBootstrapBlocks.row.enableCustomTemplate
 
 Enable/Disable custom option in row templates.
@@ -329,7 +346,7 @@ Enable/Disable custom option in row templates.
 
 ```javascript
 // Disable custom row template
-wp.hooks.addFilter( 'wpBootstrapBlocks.row.enableCustomTemplate', 'myplugin/wp-bootstrap-blocks/row/enableCustomTemplate', false );
+wp.hooks.addFilter( 'wpBootstrapBlocks.row.enableCustomTemplate', 'myplugin/wp-bootstrap-blocks/row/enableCustomTemplate', () => false );
 ```
 
 #### Parameters:
