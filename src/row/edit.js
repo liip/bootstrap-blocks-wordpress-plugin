@@ -10,14 +10,29 @@ const { compose } = wp.compose;
 
 const ALLOWED_BLOCKS = [ 'wp-bootstrap-blocks/column' ];
 
-const prepareTemplates = ( templates ) => {
-	// If templates are already in new structure do nothing
+const arrayToObjectStructure = ( templates ) => {
+	// If templates are not in array structure do nothing
+	if ( ! Array.isArray( templates ) ) {
+		return templates;
+	}
+
+	return templates.reduce( ( objectTemplates, template ) => {
+		const { name, title: label, template: blocks, ...templateInfo } = template
+		objectTemplates[ name ] = {
+			label,
+			blocks,
+			...templateInfo
+		}
+		return objectTemplates
+	}, {} )
+}
+
+const objectToArrayStructure = ( templates ) => {
+	// If templates are already in array structure do nothing
 	if ( Array.isArray( templates ) ) {
 		return templates;
 	}
 
-	// eslint-disable-next-line no-console
-	console.warn( 'The old template structure (<= v1.2.0) of the row block is deprecated, please migrate your templates to the new one structure (v1.3.0+).' );
 	return Object.keys( templates ).map( ( templateName ) => {
 		return {
 			name: templateName,
@@ -117,8 +132,15 @@ let templates = [
 		],
 	},
 ];
+
+let useObjectTemplateStructure = applyFilters( 'wpBootstrapBlocks.row.useObjectTemplateStructure', false );
+if ( ! useObjectTemplateStructure ) {
+	// eslint-disable-next-line no-console
+	console.warn( 'wp-bootstrap-blocks: The old object template structure (<= v1.2.0) of the row block is deprecated, please migrate your templates to the new array structure (v1.3.0+).' );
+	templates = arrayToObjectStructure( templates )
+}
 templates = applyFilters( 'wpBootstrapBlocks.row.templates', templates );
-templates = prepareTemplates( templates ); // Ensure backwards compatibility to older templates structure
+templates = objectToArrayStructure( templates );
 
 const enableCustomTemplate = applyFilters( 'wpBootstrapBlocks.row.enableCustomTemplate', true );
 if ( enableCustomTemplate ) {
