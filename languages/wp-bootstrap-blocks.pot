@@ -9,17 +9,17 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-28T11:14:30+00:00\n"
+"POT-Creation-Date: 2019-10-14T19:06:39+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.2.0\n"
 "X-Domain: wp-bootstrap-blocks\n"
 
 #. Plugin Name of the plugin
 #: src/class-wp-bootstrap-blocks.php:183
-#: src/column/block.js:16
-#: src/container/block.js:47
-#: src/row/block.js:21
-#: src/button/block.js:18
+#: src/column/block.js:17
+#: src/container/block.js:44
+#: src/row/block.js:17
+#: src/button/block.js:17
 msgid "Bootstrap Blocks"
 msgstr ""
 
@@ -45,22 +45,22 @@ msgid "%s does not exist."
 msgstr ""
 
 #: src/column/edit.js:34
-#: src/container/block.js:35
+#: src/container/block.js:32
 msgid "None"
 msgstr ""
 
 #: src/column/edit.js:35
-#: src/container/block.js:19
+#: src/container/block.js:16
 msgid "Small"
 msgstr ""
 
 #: src/column/edit.js:36
-#: src/container/block.js:23
+#: src/container/block.js:20
 msgid "Medium"
 msgstr ""
 
 #: src/column/edit.js:37
-#: src/container/block.js:27
+#: src/container/block.js:24
 msgid "Large"
 msgstr ""
 
@@ -108,86 +108,86 @@ msgstr ""
 msgid "Size"
 msgstr ""
 
-#: src/column/block.js:12
-#: src/column/block.js:18
+#: src/column/block.js:13
+#: src/column/block.js:19
 msgid "Column"
 msgstr ""
 
-#: src/column/block.js:17
-#: src/container/block.js:48
-#: src/row/block.js:22
-#: src/button/block.js:19
+#: src/column/block.js:18
+#: src/container/block.js:45
+#: src/row/block.js:18
+#: src/button/block.js:18
 msgid "Bootstrap"
 msgstr ""
 
-#: src/container/block.js:43
-#: src/container/block.js:49
+#: src/container/block.js:40
+#: src/container/block.js:46
 msgid "Container"
 msgstr ""
 
-#: src/container/block.js:71
+#: src/container/block.js:68
 msgid "Fluid"
 msgstr ""
 
-#: src/container/block.js:78
+#: src/container/block.js:75
 msgid "Margin After"
 msgstr ""
 
-#: src/row/edit.js:35
+#: src/row/edit.js:50
 msgid "2 Columns (1:1)"
 msgstr ""
 
-#: src/row/edit.js:55
+#: src/row/edit.js:70
 msgid "2 Columns (1:2)"
 msgstr ""
 
-#: src/row/edit.js:75
+#: src/row/edit.js:90
 msgid "2 Columns (2:1)"
 msgstr ""
 
-#: src/row/edit.js:95
+#: src/row/edit.js:110
 msgid "3 Columns (1:1:1)"
 msgstr ""
 
-#: src/row/edit.js:128
+#: src/row/edit.js:150
 msgid "Custom"
 msgstr ""
 
-#: src/row/edit.js:172
+#: src/row/edit.js:194
 msgid "Align columns left"
 msgstr ""
 
-#: src/row/edit.js:177
-#: src/row/edit.js:195
+#: src/row/edit.js:199
+#: src/row/edit.js:217
 msgid "Align columns center"
 msgstr ""
 
-#: src/row/edit.js:182
+#: src/row/edit.js:204
 msgid "Align columns right"
 msgstr ""
 
-#: src/row/edit.js:190
+#: src/row/edit.js:212
 msgid "Align columns top"
 msgstr ""
 
-#: src/row/edit.js:200
+#: src/row/edit.js:222
 msgid "Align columns bottom"
 msgstr ""
 
-#: src/row/edit.js:209
+#: src/row/edit.js:231
 msgid "Change layout"
 msgstr ""
 
-#: src/row/edit.js:229
+#: src/row/edit.js:251
 msgid "Row options"
 msgstr ""
 
-#: src/row/edit.js:232
+#: src/row/edit.js:254
 msgid "No Gutters"
 msgstr ""
 
-#: src/row/block.js:17
-#: src/row/block.js:23
+#: src/row/block.js:13
+#: src/row/block.js:19
 msgid "Row"
 msgstr ""
 
@@ -203,7 +203,7 @@ msgstr ""
 msgid "Style"
 msgstr ""
 
-#: src/button/block.js:14
-#: src/button/block.js:20
+#: src/button/block.js:13
+#: src/button/block.js:19
 msgid "Button"
 msgstr ""

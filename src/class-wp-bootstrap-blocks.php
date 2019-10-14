@@ -82,7 +82,7 @@ class WP_Bootstrap_Blocks {
 	protected function init_plugin_environment() {
 		// Load plugin environment variables
 		$this->assets_dir = WP_BOOTSTRAP_BLOCKS_ABSPATH . 'dist';
-		$this->assets_url = esc_url( trailingslashit( plugins_url( '/dist/', WP_BOOTSTRAP_BLOCKS_PLUGIN_FILE ) ) );
+		$this->assets_url = esc_url( trailingslashit( plugins_url( '/build/', WP_BOOTSTRAP_BLOCKS_PLUGIN_FILE ) ) );
 	}
 
 	/**
@@ -130,7 +130,7 @@ class WP_Bootstrap_Blocks {
 		// Styles.
 		wp_enqueue_style(
 			$this->token . '-styles', // Handle.
-			esc_url( $this->assets_url ) . 'blocks.style.build.css', // Block style CSS.
+			esc_url( $this->assets_url ) . 'style.css', // Block style CSS.
 			array(),
 			$this->version
 		);
@@ -143,7 +143,7 @@ class WP_Bootstrap_Blocks {
 		// Scripts.
 		wp_enqueue_script(
 			$this->token . '-js', // Handle.
-			esc_url( $this->assets_url ) . 'blocks.build.js', // block.build.js: We register the block here. Built with Webpack.
+			esc_url( $this->assets_url ) . 'index.js', // block.build.js: We register the block here. Built with Webpack.
 			array(
 				'wp-blocks',
 				'wp-i18n',
@@ -160,7 +160,7 @@ class WP_Bootstrap_Blocks {
 		// Styles.
 		wp_enqueue_style(
 			$this->token . '-editor-styles', // Handle.
-			esc_url( $this->assets_url ) . 'blocks.editor.build.css', // Block editor CSS.
+			esc_url( $this->assets_url ) . 'editor.css', // Block editor CSS.
 			array( 'wp-edit-blocks' ), // Dependency to include the CSS after it.
 			$this->version
 		);

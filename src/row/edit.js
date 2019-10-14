@@ -10,15 +10,30 @@ const { compose } = wp.compose;
 
 const ALLOWED_BLOCKS = [ 'wp-bootstrap-blocks/column' ];
 
-const prepareTemplates = templates => {
-	// If templates are already in new structure do nothing
+const arrayToObjectStructure = ( templates ) => {
+	// If templates are not in array structure do nothing
+	if ( ! Array.isArray( templates ) ) {
+		return templates;
+	}
+
+	return templates.reduce( ( objectTemplates, template ) => {
+		const { name, title: label, template: blocks, ...templateInfo } = template;
+		objectTemplates[ name ] = {
+			label,
+			blocks,
+			...templateInfo,
+		};
+		return objectTemplates;
+	}, {} );
+};
+
+const objectToArrayStructure = ( templates ) => {
+	// If templates are already in array structure do nothing
 	if ( Array.isArray( templates ) ) {
 		return templates;
 	}
 
-	// eslint-disable-next-line no-console
-	console.warn( 'The old template structure (<= v1.2.0) of the row block is deprecated, please migrate your templates to the new one structure (v1.3.0+).' );
-	return Object.keys( templates ).map( templateName => {
+	return Object.keys( templates ).map( ( templateName ) => {
 		return {
 			name: templateName,
 			title: templates[ templateName ].title || templates[ templateName ].label,
@@ -117,8 +132,15 @@ let templates = [
 		],
 	},
 ];
+
+const useOldObjectTemplateStructure = applyFilters( 'wpBootstrapBlocks.row.useOldObjectTemplateStructure', false );
+if ( ! useOldObjectTemplateStructure ) {
+	// eslint-disable-next-line no-console
+	console.warn( 'wp-bootstrap-blocks: The old object template structure (<= v1.2.0) of the row block is deprecated, please migrate your templates to the new array structure (v1.3.0+). As soon as you have updated your template structure you need to disable the old object template structure with the wpBootstrapBlocks.row.useOldObjectTemplateStructure filter.' );
+	templates = arrayToObjectStructure( templates );
+}
 templates = applyFilters( 'wpBootstrapBlocks.row.templates', templates );
-templates = prepareTemplates( templates ); // Ensure backwards compatibility to older templates structure
+templates = objectToArrayStructure( templates );
 
 const enableCustomTemplate = applyFilters( 'wpBootstrapBlocks.row.enableCustomTemplate', true );
 if ( enableCustomTemplate ) {
@@ -136,11 +158,11 @@ if ( enableCustomTemplate ) {
 }
 
 const getColumnsTemplate = ( templateName ) => {
-	const template = templates.find( t => t.name === templateName );
+	const template = templates.find( ( t ) => t.name === templateName );
 	return template ? template.template : [];
 };
 const getColumnsTemplateLock = ( templateName ) => {
-	const template = templates.find( t => t.name === templateName );
+	const template = templates.find( ( t ) => t.name === templateName );
 	return template ? template.templateLock : false;
 };
 
@@ -150,7 +172,7 @@ class BootstrapRowEdit extends Component {
 		const { template: selectedTemplateName, noGutters, alignment, verticalAlignment } = attributes;
 
 		const onTemplateChange = ( newSelectedTemplateName ) => {
-			const template = templates.find( t => t.name === newSelectedTemplateName );
+			const template = templates.find( ( t ) => t.name === newSelectedTemplateName );
 			if ( template ) {
 				// Update sizes to fit with selected template
 				columns.forEach( ( column, index ) => {
@@ -231,19 +253,19 @@ class BootstrapRowEdit extends Component {
 						<CheckboxControl
 							label={ __( 'No Gutters', 'wp-bootstrap-blocks' ) }
 							checked={ noGutters }
-							onChange={ isChecked => setAttributes( { noGutters: isChecked } ) }
+							onChange={ ( isChecked ) => setAttributes( { noGutters: isChecked } ) }
 						/>
 					</PanelBody>
 				</InspectorControls>
 				<BlockControls>
 					<AlignmentToolbar
 						value={ alignment }
-						onChange={ newAlignment => setAttributes( { alignment: newAlignment } ) }
+						onChange={ ( newAlignment ) => setAttributes( { alignment: newAlignment } ) }
 						alignmentControls={ alignmentControls }
 					/>
 					<AlignmentToolbar
 						value={ verticalAlignment }
-						onChange={ newVerticalAlignment => setAttributes( { verticalAlignment: newVerticalAlignment } ) }
+						onChange={ ( newVerticalAlignment ) => setAttributes( { verticalAlignment: newVerticalAlignment } ) }
 						alignmentControls={ verticalAlignmentControls }
 					/>
 				</BlockControls>

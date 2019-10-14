@@ -221,6 +221,8 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.container.customMarginOptions', 'myplugin
 ### wpBootstrapBlocks.row.templates
 
 Define block templates.
+To use the new array template structure you need to disable the old structure with the [`wpBootstrapBlocks.row.useOldObjectTemplateStructure` filter](https://github.com/liip/bootstrap-blocks-wordpress-plugin#wpbootstrapblocksrowuseoldobjecttemplatestructure) filter.
+This is needed that we can ensure backwards compatibility for the old object structure.
 
 #### Usage:
 
@@ -321,6 +323,21 @@ let templates = [
 ];
 ```
 
+### wpBootstrapBlocks.row.useOldObjectTemplateStructure
+
+Enable/Disable the old object template structure. This is enabled by default to ensure backwards compatibility!
+
+#### Usage:
+
+```javascript
+// Disable old object template structure
+wp.hooks.addFilter( 'wpBootstrapBlocks.row.useOldObjectTemplateStructure', 'myplugin/wp-bootstrap-blocks/row/useOldObjectTemplateStructure', () => false );
+```
+
+#### Parameters:
+
+* `useOldObjectTemplateStructure` (`boolean`) Return false if new array template structure should be used.
+
 ### wpBootstrapBlocks.row.enableCustomTemplate
 
 Enable/Disable custom option in row templates.
@@ -329,7 +346,7 @@ Enable/Disable custom option in row templates.
 
 ```javascript
 // Disable custom row template
-wp.hooks.addFilter( 'wpBootstrapBlocks.row.enableCustomTemplate', 'myplugin/wp-bootstrap-blocks/row/enableCustomTemplate', false );
+wp.hooks.addFilter( 'wpBootstrapBlocks.row.enableCustomTemplate', 'myplugin/wp-bootstrap-blocks/row/enableCustomTemplate', () => false );
 ```
 
 #### Parameters:
@@ -397,21 +414,12 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.column.paddingOptions', 'myplugin/wp-boot
 
 ### Compile assets
 
-This project was bootstrapped with [Create Guten Block](https://github.com/ahmadawais/create-guten-block).
-
 #### `npm start`
 - Use to compile and run the block in development mode.
 - Watches for any changes and reports back any errors in your code.
 
 #### `npm run build`
-- Use to build production code for your block inside `dist` folder.
-- Runs once and reports back the gzip file sizes of the produced code.
-
-#### `npm run eject`
-- Use to eject your plugin out of `create-guten-block`.
-- Provides all the configurations so you can customize the project as you want.
-- It's a one-way street, `eject` and you have to maintain everything yourself.
-- You don't normally have to `eject` a project because by ejecting you lose the connection with `create-guten-block` and from there onwards you have to update and maintain all the dependencies on your own.
+- Use to build production code for your block inside `build` folder.
 
 ### Extract labels
 

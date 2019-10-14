@@ -1,6 +1,6 @@
 @import "../assets/gutenberg/gutenberg";
 
-@mixin make-grid-columns($current-size-index: 1, $sizes: ('xl', 'lg', 'md', 'sm', 'xs'), $grid-columns: 12) {
+@mixin make-grid-columns($current-size-index: 1, $sizes: ("xl", "lg", "md", "sm", "xs"), $grid-columns: 12) {
 	@if $current-size-index <= length($sizes) {
 		$size: nth($sizes, $current-size-index);
 
@@ -16,7 +16,8 @@
 		&[data-size-#{$size}="0"] {
 			@include make-grid-columns($current-size-index + 1);
 		}
-	} @else {
+	}
+	@else {
 		flex-grow: 1;
 	}
 }
