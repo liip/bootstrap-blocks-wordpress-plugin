@@ -221,7 +221,7 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.container.customMarginOptions', 'myplugin
 ### wpBootstrapBlocks.row.templates
 
 Define block templates.
-To use the new array template structure you need to disable the old structure with the `wpBootstrapBlocks.row.useOldObjectTemplateStructure` filter.
+To use the new array template structure you need to disable the old structure with the [`wpBootstrapBlocks.row.useOldObjectTemplateStructure` filter](https://github.com/liip/bootstrap-blocks-wordpress-plugin#wpbootstrapblocksrowuseoldobjecttemplatestructure) filter.
 This is needed that we can ensure backwards compatibility for the old object structure.
 
 #### Usage:
