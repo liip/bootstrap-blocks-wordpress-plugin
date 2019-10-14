@@ -12,11 +12,13 @@ before_install:
 install:
   - composer install
   - vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs
-  - npm install
+  - npm ci
 
 script:
   - scripts/phpcodesniffer.sh
-  - npm run lint
+  - npm run lint:js
+  - npm run lint:pkg-json
+  - npm run lint:css
 
 deploy:
   provider: script

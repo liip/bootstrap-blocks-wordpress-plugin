@@ -96,7 +96,7 @@ export default class BootstrapColumnEdit extends Component {
 										bgColor: '',
 									} );
 								} else {
-									const selectedColor = bgColorOptions.find( c => c.color === value );
+									const selectedColor = bgColorOptions.find( ( c ) => c.color === value );
 									if ( selectedColor ) {
 										setAttributes( {
 											bgColor: selectedColor.name,
