@@ -17,15 +17,15 @@ const arrayToObjectStructure = ( templates ) => {
 	}
 
 	return templates.reduce( ( objectTemplates, template ) => {
-		const { name, title: label, template: blocks, ...templateInfo } = template
+		const { name, title: label, template: blocks, ...templateInfo } = template;
 		objectTemplates[ name ] = {
 			label,
 			blocks,
-			...templateInfo
-		}
-		return objectTemplates
-	}, {} )
-}
+			...templateInfo,
+		};
+		return objectTemplates;
+	}, {} );
+};
 
 const objectToArrayStructure = ( templates ) => {
 	// If templates are already in array structure do nothing
@@ -133,11 +133,11 @@ let templates = [
 	},
 ];
 
-let useOldObjectTemplateStructure = applyFilters( 'wpBootstrapBlocks.row.useOldObjectTemplateStructure', false );
+const useOldObjectTemplateStructure = applyFilters( 'wpBootstrapBlocks.row.useOldObjectTemplateStructure', false );
 if ( ! useOldObjectTemplateStructure ) {
 	// eslint-disable-next-line no-console
 	console.warn( 'wp-bootstrap-blocks: The old object template structure (<= v1.2.0) of the row block is deprecated, please migrate your templates to the new array structure (v1.3.0+). As soon as you have updated your template structure you need to disable the old object template structure with the wpBootstrapBlocks.row.useOldObjectTemplateStructure filter.' );
-	templates = arrayToObjectStructure( templates )
+	templates = arrayToObjectStructure( templates );
 }
 templates = applyFilters( 'wpBootstrapBlocks.row.templates', templates );
 templates = objectToArrayStructure( templates );
