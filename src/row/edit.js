@@ -133,8 +133,8 @@ let templates = [
 	},
 ];
 
-const useOldObjectTemplateStructure = applyFilters( 'wpBootstrapBlocks.row.useOldObjectTemplateStructure', false );
-if ( ! useOldObjectTemplateStructure ) {
+const useOldObjectTemplateStructure = applyFilters( 'wpBootstrapBlocks.row.useOldObjectTemplateStructure', true );
+if ( useOldObjectTemplateStructure ) {
 	// eslint-disable-next-line no-console
 	console.warn( 'wp-bootstrap-blocks: The old object template structure (<= v1.2.0) of the row block is deprecated, please migrate your templates to the new array structure (v1.3.0+). As soon as you have updated your template structure you need to disable the old object template structure with the wpBootstrapBlocks.row.useOldObjectTemplateStructure filter.' );
 	templates = arrayToObjectStructure( templates );
