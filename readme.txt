@@ -5,7 +5,7 @@ Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.0
 Tested up to: 5.2.4
 Requires PHP: 5.6
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -66,6 +66,11 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 1. Bootstrap Blocks in Gutenberg editor
 
 == Changelog ==
+
+= 1.3.1 =
+
+* [FIX] Fix meaning of `wpBootstrapBlocks.row.useOldObjectTemplateStructure` filter. In v1.3.0 boolean value was inverted.
+* [FIX] Fix add default icon to template if it's missing.
 
 = 1.3.0 =
 
