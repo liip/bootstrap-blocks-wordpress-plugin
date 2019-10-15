@@ -44,6 +44,12 @@ const objectToArrayStructure = ( templates ) => {
 	} );
 };
 
+const addMissingTemplateIcons = ( templates ) => {
+	return templates.map( ( template ) => {
+		return { icon: templateIconMissing, ...template };
+	} );
+};
+
 let templates = [
 	{
 		name: '1-1',
@@ -141,6 +147,7 @@ if ( useOldObjectTemplateStructure ) {
 }
 templates = applyFilters( 'wpBootstrapBlocks.row.templates', templates );
 templates = objectToArrayStructure( templates );
+templates = addMissingTemplateIcons( templates );
 
 const enableCustomTemplate = applyFilters( 'wpBootstrapBlocks.row.enableCustomTemplate', true );
 if ( enableCustomTemplate ) {
