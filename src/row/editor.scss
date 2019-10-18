@@ -103,10 +103,18 @@
 
 .wp-bootstrap-blocks-template-selector-button {
 	flex: 0 0 50%;
+	display: flex;
 
 	> .components-icon-button {
 		flex-direction: column;
+		justify-content: center;
 		width: 100%;
+
+		// Align margin to text position
+		&.has-text svg {
+			margin-right: 0;
+			margin-bottom: 4px;
+		}
 
 		&.is-active,
 		&.is-active:not(:disabled):not([aria-disabled="true"]):not(.is-default):hover {
