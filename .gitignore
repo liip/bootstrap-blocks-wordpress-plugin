@@ -6,3 +6,4 @@ build/*
 !build/style.css
 wp-cli.phar
 composer.phar
+/wordpress
