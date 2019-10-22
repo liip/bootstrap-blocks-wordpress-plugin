@@ -81,7 +81,7 @@ class WP_Bootstrap_Blocks {
 	 */
 	protected function init_plugin_environment() {
 		// Load plugin environment variables
-		$this->assets_dir = WP_BOOTSTRAP_BLOCKS_ABSPATH . 'dist';
+		$this->assets_dir = WP_BOOTSTRAP_BLOCKS_ABSPATH . 'build/';
 		$this->assets_url = esc_url( trailingslashit( plugins_url( '/build/', WP_BOOTSTRAP_BLOCKS_PLUGIN_FILE ) ) );
 	}
 
