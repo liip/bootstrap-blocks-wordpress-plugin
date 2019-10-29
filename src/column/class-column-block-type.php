@@ -47,6 +47,21 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Column\Column_Block_Type', false ) ) 
 			'sizeXs' => array(
 				'type' => 'number',
 			),
+			'equalWidthXl' => array(
+				'type' => 'boolean',
+			),
+			'equalWidthLg' => array(
+				'type' => 'boolean',
+			),
+			'equalWidthMd' => array(
+				'type' => 'boolean',
+			),
+			'equalWidthSm' => array(
+				'type' => 'boolean',
+			),
+			'equalWidthXs' => array(
+				'type' => 'boolean',
+			),
 			'bgColor' => array(
 				'type' => 'string',
 			),

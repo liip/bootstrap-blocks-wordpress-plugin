@@ -25,21 +25,31 @@
 $classes = array();
 $column_content_classes = array();
 
-if ( array_key_exists( 'sizeXs', $attributes ) && $attributes['sizeXs'] > 0 ) {
+if ( array_key_exists( 'equalWidthXs', $attributes ) && $attributes['equalWidthXs'] ) {
+	array_push( $classes, 'col' );
+} elseif ( array_key_exists( 'sizeXs', $attributes ) && $attributes['sizeXs'] > 0 ) {
 	array_push( $classes, 'col-' . $attributes['sizeXs'] );
 } else {
 	array_push( $classes, 'col-12' );
 }
-if ( array_key_exists( 'sizeSm', $attributes ) && $attributes['sizeSm'] > 0 ) {
+if ( array_key_exists( 'equalWidthSm', $attributes ) && $attributes['equalWidthSm'] ) {
+	array_push( $classes, 'col-sm' );
+} elseif ( array_key_exists( 'sizeSm', $attributes ) && $attributes['sizeSm'] > 0 ) {
 	array_push( $classes, 'col-sm-' . $attributes['sizeSm'] );
 }
-if ( array_key_exists( 'sizeMd', $attributes ) && $attributes['sizeMd'] > 0 ) {
+if ( array_key_exists( 'equalWidthMd', $attributes ) && $attributes['equalWidthMd'] ) {
+	array_push( $classes, 'col-md' );
+} elseif ( array_key_exists( 'sizeMd', $attributes ) && $attributes['sizeMd'] > 0 ) {
 	array_push( $classes, 'col-md-' . $attributes['sizeMd'] );
 }
-if ( array_key_exists( 'sizeLg', $attributes ) && $attributes['sizeLg'] > 0 ) {
+if ( array_key_exists( 'equalWidthLg', $attributes ) && $attributes['equalWidthLg'] ) {
+	array_push( $classes, 'col-lg' );
+} elseif ( array_key_exists( 'sizeLg', $attributes ) && $attributes['sizeLg'] > 0 ) {
 	array_push( $classes, 'col-lg-' . $attributes['sizeLg'] );
 }
-if ( array_key_exists( 'sizeXl', $attributes ) && $attributes['sizeXl'] > 0 ) {
+if ( array_key_exists( 'equalWidthXl', $attributes ) && $attributes['equalWidthXl'] ) {
+	array_push( $classes, 'col-xl' );
+} elseif ( array_key_exists( 'sizeXl', $attributes ) && $attributes['sizeXl'] > 0 ) {
 	array_push( $classes, 'col-xl-' . $attributes['sizeXl'] );
 }
 if ( array_key_exists( 'className', $attributes ) ) {
