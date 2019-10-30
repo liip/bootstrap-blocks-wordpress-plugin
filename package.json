@@ -38,6 +38,7 @@
     "env": "wp-scripts env",
     "check-engines": "wp-scripts check-engines",
     "check-licenses": "wp-scripts check-licenses",
+    "lint": "npm run lint:pkg-json && npm run lint:css && npm run lint:js",
     "lint:css": "wp-scripts lint-style 'src/**/*.scss'",
     "lint:js": "wp-scripts lint-js",
     "lint:pkg-json": "wp-scripts lint-pkg-json",
