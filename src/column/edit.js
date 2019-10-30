@@ -3,7 +3,7 @@
  */
 const { __ } = wp.i18n;
 const { InnerBlocks, InspectorControls } = wp.editor;
-const { CheckboxControl, ColorPalette, PanelBody, RangeControl, SelectControl } = wp.components;
+const { CheckboxControl, ColorPalette, PanelBody, HorizontalRule, RangeControl, SelectControl } = wp.components;
 const { Component, Fragment } = wp.element;
 const { applyFilters } = wp.hooks;
 
@@ -67,7 +67,7 @@ export default class BootstrapColumnEdit extends Component {
 						initialOpen={ false }
 					>
 						<ColumnSizeRangeControl
-							label={ __( 'Xl Columns', 'wp-bootstrap-blocks' ) }
+							label={ __( 'Xl Column count', 'wp-bootstrap-blocks' ) }
 							attributeName="sizeXl"
 							value={ sizeXl }
 							disabled={ equalWidthXl }
@@ -78,8 +78,9 @@ export default class BootstrapColumnEdit extends Component {
 							checked={ equalWidthXl }
 							onChange={ ( isChecked ) => setAttributes( { equalWidthXl: isChecked } ) }
 						/>
+						<HorizontalRule />
 						<ColumnSizeRangeControl
-							label={ __( 'Lg Columns', 'wp-bootstrap-blocks' ) }
+							label={ __( 'Lg Column count', 'wp-bootstrap-blocks' ) }
 							attributeName="sizeLg"
 							value={ sizeLg }
 							disabled={ equalWidthLg }
@@ -90,8 +91,9 @@ export default class BootstrapColumnEdit extends Component {
 							checked={ equalWidthLg }
 							onChange={ ( isChecked ) => setAttributes( { equalWidthLg: isChecked } ) }
 						/>
+						<HorizontalRule />
 						<ColumnSizeRangeControl
-							label={ __( 'Md Columns', 'wp-bootstrap-blocks' ) }
+							label={ __( 'Md Column count', 'wp-bootstrap-blocks' ) }
 							attributeName="sizeMd"
 							value={ sizeMd }
 							disabled={ equalWidthMd }
@@ -102,8 +104,9 @@ export default class BootstrapColumnEdit extends Component {
 							checked={ equalWidthMd }
 							onChange={ ( isChecked ) => setAttributes( { equalWidthMd: isChecked } ) }
 						/>
+						<HorizontalRule />
 						<ColumnSizeRangeControl
-							label={ __( 'Sm Columns', 'wp-bootstrap-blocks' ) }
+							label={ __( 'Sm Column count', 'wp-bootstrap-blocks' ) }
 							attributeName="sizeSm"
 							value={ sizeSm }
 							disabled={ equalWidthSm }
@@ -114,8 +117,9 @@ export default class BootstrapColumnEdit extends Component {
 							checked={ equalWidthSm }
 							onChange={ ( isChecked ) => setAttributes( { equalWidthSm: isChecked } ) }
 						/>
+						<HorizontalRule />
 						<ColumnSizeRangeControl
-							label={ __( 'Xs Columns', 'wp-bootstrap-blocks' ) }
+							label={ __( 'Xs Column count', 'wp-bootstrap-blocks' ) }
 							attributeName="sizeXs"
 							value={ sizeXs }
 							disabled={ equalWidthXs }
