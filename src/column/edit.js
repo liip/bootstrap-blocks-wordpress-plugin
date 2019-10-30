@@ -74,7 +74,7 @@ export default class BootstrapColumnEdit extends Component {
 							setAttributes={ setAttributes }
 						/>
 						<CheckboxControl
-							label={ __( 'Xl equal width', 'wp-bootstrap-blocks' ) }
+							label={ __( 'Xl equal-width', 'wp-bootstrap-blocks' ) }
 							checked={ equalWidthXl }
 							onChange={ ( isChecked ) => setAttributes( { equalWidthXl: isChecked } ) }
 						/>
@@ -87,7 +87,7 @@ export default class BootstrapColumnEdit extends Component {
 							setAttributes={ setAttributes }
 						/>
 						<CheckboxControl
-							label={ __( 'Lg equal width', 'wp-bootstrap-blocks' ) }
+							label={ __( 'Lg equal-width', 'wp-bootstrap-blocks' ) }
 							checked={ equalWidthLg }
 							onChange={ ( isChecked ) => setAttributes( { equalWidthLg: isChecked } ) }
 						/>
@@ -100,7 +100,7 @@ export default class BootstrapColumnEdit extends Component {
 							setAttributes={ setAttributes }
 						/>
 						<CheckboxControl
-							label={ __( 'Md equal width', 'wp-bootstrap-blocks' ) }
+							label={ __( 'Md equal-width', 'wp-bootstrap-blocks' ) }
 							checked={ equalWidthMd }
 							onChange={ ( isChecked ) => setAttributes( { equalWidthMd: isChecked } ) }
 						/>
@@ -113,7 +113,7 @@ export default class BootstrapColumnEdit extends Component {
 							setAttributes={ setAttributes }
 						/>
 						<CheckboxControl
-							label={ __( 'Sm equal width', 'wp-bootstrap-blocks' ) }
+							label={ __( 'Sm equal-width', 'wp-bootstrap-blocks' ) }
 							checked={ equalWidthSm }
 							onChange={ ( isChecked ) => setAttributes( { equalWidthSm: isChecked } ) }
 						/>
@@ -126,7 +126,7 @@ export default class BootstrapColumnEdit extends Component {
 							setAttributes={ setAttributes }
 						/>
 						<CheckboxControl
-							label={ __( 'Xs equal width', 'wp-bootstrap-blocks' ) }
+							label={ __( 'Xs equal-width', 'wp-bootstrap-blocks' ) }
 							checked={ equalWidthXs }
 							onChange={ ( isChecked ) => setAttributes( { equalWidthXs: isChecked } ) }
 						/>
