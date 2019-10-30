@@ -34,6 +34,7 @@ All blocks are implemented as [dynamic blocks](https://wordpress.org/gutenberg/h
 To overwrite a block template create a folder called `wp-bootstrap-blocks/` in your theme directory. You can copy the original template from `wp-bootstrap-blocks/src/templates/<blockname>.php` as a starting point and adjust it to your needs.
 
 = Requirements =
+
 * WordPress >= 5.0
 * PHP >= 5.6
 
@@ -67,6 +68,12 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 == Changelog ==
 
+= 1.4.0 =
+
+* [FEATURE] Added possibility to define equal-width columns
+* [IMPROVEMENT] Improve template selection button styling when using a custom icon.
+* Modified Templates: `column.php`
+
 = 1.3.1 =
 
 * [FIX] Fix meaning of `wpBootstrapBlocks.row.useOldObjectTemplateStructure` filter. In v1.3.0 boolean value was inverted.
@@ -92,6 +99,7 @@ As soon as you have updated your template structure you need to disable the old 
 
 * [FEATURE] Added possibility to set background color on column block.
 * [IMPROVEMENT] Optimized editor styling of row block.
+* Modified Templates: `button.php`, `column.php`, `row.php`
 
 = 1.0.0 =
 
