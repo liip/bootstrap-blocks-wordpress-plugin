@@ -19,6 +19,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@wordpress/e2e-test-utils": "^2.4.3",
     "@wordpress/scripts": "^5.0.1",
     "css-loader": "^3.2.0",
     "ignore-emit-webpack-plugin": "^2.0.2",
