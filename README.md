@@ -403,7 +403,6 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.column.paddingOptions', 'myplugin/wp-boot
     ```
     $ curl -s https://getcomposer.org/installer | php
     $ php composer.phar install
-    $ vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs
     ```
 
 1. Install Node dependencies

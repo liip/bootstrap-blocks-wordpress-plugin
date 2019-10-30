@@ -2,6 +2,12 @@
 <ruleset name="wp-bootstrap-blocks">
 	<description>Coding standards for wp-bootstrap-blocks</description>
 
+	<arg value="ps"/>
+	<arg name="extensions" value="php"/>
+
+	<file>./wp-bootstrap-blocks.php</file>
+	<file>./src</file>
+
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>assets/*</exclude-pattern>

@@ -30,15 +30,25 @@
     "webpack": "^4.41.1"
   },
   "scripts": {
+    "start": "wp-scripts start",
+    "dev": "npm run start",
     "prebuild": "npm run check-engines",
     "build": "wp-scripts build",
+    "env": "wp-scripts env",
     "check-engines": "wp-scripts check-engines",
     "check-licenses": "wp-scripts check-licenses",
     "lint:css": "wp-scripts lint-style 'src/**/*.scss'",
     "lint:js": "wp-scripts lint-js",
     "lint:pkg-json": "wp-scripts lint-pkg-json",
-    "start": "wp-scripts start",
     "test:e2e": "wp-scripts test-e2e",
     "test:unit": "wp-scripts test-unit-js"
+  },
+  "wp-env": {
+    "plugin-dir": "wp-bootstrap-blocks",
+    "plugin-name": "Bootstrap Blocks",
+    "welcome-logo": [
+      "Bootstrap Blocks"
+    ],
+    "welcome-build-command": "npm run dev"
   }
 }
