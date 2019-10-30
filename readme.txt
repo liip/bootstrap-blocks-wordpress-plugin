@@ -70,7 +70,7 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 = 1.4.0 =
 
-* [FEATURE] Added possibility to define equal-width columns
+* [FEATURE] Added possibility to define equal-width columns.
 * [IMPROVEMENT] Improve template selection button styling when using a custom icon.
 * Modified Templates: `column.php`
 
