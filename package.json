@@ -1,6 +1,6 @@
 {
   "name": "wp-bootstrap-blocks",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "private": true,
   "description": "Bootstrap 4 Gutenberg Blocks for WordPress",
   "author": "Liip AG",
@@ -19,15 +19,16 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@wordpress/scripts": "^5.0.1",
+    "@wordpress/e2e-test-utils": "^2.4.3",
+    "@wordpress/scripts": "^5.1.0",
     "css-loader": "^3.2.0",
     "ignore-emit-webpack-plugin": "^2.0.2",
     "mini-css-extract-plugin": "^0.8.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.0",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
     "sass-loader": "^8.0.0",
-    "webpack": "^4.41.1"
+    "webpack": "^4.41.2"
   },
   "scripts": {
     "start": "wp-scripts start",
@@ -37,6 +38,7 @@
     "env": "wp-scripts env",
     "check-engines": "wp-scripts check-engines",
     "check-licenses": "wp-scripts check-licenses",
+    "lint": "npm run lint:pkg-json && npm run lint:css && npm run lint:js",
     "lint:css": "wp-scripts lint-style 'src/**/*.scss'",
     "lint:js": "wp-scripts lint-js",
     "lint:pkg-json": "wp-scripts lint-pkg-json",

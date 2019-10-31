@@ -15,9 +15,7 @@ install:
 
 script:
   - composer lint
-  - npm run lint:js
-  - npm run lint:pkg-json
-  - npm run lint:css
+  - npm run lint
 
 deploy:
   provider: script

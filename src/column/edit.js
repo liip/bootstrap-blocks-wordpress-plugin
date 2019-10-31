@@ -3,11 +3,11 @@
  */
 const { __ } = wp.i18n;
 const { InnerBlocks, InspectorControls } = wp.editor;
-const { CheckboxControl, ColorPalette, PanelBody, RangeControl, SelectControl } = wp.components;
+const { CheckboxControl, ColorPalette, PanelBody, HorizontalRule, RangeControl, SelectControl } = wp.components;
 const { Component, Fragment } = wp.element;
 const { applyFilters } = wp.hooks;
 
-const ColumnSizeRangeControl = ( { label, attributeName, value, setAttributes } ) => {
+const ColumnSizeRangeControl = ( { label, attributeName, value, setAttributes, ...props } ) => {
 	return (
 		<RangeControl
 			label={ label }
@@ -19,6 +19,7 @@ const ColumnSizeRangeControl = ( { label, attributeName, value, setAttributes } 
 			} }
 			min={ 0 }
 			max={ 12 }
+			{ ...props }
 		/>
 	);
 };
@@ -42,7 +43,21 @@ paddingOptions = applyFilters( 'wpBootstrapBlocks.column.paddingOptions', paddin
 export default class BootstrapColumnEdit extends Component {
 	render() {
 		const { attributes, className, setAttributes } = this.props;
-		const { sizeXl, sizeLg, sizeMd, sizeSm, sizeXs, bgColor, padding, centerContent } = attributes;
+		const {
+			sizeXl,
+			sizeLg,
+			sizeMd,
+			sizeSm,
+			sizeXs,
+			equalWidthXl,
+			equalWidthLg,
+			equalWidthMd,
+			equalWidthSm,
+			equalWidthXs,
+			bgColor,
+			padding,
+			centerContent,
+		} = attributes;
 
 		return (
 			<Fragment>
@@ -52,34 +67,68 @@ export default class BootstrapColumnEdit extends Component {
 						initialOpen={ false }
 					>
 						<ColumnSizeRangeControl
-							label={ __( 'Xl Columns', 'wp-bootstrap-blocks' ) }
+							label={ __( 'Xl Column count', 'wp-bootstrap-blocks' ) }
 							attributeName="sizeXl"
 							value={ sizeXl }
+							disabled={ equalWidthXl }
 							setAttributes={ setAttributes }
 						/>
+						<CheckboxControl
+							label={ __( 'Xl equal-width', 'wp-bootstrap-blocks' ) }
+							checked={ equalWidthXl }
+							onChange={ ( isChecked ) => setAttributes( { equalWidthXl: isChecked } ) }
+						/>
+						<HorizontalRule />
 						<ColumnSizeRangeControl
-							label={ __( 'Lg Columns', 'wp-bootstrap-blocks' ) }
+							label={ __( 'Lg Column count', 'wp-bootstrap-blocks' ) }
 							attributeName="sizeLg"
 							value={ sizeLg }
+							disabled={ equalWidthLg }
 							setAttributes={ setAttributes }
 						/>
+						<CheckboxControl
+							label={ __( 'Lg equal-width', 'wp-bootstrap-blocks' ) }
+							checked={ equalWidthLg }
+							onChange={ ( isChecked ) => setAttributes( { equalWidthLg: isChecked } ) }
+						/>
+						<HorizontalRule />
 						<ColumnSizeRangeControl
-							label={ __( 'Md Columns', 'wp-bootstrap-blocks' ) }
+							label={ __( 'Md Column count', 'wp-bootstrap-blocks' ) }
 							attributeName="sizeMd"
 							value={ sizeMd }
+							disabled={ equalWidthMd }
 							setAttributes={ setAttributes }
 						/>
+						<CheckboxControl
+							label={ __( 'Md equal-width', 'wp-bootstrap-blocks' ) }
+							checked={ equalWidthMd }
+							onChange={ ( isChecked ) => setAttributes( { equalWidthMd: isChecked } ) }
+						/>
+						<HorizontalRule />
 						<ColumnSizeRangeControl
-							label={ __( 'Sm Columns', 'wp-bootstrap-blocks' ) }
+							label={ __( 'Sm Column count', 'wp-bootstrap-blocks' ) }
 							attributeName="sizeSm"
 							value={ sizeSm }
+							disabled={ equalWidthSm }
 							setAttributes={ setAttributes }
 						/>
+						<CheckboxControl
+							label={ __( 'Sm equal-width', 'wp-bootstrap-blocks' ) }
+							checked={ equalWidthSm }
+							onChange={ ( isChecked ) => setAttributes( { equalWidthSm: isChecked } ) }
+						/>
+						<HorizontalRule />
 						<ColumnSizeRangeControl
-							label={ __( 'Xs Columns', 'wp-bootstrap-blocks' ) }
+							label={ __( 'Xs Column count', 'wp-bootstrap-blocks' ) }
 							attributeName="sizeXs"
 							value={ sizeXs }
+							disabled={ equalWidthXs }
 							setAttributes={ setAttributes }
+						/>
+						<CheckboxControl
+							label={ __( 'Xs equal-width', 'wp-bootstrap-blocks' ) }
+							checked={ equalWidthXs }
+							onChange={ ( isChecked ) => setAttributes( { equalWidthXs: isChecked } ) }
 						/>
 					</PanelBody>
 					<PanelBody

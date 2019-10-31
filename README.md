@@ -394,6 +394,11 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.column.paddingOptions', 'myplugin/wp-boot
 
 ## Developer information
 
+### Requirements
+
+* Node.js >= 10.x
+* Docker
+
 ### Installation
 
 1. Clone this repository
@@ -413,12 +418,11 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.column.paddingOptions', 'myplugin/wp-boot
 
 ### Compile assets
 
-#### `npm start`
-- Use to compile and run the block in development mode.
-- Watches for any changes and reports back any errors in your code.
+The build process is based on the official [`@wordpress/scripts`](https://developer.wordpress.org/block-editor/packages/packages-scripts/) package.
 
-#### `npm run build`
-- Use to build production code for your block inside `build` folder.
+* `npm start`: Compiles the block in development mode. Watches for any changes and reports back any errors in your code.
+* `npm run lint`: Lints JavaScript, CSS and package.json files.
+* `npm run build`: Use to build production code for your block inside `build` folder.
 
 ### Extract labels
 
@@ -426,5 +430,14 @@ To extract the labels and generate the `languages/wp-bootstrap-blocks.pot` file 
 
 ```
 $ curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-$ php wp-cli.phar i18n make-pot . languages/wp-bootstrap-blocks.pot
+$ php wp-cli.phar i18n make-pot --exclude="wordpress" . languages/wp-bootstrap-blocks.pot
 ```
+
+### Setup local dev environment
+
+The following commands can be used to setup a local dev environment. See the official [documentation of `@wordpress/scripts`](https://developer.wordpress.org/block-editor/packages/packages-scripts/#available-sub-scripts) for a complete list of commands.
+
+* `npm run env install`: Automatically downloads, builds, and installs a copy of WordPress to work with. This will be installed in the wordpress folder inside your project.
+* `npm run env start`: Starts the Docker containers.
+* `npm run env stop`: Stops the Docker containers.
+* `npm run env update`: Updates WordPress to the latest checkout.

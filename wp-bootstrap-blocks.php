@@ -5,7 +5,7 @@
  * Description: Bootstrap 4 Gutenberg Blocks for WordPress.
  * Author: Liip AG
  * Author URI: https://liip.ch
- * Version: 1.3.1
+ * Version: 1.4.0
  * License: GPL2+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain: wp-bootstrap-blocks
