@@ -72,6 +72,8 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 * [FEATURE] Added possibility to define equal-width columns.
 * [IMPROVEMENT] Improve template selection button styling when using a custom icon.
+* [IMPROVEMENT] Optimized editor styling of grid.
+* [IMPROVEMENT] Do not limit the width of child blocks inside the container block.
 * Modified Templates: `column.php`
 
 = 1.3.1 =
