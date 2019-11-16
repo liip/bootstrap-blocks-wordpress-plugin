@@ -5,6 +5,6 @@ import {
 
 export const selectBlockByName = async ( name ) => {
 	await selectBlockByClientId(
-		( await getAllBlocks() ).find(block => block.name === name).clientId
+		( await getAllBlocks() ).find( ( block ) => block.name === name ).clientId
 	);
 };

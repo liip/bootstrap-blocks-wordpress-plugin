@@ -1,5 +1,6 @@
+/* eslint-disable wrap-iife */
 ( function() {
-	wp.hooks.addFilter( 'wpBootstrapBlocks.row.useOldObjectTemplateStructure', 'row-filters/wp-bootstrap-blocks/row/useOldObjectTemplateStructure', function () { return false; } );
+	wp.hooks.addFilter( 'wpBootstrapBlocks.row.useOldObjectTemplateStructure', 'row-filters/wp-bootstrap-blocks/row/useOldObjectTemplateStructure', () => false );
 
 	function rowFiltersTemplates( templates ) {
 		templates = [

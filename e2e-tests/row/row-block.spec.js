@@ -36,14 +36,14 @@ describe( 'row block', () => {
 
 		// Change horizontal alignment
 		await clickBlockToolbarButton( 'Change horizontal alignment of columns' );
-		const [ alignmentRightButton ] = await page.$x("//button[contains(., 'Align columns right')]");
+		const [ alignmentRightButton ] = await page.$x( "//button[contains(., 'Align columns right')]" );
 		await alignmentRightButton.click();
 		expect( await page.$( '[data-type="wp-bootstrap-blocks/row"][data-alignment="right"]' ) ).not.toBeNull();
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 
 		// Change vertical alignment
 		await clickBlockToolbarButton( 'Change vertical alignment of columns' );
-		const [ alignmentBottomButton ] = await page.$x("//button[contains(., 'Align columns bottom')]");
+		const [ alignmentBottomButton ] = await page.$x( "//button[contains(., 'Align columns bottom')]" );
 		await alignmentBottomButton.click();
 		expect( await page.$( '[data-type="wp-bootstrap-blocks/row"][data-vertical-alignment="bottom"]' ) ).not.toBeNull();
 		expect( await getEditedPostContent() ).toMatchSnapshot();

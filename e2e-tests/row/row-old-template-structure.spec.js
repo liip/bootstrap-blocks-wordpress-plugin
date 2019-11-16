@@ -6,7 +6,7 @@ import {
 	deactivatePlugin,
 	createNewPost,
 	getEditedPostContent,
-} from '@wordpress/e2e-test-utils'
+} from '@wordpress/e2e-test-utils';
 import {
 	insertRowBlock,
 	selectRowBlock,
