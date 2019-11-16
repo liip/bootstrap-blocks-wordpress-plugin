@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`row block Should be possible to change alignment 1`] = `
+"<!-- wp:wp-bootstrap-blocks/row {\\"alignment\\":\\"right\\"} -->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
+
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
+<!-- /wp:wp-bootstrap-blocks/row -->"
+`;
+
+exports[`row block Should be possible to change alignment 2`] = `
+"<!-- wp:wp-bootstrap-blocks/row {\\"alignment\\":\\"right\\",\\"verticalAlignment\\":\\"bottom\\"} -->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
+
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
+<!-- /wp:wp-bootstrap-blocks/row -->"
+`;
+
+exports[`row block Should be possible to change column layout 1`] = `
+"<!-- wp:wp-bootstrap-blocks/row {\\"template\\":\\"1-1-1\\"} -->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":4} /-->
+
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":4} /-->
+
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":4} /-->
+<!-- /wp:wp-bootstrap-blocks/row -->"
+`;
+
+exports[`row block Should be possible to change column layout 2`] = `
+"<!-- wp:wp-bootstrap-blocks/row {\\"template\\":\\"2-1\\"} -->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":8} /-->
+
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":4} /-->
+<!-- /wp:wp-bootstrap-blocks/row -->"
+`;
+
+exports[`row block Should be possible to change column layout 3`] = `
+"<!-- wp:wp-bootstrap-blocks/row {\\"template\\":\\"custom\\"} -->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":8} /-->
+
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":4} /-->
+<!-- /wp:wp-bootstrap-blocks/row -->"
+`;
