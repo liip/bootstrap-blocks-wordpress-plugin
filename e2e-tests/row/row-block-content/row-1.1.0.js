@@ -6,7 +6,7 @@ export default `
 <!-- /wp:paragraph -->
 <!-- /wp:wp-bootstrap-blocks/column -->
 
-<!-- wp:wp-bootstrap-blocks/column {"sizeXl":9,"sizeLg":8,"sizeMd":7,"sizeSm":6,"sizeXs":5} -->
+<!-- wp:wp-bootstrap-blocks/column {"sizeXl":9,"sizeLg":8,"sizeMd":7,"sizeSm":6,"sizeXs":5,"bgColor":"primary","padding":"p-5","centerContent":true} -->
 <!-- wp:paragraph -->
 <p>row 1 col 2</p>
 <!-- /wp:paragraph -->
