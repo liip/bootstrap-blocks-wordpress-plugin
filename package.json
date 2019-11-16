@@ -23,6 +23,7 @@
     "@wordpress/scripts": "^5.1.0",
     "css-loader": "^3.2.0",
     "ignore-emit-webpack-plugin": "^2.0.2",
+    "lodash": "^4.17.15",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.13.0",
     "postcss-loader": "^3.0.0",
@@ -42,12 +43,13 @@
     "lint:css": "wp-scripts lint-style 'src/**/*.scss'",
     "lint:js": "wp-scripts lint-js",
     "lint:pkg-json": "wp-scripts lint-pkg-json",
-    "test:e2e": "wp-scripts test-e2e",
+    "test:e2e": "wp-scripts test-e2e -c ./e2e-tests/jest.config.js",
     "test:unit": "wp-scripts test-unit-js"
   },
   "wp-env": {
     "plugin-dir": "wp-bootstrap-blocks",
     "plugin-name": "Bootstrap Blocks",
+    "docker-template": "./docker-compose.override.yml",
     "welcome-logo": [
       "Bootstrap Blocks"
     ],
