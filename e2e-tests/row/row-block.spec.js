@@ -3,16 +3,13 @@
  */
 import {
 	createNewPost,
-	searchForBlock,
-	getAllBlocks,
-	selectBlockByClientId,
 	getEditedPostContent,
 	clickBlockToolbarButton,
 } from '@wordpress/e2e-test-utils';
 import {
 	insertRowBlock,
 	selectRowBlock,
-} from './row-helper'
+} from './row-helper';
 
 describe( 'row block', () => {
 	beforeEach( async () => {
@@ -24,7 +21,7 @@ describe( 'row block', () => {
 
 		// Check if row block was inserted
 		expect( await page.$( '[data-type="wp-bootstrap-blocks/row"]' ) ).not.toBeNull();
-		expect( await page.$$( '[data-type="wp-bootstrap-blocks/column"]' ) ).toHaveLength(2);
+		expect( await page.$$( '[data-type="wp-bootstrap-blocks/column"]' ) ).toHaveLength( 2 );
 
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 
