@@ -1,7 +1,7 @@
 ( function() {
 	function rowOldTemplateStructureTemplates( templates ) {
 		templates['1-66percent'] = {
-			label: '1 Column (1/3 width)',
+			label: '1 Column (2/3 width)',
 			templateLock: 'all',
 			blocks: [
 				[

@@ -6,7 +6,8 @@
 			...templates,
 			{
 				name: '1-66percent',
-				title: '1 Column (1/3 width)',
+				title: '1 Column (2/3 width)',
+				icon: 'yes',
 				templateLock: 'all',
 				template: [
 					[
