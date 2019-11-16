@@ -5,11 +5,12 @@ import {
 	activatePlugin,
 	deactivatePlugin,
 	createNewPost,
-	searchForBlock,
-	getAllBlocks,
-	selectBlockByClientId,
 	getEditedPostContent,
-} from '@wordpress/e2e-test-utils'
+} from '@wordpress/e2e-test-utils';
+import {
+	insertRowBlock,
+	selectRowBlock,
+} from './row-helper';
 
 describe( 'row block filters', () => {
 	beforeAll( async () => {
@@ -25,26 +26,16 @@ describe( 'row block filters', () => {
 	} );
 
 	it( 'Should have custom templates', async () => {
-		// Insert row block
-		await searchForBlock( 'Bootstrap Row' )
-		await page.click( 'button.editor-block-list-item-wp-bootstrap-blocks-row' )
-
-		expect( await page.$( '[data-type="wp-bootstrap-blocks/row"]' ) ).not.toBeNull();
-		expect( await page.$$( '[data-type="wp-bootstrap-blocks/column"]' ) ).toHaveLength(2);
-
-		expect( await getEditedPostContent() ).toMatchSnapshot();
-
-		// Select row block
-		await selectBlockByClientId(
-			( await getAllBlocks() )[ 0 ].clientId
-		);
+		await insertRowBlock();
+		await selectRowBlock();
 
 		// Custom template should be available
-		expect( await page.$$( '.wp-bootstrap-blocks-template-selector-button' ) ).toHaveLength(6);
-		expect( await page.$( '.wp-bootstrap-blocks-template-selector-button > button[aria-label="1 Column (1/3 width)"]' ) ).not.toBeNull();
+		expect( await page.$$( '.wp-bootstrap-blocks-template-selector-button' ) ).toHaveLength( 6 );
+		expect( await page.$( '.wp-bootstrap-blocks-template-selector-button > button[aria-label="1 Column (2/3 width)"]' ) ).not.toBeNull();
+		expect( await page.$( '.wp-bootstrap-blocks-template-selector-button > button[aria-label="1 Column (2/3 width)"] > svg.dashicons-yes' ) ).not.toBeNull();
 
 		// Template should be applied
-		await page.click( '.wp-bootstrap-blocks-template-selector-button > button[aria-label="1 Column (1/3 width)"]' );
+		await page.click( '.wp-bootstrap-blocks-template-selector-button > button[aria-label="1 Column (2/3 width)"]' );
 
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 
