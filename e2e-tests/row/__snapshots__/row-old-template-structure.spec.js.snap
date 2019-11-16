@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`row block old template structure Custom template defined with old object structure should be available 1`] = `
+"<!-- wp:wp-bootstrap-blocks/row -->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
+
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
+<!-- /wp:wp-bootstrap-blocks/row -->"
+`;
+
+exports[`row block old template structure Custom template defined with old object structure should be available 2`] = `
+"<!-- wp:wp-bootstrap-blocks/row {\\"template\\":\\"1-66percent\\"} -->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":8} /-->
+<!-- /wp:wp-bootstrap-blocks/row -->"
+`;
