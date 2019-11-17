@@ -5,6 +5,7 @@ import {
 	createNewPost,
 	getEditedPostContent,
 	clickBlockToolbarButton,
+	clickButton,
 } from '@wordpress/e2e-test-utils';
 import {
 	insertRowBlock,
@@ -39,13 +40,13 @@ describe( 'row block', () => {
 
 		// Change horizontal alignment
 		await clickBlockToolbarButton( 'Change horizontal alignment of columns' );
-		await clickElementByText( 'button', 'Align columns right' );
+		await clickButton( 'Align columns right' );
 		expect( await page.$( '[data-type="wp-bootstrap-blocks/row"][data-alignment="right"]' ) ).not.toBeNull();
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 
 		// Change vertical alignment
 		await clickBlockToolbarButton( 'Change vertical alignment of columns' );
-		await clickElementByText( 'button', 'Align columns bottom' );
+		await clickButton( 'Align columns bottom' );
 		expect( await page.$( '[data-type="wp-bootstrap-blocks/row"][data-vertical-alignment="bottom"]' ) ).not.toBeNull();
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 	} );
