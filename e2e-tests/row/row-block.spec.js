@@ -73,6 +73,13 @@ describe( 'row block', () => {
 		await page.click( '.wp-bootstrap-blocks-template-selector-button > button[aria-label="Custom"]' );
 		expect( await page.$( '.wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout > .block-list-appender' ) ).not.toBeNull();
 		expect( await getEditedPostContent() ).toMatchSnapshot();
+
+		// Only wp-bootstrap-blocks/column should be available in block inserter
+		await page.click( '.wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout > .block-list-appender' );
+		const numberOfAvailableBlocks = ( await page.$$( '.block-editor-inserter__popover button.block-editor-block-types-list__item' ) ).length;
+		const numberOfAvailableColumnBlocks = ( await page.$$( '.block-editor-inserter__popover button.block-editor-block-types-list__item.editor-block-list-item-wp-bootstrap-blocks-column' ) ).length;
+		expect( numberOfAvailableColumnBlocks ).toBeGreaterThanOrEqual( 1 );
+		expect( numberOfAvailableBlocks ).toEqual( numberOfAvailableColumnBlocks );
 	} );
 
 	it( 'Should be possible to apply row options', async () => {
