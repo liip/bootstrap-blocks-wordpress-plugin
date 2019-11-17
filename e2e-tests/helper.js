@@ -11,7 +11,7 @@ export const selectBlockByName = async ( name ) => {
 
 export const getBlockByName = async ( name ) => {
 	return ( await getAllBlocks() ).find( ( block ) => block.name === name );
-}
+};
 
 export const clickElementByText = async ( elementExpression, text ) => {
 	const [ element ] = await page.$x( `//${ elementExpression }[contains(text(),"${ text }")]` );
@@ -21,9 +21,9 @@ export const clickElementByText = async ( elementExpression, text ) => {
 export const getDataValuesOfElement = async ( selector ) => {
 	return await page.$eval(
 		selector,
-		element => Object.assign( {}, element.dataset )
+		( element ) => Object.assign( {}, element.dataset )
 	);
-}
+};
 
 export const openSidebarPanelWithTitle = async ( title ) => {
 	const panel = await page.waitForXPath(
@@ -35,14 +35,14 @@ export const openSidebarPanelWithTitle = async ( title ) => {
 export const getInputValueByLabel = async ( label ) => {
 	return await page.$eval(
 		`input[aria-label="${ label }"]`,
-		input => input.value,
+		( input ) => input.value,
 	);
 };
 
 export const getCheckboxValueByLabel = async ( label ) => {
 	const inputEl = ( await page.$x( `//label[@class="components-checkbox-control__label"][contains(text(),"${ label }")]/preceding-sibling::span[@class="components-checkbox-control__input-container"]/input` ) )[ 0 ];
 	return await page.evaluate(
-		el => el.checked,
+		( el ) => el.checked,
 		inputEl
 	);
-}
+};

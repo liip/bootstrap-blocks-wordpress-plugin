@@ -12,4 +12,4 @@ export const selectColumnBlock = async ( index = 0 ) => {
 
 export const getColumnBlocks = async () => {
 	return ( await getBlockByName( 'wp-bootstrap-blocks/row' ) ).innerBlocks;
-}
+};

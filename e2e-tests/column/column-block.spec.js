@@ -6,20 +6,20 @@ import {
 	getEditedPostContent,
 	searchForBlock,
 	selectBlockByClientId,
-} from '@wordpress/e2e-test-utils'
+} from '@wordpress/e2e-test-utils';
 import {
 	insertRowBlock,
 } from '../row/row-helper';
 import {
 	getColumnBlocks,
-} from './column-helper'
+} from './column-helper';
 import {
 	clickElementByText,
 	getCheckboxValueByLabel,
 	getDataValuesOfElement,
 	getInputValueByLabel,
 	openSidebarPanelWithTitle,
-} from "../helper"
+} from '../helper';
 
 describe( 'column block', () => {
 	beforeEach( async () => {
