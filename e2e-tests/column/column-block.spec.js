@@ -100,4 +100,32 @@ describe( 'column block', () => {
 
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 	} );
+
+	it( 'Should be possible to select background color', async () => {
+		expect( console ).toHaveWarned();
+
+		await insertRowBlock();
+
+		// Select first column block
+		const columnBlocks = await getColumnBlocks();
+		const firstColumnBlockClientId = columnBlocks[ 0 ].clientId;
+		await selectBlockByClientId( firstColumnBlockClientId );
+		await openSidebarPanelWithTitle( 'Background color' );
+
+		// Select background color
+		await page.click( 'button[aria-label="Color: secondary"]' );
+
+		// Check if selected background is set in data attribute
+		let columnData = await getDataValuesOfElement( `#block-${ firstColumnBlockClientId }` );
+		expect( columnData.bgColor ).toMatch( 'secondary' );
+
+		expect( await getEditedPostContent() ).toMatchSnapshot();
+
+		// Select center content vertically
+		await clickElementByText( 'label', 'Center content vertically in row' );
+		columnData = await getDataValuesOfElement( `#block-${ firstColumnBlockClientId }` );
+		expect( columnData.centerContent ).toMatch( 'true' );
+
+		expect( await getEditedPostContent() ).toMatchSnapshot();
+	} );
 } );
