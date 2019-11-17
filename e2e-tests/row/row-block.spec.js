@@ -10,6 +10,9 @@ import {
 	insertRowBlock,
 	selectRowBlock,
 } from './row-helper';
+import {
+	clickElementByText,
+} from '../helper';
 
 describe( 'row block', () => {
 	beforeEach( async () => {
@@ -36,15 +39,13 @@ describe( 'row block', () => {
 
 		// Change horizontal alignment
 		await clickBlockToolbarButton( 'Change horizontal alignment of columns' );
-		const [ alignmentRightButton ] = await page.$x( "//button[contains(., 'Align columns right')]" );
-		await alignmentRightButton.click();
+		await clickElementByText( 'button', 'Align columns right' );
 		expect( await page.$( '[data-type="wp-bootstrap-blocks/row"][data-alignment="right"]' ) ).not.toBeNull();
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 
 		// Change vertical alignment
 		await clickBlockToolbarButton( 'Change vertical alignment of columns' );
-		const [ alignmentBottomButton ] = await page.$x( "//button[contains(., 'Align columns bottom')]" );
-		await alignmentBottomButton.click();
+		await clickElementByText( 'button', 'Align columns bottom' );
 		expect( await page.$( '[data-type="wp-bootstrap-blocks/row"][data-vertical-alignment="bottom"]' ) ).not.toBeNull();
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 	} );
@@ -81,8 +82,7 @@ describe( 'row block', () => {
 		await selectRowBlock();
 
 		// Enable no gutters option
-		const [ noGuttersCheckboxLabel ] = await page.$x( "//label[contains(., 'No Gutters')]" );
-		await noGuttersCheckboxLabel.click();
+		await clickElementByText( 'label', 'No Gutters' );
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 	} );
 } );

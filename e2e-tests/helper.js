@@ -8,3 +8,8 @@ export const selectBlockByName = async ( name ) => {
 		( await getAllBlocks() ).find( ( block ) => block.name === name ).clientId
 	);
 };
+
+export const clickElementByText = async ( type, text ) => {
+	const [ element ] = await page.$x( `//${ type }[contains(., '${ text }')]` );
+	await element.click();
+};
