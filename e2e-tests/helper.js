@@ -4,15 +4,17 @@ import {
 } from '@wordpress/e2e-test-utils';
 
 export const selectBlockByName = async ( name ) => {
-	await selectBlockByClientId( getBlockByName( name ).clientId );
+	await selectBlockByClientId(
+		( await getBlockByName( name ) ).clientId
+	);
 };
 
 export const getBlockByName = async ( name ) => {
 	return ( await getAllBlocks() ).find( ( block ) => block.name === name );
 }
 
-export const clickElementByText = async ( type, text ) => {
-	const [ element ] = await page.$x( `//${ type }[contains(., '${ text }')]` );
+export const clickElementByText = async ( elementExpression, text ) => {
+	const [ element ] = await page.$x( `//${ elementExpression }[contains(text(),"${ text }")]` );
 	await element.click();
 };
 
@@ -31,7 +33,7 @@ export const openSidebarPanelWithTitle = async ( title ) => {
 };
 
 export const getRangeSelectorValueByLabel = async ( label ) => {
-	const inputEl = ( await page.$x( `//label[@class="components-base-control__label"][contains(., "${ label }")]/following-sibling::input[@class="components-range-control__number"]` ) )[ 0 ];
+	const inputEl = ( await page.$x( `//label[@class="components-base-control__label"][contains(text(),"${ label }")]/following-sibling::input[@class="components-range-control__number"]` ) )[ 0 ];
 	return await page.evaluate(
 		el => el.value,
 		inputEl

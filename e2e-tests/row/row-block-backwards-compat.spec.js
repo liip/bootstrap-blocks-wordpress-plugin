@@ -16,6 +16,8 @@ describe( 'row block backwards compatibility', () => {
 	} );
 
 	it( 'Test v1.0.0 row block content should be compatible', async () => {
+		expect( console ).toHaveWarned();
+
 		await setPostContent( rowContent100 );
 
 		expect( await page.$$( '[data-type="wp-bootstrap-blocks/row"]' ) ).toHaveLength( 2 );
@@ -27,6 +29,8 @@ describe( 'row block backwards compatibility', () => {
 	} );
 
 	it( 'Test v1.1.0 row block content should be compatible', async () => {
+		expect( console ).toHaveWarned();
+
 		await setPostContent( rowContent110 );
 
 		expect( await page.$$( '[data-type="wp-bootstrap-blocks/row"]' ) ).toHaveLength( 2 );
