@@ -73,4 +73,16 @@ describe( 'row block', () => {
 		expect( await page.$( '.wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout > .block-list-appender' ) ).not.toBeNull();
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 	} );
+
+	it( 'Should be possible to apply row options', async () => {
+		expect( console ).toHaveWarned();
+
+		await insertRowBlock();
+		await selectRowBlock();
+
+		// Enable no gutters option
+		const [ noGuttersCheckboxLabel ] = await page.$x( "//label[contains(., 'No Gutters')]" );
+		await noGuttersCheckboxLabel.click();
+		expect( await getEditedPostContent() ).toMatchSnapshot();
+	} );
 } );

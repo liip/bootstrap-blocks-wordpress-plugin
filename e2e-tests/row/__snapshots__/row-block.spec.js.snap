@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`row block Should be possible to apply row options 1`] = `
+"<!-- wp:wp-bootstrap-blocks/row {\\"noGutters\\":true} -->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
+
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
+<!-- /wp:wp-bootstrap-blocks/row -->"
+`;
+
 exports[`row block Should be possible to change alignment 1`] = `
 "<!-- wp:wp-bootstrap-blocks/row {\\"alignment\\":\\"right\\"} -->
 <!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
