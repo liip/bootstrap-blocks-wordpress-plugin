@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`column block Should be possible to change column size 1`] = `
+"<!-- wp:wp-bootstrap-blocks/row -->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6,\\"equalWidthLg\\":true} /-->
+
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
+<!-- /wp:wp-bootstrap-blocks/row -->"
+`;
+
+exports[`column block Should be possible to change column size 2`] = `
+"<!-- wp:wp-bootstrap-blocks/row -->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeXl\\":2,\\"sizeMd\\":6,\\"equalWidthLg\\":true} /-->
+
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
+<!-- /wp:wp-bootstrap-blocks/row -->"
+`;

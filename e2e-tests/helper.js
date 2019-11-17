@@ -32,10 +32,17 @@ export const openSidebarPanelWithTitle = async ( title ) => {
 	await panel.click();
 };
 
-export const getRangeSelectorValueByLabel = async ( label ) => {
-	const inputEl = ( await page.$x( `//label[@class="components-base-control__label"][contains(text(),"${ label }")]/following-sibling::input[@class="components-range-control__number"]` ) )[ 0 ];
+export const getInputValueByLabel = async ( label ) => {
+	return await page.$eval(
+		`input[aria-label="${ label }"]`,
+		input => input.value,
+	);
+};
+
+export const getCheckboxValueByLabel = async ( label ) => {
+	const inputEl = ( await page.$x( `//label[@class="components-checkbox-control__label"][contains(text(),"${ label }")]/preceding-sibling::span[@class="components-checkbox-control__input-container"]/input` ) )[ 0 ];
 	return await page.evaluate(
-		el => el.value,
+		el => el.checked,
 		inputEl
 	);
 }

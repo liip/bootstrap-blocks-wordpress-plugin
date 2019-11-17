@@ -3,6 +3,7 @@
  */
 import {
 	createNewPost,
+	getEditedPostContent,
 	searchForBlock,
 	selectBlockByClientId,
 } from '@wordpress/e2e-test-utils'
@@ -13,8 +14,10 @@ import {
 	getColumnBlocks,
 } from './column-helper'
 import {
+	clickElementByText,
+	getCheckboxValueByLabel,
 	getDataValuesOfElement,
-	getRangeSelectorValueByLabel,
+	getInputValueByLabel,
 	openSidebarPanelWithTitle,
 } from "../helper"
 
@@ -30,7 +33,7 @@ describe( 'column block', () => {
 		expect( await page.$( '.block-editor-inserter__no-results' ) ).not.toBeNull();
 	} );
 
-	it( 'Should be possible to change column size', async () => {
+	it( 'Column block should be initialized with default attributes', async () => {
 		expect( console ).toHaveWarned();
 
 		await insertRowBlock();
@@ -52,10 +55,49 @@ describe( 'column block', () => {
 
 		// Check if default values are set in inspector controls
 		await openSidebarPanelWithTitle( 'Column size' );
-		expect( await getRangeSelectorValueByLabel( 'Xs Column count' ) ).toMatch( '12' );
-		expect( await getRangeSelectorValueByLabel( 'Sm Column count' ) ).toMatch( '0' );
-		expect( await getRangeSelectorValueByLabel( 'Md Column count' ) ).toMatch( '6' );
-		expect( await getRangeSelectorValueByLabel( 'Lg Column count' ) ).toMatch( '0' );
-		expect( await getRangeSelectorValueByLabel( 'Xl Column count' ) ).toMatch( '0' );
+		expect( await getInputValueByLabel( 'Xs Column count' ) ).toMatch( '12' );
+		expect( await getInputValueByLabel( 'Sm Column count' ) ).toMatch( '0' );
+		expect( await getInputValueByLabel( 'Md Column count' ) ).toMatch( '6' );
+		expect( await getInputValueByLabel( 'Lg Column count' ) ).toMatch( '0' );
+		expect( await getInputValueByLabel( 'Xl Column count' ) ).toMatch( '0' );
+
+		expect( await getCheckboxValueByLabel( 'Xs equal-width' ) ).toBe( false );
+		expect( await getCheckboxValueByLabel( 'Sm equal-width' ) ).toBe( false );
+		expect( await getCheckboxValueByLabel( 'Md equal-width' ) ).toBe( false );
+		expect( await getCheckboxValueByLabel( 'Lg equal-width' ) ).toBe( false );
+		expect( await getCheckboxValueByLabel( 'Xl equal-width' ) ).toBe( false );
+	} );
+
+	it( 'Should be possible to change column size', async () => {
+		expect( console ).toHaveWarned();
+
+		await insertRowBlock();
+
+		// Select first column block
+		const columnBlocks = await getColumnBlocks();
+		const firstColumnBlockClientId = columnBlocks[ 0 ].clientId;
+		await selectBlockByClientId( firstColumnBlockClientId );
+		await openSidebarPanelWithTitle( 'Column size' );
+
+		// Change column size attributes
+		await clickElementByText( 'label', 'Lg equal-width' );
+
+		let columnData = await getDataValuesOfElement( `#block-${ firstColumnBlockClientId }` );
+
+		// Check if default values are set in data attributes
+		expect( columnData.sizeXs ).toMatch( '0' );
+		expect( columnData.sizeSm ).toMatch( '0' );
+		expect( columnData.sizeMd ).toMatch( '0' );
+		expect( columnData.sizeLg ).toMatch( '0' );
+		expect( columnData.sizeXl ).toMatch( '0' );
+		expect( await getCheckboxValueByLabel( 'Lg equal-width' ) ).toBe( true );
+
+		expect( await getEditedPostContent() ).toMatchSnapshot();
+
+		await page.type( '[aria-label="Xl Column count"]', '2' );
+		columnData = await getDataValuesOfElement( `#block-${ firstColumnBlockClientId }` );
+		expect( columnData.sizeXl ).toMatch( '2' );
+
+		expect( await getEditedPostContent() ).toMatchSnapshot();
 	} );
 } );
