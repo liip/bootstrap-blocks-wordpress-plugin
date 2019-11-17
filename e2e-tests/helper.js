@@ -18,6 +18,15 @@ export const clickElementByText = async ( elementExpression, text ) => {
 	await element.click();
 };
 
+export const selectOption = async ( label, value ) => {
+	const [ selectEl ] = await page.$x( `//label[@class="components-base-control__label"][contains(text(),"${ label }")]/following-sibling::select[@class="components-select-control__input"]` );
+	const selectId = await page.evaluate(
+		( el ) => el.id,
+		selectEl
+	);
+	await page.select( `#${ selectId }`, value );
+};
+
 export const getDataValuesOfElement = async ( selector ) => {
 	return await page.$eval(
 		selector,

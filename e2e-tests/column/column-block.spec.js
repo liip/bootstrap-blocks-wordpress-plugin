@@ -19,6 +19,7 @@ import {
 	getDataValuesOfElement,
 	getInputValueByLabel,
 	openSidebarPanelWithTitle,
+	selectOption,
 } from '../helper';
 
 describe( 'column block', () => {
@@ -125,6 +126,25 @@ describe( 'column block', () => {
 		await clickElementByText( 'label', 'Center content vertically in row' );
 		columnData = await getDataValuesOfElement( `#block-${ firstColumnBlockClientId }` );
 		expect( columnData.centerContent ).toMatch( 'true' );
+
+		expect( await getEditedPostContent() ).toMatchSnapshot();
+	} );
+
+	it( 'Should be possible to select padding', async () => {
+		expect( console ).toHaveWarned();
+
+		await insertRowBlock();
+
+		// Select first column block
+		const columnBlocks = await getColumnBlocks();
+		const firstColumnBlockClientId = columnBlocks[ 0 ].clientId;
+		await selectBlockByClientId( firstColumnBlockClientId );
+
+		// Select padding
+		await openSidebarPanelWithTitle( 'Padding (inside column)' );
+		await selectOption( 'Size', 'p-2' );
+		const columnData = await getDataValuesOfElement( `#block-${ firstColumnBlockClientId }` );
+		expect( columnData.padding ).toMatch( 'p-2' );
 
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 	} );
