@@ -50,10 +50,10 @@ exports[`row block Should be possible to change column layout 2`] = `
 <!-- /wp:wp-bootstrap-blocks/row -->"
 `;
 
-exports[`row block Should be possible to change column layout 3`] = `
+exports[`row block Should be possible to select custom template 1`] = `
 "<!-- wp:wp-bootstrap-blocks/row {\\"template\\":\\"custom\\"} -->
-<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":8} /-->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
 
-<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":4} /-->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
 <!-- /wp:wp-bootstrap-blocks/row -->"
 `;

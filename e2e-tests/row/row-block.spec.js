@@ -69,11 +69,29 @@ describe( 'row block', () => {
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 		await page.click( '.wp-bootstrap-blocks-template-selector-button > button[aria-label="2 Columns (2:1)"]' );
 		expect( await getEditedPostContent() ).toMatchSnapshot();
+	} );
+
+	it( 'Should be possible to select custom template', async () => {
+		expect( console ).toHaveWarned();
+
+		await insertRowBlock();
+		await selectRowBlock();
 
 		// Custom template should add block list appender (shouldn't change current layout)
 		await page.click( '.wp-bootstrap-blocks-template-selector-button > button[aria-label="Custom"]' );
 		expect( await page.$( '.wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout > .block-list-appender' ) ).not.toBeNull();
 		expect( await getEditedPostContent() ).toMatchSnapshot();
+	} );
+
+	it( 'Should only be possible to select column blocks in block inserter', async () => {
+		expect( console ).toHaveWarned();
+
+		await insertRowBlock();
+		await selectRowBlock();
+
+		// Select custom template
+		await page.click( '.wp-bootstrap-blocks-template-selector-button > button[aria-label="Custom"]' );
+		expect( await page.$( '.wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout > .block-list-appender' ) ).not.toBeNull();
 
 		// Only wp-bootstrap-blocks/column should be available in block inserter
 		await page.click( '.wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout > .block-list-appender' );
