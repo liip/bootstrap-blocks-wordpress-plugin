@@ -25,12 +25,12 @@ describe( 'row block filters', () => {
 		await createNewPost();
 	} );
 
-	it( 'Should have custom templates', async () => {
+	it( 'Should have additional defined templates', async () => {
 		await insertRowBlock();
 		await selectRowBlock();
 
-		// Custom template should be available
-		expect( await page.$$( '.wp-bootstrap-blocks-template-selector-button' ) ).toHaveLength( 6 );
+		// Additional template should be available
+		expect( await page.$$( '.wp-bootstrap-blocks-template-selector-button' ) ).toHaveLength( 5 ); // 4 default templates + 1 additional template (custom template disabled)
 		expect( await page.$( '.wp-bootstrap-blocks-template-selector-button > button[aria-label="1 Column (2/3 width)"]' ) ).not.toBeNull();
 		expect( await page.$( '.wp-bootstrap-blocks-template-selector-button > button[aria-label="1 Column (2/3 width)"] > svg.dashicons-yes' ) ).not.toBeNull();
 
@@ -38,6 +38,17 @@ describe( 'row block filters', () => {
 		await page.click( '.wp-bootstrap-blocks-template-selector-button > button[aria-label="1 Column (2/3 width)"]' );
 
 		expect( await getEditedPostContent() ).toMatchSnapshot();
+
+		expect( console ).toHaveWarned();
+	} );
+
+	it( 'Should not have custom template', async () => {
+		await insertRowBlock();
+		await selectRowBlock();
+
+		// Custom template shouldn't be available
+		expect( await page.$$( '.wp-bootstrap-blocks-template-selector-button' ) ).toHaveLength( 5 ); // 4 default templates + 1 additional template (custom template disabled)
+		expect( await page.$( '.wp-bootstrap-blocks-template-selector-button > button[aria-label="Custom"]' ) ).toBeNull();
 
 		expect( console ).toHaveWarned();
 	} );
