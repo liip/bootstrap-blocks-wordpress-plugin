@@ -4,14 +4,15 @@ import {
 	selectBlockByClientId,
 } from '@wordpress/e2e-test-utils';
 
-export const selectBlockByName = async ( name ) => {
+export const selectBlockByName = async ( name, index = 0 ) => {
 	await selectBlockByClientId(
-		( await getBlockByName( name ) ).clientId
+		( await getBlockByName( name, index ) ).clientId
 	);
 };
 
-export const getBlockByName = async ( name ) => {
-	return ( await getAllBlocks() ).find( ( block ) => block.name === name );
+export const getBlockByName = async ( name, index = 0 ) => {
+	const blocksByName = ( await getAllBlocks() ).filter( ( block ) => block.name === name );
+	return blocksByName[ index ];
 };
 
 export const clickElementByText = async ( elementExpression, text ) => {
