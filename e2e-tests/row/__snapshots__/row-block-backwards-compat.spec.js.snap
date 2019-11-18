@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`row block backwards compatibility Test v1.0.0 row block content should be compatible 1`] = `
+exports[`row block backwards compatibility v1.0.0 row block content should be compatible 1`] = `
 "<!-- wp:wp-bootstrap-blocks/row {\\"template\\":\\"2-1\\",\\"noGutters\\":true,\\"className\\":\\"additional-class-1 additional-class-2\\"} -->
 <!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":8} -->
 <!-- wp:paragraph -->
@@ -30,7 +30,7 @@ exports[`row block backwards compatibility Test v1.0.0 row block content should 
 <!-- /wp:wp-bootstrap-blocks/row -->"
 `;
 
-exports[`row block backwards compatibility Test v1.1.0 row block content should be compatible 1`] = `
+exports[`row block backwards compatibility v1.1.0 row block content should be compatible 1`] = `
 "<!-- wp:wp-bootstrap-blocks/row {\\"template\\":\\"2-1\\",\\"noGutters\\":true,\\"className\\":\\"additional-class-1 additional-class-2\\"} -->
 <!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":8} -->
 <!-- wp:paragraph -->
@@ -55,6 +55,20 @@ exports[`row block backwards compatibility Test v1.1.0 row block content should 
 <!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} -->
 <!-- wp:paragraph -->
 <p>row 2 col 2</p>
+<!-- /wp:paragraph -->
+<!-- /wp:wp-bootstrap-blocks/column -->
+<!-- /wp:wp-bootstrap-blocks/row -->
+
+<!-- wp:wp-bootstrap-blocks/row {\\"template\\":\\"custom\\"} -->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} -->
+<!-- wp:paragraph -->
+<p>row 3 col 1</p>
+<!-- /wp:paragraph -->
+<!-- /wp:wp-bootstrap-blocks/column -->
+
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} -->
+<!-- wp:paragraph -->
+<p>row 3 col 2</p>
 <!-- /wp:paragraph -->
 <!-- /wp:wp-bootstrap-blocks/column -->
 <!-- /wp:wp-bootstrap-blocks/row -->"
