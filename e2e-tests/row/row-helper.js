@@ -13,3 +13,7 @@ export const insertRowBlock = async () => {
 export const selectRowBlock = async ( index = 0 ) => {
 	await selectBlockByName( 'wp-bootstrap-blocks/row', index );
 };
+
+export const rowTemplateIsSelected = async ( label ) => {
+	return ( await page.$( `.wp-bootstrap-blocks-template-selector-button > button[aria-label="${ label }"].is-active` ) ) !== null;
+};
