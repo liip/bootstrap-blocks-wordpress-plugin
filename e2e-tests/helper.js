@@ -50,10 +50,18 @@ export const getInputValueByLabel = async ( label ) => {
 };
 
 export const getCheckboxValueByLabel = async ( label ) => {
-	const inputEl = ( await page.$x( `//label[@class="components-checkbox-control__label"][contains(text(),"${ label }")]/preceding-sibling::span[@class="components-checkbox-control__input-container"]/input` ) )[ 0 ];
+	const [ inputEl ] = await page.$x( `//label[@class="components-checkbox-control__label"][contains(text(),"${ label }")]/preceding-sibling::span[@class="components-checkbox-control__input-container"]/input` );
 	return await page.evaluate(
 		( el ) => el.checked,
 		inputEl
+	);
+};
+
+export const getSelectedValueBySelectLabel = async ( label ) => {
+	const [ selectEl ] = await page.$x( `//label[@class="components-base-control__label"][contains(text(),"${ label }")]/following-sibling::select[@class="components-select-control__input"]` );
+	return await page.evaluate(
+		( el ) => el.value,
+		selectEl
 	);
 };
 
