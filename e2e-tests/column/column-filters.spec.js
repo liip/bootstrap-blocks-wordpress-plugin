@@ -15,6 +15,7 @@ import {
 } from './column-helper';
 import {
 	openSidebarPanelWithTitle,
+	selectOption,
 } from '../helper';
 
 describe( 'column block filters', () => {
@@ -42,6 +43,22 @@ describe( 'column block filters', () => {
 
 		// Background color should be applied
 		await page.click( '.components-color-palette__item[aria-label="Color: brand"]' );
+
+		expect( await getEditedPostContent() ).toMatchSnapshot();
+	} );
+
+	it( 'wpBootstrapBlocks.column.paddingOptions should add padding option', async () => {
+		expect( console ).toHaveWarned();
+
+		await insertRowBlock();
+		await selectColumnBlock();
+		await openSidebarPanelWithTitle( 'Padding (inside column)' );
+
+		// Additional padding option should be available
+		expect( await page.$( 'select.components-select-control__input > option[value="p-8"]' ) ).not.toBeNull();
+
+		// Padding option should be applied
+		await selectOption( 'Size', 'p-8' );
 
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 	} );
