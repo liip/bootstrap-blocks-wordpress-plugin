@@ -62,4 +62,4 @@ export const toolbarOptionIsActive = async ( toolbarLabel, buttonText ) => {
 	const isActive = ( await page.$x( `//button[contains(text(),"${ buttonText }") and contains(@class,"is-active")]` ) ).length === 1;
 	await page.keyboard.press( 'Escape' ); // Close toolbar
 	return isActive;
-}
+};
