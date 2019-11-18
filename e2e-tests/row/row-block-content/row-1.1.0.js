@@ -26,4 +26,18 @@ export default `
 <!-- /wp:paragraph -->
 <!-- /wp:wp-bootstrap-blocks/column -->
 <!-- /wp:wp-bootstrap-blocks/row -->
+
+<!-- wp:wp-bootstrap-blocks/row {"template":"custom"} -->
+<!-- wp:wp-bootstrap-blocks/column {"sizeMd":6} -->
+<!-- wp:paragraph -->
+<p>row 3 col 1</p>
+<!-- /wp:paragraph -->
+<!-- /wp:wp-bootstrap-blocks/column -->
+
+<!-- wp:wp-bootstrap-blocks/column {"sizeMd":6} -->
+<!-- wp:paragraph -->
+<p>row 3 col 2</p>
+<!-- /wp:paragraph -->
+<!-- /wp:wp-bootstrap-blocks/column -->
+<!-- /wp:wp-bootstrap-blocks/row -->
 `;
