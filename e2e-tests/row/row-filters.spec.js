@@ -25,7 +25,7 @@ describe( 'row block filters', () => {
 		await createNewPost();
 	} );
 
-	it( 'Should have additional defined templates', async () => {
+	it( 'wpBootstrapBlocks.row.templates should add additional template', async () => {
 		await insertRowBlock();
 		await selectRowBlock();
 
@@ -42,7 +42,7 @@ describe( 'row block filters', () => {
 		expect( console ).toHaveWarned();
 	} );
 
-	it( 'Should not have custom template', async () => {
+	it( 'wpBootstrapBlocks.row.enableCustomTemplate should disable custom template', async () => {
 		await insertRowBlock();
 		await selectRowBlock();
 
