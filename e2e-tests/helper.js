@@ -1,4 +1,5 @@
 import {
+	clickBlockToolbarButton,
 	getAllBlocks,
 	selectBlockByClientId,
 } from '@wordpress/e2e-test-utils';
@@ -55,3 +56,10 @@ export const getCheckboxValueByLabel = async ( label ) => {
 		inputEl
 	);
 };
+
+export const toolbarOptionIsActive = async ( toolbarLabel, buttonText ) => {
+	await clickBlockToolbarButton( toolbarLabel ); // Open toolbar
+	const isActive = ( await page.$x( `//button[contains(text(),"${ buttonText }") and contains(@class,"is-active")]` ) ).length === 1;
+	await page.keyboard.press( 'Escape' ); // Close toolbar
+	return isActive;
+}
