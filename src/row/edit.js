@@ -267,11 +267,13 @@ class BootstrapRowEdit extends Component {
 				<BlockControls>
 					<AlignmentToolbar
 						value={ alignment }
+						label={ __( 'Change horizontal alignment of columns', 'wp-bootstrap-blocks' ) }
 						onChange={ ( newAlignment ) => setAttributes( { alignment: newAlignment } ) }
 						alignmentControls={ alignmentControls }
 					/>
 					<AlignmentToolbar
 						value={ verticalAlignment }
+						label={ __( 'Change vertical alignment of columns', 'wp-bootstrap-blocks' ) }
 						onChange={ ( newVerticalAlignment ) => setAttributes( { verticalAlignment: newVerticalAlignment } ) }
 						alignmentControls={ verticalAlignmentControls }
 					/>
