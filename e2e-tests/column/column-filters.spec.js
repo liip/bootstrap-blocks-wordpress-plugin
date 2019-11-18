@@ -14,6 +14,10 @@ import {
 	selectColumnBlock,
 } from './column-helper';
 import {
+	getCheckboxValueByLabel,
+	getDataValuesOfElement,
+	getInputValueByLabel,
+	getSelectedValueBySelectLabel,
 	openSidebarPanelWithTitle,
 	selectOption,
 } from '../helper';
@@ -61,5 +65,38 @@ describe( 'column block filters', () => {
 		await selectOption( 'Size', 'p-8' );
 
 		expect( await getEditedPostContent() ).toMatchSnapshot();
+	} );
+
+	it( 'wp_bootstrap_blocks_column_default_attributes should override default attributes', async () => {
+		await insertRowBlock();
+		await selectColumnBlock();
+
+		// Columm size values should be set
+		await openSidebarPanelWithTitle( 'Column size' );
+		expect( await getInputValueByLabel( 'Xs Column count' ) ).toMatch( '4' );
+		expect( await getInputValueByLabel( 'Sm Column count' ) ).toMatch( '6' );
+		// For the md column count we would expect a value of 8 but it gets overwritten by the default layout which has a value of 6.
+		expect( await getInputValueByLabel( 'Md Column count' ) ).toMatch( '6' );
+		expect( await getInputValueByLabel( 'Lg Column count' ) ).toMatch( '10' );
+		expect( await getInputValueByLabel( 'Xl Column count' ) ).toMatch( '0' );
+
+		// Columm equal-width checkboxes should be checked
+		expect( await getCheckboxValueByLabel( 'Xl equal-width' ) ).toBe( true );
+
+		// Background color should be selected
+		await openSidebarPanelWithTitle( 'Background color' );
+		// There is no way to see which color of a color palette is selected. That's why we check the data attribute value.
+		const columnData = await getDataValuesOfElement( '[data-type="wp-bootstrap-blocks/column"]' );
+		expect( columnData.bgColor ).toMatch( 'primary' );
+		expect( await getCheckboxValueByLabel( 'Center content vertically in row' ) ).toBe( true );
+
+		// Padding should be selected
+		await openSidebarPanelWithTitle( 'Padding (inside column)' );
+		expect( await getSelectedValueBySelectLabel( 'Size' ) ).toMatch( 'p-3' );
+
+		// Check if attributes are set correctly
+		expect( await getEditedPostContent() ).toMatchSnapshot();
+
+		expect( console ).toHaveWarned();
 	} );
 } );

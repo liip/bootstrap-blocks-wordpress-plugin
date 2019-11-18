@@ -24,3 +24,17 @@ function enqueue_column_filters_plugin_script() {
 }
 
 add_action( 'init', 'enqueue_column_filters_plugin_script' );
+
+function column_filters_default_attributes( $default_attributes ) {
+	$default_attributes['sizeXl'] = '0';
+	$default_attributes['sizeLg'] = '10';
+	$default_attributes['sizeMd'] = '8';
+	$default_attributes['sizeSm'] = '6';
+	$default_attributes['sizeXs'] = '4';
+	$default_attributes['equalWidthXl'] = true;
+	$default_attributes['bgColor'] = 'primary';
+	$default_attributes['padding'] = 'p-3';
+	$default_attributes['centerContent'] = true;
+	return $default_attributes;
+}
+add_filter( 'wp_bootstrap_blocks_column_default_attributes', 'column_filters_default_attributes', 10, 1 );

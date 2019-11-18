@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`column block filters wp_bootstrap_blocks_column_default_attributes should override default attributes 1`] = `
+"<!-- wp:wp-bootstrap-blocks/row -->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
+
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
+<!-- /wp:wp-bootstrap-blocks/row -->"
+`;
+
 exports[`column block filters wpBootstrapBlocks.column.bgColorOptions should add background color 1`] = `
 "<!-- wp:wp-bootstrap-blocks/row -->
 <!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6,\\"bgColor\\":\\"brand\\"} /-->
