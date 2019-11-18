@@ -70,11 +70,13 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 = 1.4.0 =
 
+* [CHANGE] Decrease loading priority of block editor assets to ensure that custom block filters are executed.
+* [CHANGE] Add custom classes of row block to row-div instead of wrapper-div.
 * [FEATURE] Added possibility to define equal-width columns.
 * [IMPROVEMENT] Improve template selection button styling when using a custom icon.
 * [IMPROVEMENT] Optimized editor styling of grid.
 * [IMPROVEMENT] Do not limit the width of child blocks inside the container block.
-* Modified Templates: `column.php`
+* Modified Templates: `column.php`, `row.php`
 
 = 1.3.1 =
 
