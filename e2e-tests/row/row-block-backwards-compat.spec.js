@@ -57,9 +57,8 @@ describe( 'row block backwards compatibility', () => {
 		// Align columns bottom should be selected
 		expect( await toolbarOptionIsActive( 'Change vertical alignment of columns', 'Align columns bottom' ) ).toBe( true );
 
-		// TODO
 		// Align full should be selected
-		// expect( await toolbarOptionIsActive( 'Change alignment', 'Full width' ) ).toBe( true );
+		expect( await toolbarOptionIsActive( 'Change alignment', 'Full Width' ) ).toBe( true );
 
 		expect( console ).toHaveWarned();
 	} );
@@ -107,6 +106,9 @@ describe( 'row block backwards compatibility', () => {
 
 		// Align columns bottom should be selected
 		expect( await toolbarOptionIsActive( 'Change vertical alignment of columns', 'Align columns bottom' ) ).toBe( true );
+
+		// Align full should be selected
+		expect( await toolbarOptionIsActive( 'Change alignment', 'Full Width' ) ).toBe( true );
 
 		// Select 3. Row
 		await selectRowBlock( 2 );
