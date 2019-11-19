@@ -39,10 +39,16 @@ export const getDataValuesOfElement = async ( selector, index = 0 ) => {
 };
 
 export const openSidebarPanelWithTitle = async ( title ) => {
-	const panel = await page.waitForXPath(
-		`//div[contains(@class,"edit-post-sidebar")]//button[@class="components-button components-panel__body-toggle"][contains(text(),"${ title }")]`
+	// Check if sidebar panel exists
+	await page.waitForXPath( `//div[contains(@class,"edit-post-sidebar")]//button[@class="components-button components-panel__body-toggle"][contains(text(),"${ title }")]` );
+
+	// Only open panel if it's not expanded already (aria-expanded check)
+	const [ panel ] = await page.$x(
+		`//div[contains(@class,"edit-post-sidebar")]//button[@class="components-button components-panel__body-toggle"][@aria-expanded="false"][contains(text(),"${ title }")]`
 	);
-	await panel.click();
+	if ( panel ) {
+		await panel.click();
+	}
 };
 
 export const getInputValueByLabel = async ( label ) => {
