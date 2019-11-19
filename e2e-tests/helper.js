@@ -29,10 +29,12 @@ export const selectOption = async ( label, value ) => {
 	await page.select( `#${ selectId }`, value );
 };
 
-export const getDataValuesOfElement = async ( selector ) => {
-	return await page.$eval(
-		selector,
-		( element ) => Object.assign( {}, element.dataset )
+export const getDataValuesOfElement = async ( selector, index = 0 ) => {
+	const elements = await page.$$( selector );
+	const elementAtIndex = elements[ index ];
+	return await page.evaluate(
+		( elementAtIndex ) => Object.assign( {}, elementAtIndex.dataset ),
+		elementAtIndex
 	);
 };
 

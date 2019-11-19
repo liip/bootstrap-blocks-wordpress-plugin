@@ -5,11 +5,11 @@ import {
 	getBlockByName,
 } from '../helper';
 
-export const selectColumnBlock = async ( index = 0 ) => {
-	const columnBlocks = await getColumnBlocks();
-	await selectBlockByClientId( columnBlocks[ index ].clientId );
+export const selectColumnBlock = async ( rowIndex = 0, columnIndex = 0 ) => {
+	const columnBlocks = await getColumnBlocks( rowIndex );
+	await selectBlockByClientId( columnBlocks[ columnIndex ].clientId );
 };
 
-export const getColumnBlocks = async () => {
-	return ( await getBlockByName( 'wp-bootstrap-blocks/row' ) ).innerBlocks;
+export const getColumnBlocks = async ( rowIndex = 0 ) => {
+	return ( await getBlockByName( 'wp-bootstrap-blocks/row', rowIndex ) ).innerBlocks;
 };
