@@ -7,23 +7,14 @@ import {
 	getEditedPostContent,
 } from '@wordpress/e2e-test-utils';
 
-import {
-	rowTemplateIsSelected,
-	selectRowBlock,
-} from './row-helper';
-import {
-	selectColumnBlock,
-} from '../column/column-helper';
-import {
-	getCheckboxValueByLabel,
-	getDataValuesOfElement,
-	getInputValueByLabel, getSelectedValueBySelectLabel,
-	openSidebarPanelWithTitle,
-	toolbarOptionIsActive,
-} from '../helper';
-
 import rowContent100 from './row-block-content/row-1.0.0';
 import rowContent110 from './row-block-content/row-1.1.0';
+import {
+	testVersion100RowFeatures,
+	testVersion110RowFeatures,
+	testVersion100ColumnFeatures,
+	testVersion110ColumnFeatures,
+} from './feature-tests';
 
 describe( 'row block backwards compatibility', () => {
 	beforeEach( async () => {
@@ -39,26 +30,7 @@ describe( 'row block backwards compatibility', () => {
 
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 
-		// Select 1. Row
-		await selectRowBlock( 0 );
-
-		// 2:1 template should be selected
-		expect( await rowTemplateIsSelected( '2 Columns (2:1)' ) ).toBe( true );
-
-		// No Gutters option should be checked
-		expect( await getCheckboxValueByLabel( 'No Gutters' ) ).toBe( true );
-
-		// Select 2. Row
-		await selectRowBlock( 1 );
-
-		// Align columns right should be selected
-		expect( await toolbarOptionIsActive( 'Change horizontal alignment of columns', 'Align columns right' ) ).toBe( true );
-
-		// Align columns bottom should be selected
-		expect( await toolbarOptionIsActive( 'Change vertical alignment of columns', 'Align columns bottom' ) ).toBe( true );
-
-		// Align full should be selected
-		expect( await toolbarOptionIsActive( 'Change alignment', 'Full Width' ) ).toBe( true );
+		await testVersion100RowFeatures();
 
 		expect( console ).toHaveWarned();
 	} );
@@ -66,16 +38,7 @@ describe( 'row block backwards compatibility', () => {
 	it( 'v1.0.0 column block content should be compatible', async () => {
 		await setPostContent( rowContent100 );
 
-		// Select 1. Column of 1. Row
-		await selectColumnBlock( 0, 1 );
-
-		// Check if default values are set in inspector controls
-		await openSidebarPanelWithTitle( 'Column size' );
-		expect( await getInputValueByLabel( 'Xs Column count' ) ).toMatch( '5' );
-		expect( await getInputValueByLabel( 'Sm Column count' ) ).toMatch( '6' );
-		expect( await getInputValueByLabel( 'Md Column count' ) ).toMatch( '7' );
-		expect( await getInputValueByLabel( 'Lg Column count' ) ).toMatch( '8' );
-		expect( await getInputValueByLabel( 'Xl Column count' ) ).toMatch( '9' );
+		await testVersion100ColumnFeatures();
 
 		expect( console ).toHaveWarned();
 	} );
@@ -89,34 +52,9 @@ describe( 'row block backwards compatibility', () => {
 
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 
-		// Select 1. Row
-		await selectRowBlock( 0 );
+		await testVersion100RowFeatures();
 
-		// 2:1 template should be selected
-		expect( await rowTemplateIsSelected( '2 Columns (2:1)' ) ).toBe( true );
-
-		// No Gutters option should be checked
-		expect( await getCheckboxValueByLabel( 'No Gutters' ) ).toBe( true );
-
-		// Select 2. Row
-		await selectRowBlock( 1 );
-
-		// Align columns right should be selected
-		expect( await toolbarOptionIsActive( 'Change horizontal alignment of columns', 'Align columns right' ) ).toBe( true );
-
-		// Align columns bottom should be selected
-		expect( await toolbarOptionIsActive( 'Change vertical alignment of columns', 'Align columns bottom' ) ).toBe( true );
-
-		// Align full should be selected
-		expect( await toolbarOptionIsActive( 'Change alignment', 'Full Width' ) ).toBe( true );
-
-		// Select 3. Row
-		await selectRowBlock( 2 );
-
-		// Custom template should be selected
-		expect( await rowTemplateIsSelected( 'Custom' ) ).toBe( true );
-		// Column block appender should be visible
-		expect( await page.$( '.wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout > .block-list-appender' ) ).not.toBeNull();
+		await testVersion110RowFeatures();
 
 		expect( console ).toHaveWarned();
 	} );
@@ -124,29 +62,10 @@ describe( 'row block backwards compatibility', () => {
 	it( 'v1.1.0 column block content should be compatible', async () => {
 		await setPostContent( rowContent110 );
 
-		// Select 1. Column of 1. Row
-		await selectColumnBlock( 0, 1 );
+		await testVersion100ColumnFeatures();
 
-		// Check if default values are set in inspector controls
-		await openSidebarPanelWithTitle( 'Column size' );
-		expect( await getInputValueByLabel( 'Xs Column count' ) ).toMatch( '5' );
-		expect( await getInputValueByLabel( 'Sm Column count' ) ).toMatch( '6' );
-		expect( await getInputValueByLabel( 'Md Column count' ) ).toMatch( '7' );
-		expect( await getInputValueByLabel( 'Lg Column count' ) ).toMatch( '8' );
-		expect( await getInputValueByLabel( 'Xl Column count' ) ).toMatch( '9' );
-
-		// Background color should be selected
-		await openSidebarPanelWithTitle( 'Background color' );
-		// There is no way to see which color of a color palette is selected. That's why we check the data attribute value of the second column block.
-		const columnData = await getDataValuesOfElement( '[data-type="wp-bootstrap-blocks/column"]', 1 );
-		expect( columnData.bgColor ).toMatch( 'primary' );
-		expect( await getCheckboxValueByLabel( 'Center content vertically in row' ) ).toBe( true );
-
-		// Padding should be selected
-		await openSidebarPanelWithTitle( 'Padding (inside column)' );
-		expect( await getSelectedValueBySelectLabel( 'Size' ) ).toMatch( 'p-5' );
+		await testVersion110ColumnFeatures();
 
 		expect( console ).toHaveWarned();
 	} );
-
 } );
