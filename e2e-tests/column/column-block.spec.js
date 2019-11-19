@@ -17,6 +17,7 @@ import {
 	clickElementByText,
 	getCheckboxValueByLabel,
 	getDataValuesOfElement,
+	inputIsDisabledByLabel,
 	getInputValueByLabel,
 	openSidebarPanelWithTitle,
 	selectOption,
@@ -92,6 +93,9 @@ describe( 'column block', () => {
 		expect( columnData.sizeLg ).toMatch( '0' );
 		expect( columnData.sizeXl ).toMatch( '0' );
 		expect( await getCheckboxValueByLabel( 'Lg equal-width' ) ).toBe( true );
+
+		// Column size should be disabled if equal-width checkbox is checked
+		expect( await inputIsDisabledByLabel( 'Lg Column count' ) ).toBe( true );
 
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 

@@ -58,6 +58,10 @@ export const getInputValueByLabel = async ( label ) => {
 	);
 };
 
+export const inputIsDisabledByLabel = async ( label ) => {
+	return ( await page.$( `input[aria-label="${ label }"][disabled]` ) ) !== null;
+};
+
 export const getCheckboxValueByLabel = async ( label ) => {
 	const [ inputEl ] = await page.$x( `//label[@class="components-checkbox-control__label"][contains(text(),"${ label }")]/preceding-sibling::span[@class="components-checkbox-control__input-container"]/input` );
 	return await page.evaluate(
