@@ -25,7 +25,6 @@ before_install:
 install:
   - composer install
   - npm ci
-  - npm run env start
   - npm run env install
   - npm run env connect
 
