@@ -33,7 +33,7 @@ export const getDataValuesOfElement = async ( selector, index = 0 ) => {
 	const elements = await page.$$( selector );
 	const elementAtIndex = elements[ index ];
 	return await page.evaluate(
-		( elementAtIndex ) => Object.assign( {}, elementAtIndex.dataset ),
+		( element ) => Object.assign( {}, element.dataset ),
 		elementAtIndex
 	);
 };

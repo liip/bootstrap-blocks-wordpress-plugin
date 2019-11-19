@@ -9,7 +9,7 @@ import {
 	getInputValueByLabel,
 	getDataValuesOfElement,
 	getSelectedValueBySelectLabel,
-} from '../helper'
+} from '../helper';
 import {
 	selectColumnBlock,
 } from '../column/column-helper';
@@ -74,4 +74,14 @@ export const testVersion110ColumnFeatures = async () => {
 	// Padding should be selected
 	await openSidebarPanelWithTitle( 'Padding (inside column)' );
 	expect( await getSelectedValueBySelectLabel( 'Size' ) ).toMatch( 'p-5' );
+};
+
+export const testVersion140ColumnFeatures = async () => {
+	// Select 2. Column of 1. Row
+	await selectColumnBlock( 0, 1 );
+
+	// Columm equal-width checkboxes should be checked
+	await openSidebarPanelWithTitle( 'Column size' );
+	expect( await getCheckboxValueByLabel( 'Lg equal-width' ) ).toBe( true );
+	expect( await getCheckboxValueByLabel( 'Xl equal-width' ) ).toBe( true );
 };

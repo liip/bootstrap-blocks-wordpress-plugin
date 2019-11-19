@@ -9,11 +9,13 @@ import {
 
 import rowContent100 from './row-block-content/row-1.0.0';
 import rowContent110 from './row-block-content/row-1.1.0';
+import rowContent140 from './row-block-content/row-1.4.0';
 import {
 	testVersion100RowFeatures,
 	testVersion110RowFeatures,
 	testVersion100ColumnFeatures,
 	testVersion110ColumnFeatures,
+	testVersion140ColumnFeatures,
 } from './feature-tests';
 
 describe( 'row block backwards compatibility', () => {
@@ -65,6 +67,18 @@ describe( 'row block backwards compatibility', () => {
 		await testVersion100ColumnFeatures();
 
 		await testVersion110ColumnFeatures();
+
+		expect( console ).toHaveWarned();
+	} );
+
+	it( 'v1.4.0 column block content should be compatible', async () => {
+		await setPostContent( rowContent140 );
+
+		await testVersion100ColumnFeatures();
+
+		await testVersion110ColumnFeatures();
+
+		await testVersion140ColumnFeatures();
 
 		expect( console ).toHaveWarned();
 	} );
