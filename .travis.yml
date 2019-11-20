@@ -54,7 +54,7 @@ install:
     cd ..
     # Connect Gutenberg to WordPress.
     npm run env connect
-    npm run env cli plugin activate gutenberg
+    npm run env cli plugin activate wp-bootstrap-blocks
 
 script:
   - composer lint
