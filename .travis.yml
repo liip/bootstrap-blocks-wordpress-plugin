@@ -42,6 +42,10 @@ install:
       /tmp/wordpress-develop-master/wp-cli.yml \
       /tmp/wordpress-develop-master/*config-sample.php \
       /tmp/wordpress-develop-master/package.json wordpress
+
+    # Copy bugfixed install.js
+    cp ci/install.js wordpress/tools/local-env/scripts
+
     # Install WordPress.
     cd wordpress
     npm install dotenv wait-on
