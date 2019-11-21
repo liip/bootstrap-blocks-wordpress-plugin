@@ -9,16 +9,16 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-10-30T07:46:49+00:00\n"
+"POT-Creation-Date: 2019-11-21T18:09:07+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.2.0\n"
 "X-Domain: wp-bootstrap-blocks\n"
 
 #. Plugin Name of the plugin
 #: src/class-wp-bootstrap-blocks.php:184
-#: src/column/block.js:17
+#: src/column/block.js:20
 #: src/container/block.js:44
-#: src/row/block.js:17
+#: src/row/block.js:20
 #: src/button/block.js:17
 msgid "Bootstrap Blocks"
 msgstr ""
@@ -69,19 +69,19 @@ msgid "Column size"
 msgstr ""
 
 #: src/column/edit.js:70
-msgid "Xl Column count"
+msgid "Xs Column count"
 msgstr ""
 
 #: src/column/edit.js:77
-msgid "Xl equal-width"
+msgid "Xs equal-width"
 msgstr ""
 
 #: src/column/edit.js:83
-msgid "Lg Column count"
+msgid "Sm Column count"
 msgstr ""
 
 #: src/column/edit.js:90
-msgid "Lg equal-width"
+msgid "Sm equal-width"
 msgstr ""
 
 #: src/column/edit.js:96
@@ -93,19 +93,19 @@ msgid "Md equal-width"
 msgstr ""
 
 #: src/column/edit.js:109
-msgid "Sm Column count"
+msgid "Lg Column count"
 msgstr ""
 
 #: src/column/edit.js:116
-msgid "Sm equal-width"
+msgid "Lg equal-width"
 msgstr ""
 
 #: src/column/edit.js:122
-msgid "Xs Column count"
+msgid "Xl Column count"
 msgstr ""
 
 #: src/column/edit.js:129
-msgid "Xs equal-width"
+msgid "Xl equal-width"
 msgstr ""
 
 #: src/column/edit.js:135
@@ -129,13 +129,17 @@ msgid "Size"
 msgstr ""
 
 #: src/column/block.js:13
-#: src/column/block.js:19
+#: src/column/block.js:17
 msgid "Column"
 msgstr ""
 
 #: src/column/block.js:18
+msgid "Bootstrap Column"
+msgstr ""
+
+#: src/column/block.js:19
 #: src/container/block.js:45
-#: src/row/block.js:18
+#: src/row/block.js:19
 #: src/button/block.js:18
 msgid "Bootstrap"
 msgstr ""
@@ -206,9 +210,21 @@ msgstr ""
 msgid "No Gutters"
 msgstr ""
 
+#: src/row/edit.js:270
+msgid "Change horizontal alignment of columns"
+msgstr ""
+
+#: src/row/edit.js:276
+msgid "Change vertical alignment of columns"
+msgstr ""
+
 #: src/row/block.js:13
-#: src/row/block.js:19
+#: src/row/block.js:17
 msgid "Row"
+msgstr ""
+
+#: src/row/block.js:18
+msgid "Bootstrap Row"
 msgstr ""
 
 #: src/button/edit.js:16
