@@ -78,6 +78,7 @@ mkdir -p $RELEASEPATH/trunk/build/
 cp $SOURCEPATH/build/editor.css $RELEASEPATH/trunk/build/
 cp $SOURCEPATH/build/style.css $RELEASEPATH/trunk/build/
 cp $SOURCEPATH/build/index.js $RELEASEPATH/trunk/build/
+cp $SOURCEPATH/build/index.asset.php $RELEASEPATH/trunk/build/
 
 echo "Changing directory to SVN and committing to trunk"
 cd $RELEASEPATH/trunk/
