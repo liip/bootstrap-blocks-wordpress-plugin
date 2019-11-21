@@ -1,5 +1,8 @@
 language: php
 
+php:
+  - 7.3
+
 services:
   - docker
 
@@ -28,5 +31,6 @@ deploy:
   provider: script
   script: scripts/deploy-wp-plugin.sh
   on:
+    php: 7.3
     tags: true
     all_branches: true
