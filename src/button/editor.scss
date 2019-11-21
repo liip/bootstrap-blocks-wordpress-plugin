@@ -1,4 +1,4 @@
-@import "../assets/gutenberg/gutenberg";
+@import "../assets/gutenberg";
 
 [data-type="wp-bootstrap-blocks/button"] {
 	&[data-alignment="center"] {
@@ -37,7 +37,7 @@
 
 	.editor-url-input__suggestions {
 		width: $blocks-button__link-input-width - $icon-button-size - $icon-button-size;
-		z-index: z-index(".block-library-button__inline-link .editor-url-input__suggestions");
+		z-index: z-index(".block-library-button__inline-link .block-editor-url-input__suggestions");
 	}
 
 	> .dashicon {
