@@ -5,7 +5,7 @@
  * This template can be overridden by copying it to theme/wp-bootstrap-blocks/row.php.
  *
  * @package wp-bootstrap-blocks/templates/row
- * @version 1.1.0
+ * @version 1.4.0
  */
 
 /**
@@ -23,14 +23,15 @@
  */
 
 $classes = array( 'wp-bootstrap-blocks-row' );
-if ( array_key_exists( 'className', $attributes ) ) {
-	array_push( $classes, $attributes['className'] );
-}
 if ( array_key_exists( 'align', $attributes ) && 'full' === $attributes['align'] ) {
 	array_push( $classes, 'alignfull' );
 }
 
 $row_classes = array( 'row' );
+if ( array_key_exists( 'className', $attributes ) ) {
+	array_push( $row_classes, $attributes['className'] );
+}
+
 if ( array_key_exists( 'noGutters', $attributes ) && $attributes['noGutters'] ) {
 	array_push( $row_classes, 'no-gutters' );
 }

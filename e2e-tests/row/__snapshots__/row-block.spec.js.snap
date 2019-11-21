@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`row block Row block should be available 1`] = `
+"<!-- wp:wp-bootstrap-blocks/row -->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
+
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
+<!-- /wp:wp-bootstrap-blocks/row -->"
+`;
+
+exports[`row block Should be possible to apply row options 1`] = `
+"<!-- wp:wp-bootstrap-blocks/row {\\"noGutters\\":true} -->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
+
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
+<!-- /wp:wp-bootstrap-blocks/row -->"
+`;
+
+exports[`row block Should be possible to change alignment 1`] = `
+"<!-- wp:wp-bootstrap-blocks/row {\\"alignment\\":\\"right\\"} -->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
+
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
+<!-- /wp:wp-bootstrap-blocks/row -->"
+`;
+
+exports[`row block Should be possible to change alignment 2`] = `
+"<!-- wp:wp-bootstrap-blocks/row {\\"alignment\\":\\"right\\",\\"verticalAlignment\\":\\"bottom\\"} -->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
+
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
+<!-- /wp:wp-bootstrap-blocks/row -->"
+`;
+
+exports[`row block Should be possible to change column layout 1`] = `
+"<!-- wp:wp-bootstrap-blocks/row {\\"template\\":\\"1-1-1\\"} -->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":4} /-->
+
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":4} /-->
+
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":4} /-->
+<!-- /wp:wp-bootstrap-blocks/row -->"
+`;
+
+exports[`row block Should be possible to change column layout 2`] = `
+"<!-- wp:wp-bootstrap-blocks/row {\\"template\\":\\"2-1\\"} -->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":8} /-->
+
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":4} /-->
+<!-- /wp:wp-bootstrap-blocks/row -->"
+`;
+
+exports[`row block Should be possible to select custom template 1`] = `
+"<!-- wp:wp-bootstrap-blocks/row {\\"template\\":\\"custom\\"} -->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
+
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
+<!-- /wp:wp-bootstrap-blocks/row -->"
+`;

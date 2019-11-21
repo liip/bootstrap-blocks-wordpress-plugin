@@ -1,4 +1,4 @@
-@import "../assets/gutenberg/gutenberg";
+@import "../assets/gutenberg";
 
 @mixin make-grid-columns($current-size-index: 1, $sizes: ("xl", "lg", "md", "sm", "xs"), $grid-columns: 12) {
 	@if $current-size-index <= length($sizes) {
@@ -19,6 +19,7 @@
 	}
 	@else {
 		flex-grow: 1;
+		flex-basis: 0;
 	}
 }
 
@@ -46,14 +47,11 @@
 		align-items: flex-end;
 	}
 
-	// Row background
-	> .editor-block-list__block-edit::before {
-		background-color: rgba(220, 220, 220, .5);
-	}
-
-	// Selected row background
-	&.editor-block-list__block.is-selected > .editor-block-list__block-edit::before {
-		background-color: rgba(220, 220, 220, .9);
+	// Row background on hover to make grid visible
+	&:not(.is-selected):not(.has-child-selected) {
+		> .editor-block-list__block-edit:hover::before {
+			background-color: rgba(220, 220, 220, .5);
+		}
 	}
 
 	/*
@@ -132,23 +130,19 @@
 	font-size: 12px;
 }
 
-@mixin block-style__is-active() {
-	color: $dark-gray-900;
-	box-shadow: inset 0 0 0 2px $dark-gray-500;
-
-	// Windows High Contrast mode will show this outline, but not the box-shadow.
-	outline: 2px solid transparent;
-	outline-offset: -2px;
-}
-
 // Column block
 [data-type="wp-bootstrap-blocks/column"] {
-	background-color: rgba(255, 255, 255, .7);
+	// Column background on hover to make grid visible
+	&:not(.is-selected):not(.has-child-selected):hover {
+		background-color: rgba(255, 255, 255, .7);
+	}
 
-	&[data-bg-color="primary"] {
+	&[data-bg-color="primary"],
+	&[data-bg-color="primary"]:not(.is-selected):not(.has-child-selected):hover {
 		background-color: #007bff;
 	}
-	&[data-bg-color="secondary"] {
+	&[data-bg-color="secondary"],
+	&[data-bg-color="secondary"]:not(.is-selected):not(.has-child-selected):hover {
 		background-color: #6c757d;
 	}
 

@@ -67,42 +67,16 @@ export default class BootstrapColumnEdit extends Component {
 						initialOpen={ false }
 					>
 						<ColumnSizeRangeControl
-							label={ __( 'Xl Column count', 'wp-bootstrap-blocks' ) }
-							attributeName="sizeXl"
-							value={ sizeXl }
-							disabled={ equalWidthXl }
+							label={ __( 'Xs Column count', 'wp-bootstrap-blocks' ) }
+							attributeName="sizeXs"
+							value={ sizeXs }
+							disabled={ equalWidthXs }
 							setAttributes={ setAttributes }
 						/>
 						<CheckboxControl
-							label={ __( 'Xl equal-width', 'wp-bootstrap-blocks' ) }
-							checked={ equalWidthXl }
-							onChange={ ( isChecked ) => setAttributes( { equalWidthXl: isChecked } ) }
-						/>
-						<HorizontalRule />
-						<ColumnSizeRangeControl
-							label={ __( 'Lg Column count', 'wp-bootstrap-blocks' ) }
-							attributeName="sizeLg"
-							value={ sizeLg }
-							disabled={ equalWidthLg }
-							setAttributes={ setAttributes }
-						/>
-						<CheckboxControl
-							label={ __( 'Lg equal-width', 'wp-bootstrap-blocks' ) }
-							checked={ equalWidthLg }
-							onChange={ ( isChecked ) => setAttributes( { equalWidthLg: isChecked } ) }
-						/>
-						<HorizontalRule />
-						<ColumnSizeRangeControl
-							label={ __( 'Md Column count', 'wp-bootstrap-blocks' ) }
-							attributeName="sizeMd"
-							value={ sizeMd }
-							disabled={ equalWidthMd }
-							setAttributes={ setAttributes }
-						/>
-						<CheckboxControl
-							label={ __( 'Md equal-width', 'wp-bootstrap-blocks' ) }
-							checked={ equalWidthMd }
-							onChange={ ( isChecked ) => setAttributes( { equalWidthMd: isChecked } ) }
+							label={ __( 'Xs equal-width', 'wp-bootstrap-blocks' ) }
+							checked={ equalWidthXs }
+							onChange={ ( isChecked ) => setAttributes( { equalWidthXs: isChecked } ) }
 						/>
 						<HorizontalRule />
 						<ColumnSizeRangeControl
@@ -119,16 +93,42 @@ export default class BootstrapColumnEdit extends Component {
 						/>
 						<HorizontalRule />
 						<ColumnSizeRangeControl
-							label={ __( 'Xs Column count', 'wp-bootstrap-blocks' ) }
-							attributeName="sizeXs"
-							value={ sizeXs }
-							disabled={ equalWidthXs }
+							label={ __( 'Md Column count', 'wp-bootstrap-blocks' ) }
+							attributeName="sizeMd"
+							value={ sizeMd }
+							disabled={ equalWidthMd }
 							setAttributes={ setAttributes }
 						/>
 						<CheckboxControl
-							label={ __( 'Xs equal-width', 'wp-bootstrap-blocks' ) }
-							checked={ equalWidthXs }
-							onChange={ ( isChecked ) => setAttributes( { equalWidthXs: isChecked } ) }
+							label={ __( 'Md equal-width', 'wp-bootstrap-blocks' ) }
+							checked={ equalWidthMd }
+							onChange={ ( isChecked ) => setAttributes( { equalWidthMd: isChecked } ) }
+						/>
+						<HorizontalRule />
+						<ColumnSizeRangeControl
+							label={ __( 'Lg Column count', 'wp-bootstrap-blocks' ) }
+							attributeName="sizeLg"
+							value={ sizeLg }
+							disabled={ equalWidthLg }
+							setAttributes={ setAttributes }
+						/>
+						<CheckboxControl
+							label={ __( 'Lg equal-width', 'wp-bootstrap-blocks' ) }
+							checked={ equalWidthLg }
+							onChange={ ( isChecked ) => setAttributes( { equalWidthLg: isChecked } ) }
+						/>
+						<HorizontalRule />
+						<ColumnSizeRangeControl
+							label={ __( 'Xl Column count', 'wp-bootstrap-blocks' ) }
+							attributeName="sizeXl"
+							value={ sizeXl }
+							disabled={ equalWidthXl }
+							setAttributes={ setAttributes }
+						/>
+						<CheckboxControl
+							label={ __( 'Xl equal-width', 'wp-bootstrap-blocks' ) }
+							checked={ equalWidthXl }
+							onChange={ ( isChecked ) => setAttributes( { equalWidthXl: isChecked } ) }
 						/>
 					</PanelBody>
 					<PanelBody

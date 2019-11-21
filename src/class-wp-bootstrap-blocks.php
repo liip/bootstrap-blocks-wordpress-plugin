@@ -106,7 +106,7 @@ class WP_Bootstrap_Blocks {
 		add_action( 'enqueue_block_assets', array( $this, 'enqueue_block_assets' ) );
 
 		// Hook: Editor assets.
-		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_assets' ) );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_assets' ), 99 );
 
 		// Register custom block category
 		add_filter( 'block_categories', array( $this, 'register_custom_block_category' ), 10, 2 );
