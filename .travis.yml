@@ -28,6 +28,5 @@ deploy:
   provider: script
   script: scripts/deploy-wp-plugin.sh
   on:
-    php: 7.2
     tags: true
     all_branches: true
