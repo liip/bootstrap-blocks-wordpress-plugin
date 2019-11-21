@@ -24,8 +24,8 @@ install:
 script:
   - composer lint
   - npm run lint
-  - npm run test:e2e
   - npm run env lint-php
+  - npm run test:e2e
 
 deploy:
   provider: script
