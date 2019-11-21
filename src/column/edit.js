@@ -3,7 +3,7 @@
  */
 const { __ } = wp.i18n;
 const { InnerBlocks, InspectorControls } = wp.editor;
-const { CheckboxControl, ColorPalette, PanelBody, HorizontalRule, RangeControl, SelectControl } = wp.components;
+const { CheckboxControl, ColorPalette, PanelBody, RangeControl, SelectControl } = wp.components;
 const { Component, Fragment } = wp.element;
 const { applyFilters } = wp.hooks;
 
@@ -78,7 +78,7 @@ export default class BootstrapColumnEdit extends Component {
 							checked={ equalWidthXs }
 							onChange={ ( isChecked ) => setAttributes( { equalWidthXs: isChecked } ) }
 						/>
-						<HorizontalRule />
+						<hr />
 						<ColumnSizeRangeControl
 							label={ __( 'Sm Column count', 'wp-bootstrap-blocks' ) }
 							attributeName="sizeSm"
@@ -91,7 +91,7 @@ export default class BootstrapColumnEdit extends Component {
 							checked={ equalWidthSm }
 							onChange={ ( isChecked ) => setAttributes( { equalWidthSm: isChecked } ) }
 						/>
-						<HorizontalRule />
+						<hr />
 						<ColumnSizeRangeControl
 							label={ __( 'Md Column count', 'wp-bootstrap-blocks' ) }
 							attributeName="sizeMd"
@@ -104,7 +104,7 @@ export default class BootstrapColumnEdit extends Component {
 							checked={ equalWidthMd }
 							onChange={ ( isChecked ) => setAttributes( { equalWidthMd: isChecked } ) }
 						/>
-						<HorizontalRule />
+						<hr />
 						<ColumnSizeRangeControl
 							label={ __( 'Lg Column count', 'wp-bootstrap-blocks' ) }
 							attributeName="sizeLg"
@@ -117,7 +117,7 @@ export default class BootstrapColumnEdit extends Component {
 							checked={ equalWidthLg }
 							onChange={ ( isChecked ) => setAttributes( { equalWidthLg: isChecked } ) }
 						/>
-						<HorizontalRule />
+						<hr />
 						<ColumnSizeRangeControl
 							label={ __( 'Xl Column count', 'wp-bootstrap-blocks' ) }
 							attributeName="sizeXl"
