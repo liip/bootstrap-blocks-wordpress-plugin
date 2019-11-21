@@ -80,6 +80,9 @@ cd $WP_DIR
 npm install dotenv wait-on
 npm run env:start
 
+# Wait till docker containers are really started
+sleep 10
+
 echo "Downloading WordPress Core..."
 echo
 
