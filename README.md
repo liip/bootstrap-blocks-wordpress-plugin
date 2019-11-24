@@ -153,6 +153,44 @@ function my_row_default_attributes( $default_attributes ) {
 }
 ```
 
+### wp_bootstrap_blocks_column_default_attributes
+
+Modify default attributes of the column block.
+
+#### Parameters:
+
+* `$default_attributes` (`array`) Default attributes of column block.
+    * `sizeXl` (`int`) Default xl column size (Default: `0`)
+    * `sizeLg` (`int`) Default lg column size (Default: `0`)
+    * `sizeMd` (`int`) Default md column size (Default: `0`)
+    * `sizeSm` (`int`) Default sm column size (Default: `0`)
+    * `sizeXs` (`int`) Default xs column size (Default: `12`))
+    * `equalWidthXl` (`boolean`) Defines if equal-width xl option should be selected or not (Default: `false`)
+    * `equalWidthLg` (`boolean`) Defines if equal-width lg option should be selected or not (Default: `false`)
+    * `equalWidthMd` (`boolean`) Defines if equal-width md option should be selected or not (Default: `false`)
+    * `equalWidthSm` (`boolean`) Defines if equal-width sm option should be selected or not (Default: `false`)
+    * `equalWidthXs` (`boolean`) Defines if equal-width xs option should be selected or not (Default: `false`)
+    * `bgColor` (`string`) Background color of column (Default: `''`)
+    * `centerContent` (`boolean`) Defines if center content inside column should be selected or not (Default: `false`)
+    * `padding` (`string`) Padding inside column (Default: `''`)
+
+#### Usage:
+
+```php
+add_filter( 'wp_bootstrap_blocks_column_default_attributes', 'my_column_default_attributes', 10, 1 );
+
+function my_column_default_attributes( $default_attributes ) {
+	$default_attributes['sizeLg'] = '4';
+	$default_attributes['sizeMd'] = '6';
+	$default_attributes['equalWidthXl'] = true;
+	$default_attributes['bgColor'] = 'primary';
+	$default_attributes['padding'] = 'p-3';
+	$default_attributes['centerContent'] = true;
+
+    return $default_attributes;
+}
+```
+
 ### wp_bootstrap_blocks_enqueue_block_assets
 
 Possibility to disable enqueuing block assets.

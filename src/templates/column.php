@@ -12,7 +12,23 @@
  * Block attributes.
  * Defined in wp_bootstrap_blocks_get_template() which requires this template.
  *
- * @var $attributes array
+ * The following attributes are available:
+ *
+ * @var $attributes array(
+ *   'sizeXl' (int) => Xl column size.
+ *   'sizeLg' (int) => Lg column size.
+ *   'sizeMd' (int) => Md column size.
+ *   'sizeSm' (int) => Sm column size.
+ *   'sizeXs' (int) => Xs column size.
+ *   'equalWidthXl' (boolean) => Xl columns equal-width.
+ *   'equalWidthLg' (boolean) => Lg columns equal-width.
+ *   'equalWidthMd' (boolean) => Md columns equal-width.
+ *   'equalWidthSm' (boolean) => Sm columns equal-width.
+ *   'equalWidthXs' (boolean) => Xs columns equal-width.
+ *   'bgColor' (string) => Name of background color (eg. primary).
+ *   'padding' (string) => Padding inside of column (eg. p-3).
+ *   'centerContent' (boolean) => If true content should be centered in column (only needed if bgColor is set).
+ * )
  */
 
 /**
