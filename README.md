@@ -127,13 +127,17 @@ function my_custom_container_classes( $classes, $attributes ) {
 }
 ```
 
-### wp_bootstrap_blocks_&lt;blockname&gt;_default_attributes
+### wp_bootstrap_blocks_row_default_attributes
 
-Modify default attributes of &lt;blockname&gt;.
+Modify default attributes of the row block.
 
 #### Parameters:
 
-* `$default_attributes` (`array`) Default attributes of block.
+* `$default_attributes` (`array`) Default attributes of row block.
+    * `template` (`string`) Name of default template of row block (Default: `'1-1'`)
+    * `noGutters` (`boolean`) Defines if noGutters option should be selected or not (Default: `false`)
+    * `alignment` (`string`) Default horizontal alignment of inner columns (Default: `''`)
+    * `verticalAlignment` (`string`) Default vertical alignment of inner columns (Default: `''`)
 
 #### Usage:
 
@@ -141,7 +145,10 @@ Modify default attributes of &lt;blockname&gt;.
 add_filter( 'wp_bootstrap_blocks_row_default_attributes', 'my_row_default_attributes', 10, 1 );
 
 function my_row_default_attributes( $default_attributes ) {
-    $default_attributes['alignment'] = 'center';
+	$default_attributes['template'] = '1-2';
+	$default_attributes['noGutters'] = true;
+	$default_attributes['alignment'] = 'right';
+	$default_attributes['verticalAlignment'] = 'bottom';
     return $default_attributes;
 }
 ```

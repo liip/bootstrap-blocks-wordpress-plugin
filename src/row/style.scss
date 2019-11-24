@@ -1,5 +1,6 @@
 .wp-bootstrap-blocks-row {
-	&.alignfull > .row {
+	// Remove negative margin from row when full width should be used
+	&.row.alignfull {
 		margin-left: 0;
 		margin-right: 0;
 	}
