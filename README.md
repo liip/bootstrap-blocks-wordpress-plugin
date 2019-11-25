@@ -165,6 +165,25 @@ function my_custom_column_content_classes( $classes, $attributes ) {
 }
 ```
 
+### wp_bootstrap_blocks_container_classes
+
+Change classes of container block.
+
+#### Parameters:
+
+* `$classes` (`array`) Classes which are added to the block template.
+* `$attributes` (`array`) Attributes of the block.
+
+#### Usage:
+
+```php
+add_filter( 'wp_bootstrap_blocks_container_classes', 'my_custom_container_classes', 10, 2 );
+
+function my_custom_container_classes( $classes, $attributes ) {
+    return [ 'my', 'custom', 'classes' ];
+}
+```
+
 ### wp_bootstrap_blocks_row_default_attributes
 
 Modify default attributes of the row block.
@@ -225,6 +244,28 @@ function my_column_default_attributes( $default_attributes ) {
 	$default_attributes['padding'] = 'p-3';
 	$default_attributes['centerContent'] = true;
 
+    return $default_attributes;
+}
+```
+
+### wp_bootstrap_blocks_container_default_attributes
+
+Modify default attributes of the container block.
+
+#### Parameters:
+
+* `$default_attributes` (`array`) Default attributes of row block.
+    * `isFluid` (`boolean`) Defines if container should be fluid or not (Default: `false`)
+    * `marginAfter` (`string`) Default margin after container block (Default: `'mb-2'`)
+
+#### Usage:
+
+```php
+add_filter( 'wp_bootstrap_blocks_container_default_attributes', 'my_container_default_attributes', 10, 1 );
+
+function my_container_default_attributes( $default_attributes ) {
+	$default_attributes['isFluid'] = true;
+	$default_attributes['marginAfter'] = 'mb-3';
     return $default_attributes;
 }
 ```
