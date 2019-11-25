@@ -66,7 +66,7 @@ if ( array_key_exists( 'verticalAlignment', $attributes ) ) {
 }
 
 /**
- * Possibility to modify block classes.
+ * Filters row block classes.
  *
  * @since 1.5.0
  *

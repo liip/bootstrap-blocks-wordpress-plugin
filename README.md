@@ -108,9 +108,9 @@ function my_template_locater( $template, $template_name, $template_path ) {
 }
 ```
 
-### wp_bootstrap_blocks_&lt;blockname&gt;_classes
+### wp_bootstrap_blocks_row_classes
 
-Change classes of &lt;blockname&gt;.
+Change classes of row block.
 
 #### Parameters:
 
@@ -120,9 +120,47 @@ Change classes of &lt;blockname&gt;.
 #### Usage:
 
 ```php
-add_filter( 'wp_bootstrap_blocks_container_classes', 'my_custom_container_classes', 10, 2 );
+add_filter( 'wp_bootstrap_blocks_row_classes', 'my_custom_row_classes', 10, 2 );
 
-function my_custom_container_classes( $classes, $attributes ) {
+function my_custom_row_classes( $classes, $attributes ) {
+    return [ 'my', 'custom', 'classes' ];
+}
+```
+
+### wp_bootstrap_blocks_column_classes
+
+Change classes of column block.
+
+#### Parameters:
+
+* `$classes` (`array`) Classes which are added to the block template.
+* `$attributes` (`array`) Attributes of the block.
+
+#### Usage:
+
+```php
+add_filter( 'wp_bootstrap_blocks_column_classes', 'my_custom_column_classes', 10, 2 );
+
+function my_custom_column_classes( $classes, $attributes ) {
+    return [ 'my', 'custom', 'classes' ];
+}
+```
+
+### wp_bootstrap_blocks_column_content_classes
+
+Change classes of the inner content of the column block.
+
+#### Parameters:
+
+* `$classes` (`array`) Classes which are added to the block template.
+* `$attributes` (`array`) Attributes of the block.
+
+#### Usage:
+
+```php
+add_filter( 'wp_bootstrap_blocks_column_content_classes', 'my_custom_column_content_classes', 10, 2 );
+
+function my_custom_column_content_classes( $classes, $attributes ) {
     return [ 'my', 'custom', 'classes' ];
 }
 ```

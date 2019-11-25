@@ -28,6 +28,7 @@
  *   'bgColor' (string) => Name of background color (eg. primary).
  *   'padding' (string) => Padding inside of column (eg. p-3).
  *   'centerContent' (boolean) => If true content should be centered in column (only needed if bgColor is set).
+ *   'className' (string) => Additional class names which should be added to block.
  * )
  */
 
@@ -87,7 +88,25 @@ if ( array_key_exists( 'padding', $attributes ) ) {
 	array_push( $column_content_classes, $attributes['padding'] );
 }
 
+/**
+ * Filters column block classes.
+ *
+ * @since 1.0.0
+ *
+ * @param string $classes Classes which should be added to the block.
+ * @param array $attributes Block attributes.
+ */
 $classes = apply_filters( 'wp_bootstrap_blocks_column_classes', $classes, $attributes );
+
+/**
+ * Filters column inner content classes.
+ *
+ * @since 1.5.0
+ *
+ * @param string $classes Classes which should be added to the content.
+ * @param array $attributes Block attributes.
+ */
+$column_content_classes = apply_filters( 'wp_bootstrap_blocks_column_content_classes', $column_content_classes, $attributes );
 ?>
 
 <div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
