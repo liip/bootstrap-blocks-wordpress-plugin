@@ -240,10 +240,10 @@ Modify default attributes of the row block.
 add_filter( 'wp_bootstrap_blocks_row_default_attributes', 'my_row_default_attributes', 10, 1 );
 
 function my_row_default_attributes( $default_attributes ) {
-	$default_attributes['template'] = '1-2';
-	$default_attributes['noGutters'] = true;
-	$default_attributes['alignment'] = 'right';
-	$default_attributes['verticalAlignment'] = 'bottom';
+    $default_attributes['template'] = '1-2';
+    $default_attributes['noGutters'] = true;
+    $default_attributes['alignment'] = 'right';
+    $default_attributes['verticalAlignment'] = 'bottom';
     return $default_attributes;
 }
 ```
@@ -275,12 +275,12 @@ Modify default attributes of the column block.
 add_filter( 'wp_bootstrap_blocks_column_default_attributes', 'my_column_default_attributes', 10, 1 );
 
 function my_column_default_attributes( $default_attributes ) {
-	$default_attributes['sizeLg'] = '4';
-	$default_attributes['sizeMd'] = '6';
-	$default_attributes['equalWidthXl'] = true;
-	$default_attributes['bgColor'] = 'primary';
-	$default_attributes['padding'] = 'p-3';
-	$default_attributes['centerContent'] = true;
+    $default_attributes['sizeLg'] = '4';
+    $default_attributes['sizeMd'] = '6';
+    $default_attributes['equalWidthXl'] = true;
+    $default_attributes['bgColor'] = 'primary';
+    $default_attributes['padding'] = 'p-3';
+    $default_attributes['centerContent'] = true;
 
     return $default_attributes;
 }
@@ -302,8 +302,8 @@ Modify default attributes of the container block.
 add_filter( 'wp_bootstrap_blocks_container_default_attributes', 'my_container_default_attributes', 10, 1 );
 
 function my_container_default_attributes( $default_attributes ) {
-	$default_attributes['isFluid'] = true;
-	$default_attributes['marginAfter'] = 'mb-3';
+    $default_attributes['isFluid'] = true;
+    $default_attributes['marginAfter'] = 'mb-3';
     return $default_attributes;
 }
 ```
@@ -326,10 +326,10 @@ Modify default attributes of the button block.
 add_filter( 'wp_bootstrap_blocks_button_default_attributes', 'my_button_default_attributes', 10, 1 );
 
 function my_button_default_attributes( $default_attributes ) {
-	$default_attributes['url'] = 'https://getbootstrap.com/';
-	$default_attributes['text'] = 'Bootstrap';
-	$default_attributes['style'] = 'secondary';
-	$default_attributes['alignment'] = 'right';
+    $default_attributes['url'] = 'https://getbootstrap.com/';
+    $default_attributes['text'] = 'Bootstrap';
+    $default_attributes['style'] = 'secondary';
+    $default_attributes['alignment'] = 'right';
     return $default_attributes;
 }
 ```
