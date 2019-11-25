@@ -184,6 +184,44 @@ function my_custom_container_classes( $classes, $attributes ) {
 }
 ```
 
+### wp_bootstrap_blocks_button_classes
+
+Change classes of button block.
+
+#### Parameters:
+
+* `$classes` (`array`) Classes which are added to the block template.
+* `$attributes` (`array`) Attributes of the block.
+
+#### Usage:
+
+```php
+add_filter( 'wp_bootstrap_blocks_button_classes', 'my_custom_button_classes', 10, 2 );
+
+function my_custom_button_classes( $classes, $attributes ) {
+    return [ 'my', 'custom', 'classes' ];
+}
+```
+
+### wp_bootstrap_blocks_button_wrapper_classes
+
+Change classes of button block wrapper.
+
+#### Parameters:
+
+* `$classes` (`array`) Classes which are added to the block template.
+* `$attributes` (`array`) Attributes of the block.
+
+#### Usage:
+
+```php
+add_filter( 'wp_bootstrap_blocks_button_wrapper_classes', 'my_custom_button_wrapper_classes', 10, 2 );
+
+function my_custom_button_wrapper_classes( $classes, $attributes ) {
+    return [ 'my', 'custom', 'classes' ];
+}
+```
+
 ### wp_bootstrap_blocks_row_default_attributes
 
 Modify default attributes of the row block.
@@ -254,7 +292,7 @@ Modify default attributes of the container block.
 
 #### Parameters:
 
-* `$default_attributes` (`array`) Default attributes of row block.
+* `$default_attributes` (`array`) Default attributes of container block.
     * `isFluid` (`boolean`) Defines if container should be fluid or not (Default: `false`)
     * `marginAfter` (`string`) Default margin after container block (Default: `'mb-2'`)
 
@@ -266,6 +304,32 @@ add_filter( 'wp_bootstrap_blocks_container_default_attributes', 'my_container_de
 function my_container_default_attributes( $default_attributes ) {
 	$default_attributes['isFluid'] = true;
 	$default_attributes['marginAfter'] = 'mb-3';
+    return $default_attributes;
+}
+```
+
+### wp_bootstrap_blocks_button_default_attributes
+
+Modify default attributes of the button block.
+
+#### Parameters:
+
+* `$default_attributes` (`array`) Default attributes of button block.
+    * `url` (`string`) Default url of the button (Default: `''`)
+    * `text` (`string`) Default text of the button (Default: `''`)
+    * `style` (`string`) Default style of the button (Default: `''`)
+    * `alignment` (`string`) Default alignment of the button (Default: `''`)
+
+#### Usage:
+
+```php
+add_filter( 'wp_bootstrap_blocks_button_default_attributes', 'my_button_default_attributes', 10, 1 );
+
+function my_button_default_attributes( $default_attributes ) {
+	$default_attributes['url'] = 'https://getbootstrap.com/';
+	$default_attributes['text'] = 'Bootstrap';
+	$default_attributes['style'] = 'secondary';
+	$default_attributes['alignment'] = 'right';
     return $default_attributes;
 }
 ```

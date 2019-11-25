@@ -16,7 +16,7 @@
  *
  * @var $attributes array(
  *   'isFluid' (boolean) => Defines if container should be fluid.
- *   'marginAfter' (string) => Margin bottom class which should be added to the block (eg. mb-2).
+ *   'marginAfter' (string) => Margin bottom class which should be added to the block (eg. 'mb-2').
  *   'className' (string) => Additional class names which should be added to block.
  * )
  */

@@ -25,8 +25,8 @@
  *   'equalWidthMd' (boolean) => Md columns equal-width.
  *   'equalWidthSm' (boolean) => Sm columns equal-width.
  *   'equalWidthXs' (boolean) => Xs columns equal-width.
- *   'bgColor' (string) => Name of background color (eg. primary).
- *   'padding' (string) => Padding inside of column (eg. p-3).
+ *   'bgColor' (string) => Name of background color (eg. 'primary').
+ *   'padding' (string) => Padding inside of column (eg. 'p-3').
  *   'centerContent' (boolean) => If true content should be centered in column (only needed if bgColor is set).
  *   'className' (string) => Additional class names which should be added to block.
  * )
