@@ -281,7 +281,6 @@ function my_column_default_attributes( $default_attributes ) {
     $default_attributes['bgColor'] = 'primary';
     $default_attributes['padding'] = 'p-3';
     $default_attributes['centerContent'] = true;
-
     return $default_attributes;
 }
 ```
