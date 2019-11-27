@@ -372,21 +372,6 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.button.styleOptions', 'myplugin/wp-bootst
 
 * `styleOptions` (`Array`) Array with button style options
 
-### wpBootstrapBlocks.container.useFluidContainerPerDefault
-
-Enable/Disable fluid layout of container per default.
-
-#### Usage:
-
-```javascript
-// Enable fluid layout of container by default
-wp.hooks.addFilter( 'wpBootstrapBlocks.container.useFluidContainerPerDefault', 'myplugin/wp-bootstrap-blocks/container/useFluidContainerPerDefault', true );
-```
-
-#### Parameters:
-
-* `useFluidContainerPerDefault` (`boolean`) Return true if fluid layout of containers should be enabled by default.
-
 ### wpBootstrapBlocks.container.customMarginOptions
 
 Modify margin options.

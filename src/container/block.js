@@ -9,8 +9,6 @@ const { SelectControl, CheckboxControl, PanelBody } = wp.components;
 const { Fragment } = wp.element;
 const { applyFilters } = wp.hooks;
 
-const useFluidContainerPerDefault = applyFilters( 'wpBootstrapBlocks.container.useFluidContainerPerDefault', true );
-
 let customMarginOptions = [
 	{
 		label: __( 'Small', 'wp-bootstrap-blocks' ),
@@ -54,11 +52,6 @@ registerBlockType( 'wp-bootstrap-blocks/container', {
 
 	edit( { className, attributes, setAttributes } ) {
 		const { isFluid, marginAfter } = attributes;
-
-		// Ensure that isFluid value is set (when block gets added value is undefined -> use default value in this case)
-		if ( isFluid === undefined ) {
-			setAttributes( { isFluid: useFluidContainerPerDefault } );
-		}
 
 		return (
 			<Fragment>
