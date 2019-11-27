@@ -302,6 +302,7 @@ add_filter( 'wp_bootstrap_blocks_container_default_attributes', 'my_container_de
 
 function my_container_default_attributes( $default_attributes ) {
     $default_attributes['isFluid'] = true;
+    $default_attributes['fluidBreakpoint'] = 'md';
     $default_attributes['marginAfter'] = 'mb-3';
     return $default_attributes;
 }

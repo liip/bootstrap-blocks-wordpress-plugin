@@ -33,6 +33,29 @@ const marginOptions = [
 	...customMarginOptions,
 ];
 
+const fluidBreakpointOptions = [
+	{
+		label: __( 'No breakpoint selected', 'wp-bootstrap-blocks' ),
+		value: '',
+	},
+	{
+		label: __( 'Xl', 'wp-bootstrap-blocks' ),
+		value: 'xl',
+	},
+	{
+		label: __( 'Lg', 'wp-bootstrap-blocks' ),
+		value: 'lg',
+	},
+	{
+		label: __( 'Md', 'wp-bootstrap-blocks' ),
+		value: 'md',
+	},
+	{
+		label: __( 'Sm', 'wp-bootstrap-blocks' ),
+		value: 'sm',
+	},
+];
+
 registerBlockType( 'wp-bootstrap-blocks/container', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
 	title: __( 'Container', 'wp-bootstrap-blocks' ), // Block title.
@@ -51,12 +74,14 @@ registerBlockType( 'wp-bootstrap-blocks/container', {
 	// attributes are defined server side with register_block_type(). This is needed to make default attributes available in the blocks render callback.
 
 	edit( { className, attributes, setAttributes } ) {
-		const { isFluid, marginAfter } = attributes;
+		const { isFluid, fluidBreakpoint, marginAfter } = attributes;
 
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody>
+					<PanelBody
+						title={ __( 'Fluid', 'wp-bootstrap-blocks' ) }
+					>
 						<CheckboxControl
 							label={ __( 'Fluid', 'wp-bootstrap-blocks' ) }
 							checked={ isFluid }
@@ -64,6 +89,20 @@ registerBlockType( 'wp-bootstrap-blocks/container', {
 								setAttributes( { isFluid: isChecked } );
 							} }
 						/>
+						<SelectControl
+							label={ __( 'Fluid Breakpoint', 'wp-bootstrap-blocks' ) }
+							disabled={ ! isFluid }
+							value={ fluidBreakpoint }
+							options={ fluidBreakpointOptions }
+							onChange={ ( selectedFluidBreakpoint ) => {
+								setAttributes( { fluidBreakpoint: selectedFluidBreakpoint } );
+							} }
+							help={ 'Fluid breakpoints only work with Bootstrap v4.4+. The container will be 100% wide until the specified breakpoint is reached, after which max-widths for each of the higher breakpoints will be applied.' }
+						/>
+					</PanelBody>
+					<PanelBody
+						title={ __( 'Margin', 'wp-bootstrap-blocks' ) }
+					>
 						<SelectControl
 							label={ __( 'Margin After', 'wp-bootstrap-blocks' ) }
 							value={ marginAfter }

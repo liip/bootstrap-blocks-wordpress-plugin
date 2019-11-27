@@ -35,6 +35,9 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Container\Container_Block_Type', fals
 			'isFluid' => array(
 				'type' => 'boolean',
 			),
+			'fluidBreakpoint' => array(
+				'type' => 'string',
+			),
 			'marginAfter' => array(
 				'type' => 'string',
 			),
@@ -47,6 +50,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Container\Container_Block_Type', fals
 		 */
 		protected $default_attributes = array(
 			'isFluid' => false,
+			'fluidBreakpoint' => '',
 			'marginAfter' => 'mb-2',
 		);
 	}
