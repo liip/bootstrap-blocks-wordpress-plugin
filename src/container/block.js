@@ -62,9 +62,10 @@ registerBlockType( 'wp-bootstrap-blocks/container', {
 	icon: 'feedback', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
 	category: 'wp-bootstrap-blocks', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
-		__( 'Bootstrap Blocks', 'wp-bootstrap-blocks' ),
-		__( 'Bootstrap', 'wp-bootstrap-blocks' ),
 		__( 'Container', 'wp-bootstrap-blocks' ),
+		__( 'Bootstrap Container', 'wp-bootstrap-blocks' ),
+		__( 'Bootstrap', 'wp-bootstrap-blocks' ),
+		__( 'Bootstrap Blocks', 'wp-bootstrap-blocks' ),
 	],
 
 	supports: {
