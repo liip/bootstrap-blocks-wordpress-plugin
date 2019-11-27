@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`container block filters wp_bootstrap_blocks_container_default_attributes should override default attributes 1`] = `"<!-- wp:wp-bootstrap-blocks/container /-->"`;
+
+exports[`container block filters wpBootstrapBlocks.container.marginOptions should add margin option 1`] = `"<!-- wp:wp-bootstrap-blocks/container {\\"marginAfter\\":\\"mb-8\\"} /-->"`;
