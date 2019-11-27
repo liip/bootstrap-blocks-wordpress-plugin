@@ -9,6 +9,7 @@ import {
 } from '@wordpress/e2e-test-utils';
 import {
 	insertRowBlock,
+	oldObjectStructureDeprecationWarning,
 } from '../row/row-helper';
 import {
 	getColumnBlocks,
@@ -29,14 +30,14 @@ describe( 'column block', () => {
 	} );
 
 	it( 'Column block should not be available in block inserter', async () => {
-		expect( console ).toHaveWarned();
+		expect( console ).toHaveWarnedWith( oldObjectStructureDeprecationWarning );
 
 		await searchForBlock( 'Bootstrap Column' );
 		expect( await page.$( '.block-editor-inserter__no-results' ) ).not.toBeNull();
 	} );
 
 	it( 'Column block should be initialized with default attributes', async () => {
-		expect( console ).toHaveWarned();
+		expect( console ).toHaveWarnedWith( oldObjectStructureDeprecationWarning );
 
 		await insertRowBlock();
 
@@ -71,7 +72,7 @@ describe( 'column block', () => {
 	} );
 
 	it( 'Should be possible to change column size', async () => {
-		expect( console ).toHaveWarned();
+		expect( console ).toHaveWarnedWith( oldObjectStructureDeprecationWarning );
 
 		await insertRowBlock();
 
@@ -107,7 +108,7 @@ describe( 'column block', () => {
 	} );
 
 	it( 'Should be possible to select background color', async () => {
-		expect( console ).toHaveWarned();
+		expect( console ).toHaveWarnedWith( oldObjectStructureDeprecationWarning );
 
 		await insertRowBlock();
 
@@ -135,7 +136,7 @@ describe( 'column block', () => {
 	} );
 
 	it( 'Should be possible to select padding', async () => {
-		expect( console ).toHaveWarned();
+		expect( console ).toHaveWarnedWith( oldObjectStructureDeprecationWarning );
 
 		await insertRowBlock();
 

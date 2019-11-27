@@ -42,8 +42,6 @@ describe( 'row block filters', () => {
 		await page.click( '.wp-bootstrap-blocks-template-selector-button > button[aria-label="1 Column (2/3 width)"]' );
 
 		expect( await getEditedPostContent() ).toMatchSnapshot();
-
-		expect( console ).toHaveWarned();
 	} );
 
 	it( 'wpBootstrapBlocks.row.enableCustomTemplate should disable custom template', async () => {
@@ -53,8 +51,6 @@ describe( 'row block filters', () => {
 		// Custom template shouldn't be available
 		expect( await page.$$( '.wp-bootstrap-blocks-template-selector-button' ) ).toHaveLength( 5 ); // 4 default templates + 1 additional template (custom template disabled)
 		expect( await page.$( '.wp-bootstrap-blocks-template-selector-button > button[aria-label="Custom"]' ) ).toBeNull();
-
-		expect( console ).toHaveWarned();
 	} );
 
 	it( 'wp_bootstrap_blocks_row_default_attributes should override default attributes', async () => {
@@ -75,7 +71,5 @@ describe( 'row block filters', () => {
 
 		// Check if attributes are set correctly
 		expect( await getEditedPostContent() ).toMatchSnapshot();
-
-		expect( console ).toHaveWarned();
 	} );
 } );

@@ -17,6 +17,9 @@ import {
 	testVersion110ColumnFeatures,
 	testVersion140ColumnFeatures,
 } from './feature-tests';
+import {
+	oldObjectStructureDeprecationWarning,
+} from './row-helper';
 
 describe( 'row block backwards compatibility', () => {
 	beforeEach( async () => {
@@ -24,6 +27,8 @@ describe( 'row block backwards compatibility', () => {
 	} );
 
 	it( 'v1.0.0 row block content should be compatible', async () => {
+		expect( console ).toHaveWarnedWith( oldObjectStructureDeprecationWarning );
+
 		await setPostContent( rowContent100 );
 
 		// Row blocks should be successfully inserted
@@ -33,19 +38,19 @@ describe( 'row block backwards compatibility', () => {
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 
 		await testVersion100RowFeatures();
-
-		expect( console ).toHaveWarned();
 	} );
 
 	it( 'v1.0.0 column block content should be compatible', async () => {
+		expect( console ).toHaveWarnedWith( oldObjectStructureDeprecationWarning );
+
 		await setPostContent( rowContent100 );
 
 		await testVersion100ColumnFeatures();
-
-		expect( console ).toHaveWarned();
 	} );
 
 	it( 'v1.1.0 row block content should be compatible', async () => {
+		expect( console ).toHaveWarnedWith( oldObjectStructureDeprecationWarning );
+
 		await setPostContent( rowContent110 );
 
 		// Row blocks should be successfully inserted
@@ -57,21 +62,21 @@ describe( 'row block backwards compatibility', () => {
 		await testVersion100RowFeatures();
 
 		await testVersion110RowFeatures();
-
-		expect( console ).toHaveWarned();
 	} );
 
 	it( 'v1.1.0 column block content should be compatible', async () => {
+		expect( console ).toHaveWarnedWith( oldObjectStructureDeprecationWarning );
+
 		await setPostContent( rowContent110 );
 
 		await testVersion100ColumnFeatures();
 
 		await testVersion110ColumnFeatures();
-
-		expect( console ).toHaveWarned();
 	} );
 
 	it( 'v1.4.0 column block content should be compatible', async () => {
+		expect( console ).toHaveWarnedWith( oldObjectStructureDeprecationWarning );
+
 		await setPostContent( rowContent140 );
 
 		await testVersion100ColumnFeatures();
@@ -79,7 +84,5 @@ describe( 'row block backwards compatibility', () => {
 		await testVersion110ColumnFeatures();
 
 		await testVersion140ColumnFeatures();
-
-		expect( console ).toHaveWarned();
 	} );
 } );
