@@ -5,7 +5,7 @@ Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.0
 Tested up to: 5.3.0
 Requires PHP: 5.6
-Stable tag: 1.4.0
+Stable tag: 2.0.0
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
