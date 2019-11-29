@@ -141,9 +141,9 @@ class WP_Bootstrap_Blocks {
 	 */
 	public function enqueue_block_editor_assets() {
 		// Scripts.
-		$index_path = esc_url( $this->assets_dir ) . 'index.js';
+		$index_path = $this->assets_dir . 'index.js';
 		$index_url = esc_url( $this->assets_url ) . 'index.js';
-		$index_asset_file = esc_url( $this->assets_dir ) . 'index.asset.php';
+		$index_asset_file = $this->assets_dir . 'index.asset.php';
 		$index_asset = file_exists( $index_asset_file )
 			? require_once $index_asset_file
 			: null;
