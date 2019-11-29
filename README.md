@@ -373,23 +373,23 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.button.styleOptions', 'myplugin/wp-bootst
 
 * `styleOptions` (`Array`) Array with button style options
 
-### wpBootstrapBlocks.container.customMarginOptions
+### wpBootstrapBlocks.container.marginAfterOptions
 
-Modify margin options.
+Modify margin after options.
 
 #### Usage:
 
 ```javascript
-function myCustomMarginOptions( customMarginOptions ) {
-    customMarginOptions.push( { label: 'Margin huge', value: 'mb-8' } );
-    return customMarginOptions;
+function myMarginAfterOptions( marginAfterOptions ) {
+    marginAfterOptions.push( { label: 'Huge', value: 'mb-8' } );
+    return marginAfterOptions;
 }
-wp.hooks.addFilter( 'wpBootstrapBlocks.container.customMarginOptions', 'myplugin/wp-bootstrap-blocks/container/styleOptions', myCustomMarginOptions );
+wp.hooks.addFilter( 'wpBootstrapBlocks.container.marginAfterOptions', 'myplugin/wp-bootstrap-blocks/container/marginAfterOptions', myMarginAfterOptions );
 ```
 
 #### Parameters:
 
-* `customMarginOptions` (`Array`) Array margin options.
+* `marginAfterOptions` (`Array`) Array margin options.
 
 ### wpBootstrapBlocks.row.templates
 
