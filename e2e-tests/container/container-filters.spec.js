@@ -33,7 +33,7 @@ describe( 'container block filters', () => {
 		await createNewPost();
 	} );
 
-	it( 'wpBootstrapBlocks.container.marginOptions should add margin option', async () => {
+	it( 'wpBootstrapBlocks.container.marginAfterOptions should add margin option', async () => {
 		expect( console ).toHaveWarnedWith( oldObjectStructureDeprecationWarning );
 
 		await insertContainerBlock();
@@ -42,7 +42,7 @@ describe( 'container block filters', () => {
 		// Additional padding option should be available
 		expect( await page.$( 'select.components-select-control__input > option[value="mb-8"]' ) ).not.toBeNull();
 
-		// Padding option should be applied
+		// Margin option should be applied
 		await selectOption( 'Margin After', 'mb-8' );
 
 		// Editor content should match snapshot

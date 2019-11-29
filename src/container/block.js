@@ -9,7 +9,7 @@ const { SelectControl, CheckboxControl, PanelBody } = wp.components;
 const { Fragment } = wp.element;
 const { applyFilters } = wp.hooks;
 
-let customMarginOptions = [
+let marginAfterOptions = [
 	{
 		label: __( 'Small', 'wp-bootstrap-blocks' ),
 		value: 'mb-2',
@@ -23,14 +23,14 @@ let customMarginOptions = [
 		value: 'mb-5',
 	},
 ];
-customMarginOptions = applyFilters( 'wpBootstrapBlocks.container.customMarginOptions', customMarginOptions );
+marginAfterOptions = applyFilters( 'wpBootstrapBlocks.container.marginAfterOptions', marginAfterOptions );
 
-const marginOptions = [
+marginAfterOptions = [
 	{
 		label: __( 'None', 'wp-bootstrap-blocks' ),
 		value: 'mb-0',
 	},
-	...customMarginOptions,
+	...marginAfterOptions,
 ];
 
 const fluidBreakpointOptions = [
@@ -107,9 +107,9 @@ registerBlockType( 'wp-bootstrap-blocks/container', {
 						<SelectControl
 							label={ __( 'Margin After', 'wp-bootstrap-blocks' ) }
 							value={ marginAfter }
-							options={ marginOptions }
-							onChange={ ( selectedMargin ) => {
-								setAttributes( { marginAfter: selectedMargin } );
+							options={ marginAfterOptions }
+							onChange={ ( selectedMarginAfter ) => {
+								setAttributes( { marginAfter: selectedMarginAfter } );
 							} }
 						/>
 					</PanelBody>

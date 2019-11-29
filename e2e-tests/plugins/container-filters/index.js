@@ -1,11 +1,11 @@
 /* eslint-disable wrap-iife */
 ( function() {
-	// Add custom margin bottom option
-	function myMarginOptions( marginOptions ) {
+	// Add margin after option
+	function myMarginAfterOptions( marginAfterOptions ) {
 		return [
-			...marginOptions,
+			...marginAfterOptions,
 			{ label: 'Huge', value: 'mb-8' },
 		];
 	}
-	wp.hooks.addFilter( 'wpBootstrapBlocks.container.marginOptions', 'container-filters/wp-bootstrap-blocks/container/marginOptions', myMarginOptions );
+	wp.hooks.addFilter( 'wpBootstrapBlocks.container.marginAfterOptions', 'container-filters/wp-bootstrap-blocks/container/marginAfterOptions', myMarginAfterOptions );
 } )();
