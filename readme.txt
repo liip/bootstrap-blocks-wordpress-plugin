@@ -68,6 +68,14 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 == Changelog ==
 
+= 2.0.0 =
+
+* **Breaking Change** [REMOVE] Removed `wpBootstrapBlocks.container.useFluidContainerPerDefault` filter. Please use `wp_bootstrap_blocks_container_default_attributes` filter instead.
+* **Breaking Change** [CHANGE] Removed unused wrapper-div from `row` template. The `alignfull` class now gets added directly to the row.
+* **Breaking Change** [CHANGE] Renamed `wpBootstrapBlocks.container.customMarginOptions` filter to `wpBootstrapBlocks.container.marginAfterOptions`.
+* [FEATURE] Support of [responsive containers](https://getbootstrap.com/docs/4.4/layout/overview/#responsive) which were introduced in Bootstrap 4.4. Use them by setting the `Fluid Breakpoint` option in the container block.
+* Modified Templates: `container.php`, `row.php`
+
 = 1.4.0 =
 
 * [CHANGE] Decrease loading priority of block editor assets to ensure that custom block filters are executed.
