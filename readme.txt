@@ -64,7 +64,10 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 == Screenshots ==
 
-1. Bootstrap Blocks in Gutenberg editor
+1. Row block
+1. Column block
+1. Column block (further settings)
+1. Container block
 
 == Changelog ==
 
