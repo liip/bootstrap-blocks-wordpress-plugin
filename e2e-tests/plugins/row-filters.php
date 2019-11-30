@@ -24,6 +24,13 @@ function enqueue_row_filters_plugin_script() {
 }
 add_action( 'init', 'enqueue_row_filters_plugin_script' );
 
+/**
+ * Filter default attributes.
+ *
+ * @param array $default_attributes Default attributes.
+ *
+ * @return array
+ */
 function row_filters_default_attributes( $default_attributes ) {
 	$default_attributes['template'] = '1-2';
 	$default_attributes['noGutters'] = true;

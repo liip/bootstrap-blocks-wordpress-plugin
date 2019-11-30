@@ -25,6 +25,13 @@ function enqueue_container_filters_plugin_script() {
 
 add_action( 'init', 'enqueue_container_filters_plugin_script' );
 
+/**
+ * Filter default attributes.
+ *
+ * @param array $default_attributes Default attributes.
+ *
+ * @return array
+ */
 function container_filters_default_attributes( $default_attributes ) {
 	$default_attributes['isFluid'] = true;
 	$default_attributes['fluidBreakpoint'] = 'md';
