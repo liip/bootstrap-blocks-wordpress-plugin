@@ -11,7 +11,8 @@
 
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
-	<exclude-pattern>src/*\.(inc|css|js)$</exclude-pattern>
+	<exclude-pattern>./src/*\.(inc|css|js)$</exclude-pattern>
+	<exclude-pattern>./e2e-tests/*\.(inc|css|js)$</exclude-pattern>
 
 	<rule ref="WordPress">
 		<exclude name="Squiz.Commenting.InlineComment" />
