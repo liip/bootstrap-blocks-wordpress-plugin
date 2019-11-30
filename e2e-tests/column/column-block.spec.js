@@ -29,15 +29,11 @@ describe( 'column block', () => {
 	} );
 
 	it( 'Column block should not be available in block inserter', async () => {
-		expect( console ).toHaveWarned();
-
 		await searchForBlock( 'Bootstrap Column' );
 		expect( await page.$( '.block-editor-inserter__no-results' ) ).not.toBeNull();
 	} );
 
 	it( 'Column block should be initialized with default attributes', async () => {
-		expect( console ).toHaveWarned();
-
 		await insertRowBlock();
 
 		// Check attributes of first column block
@@ -71,8 +67,6 @@ describe( 'column block', () => {
 	} );
 
 	it( 'Should be possible to change column size', async () => {
-		expect( console ).toHaveWarned();
-
 		await insertRowBlock();
 
 		// Select first column block
@@ -107,8 +101,6 @@ describe( 'column block', () => {
 	} );
 
 	it( 'Should be possible to select background color', async () => {
-		expect( console ).toHaveWarned();
-
 		await insertRowBlock();
 
 		// Select first column block
@@ -134,9 +126,36 @@ describe( 'column block', () => {
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 	} );
 
-	it( 'Should be possible to select padding', async () => {
-		expect( console ).toHaveWarned();
+	it( 'Should reset centerContent if bgColor gets removed', async () => {
+		await insertRowBlock();
 
+		// Select first column block
+		const columnBlocks = await getColumnBlocks();
+		const firstColumnBlockClientId = columnBlocks[ 0 ].clientId;
+		await selectBlockByClientId( firstColumnBlockClientId );
+		await openSidebarPanelWithTitle( 'Background color' );
+
+		// Select background color
+		await page.click( 'button[aria-label="Color: secondary"]' );
+
+		// Select center content vertically
+		await clickElementByText( 'label', 'Center content vertically in row' );
+
+		let columnData = await getDataValuesOfElement( `#block-${ firstColumnBlockClientId }` );
+		expect( columnData.centerContent ).toMatch( 'true' );
+
+		expect( await getEditedPostContent() ).toMatchSnapshot();
+
+		// Remove background color
+		await page.click( 'button.components-color-palette__clear' );
+
+		columnData = await getDataValuesOfElement( `#block-${ firstColumnBlockClientId }` );
+		expect( columnData.centerContent ).toMatch( 'false' );
+
+		expect( await getEditedPostContent() ).toMatchSnapshot();
+	} );
+
+	it( 'Should be possible to select padding', async () => {
 		await insertRowBlock();
 
 		// Select first column block

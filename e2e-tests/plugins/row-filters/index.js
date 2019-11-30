@@ -1,8 +1,5 @@
 /* eslint-disable wrap-iife */
 ( function() {
-	// Disable old object template structure
-	wp.hooks.addFilter( 'wpBootstrapBlocks.row.useOldObjectTemplateStructure', 'row-filters/wp-bootstrap-blocks/row/useOldObjectTemplateStructure', () => false );
-
 	function rowFiltersTemplates( templates ) {
 		templates = [
 			...templates,

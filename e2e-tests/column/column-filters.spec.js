@@ -36,8 +36,6 @@ describe( 'column block filters', () => {
 	} );
 
 	it( 'wpBootstrapBlocks.column.bgColorOptions should add background color', async () => {
-		expect( console ).toHaveWarned();
-
 		await insertRowBlock();
 		await selectColumnBlock();
 		await openSidebarPanelWithTitle( 'Background color' );
@@ -52,8 +50,6 @@ describe( 'column block filters', () => {
 	} );
 
 	it( 'wpBootstrapBlocks.column.paddingOptions should add padding option', async () => {
-		expect( console ).toHaveWarned();
-
 		await insertRowBlock();
 		await selectColumnBlock();
 		await openSidebarPanelWithTitle( 'Padding (inside column)' );
@@ -96,7 +92,5 @@ describe( 'column block filters', () => {
 
 		// Check if attributes are set correctly
 		expect( await getEditedPostContent() ).toMatchSnapshot();
-
-		expect( console ).toHaveWarned();
 	} );
 } );

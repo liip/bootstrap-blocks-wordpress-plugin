@@ -59,6 +59,11 @@ export default class BootstrapColumnEdit extends Component {
 			centerContent,
 		} = attributes;
 
+		// If centerContent is enabled but no background-color is selected -> reset attribute
+		if ( ! bgColor && centerContent ) {
+			setAttributes( { centerContent: false } );
+		}
+
 		return (
 			<Fragment>
 				<InspectorControls>
@@ -143,6 +148,7 @@ export default class BootstrapColumnEdit extends Component {
 								if ( ! value ) {
 									setAttributes( {
 										bgColor: '',
+										centerContent: false,
 									} );
 								} else {
 									const selectedColor = bgColorOptions.find( ( c ) => c.color === value );

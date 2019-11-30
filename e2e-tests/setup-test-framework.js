@@ -50,9 +50,37 @@ function observeConsoleLogging() {
 
 		let text = message.text();
 
+		// wp-bootstrap-block exceptions for WordPress 5.2
+		if ( text.startsWith( 'Warning: Unsafe lifecycle methods were found within a strict-mode tree' ) ) {
+			return;
+		}
+		if ( text.startsWith( 'Warning: %s is deprecated in StrictMode.' ) ) {
+			return;
+		}
+		// wp-bootstrap-block exceptions for WordPress 5.3
+		if ( text.includes( 'is deprecated. Please use wp.blockEditor.' ) ) {
+			return;
+		}
+		if ( text.includes( 'is deprecated. Please use `wp.data.select( \'core/block-editor\' )' ) ) {
+			return;
+		}
+		if ( text.includes( 'is deprecated. Please use `wp.data.dispatch( \'core/block-editor\' )' ) ) {
+			return;
+		}
+
 		// An exception is made for _blanket_ deprecation warnings: Those
 		// which log regardless of whether a deprecated feature is in use.
 		if ( text.includes( 'This is a global warning' ) ) {
+			return;
+		}
+
+		// A chrome advisory warning about SameSite cookies is informational
+		// about future changes, tracked separately for improvement in core.
+		//
+		// See: https://core.trac.wordpress.org/ticket/37000
+		// See: https://www.chromestatus.com/feature/5088147346030592
+		// See: https://www.chromestatus.com/feature/5633521622188032
+		if ( text.includes( 'A cookie associated with a cross-site resource' ) ) {
 			return;
 		}
 
@@ -112,7 +140,6 @@ function observeConsoleLogging() {
 beforeAll( async () => {
 	enablePageDialogAccept();
 	observeConsoleLogging();
-
 	await setupBrowser();
 } );
 

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`container block Container block should be initialized with default attributes 1`] = `"<!-- wp:wp-bootstrap-blocks/container /-->"`;
+
+exports[`container block Should be possible to enable fluid option 1`] = `"<!-- wp:wp-bootstrap-blocks/container {\\"isFluid\\":true} /-->"`;
+
+exports[`container block Should be possible to enable fluid option 2`] = `"<!-- wp:wp-bootstrap-blocks/container {\\"isFluid\\":true,\\"fluidBreakpoint\\":\\"lg\\"} /-->"`;

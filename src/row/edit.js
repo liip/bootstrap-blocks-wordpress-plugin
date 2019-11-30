@@ -10,40 +10,6 @@ const { compose } = wp.compose;
 
 const ALLOWED_BLOCKS = [ 'wp-bootstrap-blocks/column' ];
 
-const arrayToObjectStructure = ( templates ) => {
-	// If templates are not in array structure do nothing
-	if ( ! Array.isArray( templates ) ) {
-		return templates;
-	}
-
-	return templates.reduce( ( objectTemplates, template ) => {
-		const { name, title: label, template: blocks, ...templateInfo } = template;
-		objectTemplates[ name ] = {
-			label,
-			blocks,
-			...templateInfo,
-		};
-		return objectTemplates;
-	}, {} );
-};
-
-const objectToArrayStructure = ( templates ) => {
-	// If templates are already in array structure do nothing
-	if ( Array.isArray( templates ) ) {
-		return templates;
-	}
-
-	return Object.keys( templates ).map( ( templateName ) => {
-		return {
-			name: templateName,
-			title: templates[ templateName ].title || templates[ templateName ].label,
-			icon: templates[ templateName ].icon || templateIconMissing,
-			template: templates[ templateName ].template || templates[ templateName ].blocks,
-			templateLock: templates[ templateName ].templateLock !== undefined ? templates[ templateName ].templateLock : 'all',
-		};
-	} );
-};
-
 const addMissingTemplateIcons = ( templates ) => {
 	return templates.map( ( template ) => {
 		return { icon: templateIconMissing, ...template };
@@ -139,14 +105,7 @@ let templates = [
 	},
 ];
 
-const useOldObjectTemplateStructure = applyFilters( 'wpBootstrapBlocks.row.useOldObjectTemplateStructure', true );
-if ( useOldObjectTemplateStructure ) {
-	// eslint-disable-next-line no-console
-	console.warn( 'wp-bootstrap-blocks: The old object template structure (<= v1.2.0) of the row block is deprecated, please migrate your templates to the new array structure (v1.3.0+). As soon as you have updated your template structure you need to disable the old object template structure with the wpBootstrapBlocks.row.useOldObjectTemplateStructure filter.' );
-	templates = arrayToObjectStructure( templates );
-}
 templates = applyFilters( 'wpBootstrapBlocks.row.templates', templates );
-templates = objectToArrayStructure( templates );
 templates = addMissingTemplateIcons( templates );
 
 const enableCustomTemplate = applyFilters( 'wpBootstrapBlocks.row.enableCustomTemplate', true );

@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Bootstrap Blocks plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Bootstrap Blocks 1.4.0\n"
+"Project-Id-Version: Bootstrap Blocks 2.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-bootstrap-blocks\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-21T18:09:07+00:00\n"
+"POT-Creation-Date: 2019-11-30T13:05:36+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.2.0\n"
 "X-Domain: wp-bootstrap-blocks\n"
@@ -17,7 +17,7 @@ msgstr ""
 #. Plugin Name of the plugin
 #: src/class-wp-bootstrap-blocks.php:184
 #: src/column/block.js:20
-#: src/container/block.js:44
+#: src/container/block.js:68
 #: src/row/block.js:20
 #: src/button/block.js:17
 msgid "Bootstrap Blocks"
@@ -45,86 +45,86 @@ msgid "%s does not exist."
 msgstr ""
 
 #: src/column/edit.js:35
-#: src/container/block.js:32
+#: src/container/block.js:30
 msgid "None"
 msgstr ""
 
 #: src/column/edit.js:36
-#: src/container/block.js:16
+#: src/container/block.js:14
 msgid "Small"
 msgstr ""
 
 #: src/column/edit.js:37
-#: src/container/block.js:20
+#: src/container/block.js:18
 msgid "Medium"
 msgstr ""
 
 #: src/column/edit.js:38
-#: src/container/block.js:24
+#: src/container/block.js:22
 msgid "Large"
 msgstr ""
 
-#: src/column/edit.js:66
+#: src/column/edit.js:71
 msgid "Column size"
 msgstr ""
 
-#: src/column/edit.js:70
+#: src/column/edit.js:75
 msgid "Xs Column count"
 msgstr ""
 
-#: src/column/edit.js:77
+#: src/column/edit.js:82
 msgid "Xs equal-width"
 msgstr ""
 
-#: src/column/edit.js:83
+#: src/column/edit.js:88
 msgid "Sm Column count"
 msgstr ""
 
-#: src/column/edit.js:90
+#: src/column/edit.js:95
 msgid "Sm equal-width"
 msgstr ""
 
-#: src/column/edit.js:96
+#: src/column/edit.js:101
 msgid "Md Column count"
 msgstr ""
 
-#: src/column/edit.js:103
+#: src/column/edit.js:108
 msgid "Md equal-width"
 msgstr ""
 
-#: src/column/edit.js:109
+#: src/column/edit.js:114
 msgid "Lg Column count"
 msgstr ""
 
-#: src/column/edit.js:116
+#: src/column/edit.js:121
 msgid "Lg equal-width"
 msgstr ""
 
-#: src/column/edit.js:122
+#: src/column/edit.js:127
 msgid "Xl Column count"
 msgstr ""
 
-#: src/column/edit.js:129
+#: src/column/edit.js:134
 msgid "Xl equal-width"
 msgstr ""
 
-#: src/column/edit.js:135
+#: src/column/edit.js:140
 msgid "Background color"
 msgstr ""
 
-#: src/column/edit.js:160
+#: src/column/edit.js:166
 msgid "Center content vertically in row"
 msgstr ""
 
-#: src/column/edit.js:163
+#: src/column/edit.js:169
 msgid "This setting only applies if there is no vertical alignment set on the parent row block."
 msgstr ""
 
-#: src/column/edit.js:168
+#: src/column/edit.js:174
 msgid "Padding (inside column)"
 msgstr ""
 
-#: src/column/edit.js:171
+#: src/column/edit.js:177
 msgid "Size"
 msgstr ""
 
@@ -138,83 +138,120 @@ msgid "Bootstrap Column"
 msgstr ""
 
 #: src/column/block.js:19
-#: src/container/block.js:45
+#: src/container/block.js:67
 #: src/row/block.js:19
 #: src/button/block.js:18
 msgid "Bootstrap"
 msgstr ""
 
-#: src/container/block.js:40
+#: src/container/block.js:38
+msgid "No breakpoint selected"
+msgstr ""
+
+#: src/container/block.js:42
+msgid "Xl"
+msgstr ""
+
 #: src/container/block.js:46
+msgid "Lg"
+msgstr ""
+
+#: src/container/block.js:50
+msgid "Md"
+msgstr ""
+
+#: src/container/block.js:54
+msgid "Sm"
+msgstr ""
+
+#: src/container/block.js:61
+#: src/container/block.js:65
 msgid "Container"
 msgstr ""
 
-#: src/container/block.js:68
+#: src/container/block.js:66
+msgid "Bootstrap Container"
+msgstr ""
+
+#: src/container/block.js:84
+#: src/container/block.js:87
 msgid "Fluid"
 msgstr ""
 
-#: src/container/block.js:75
+#: src/container/block.js:94
+msgid "Fluid Breakpoint"
+msgstr ""
+
+#: src/container/block.js:101
+msgid "Fluid breakpoints only work with Bootstrap v4.4+. The container will be 100% wide until the specified breakpoint is reached, after which max-widths for each of the higher breakpoints will be applied."
+msgstr ""
+
+#: src/container/block.js:105
+msgid "Margin"
+msgstr ""
+
+#: src/container/block.js:108
 msgid "Margin After"
 msgstr ""
 
-#: src/row/edit.js:56
+#: src/row/edit.js:22
 msgid "2 Columns (1:1)"
 msgstr ""
 
-#: src/row/edit.js:76
+#: src/row/edit.js:42
 msgid "2 Columns (1:2)"
 msgstr ""
 
-#: src/row/edit.js:96
+#: src/row/edit.js:62
 msgid "2 Columns (2:1)"
 msgstr ""
 
-#: src/row/edit.js:116
+#: src/row/edit.js:82
 msgid "3 Columns (1:1:1)"
 msgstr ""
 
-#: src/row/edit.js:157
+#: src/row/edit.js:116
 msgid "Custom"
 msgstr ""
 
-#: src/row/edit.js:201
+#: src/row/edit.js:160
 msgid "Align columns left"
 msgstr ""
 
-#: src/row/edit.js:206
-#: src/row/edit.js:224
+#: src/row/edit.js:165
+#: src/row/edit.js:183
 msgid "Align columns center"
 msgstr ""
 
-#: src/row/edit.js:211
+#: src/row/edit.js:170
 msgid "Align columns right"
 msgstr ""
 
-#: src/row/edit.js:219
+#: src/row/edit.js:178
 msgid "Align columns top"
 msgstr ""
 
-#: src/row/edit.js:229
+#: src/row/edit.js:188
 msgid "Align columns bottom"
 msgstr ""
 
-#: src/row/edit.js:238
+#: src/row/edit.js:197
 msgid "Change layout"
 msgstr ""
 
-#: src/row/edit.js:258
+#: src/row/edit.js:217
 msgid "Row options"
 msgstr ""
 
-#: src/row/edit.js:261
+#: src/row/edit.js:220
 msgid "No Gutters"
 msgstr ""
 
-#: src/row/edit.js:270
+#: src/row/edit.js:229
 msgid "Change horizontal alignment of columns"
 msgstr ""
 
-#: src/row/edit.js:276
+#: src/row/edit.js:235
 msgid "Change vertical alignment of columns"
 msgstr ""
 

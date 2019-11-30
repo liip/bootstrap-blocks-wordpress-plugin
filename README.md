@@ -65,7 +65,7 @@ function my_template_path( $template_path ) {
 
 #### Parameters:
 
-* `$template_path` (`string`) Template directory name in theme.
+* `$template_path` (`string`) Template directory name in theme. (Default: `'wp-bootstrap-blocks/'`)
 
 ### wp_bootstrap_blocks_get_template
 
@@ -302,6 +302,7 @@ add_filter( 'wp_bootstrap_blocks_container_default_attributes', 'my_container_de
 
 function my_container_default_attributes( $default_attributes ) {
     $default_attributes['isFluid'] = true;
+    $default_attributes['fluidBreakpoint'] = 'md';
     $default_attributes['marginAfter'] = 'mb-3';
     return $default_attributes;
 }
@@ -339,7 +340,7 @@ Possibility to disable enqueuing block assets.
 
 #### Parameters:
 
-* `$enqueue_block_assets` (`boolean`) Defines if block assets should be enqueued.
+* `$enqueue_block_assets` (`boolean`) Defines if block assets should be enqueued. (Default: `true`)
 
 #### Usage:
 
@@ -370,46 +371,29 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.button.styleOptions', 'myplugin/wp-bootst
 
 #### Parameters:
 
-* `styleOptions` (`Array`) Array with button style options
+* `styleOptions` (`Array`) Array with button style options.
 
-### wpBootstrapBlocks.container.useFluidContainerPerDefault
+### wpBootstrapBlocks.container.marginAfterOptions
 
-Enable/Disable fluid layout of container per default.
-
-#### Usage:
-
-```javascript
-// Enable fluid layout of container by default
-wp.hooks.addFilter( 'wpBootstrapBlocks.container.useFluidContainerPerDefault', 'myplugin/wp-bootstrap-blocks/container/useFluidContainerPerDefault', true );
-```
-
-#### Parameters:
-
-* `useFluidContainerPerDefault` (`boolean`) Return true if fluid layout of containers should be enabled by default.
-
-### wpBootstrapBlocks.container.customMarginOptions
-
-Modify margin options.
+Modify margin after options.
 
 #### Usage:
 
 ```javascript
-function myCustomMarginOptions( customMarginOptions ) {
-    customMarginOptions.push( { label: 'Margin huge', value: 'mb-8' } );
-    return customMarginOptions;
+function myMarginAfterOptions( marginAfterOptions ) {
+    marginAfterOptions.push( { label: 'Huge', value: 'mb-8' } );
+    return marginAfterOptions;
 }
-wp.hooks.addFilter( 'wpBootstrapBlocks.container.customMarginOptions', 'myplugin/wp-bootstrap-blocks/container/styleOptions', myCustomMarginOptions );
+wp.hooks.addFilter( 'wpBootstrapBlocks.container.marginAfterOptions', 'myplugin/wp-bootstrap-blocks/container/marginAfterOptions', myMarginAfterOptions );
 ```
 
 #### Parameters:
 
-* `customMarginOptions` (`Array`) Array margin options.
+* `marginAfterOptions` (`Array`) Array margin options.
 
 ### wpBootstrapBlocks.row.templates
 
 Define block templates.
-To use the new array template structure you need to disable the old structure with the [`wpBootstrapBlocks.row.useOldObjectTemplateStructure` filter](https://github.com/liip/bootstrap-blocks-wordpress-plugin#wpbootstrapblocksrowuseoldobjecttemplatestructure) filter.
-This is needed that we can ensure backwards compatibility for the old object structure.
 
 #### Usage:
 
@@ -456,75 +440,6 @@ Each template has the following attributes:
     * Name of block. (Only `wp-bootstrap-blocks/column` supported!)
     * Attributes of column
 
-#### Update template structure from <=1.2.0 to 1.3.0+
-
-Before:
-
-```javascript
-let templates = {
-    '1-2': {
-        label: '2 Columns (1:2)',
-        templateLock: 'all',
-        blocks: [
-            [
-                'wp-bootstrap-blocks/column',
-                {
-                    sizeMd: 4,
-                },
-            ],
-            [
-                'wp-bootstrap-blocks/column',
-                {
-                    sizeMd: 8,
-                },
-            ],
-        ],
-    },
-}
-```
-
-After:
-
-```javascript
-let templates = [
-    {
-        name: '1-2',
-        title: '2 Columns (1:2)',
-        icon: <SVG />,
-        templateLock: 'all',
-        template: [
-            [
-                'wp-bootstrap-blocks/column',
-                {
-                    sizeMd: 4,
-                },
-            ],
-            [
-                'wp-bootstrap-blocks/column',
-                {
-                    sizeMd: 8,
-                },
-            ],
-        ],
-    },
-];
-```
-
-### wpBootstrapBlocks.row.useOldObjectTemplateStructure
-
-Enable/Disable the old object template structure. This is enabled by default to ensure backwards compatibility!
-
-#### Usage:
-
-```javascript
-// Disable old object template structure
-wp.hooks.addFilter( 'wpBootstrapBlocks.row.useOldObjectTemplateStructure', 'myplugin/wp-bootstrap-blocks/row/useOldObjectTemplateStructure', () => false );
-```
-
-#### Parameters:
-
-* `useOldObjectTemplateStructure` (`boolean`) Return false if new array template structure should be used.
-
 ### wpBootstrapBlocks.row.enableCustomTemplate
 
 Enable/Disable custom option in row templates.
@@ -538,7 +453,7 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.row.enableCustomTemplate', 'myplugin/wp-b
 
 #### Parameters:
 
-* `enableCustomTemplate` (`boolean`) Return true if custom row template should be enabled.
+* `enableCustomTemplate` (`boolean`) Return true if custom row template should be enabled. (Default: `true`)
 
 ### wpBootstrapBlocks.column.bgColors
 

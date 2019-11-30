@@ -33,16 +33,12 @@ describe( 'row block backwards compatibility', () => {
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 
 		await testVersion100RowFeatures();
-
-		expect( console ).toHaveWarned();
 	} );
 
 	it( 'v1.0.0 column block content should be compatible', async () => {
 		await setPostContent( rowContent100 );
 
 		await testVersion100ColumnFeatures();
-
-		expect( console ).toHaveWarned();
 	} );
 
 	it( 'v1.1.0 row block content should be compatible', async () => {
@@ -57,8 +53,6 @@ describe( 'row block backwards compatibility', () => {
 		await testVersion100RowFeatures();
 
 		await testVersion110RowFeatures();
-
-		expect( console ).toHaveWarned();
 	} );
 
 	it( 'v1.1.0 column block content should be compatible', async () => {
@@ -67,8 +61,6 @@ describe( 'row block backwards compatibility', () => {
 		await testVersion100ColumnFeatures();
 
 		await testVersion110ColumnFeatures();
-
-		expect( console ).toHaveWarned();
 	} );
 
 	it( 'v1.4.0 column block content should be compatible', async () => {
@@ -79,7 +71,5 @@ describe( 'row block backwards compatibility', () => {
 		await testVersion110ColumnFeatures();
 
 		await testVersion140ColumnFeatures();
-
-		expect( console ).toHaveWarned();
 	} );
 } );
