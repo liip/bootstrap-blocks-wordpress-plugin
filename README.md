@@ -108,9 +108,66 @@ function my_template_locater( $template, $template_name, $template_path ) {
 }
 ```
 
-### wp_bootstrap_blocks_&lt;blockname&gt;_classes
+### wp_bootstrap_blocks_row_classes
 
-Change classes of &lt;blockname&gt;.
+Change classes of row block.
+
+#### Parameters:
+
+* `$classes` (`array`) Classes which are added to the block template.
+* `$attributes` (`array`) Attributes of the block.
+
+#### Usage:
+
+```php
+add_filter( 'wp_bootstrap_blocks_row_classes', 'my_custom_row_classes', 10, 2 );
+
+function my_custom_row_classes( $classes, $attributes ) {
+    return [ 'my', 'custom', 'classes' ];
+}
+```
+
+### wp_bootstrap_blocks_column_classes
+
+Change classes of column block.
+
+#### Parameters:
+
+* `$classes` (`array`) Classes which are added to the block template.
+* `$attributes` (`array`) Attributes of the block.
+
+#### Usage:
+
+```php
+add_filter( 'wp_bootstrap_blocks_column_classes', 'my_custom_column_classes', 10, 2 );
+
+function my_custom_column_classes( $classes, $attributes ) {
+    return [ 'my', 'custom', 'classes' ];
+}
+```
+
+### wp_bootstrap_blocks_column_content_classes
+
+Change classes of the inner content of the column block.
+
+#### Parameters:
+
+* `$classes` (`array`) Classes which are added to the block template.
+* `$attributes` (`array`) Attributes of the block.
+
+#### Usage:
+
+```php
+add_filter( 'wp_bootstrap_blocks_column_content_classes', 'my_custom_column_content_classes', 10, 2 );
+
+function my_custom_column_content_classes( $classes, $attributes ) {
+    return [ 'my', 'custom', 'classes' ];
+}
+```
+
+### wp_bootstrap_blocks_container_classes
+
+Change classes of container block.
 
 #### Parameters:
 
@@ -127,13 +184,55 @@ function my_custom_container_classes( $classes, $attributes ) {
 }
 ```
 
-### wp_bootstrap_blocks_&lt;blockname&gt;_default_attributes
+### wp_bootstrap_blocks_button_classes
 
-Modify default attributes of &lt;blockname&gt;.
+Change classes of button block.
 
 #### Parameters:
 
-* `$default_attributes` (`array`) Default attributes of block.
+* `$classes` (`array`) Classes which are added to the block template.
+* `$attributes` (`array`) Attributes of the block.
+
+#### Usage:
+
+```php
+add_filter( 'wp_bootstrap_blocks_button_classes', 'my_custom_button_classes', 10, 2 );
+
+function my_custom_button_classes( $classes, $attributes ) {
+    return [ 'my', 'custom', 'classes' ];
+}
+```
+
+### wp_bootstrap_blocks_button_wrapper_classes
+
+Change classes of button block wrapper.
+
+#### Parameters:
+
+* `$classes` (`array`) Classes which are added to the block template.
+* `$attributes` (`array`) Attributes of the block.
+
+#### Usage:
+
+```php
+add_filter( 'wp_bootstrap_blocks_button_wrapper_classes', 'my_custom_button_wrapper_classes', 10, 2 );
+
+function my_custom_button_wrapper_classes( $classes, $attributes ) {
+    return [ 'my', 'custom', 'classes' ];
+}
+```
+
+### wp_bootstrap_blocks_row_default_attributes
+
+Modify default attributes of the row block.
+
+#### Parameters:
+
+* `$default_attributes` (`array`) Default attributes of row block.
+    * `template` (`string`) Name of default template of row block (Default: `'1-1'`)
+    * `noGutters` (`boolean`) Defines if noGutters option should be selected or not (Default: `false`)
+    * `alignment` (`string`) Default horizontal alignment of inner columns (Default: `''`)
+    * `verticalAlignment` (`string`) Default vertical alignment of inner columns (Default: `''`)
 
 #### Usage:
 
@@ -141,7 +240,95 @@ Modify default attributes of &lt;blockname&gt;.
 add_filter( 'wp_bootstrap_blocks_row_default_attributes', 'my_row_default_attributes', 10, 1 );
 
 function my_row_default_attributes( $default_attributes ) {
-    $default_attributes['alignment'] = 'center';
+    $default_attributes['template'] = '1-2';
+    $default_attributes['noGutters'] = true;
+    $default_attributes['alignment'] = 'right';
+    $default_attributes['verticalAlignment'] = 'bottom';
+    return $default_attributes;
+}
+```
+
+### wp_bootstrap_blocks_column_default_attributes
+
+Modify default attributes of the column block.
+
+#### Parameters:
+
+* `$default_attributes` (`array`) Default attributes of column block.
+    * `sizeXl` (`int`) Default xl column size (Default: `0`)
+    * `sizeLg` (`int`) Default lg column size (Default: `0`)
+    * `sizeMd` (`int`) Default md column size (Default: `0`)
+    * `sizeSm` (`int`) Default sm column size (Default: `0`)
+    * `sizeXs` (`int`) Default xs column size (Default: `12`))
+    * `equalWidthXl` (`boolean`) Defines if equal-width xl option should be selected or not (Default: `false`)
+    * `equalWidthLg` (`boolean`) Defines if equal-width lg option should be selected or not (Default: `false`)
+    * `equalWidthMd` (`boolean`) Defines if equal-width md option should be selected or not (Default: `false`)
+    * `equalWidthSm` (`boolean`) Defines if equal-width sm option should be selected or not (Default: `false`)
+    * `equalWidthXs` (`boolean`) Defines if equal-width xs option should be selected or not (Default: `false`)
+    * `bgColor` (`string`) Background color of column (Default: `''`)
+    * `centerContent` (`boolean`) Defines if center content inside column should be selected or not (Default: `false`)
+    * `padding` (`string`) Padding inside column (Default: `''`)
+
+#### Usage:
+
+```php
+add_filter( 'wp_bootstrap_blocks_column_default_attributes', 'my_column_default_attributes', 10, 1 );
+
+function my_column_default_attributes( $default_attributes ) {
+    $default_attributes['sizeLg'] = '4';
+    $default_attributes['sizeMd'] = '6';
+    $default_attributes['equalWidthXl'] = true;
+    $default_attributes['bgColor'] = 'primary';
+    $default_attributes['padding'] = 'p-3';
+    $default_attributes['centerContent'] = true;
+    return $default_attributes;
+}
+```
+
+### wp_bootstrap_blocks_container_default_attributes
+
+Modify default attributes of the container block.
+
+#### Parameters:
+
+* `$default_attributes` (`array`) Default attributes of container block.
+    * `isFluid` (`boolean`) Defines if container should be fluid or not (Default: `false`)
+    * `marginAfter` (`string`) Default margin after container block (Default: `'mb-2'`)
+
+#### Usage:
+
+```php
+add_filter( 'wp_bootstrap_blocks_container_default_attributes', 'my_container_default_attributes', 10, 1 );
+
+function my_container_default_attributes( $default_attributes ) {
+    $default_attributes['isFluid'] = true;
+    $default_attributes['marginAfter'] = 'mb-3';
+    return $default_attributes;
+}
+```
+
+### wp_bootstrap_blocks_button_default_attributes
+
+Modify default attributes of the button block.
+
+#### Parameters:
+
+* `$default_attributes` (`array`) Default attributes of button block.
+    * `url` (`string`) Default url of the button (Default: `''`)
+    * `text` (`string`) Default text of the button (Default: `''`)
+    * `style` (`string`) Default style of the button (Default: `''`)
+    * `alignment` (`string`) Default alignment of the button (Default: `''`)
+
+#### Usage:
+
+```php
+add_filter( 'wp_bootstrap_blocks_button_default_attributes', 'my_button_default_attributes', 10, 1 );
+
+function my_button_default_attributes( $default_attributes ) {
+    $default_attributes['url'] = 'https://getbootstrap.com/';
+    $default_attributes['text'] = 'Bootstrap';
+    $default_attributes['style'] = 'secondary';
+    $default_attributes['alignment'] = 'right';
     return $default_attributes;
 }
 ```

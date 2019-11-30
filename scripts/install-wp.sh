@@ -20,24 +20,12 @@ ROOT="$HERE/.."
 WP_DIR_NAME="wordpress" # This needs to be hardcoded since @wordpress/scipts also hardcoded the directory name in env/install.js.
 WP_DIR="${ROOT}/${WP_DIR_NAME}"
 WP_VERSION=${1:-latest}
+WP_DEVELOP_REPO_VERSION="5.3.0"
 
-# Minor WordPress releases do not have a trailing 0 in the version number (eg. 5.3 not 5.3.0)
-# But on the GitHub repository the version tags use semantic versioning (eg. 5.3.0)
-WP_VERSION_WITHZERO=${WP_VERSION}
-WP_VERSION_WITHOUTZERO=${WP_VERSION}
-
+# Minor WordPress releases do not have a trailing 0 in the version number (eg. 5.3 not 5.3.0) -> Remove it from version number
 VERSION_WITHZERO_REGEX="^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.0$"
-if [[ ${WP_VERSION_WITHZERO} =~ ${VERSION_WITHZERO_REGEX} ]]; then
-  WP_VERSION_WITHOUTZERO="${BASH_REMATCH[1]}.${BASH_REMATCH[2]}"
-fi
-VERSION_WITHOUTZERO_REGEX="^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
-if [[ ${WP_VERSION_WITHOUTZERO} =~ ${VERSION_WITHOUTZERO_REGEX} ]]; then
-  WP_VERSION_WITHZERO="${BASH_REMATCH[1]}.${BASH_REMATCH[2]}.0"
-fi
-
-WP_DEVELOP_REPO_VERSION=${WP_VERSION_WITHZERO}
-if [ "${WP_VERSION}" = "latest" ]; then
-  WP_DEVELOP_REPO_VERSION="master"
+if [[ ${WP_VERSION} =~ ${VERSION_WITHZERO_REGEX} ]]; then
+  WP_VERSION="${BASH_REMATCH[1]}.${BASH_REMATCH[2]}"
 fi
 
 # Bail out if wordpress directory already exists
@@ -86,7 +74,7 @@ sleep 10
 echo "Downloading WordPress Core..."
 echo
 
-docker-compose run --rm cli core download --version=${WP_VERSION_WITHOUTZERO} --path=/var/www/src --force --quiet
+docker-compose run --rm cli core download --version=${WP_VERSION} --path=/var/www/src --force --quiet
 
 cd $ROOT
 
@@ -95,6 +83,6 @@ echo
 npm run env install -- --fast
 
 echo "=========================================="
-echo "Successfully installed WordPress ${WP_VERSION_WITHZERO}!"
+echo "Successfully installed WordPress ${WP_VERSION}!"
 echo "=========================================="
 echo
