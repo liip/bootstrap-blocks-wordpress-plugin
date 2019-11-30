@@ -78,6 +78,7 @@ This is a major update of the plugin. Please check if the mentioned **breaking c
 * **Breaking Change** [CHANGE] Removed unused wrapper-div from `row` template. The `alignfull` class now gets added directly to the row.
 * **Breaking Change** [CHANGE] Renamed `wpBootstrapBlocks.container.customMarginOptions` filter to `wpBootstrapBlocks.container.marginAfterOptions`.
 * [FEATURE] Support of [responsive containers](https://getbootstrap.com/docs/4.4/layout/overview/#responsive) which were introduced in Bootstrap 4.4. Use them by setting the `Fluid Breakpoint` option in the container block.
+* [Fix] Reset `centerContent` attribute of column block if background-color gets removed.
 * Modified Templates: `container.php`, `row.php`
 
 = 1.4.0 =

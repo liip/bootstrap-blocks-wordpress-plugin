@@ -126,6 +126,35 @@ describe( 'column block', () => {
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 	} );
 
+	it( 'Should reset centerContent if bgColor gets removed', async () => {
+		await insertRowBlock();
+
+		// Select first column block
+		const columnBlocks = await getColumnBlocks();
+		const firstColumnBlockClientId = columnBlocks[ 0 ].clientId;
+		await selectBlockByClientId( firstColumnBlockClientId );
+		await openSidebarPanelWithTitle( 'Background color' );
+
+		// Select background color
+		await page.click( 'button[aria-label="Color: secondary"]' );
+
+		// Select center content vertically
+		await clickElementByText( 'label', 'Center content vertically in row' );
+
+		let columnData = await getDataValuesOfElement( `#block-${ firstColumnBlockClientId }` );
+		expect( columnData.centerContent ).toMatch( 'true' );
+
+		expect( await getEditedPostContent() ).toMatchSnapshot();
+
+		// Remove background color
+		await page.click( 'button.components-color-palette__clear' );
+
+		columnData = await getDataValuesOfElement( `#block-${ firstColumnBlockClientId }` );
+		expect( columnData.centerContent ).toMatch( 'false' );
+
+		expect( await getEditedPostContent() ).toMatchSnapshot();
+	} );
+
 	it( 'Should be possible to select padding', async () => {
 		await insertRowBlock();
 
