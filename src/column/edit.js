@@ -60,8 +60,8 @@ export default class BootstrapColumnEdit extends Component {
 		} = attributes;
 
 		// If centerContent is enabled but no background-color is selected -> reset attribute
-		if( ! bgColor && centerContent ) {
-			setAttributes( { centerContent: false } )
+		if ( ! bgColor && centerContent ) {
+			setAttributes( { centerContent: false } );
 		}
 
 		return (
