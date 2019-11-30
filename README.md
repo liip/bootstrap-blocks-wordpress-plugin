@@ -65,7 +65,7 @@ function my_template_path( $template_path ) {
 
 #### Parameters:
 
-* `$template_path` (`string`) Template directory name in theme.
+* `$template_path` (`string`) Template directory name in theme. (Default: `'wp-bootstrap-blocks/'`)
 
 ### wp_bootstrap_blocks_get_template
 
@@ -340,7 +340,7 @@ Possibility to disable enqueuing block assets.
 
 #### Parameters:
 
-* `$enqueue_block_assets` (`boolean`) Defines if block assets should be enqueued.
+* `$enqueue_block_assets` (`boolean`) Defines if block assets should be enqueued. (Default: `true`)
 
 #### Usage:
 
@@ -371,7 +371,7 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.button.styleOptions', 'myplugin/wp-bootst
 
 #### Parameters:
 
-* `styleOptions` (`Array`) Array with button style options
+* `styleOptions` (`Array`) Array with button style options.
 
 ### wpBootstrapBlocks.container.marginAfterOptions
 
@@ -453,7 +453,7 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.row.enableCustomTemplate', 'myplugin/wp-b
 
 #### Parameters:
 
-* `enableCustomTemplate` (`boolean`) Return true if custom row template should be enabled.
+* `enableCustomTemplate` (`boolean`) Return true if custom row template should be enabled. (Default: `true`)
 
 ### wpBootstrapBlocks.column.bgColors
 
