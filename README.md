@@ -394,8 +394,6 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.container.marginAfterOptions', 'myplugin/
 ### wpBootstrapBlocks.row.templates
 
 Define block templates.
-To use the new array template structure you need to disable the old structure with the [`wpBootstrapBlocks.row.useOldObjectTemplateStructure` filter](https://github.com/liip/bootstrap-blocks-wordpress-plugin#wpbootstrapblocksrowuseoldobjecttemplatestructure) filter.
-This is needed that we can ensure backwards compatibility for the old object structure.
 
 #### Usage:
 
@@ -441,75 +439,6 @@ Each template has the following attributes:
 * `template` (`Array<Array>`) see [template documentation](https://wordpress.org/gutenberg/handbook/designers-developers/developers/block-api/block-templates/#api)
     * Name of block. (Only `wp-bootstrap-blocks/column` supported!)
     * Attributes of column
-
-#### Update template structure from <=1.2.0 to 1.3.0+
-
-Before:
-
-```javascript
-let templates = {
-    '1-2': {
-        label: '2 Columns (1:2)',
-        templateLock: 'all',
-        blocks: [
-            [
-                'wp-bootstrap-blocks/column',
-                {
-                    sizeMd: 4,
-                },
-            ],
-            [
-                'wp-bootstrap-blocks/column',
-                {
-                    sizeMd: 8,
-                },
-            ],
-        ],
-    },
-}
-```
-
-After:
-
-```javascript
-let templates = [
-    {
-        name: '1-2',
-        title: '2 Columns (1:2)',
-        icon: <SVG />,
-        templateLock: 'all',
-        template: [
-            [
-                'wp-bootstrap-blocks/column',
-                {
-                    sizeMd: 4,
-                },
-            ],
-            [
-                'wp-bootstrap-blocks/column',
-                {
-                    sizeMd: 8,
-                },
-            ],
-        ],
-    },
-];
-```
-
-### wpBootstrapBlocks.row.useOldObjectTemplateStructure
-
-Enable/Disable the old object template structure. This is enabled by default to ensure backwards compatibility!
-
-#### Usage:
-
-```javascript
-// Disable old object template structure
-wp.hooks.addFilter( 'wpBootstrapBlocks.row.useOldObjectTemplateStructure', 'myplugin/wp-bootstrap-blocks/row/useOldObjectTemplateStructure', () => false );
-```
-
-#### Parameters:
-
-* `useOldObjectTemplateStructure` (`boolean`) Return false if new array template structure should be used.
 
 ### wpBootstrapBlocks.row.enableCustomTemplate
 

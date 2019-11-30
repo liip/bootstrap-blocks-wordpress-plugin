@@ -6,7 +6,6 @@ import {
 	getEditedPostContent,
 } from '@wordpress/e2e-test-utils';
 import {
-	oldObjectStructureDeprecationWarning,
 } from '../row/row-helper';
 import {
 	clickElementByText,
@@ -26,8 +25,6 @@ describe( 'container block', () => {
 	} );
 
 	it( 'Container block should be initialized with default attributes', async () => {
-		expect( console ).toHaveWarnedWith( oldObjectStructureDeprecationWarning );
-
 		await insertContainerBlock();
 		await selectContainerBlock();
 
@@ -45,8 +42,6 @@ describe( 'container block', () => {
 	} );
 
 	it( 'Should be possible to enable fluid option', async () => {
-		expect( console ).toHaveWarnedWith( oldObjectStructureDeprecationWarning );
-
 		await insertContainerBlock();
 		await selectContainerBlock();
 

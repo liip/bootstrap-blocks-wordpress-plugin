@@ -9,7 +9,6 @@ import {
 } from '@wordpress/e2e-test-utils';
 import {
 	insertRowBlock,
-	oldObjectStructureDeprecationWarning,
 } from '../row/row-helper';
 import {
 	selectColumnBlock,
@@ -37,8 +36,6 @@ describe( 'column block filters', () => {
 	} );
 
 	it( 'wpBootstrapBlocks.column.bgColorOptions should add background color', async () => {
-		expect( console ).toHaveWarnedWith( oldObjectStructureDeprecationWarning );
-
 		await insertRowBlock();
 		await selectColumnBlock();
 		await openSidebarPanelWithTitle( 'Background color' );
@@ -53,8 +50,6 @@ describe( 'column block filters', () => {
 	} );
 
 	it( 'wpBootstrapBlocks.column.paddingOptions should add padding option', async () => {
-		expect( console ).toHaveWarnedWith( oldObjectStructureDeprecationWarning );
-
 		await insertRowBlock();
 		await selectColumnBlock();
 		await openSidebarPanelWithTitle( 'Padding (inside column)' );
@@ -69,8 +64,6 @@ describe( 'column block filters', () => {
 	} );
 
 	it( 'wp_bootstrap_blocks_column_default_attributes should override default attributes', async () => {
-		expect( console ).toHaveWarnedWith( oldObjectStructureDeprecationWarning );
-
 		await insertRowBlock();
 		await selectColumnBlock();
 

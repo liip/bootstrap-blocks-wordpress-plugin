@@ -9,7 +9,6 @@ import {
 } from '@wordpress/e2e-test-utils';
 import {
 	insertRowBlock,
-	oldObjectStructureDeprecationWarning,
 	selectRowBlock,
 } from './row-helper';
 import {
@@ -22,8 +21,6 @@ describe( 'row block', () => {
 	} );
 
 	it( 'Row block should be available', async () => {
-		expect( console ).toHaveWarnedWith( oldObjectStructureDeprecationWarning );
-
 		await insertRowBlock();
 
 		// Check if row block was inserted
@@ -34,8 +31,6 @@ describe( 'row block', () => {
 	} );
 
 	it( 'Should be possible to change alignment', async () => {
-		expect( console ).toHaveWarnedWith( oldObjectStructureDeprecationWarning );
-
 		await insertRowBlock();
 		await selectRowBlock();
 
@@ -53,8 +48,6 @@ describe( 'row block', () => {
 	} );
 
 	it( 'Should be possible to change column layout', async () => {
-		expect( console ).toHaveWarnedWith( oldObjectStructureDeprecationWarning );
-
 		await insertRowBlock();
 		await selectRowBlock();
 
@@ -73,8 +66,6 @@ describe( 'row block', () => {
 	} );
 
 	it( 'Should be possible to select custom template', async () => {
-		expect( console ).toHaveWarnedWith( oldObjectStructureDeprecationWarning );
-
 		await insertRowBlock();
 		await selectRowBlock();
 
@@ -85,8 +76,6 @@ describe( 'row block', () => {
 	} );
 
 	it( 'Should only be possible to select column blocks in block inserter', async () => {
-		expect( console ).toHaveWarnedWith( oldObjectStructureDeprecationWarning );
-
 		await insertRowBlock();
 		await selectRowBlock();
 
@@ -103,8 +92,6 @@ describe( 'row block', () => {
 	} );
 
 	it( 'Should be possible to apply row options', async () => {
-		expect( console ).toHaveWarnedWith( oldObjectStructureDeprecationWarning );
-
 		await insertRowBlock();
 		await selectRowBlock();
 

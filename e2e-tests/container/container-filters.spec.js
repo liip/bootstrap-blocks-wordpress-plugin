@@ -8,7 +8,6 @@ import {
 	getEditedPostContent,
 } from '@wordpress/e2e-test-utils';
 import {
-	oldObjectStructureDeprecationWarning,
 } from '../row/row-helper';
 import {
 	getCheckboxValueByLabel,
@@ -34,8 +33,6 @@ describe( 'container block filters', () => {
 	} );
 
 	it( 'wpBootstrapBlocks.container.marginAfterOptions should add margin option', async () => {
-		expect( console ).toHaveWarnedWith( oldObjectStructureDeprecationWarning );
-
 		await insertContainerBlock();
 		await selectContainerBlock();
 
@@ -50,8 +47,6 @@ describe( 'container block filters', () => {
 	} );
 
 	it( 'wp_bootstrap_blocks_container_default_attributes should override default attributes', async () => {
-		expect( console ).toHaveWarnedWith( oldObjectStructureDeprecationWarning );
-
 		await insertContainerBlock();
 		await selectContainerBlock();
 

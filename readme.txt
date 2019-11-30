@@ -70,6 +70,10 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 = 2.0.0 =
 
+This is a major update of the plugin. Please check if the mentioned **breaking changes** affect your code before updating.
+
+* **Breaking Change** [REMOVE] Old object template structure for row templates is not supported anymore! Please update your templates to the new array structure. (see [filter documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin#wpbootstrapblocksrowtemplates)).
+* **Breaking Change** [REMOVE] Removed unused `wpBootstrapBlocks.row.useOldObjectTemplateStructure` filter.
 * **Breaking Change** [REMOVE] Removed `wpBootstrapBlocks.container.useFluidContainerPerDefault` filter. Please use `wp_bootstrap_blocks_container_default_attributes` filter instead.
 * **Breaking Change** [CHANGE] Removed unused wrapper-div from `row` template. The `alignfull` class now gets added directly to the row.
 * **Breaking Change** [CHANGE] Renamed `wpBootstrapBlocks.container.customMarginOptions` filter to `wpBootstrapBlocks.container.marginAfterOptions`.
