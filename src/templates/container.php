@@ -43,7 +43,7 @@ if ( array_key_exists( 'isFluid', $attributes ) && $attributes['isFluid'] ) {
 if ( array_key_exists( 'marginAfter', $attributes ) && ! empty( $attributes['marginAfter'] ) ) {
 	array_push( $classes, $attributes['marginAfter'] );
 }
-if ( array_key_exists( 'className', $attributes ) ) {
+if ( array_key_exists( 'className', $attributes ) && ! empty( $attributes['className'] ) ) {
 	array_push( $classes, $attributes['className'] );
 }
 

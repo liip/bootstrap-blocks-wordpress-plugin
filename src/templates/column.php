@@ -5,7 +5,7 @@
  * This template can be overridden by copying it to theme/wp-bootstrap-blocks/column.php.
  *
  * @package wp-bootstrap-blocks/templates/column
- * @version 1.4.0
+ * @version 2.0.0
  */
 
 /**
@@ -69,8 +69,8 @@ if ( array_key_exists( 'equalWidthXl', $attributes ) && $attributes['equalWidthX
 } elseif ( array_key_exists( 'sizeXl', $attributes ) && $attributes['sizeXl'] > 0 ) {
 	array_push( $classes, 'col-xl-' . $attributes['sizeXl'] );
 }
-if ( array_key_exists( 'className', $attributes ) ) {
-	$classes = array_merge( $classes, explode( ' ', $attributes['className'] ) );
+if ( array_key_exists( 'className', $attributes ) && ! empty( $attributes['className'] ) ) {
+	array_push( $classes, $attributes['className'] );
 }
 
 if ( array_key_exists( 'bgColor', $attributes ) && ! empty( $attributes['bgColor'] ) ) {
@@ -84,7 +84,7 @@ if ( array_key_exists( 'bgColor', $attributes ) && ! empty( $attributes['bgColor
 	}
 }
 
-if ( array_key_exists( 'padding', $attributes ) ) {
+if ( array_key_exists( 'padding', $attributes ) && ! empty( $attributes['padding'] ) ) {
 	array_push( $column_content_classes, $attributes['padding'] );
 }
 
