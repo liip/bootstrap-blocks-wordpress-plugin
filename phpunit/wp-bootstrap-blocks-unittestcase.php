@@ -19,6 +19,23 @@ abstract class WP_Bootstrap_Blocks_UnitTestCase extends WP_UnitTestCase {
 	protected $blockname = '';
 
 	/**
+	 * Gets actual and expected output of block variant.
+	 *
+	 * @param string $variant Variant of block.
+	 *
+	 * @return array Array with expected output at index 0 and actual output at index 1.
+	 *
+	 * @throws Exception Throws exception if fixture could not be loaded.
+	 */
+	protected function get_block_output( $variant ) {
+		$block_content = $this->load_block_fixture( $variant );
+		$actual_output = do_blocks( $block_content );
+		$this->create_fixture_if_needed( $variant, $actual_output );
+		$expected_output = $this->load_output_fixture( $variant );
+		return array( $expected_output, $actual_output );
+	}
+
+	/**
 	 * Load output fixture and return content.
 	 *
 	 * @param string $variant Variant of fixture to load.

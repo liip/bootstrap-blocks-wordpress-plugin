@@ -21,11 +21,8 @@ class WP_Bootstrap_Blocks_Container_Test extends WP_Bootstrap_Blocks_UnitTestCas
 	 */
 	public function test_container_default_attributes() {
 		$variant = 'default';
-		$block_content = $this->load_block_fixture( $variant );
-		$actual_html = do_blocks( $block_content );
-		$this->create_fixture_if_needed( $variant, $actual_html );
-		$expected_html = $this->load_output_fixture( $variant );
-		$this->assertEquals( $expected_html, $actual_html );
+		list( $expected, $actual ) = $this->get_block_output( $variant );
+		$this->assertEquals( $expected, $actual );
 	}
 
 	/**
@@ -33,11 +30,8 @@ class WP_Bootstrap_Blocks_Container_Test extends WP_Bootstrap_Blocks_UnitTestCas
 	 */
 	public function test_container_fluid() {
 		$variant = 'fluid';
-		$block_content = $this->load_block_fixture( $variant );
-		$actual_html = do_blocks( $block_content );
-		$this->create_fixture_if_needed( $variant, $actual_html );
-		$expected_html = $this->load_output_fixture( $variant );
-		$this->assertEquals( $expected_html, $actual_html );
+		list( $expected, $actual ) = $this->get_block_output( $variant );
+		$this->assertEquals( $expected, $actual );
 	}
 
 	/**
@@ -45,11 +39,8 @@ class WP_Bootstrap_Blocks_Container_Test extends WP_Bootstrap_Blocks_UnitTestCas
 	 */
 	public function test_container_fluid_breakpoint() {
 		$variant = 'fluid-breakpoint';
-		$block_content = $this->load_block_fixture( $variant );
-		$actual_html = do_blocks( $block_content );
-		$this->create_fixture_if_needed( $variant, $actual_html );
-		$expected_html = $this->load_output_fixture( $variant );
-		$this->assertEquals( $expected_html, $actual_html );
+		list( $expected, $actual ) = $this->get_block_output( $variant );
+		$this->assertEquals( $expected, $actual );
 	}
 
 	/**
@@ -57,10 +48,7 @@ class WP_Bootstrap_Blocks_Container_Test extends WP_Bootstrap_Blocks_UnitTestCas
 	 */
 	public function test_container_margin_after() {
 		$variant = 'margin-after';
-		$block_content = $this->load_block_fixture( $variant );
-		$actual_html = do_blocks( $block_content );
-		$this->create_fixture_if_needed( $variant, $actual_html );
-		$expected_html = $this->load_output_fixture( $variant );
-		$this->assertEquals( $expected_html, $actual_html );
+		list( $expected, $actual ) = $this->get_block_output( $variant );
+		$this->assertEquals( $expected, $actual );
 	}
 }
