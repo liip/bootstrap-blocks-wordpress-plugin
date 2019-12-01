@@ -11,4 +11,7 @@
 			<directory suffix="-test.php">./phpunit/</directory>
 		</testsuite>
 	</testsuites>
+	<php>
+		<env name="WP_BOOTSTRAP_BLOCKS_RECORD" value="false" />
+	</php>
 </phpunit>
