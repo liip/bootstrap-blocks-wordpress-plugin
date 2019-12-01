@@ -17,15 +17,15 @@ before_install:
   - nvm install 12
 
 install:
-  - composer install
   - npm ci
   - scripts/install-wp.sh
+  - npm run env docker-run -- php composer install
 
 script:
-  - composer lint
   - npm run lint
   - npm run env lint-php
   - npm run test:e2e
+  - npm run env test-php
 
 deploy:
   provider: script

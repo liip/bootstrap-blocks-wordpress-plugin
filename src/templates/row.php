@@ -32,7 +32,7 @@
  */
 
 $classes = array( 'wp-bootstrap-blocks-row', 'row' );
-if ( array_key_exists( 'className', $attributes ) ) {
+if ( array_key_exists( 'className', $attributes ) && ! empty( $attributes['className'] ) ) {
 	array_push( $classes, $attributes['className'] );
 }
 if ( array_key_exists( 'align', $attributes ) && 'full' === $attributes['align'] ) {

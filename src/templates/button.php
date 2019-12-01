@@ -5,7 +5,7 @@
  * This template can be overridden by copying it to theme/wp-bootstrap-blocks/button.php.
  *
  * @package wp-bootstrap-blocks/templates/button
- * @version 1.1.0
+ * @version 2.0.0
  */
 
 /**
@@ -30,7 +30,7 @@ if ( array_key_exists( 'alignment', $attributes ) && ! empty( $attributes['align
 	array_push( $classes, ( 'text-' . $attributes['alignment'] ) );
 }
 
-if ( array_key_exists( 'className', $attributes ) ) {
+if ( array_key_exists( 'className', $attributes ) && ! empty( $attributes['className'] ) ) {
 	array_push( $btn_classes, $attributes['className'] );
 }
 if ( array_key_exists( 'style', $attributes ) && ! empty( $attributes['style'] ) ) {
