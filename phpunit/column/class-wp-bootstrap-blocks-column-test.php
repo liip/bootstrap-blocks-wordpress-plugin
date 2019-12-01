@@ -24,4 +24,13 @@ class WP_Bootstrap_Blocks_Column_Test extends WP_Bootstrap_Blocks_UnitTestCase {
 		list( $expected, $actual ) = $this->get_block_output( $variant );
 		$this->assertEquals( $expected, $actual );
 	}
+
+	/**
+	 * Tests column bgColor.
+	 */
+	public function test_column_bg_color() {
+		$variant = 'bg-color';
+		list( $expected, $actual ) = $this->get_block_output( $variant );
+		$this->assertEquals( $expected, $actual );
+	}
 }
