@@ -51,4 +51,13 @@ class WP_Bootstrap_Blocks_Container_Test extends WP_Bootstrap_Blocks_UnitTestCas
 		list( $expected, $actual ) = $this->get_block_output( $variant );
 		$this->assertEquals( $expected, $actual );
 	}
+
+	/**
+	 * Tests container classname.
+	 */
+	public function test_container_classname() {
+		$variant = 'classname';
+		list( $expected, $actual ) = $this->get_block_output( $variant );
+		$this->assertEquals( $expected, $actual );
+	}
 }
