@@ -33,4 +33,13 @@ class WP_Bootstrap_Blocks_Row_Test extends WP_Bootstrap_Blocks_UnitTestCase {
 		list( $expected, $actual ) = $this->get_block_output( $variant );
 		$this->assertEquals( $expected, $actual );
 	}
+
+	/**
+	 * Tests row alignment.
+	 */
+	public function test_row_alignment() {
+		$variant = 'alignment';
+		list( $expected, $actual ) = $this->get_block_output( $variant );
+		$this->assertEquals( $expected, $actual );
+	}
 }
