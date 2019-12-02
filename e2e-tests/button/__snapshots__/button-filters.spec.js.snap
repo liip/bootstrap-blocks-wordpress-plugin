@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`button block filters wp_bootstrap_blocks_button_default_attributes should override default attributes 1`] = `"<!-- wp:wp-bootstrap-blocks/button /-->"`;
+
+exports[`button block filters wpBootstrapBlocks.button.styleOptions should add style option 1`] = `"<!-- wp:wp-bootstrap-blocks/button {\\"style\\":\\"brand\\"} /-->"`;
