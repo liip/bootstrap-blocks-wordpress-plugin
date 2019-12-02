@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`button block Button block should be initialized with default attributes 1`] = `"<!-- wp:wp-bootstrap-blocks/button /-->"`;
+
+exports[`button block Should be possible to change alignment 1`] = `"<!-- wp:wp-bootstrap-blocks/button {\\"alignment\\":\\"center\\"} /-->"`;
+
+exports[`button block Should be possible to select style 1`] = `"<!-- wp:wp-bootstrap-blocks/button {\\"style\\":\\"secondary\\"} /-->"`;
+
+exports[`button block Should be possible to set link url and text 1`] = `"<!-- wp:wp-bootstrap-blocks/button {\\"text\\":\\"Liip\\"} /-->"`;
+
+exports[`button block Should be possible to set link url and text 2`] = `"<!-- wp:wp-bootstrap-blocks/button {\\"url\\":\\"https://liip.ch\\",\\"text\\":\\"Liip\\"} /-->"`;

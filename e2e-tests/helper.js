@@ -58,6 +58,13 @@ export const getInputValueByLabel = async ( label ) => {
 	);
 };
 
+export const getRichTextValueByLabel = async ( label ) => {
+	return await page.$eval(
+		`[aria-label="${ label }"].block-editor-rich-text__editable`,
+		( richText ) => richText.textContent,
+	);
+};
+
 export const inputIsDisabledByLabel = async ( label ) => {
 	return ( await page.$( `input[aria-label="${ label }"][disabled]` ) ) !== null;
 };

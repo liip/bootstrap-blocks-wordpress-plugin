@@ -539,7 +539,53 @@ $ php wp-cli.phar i18n make-pot --exclude="wordpress" . languages/wp-bootstrap-b
 
 The following commands can be used to setup a local dev environment. See the official [documentation of `@wordpress/scripts`](https://developer.wordpress.org/block-editor/packages/packages-scripts/#available-sub-scripts) for a complete list of commands.
 
-* `npm run env install`: Automatically downloads, builds, and installs a copy of WordPress to work with. This will be installed in the wordpress folder inside your project.
+* `scripts/install-wp.sh [wp-version]`: Install local WordPress environment
 * `npm run env start`: Starts the Docker containers.
 * `npm run env stop`: Stops the Docker containers.
-* `npm run env update`: Updates WordPress to the latest checkout.
+
+### Testing
+
+There are two types of tests for this plugin:
+
+* PHPUnit Tests: Used to validate generated block output. Since this plugin uses dynamic blocks which are rendered on the server side we need to test them with PHPUnit tests.
+* Puppeteer E2E Tests: Used to validate block behaviour in the editor.
+
+#### PHPUnitTests
+
+The PHPUnit tests are stored in the `phpunit/` directory.
+They use fixtures to validate the block output.
+Each block variant which should be tested needs a manually created file called `blockname__variant.html`.
+This file contains the block presentation in the editor (a.k.a. the HTML comment presentation) and needs to be stored in the following folder:
+
+`phpunit/blockname/fixtures/blockname_variant.html`
+
+The second fixture of each variant is the `blockname_variant.output.html` file.
+This file gets automatically generated if the test runs for the first time and the environment variable `WP_BOOTSTRAP_BLOCKS_RECORD` in the `phpunit.xml.dist` file is set to `true`.
+
+To run the tests use the following command:
+
+```
+$ npm run env test-php
+```
+
+or the following command to run a specific test:
+
+```
+$ npm run env test-php -- --filter 'my_test'
+```
+
+#### Puppeteer E2E Tests
+
+The Puppeteer E2E Tests are stored in the `e2e-tests` directory.
+
+To run the tests use the following command:
+
+```
+$ npm run test:e2e
+```
+
+or the following command to run a specific test:
+
+```
+$ npm run test:e2e -- -t 'my test'
+```

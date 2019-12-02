@@ -67,6 +67,9 @@ function observeConsoleLogging() {
 		if ( text.includes( 'is deprecated. Please use `wp.data.dispatch( \'core/block-editor\' )' ) ) {
 			return;
 		}
+		if ( text.includes( 'RichText formattingControls prop is deprecated. Please use allowedFormats instead.' ) ) {
+			return;
+		}
 
 		// An exception is made for _blanket_ deprecation warnings: Those
 		// which log regardless of whether a deprecated feature is in use.
