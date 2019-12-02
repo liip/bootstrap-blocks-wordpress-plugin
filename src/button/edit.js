@@ -46,6 +46,7 @@ class BootstrapButtonEdit extends Component {
 					<BlockControls>
 						<AlignmentToolbar
 							value={ alignment }
+							label={ __( 'Change button alignment', 'wp-bootstrap-blocks' ) }
 							onChange={ ( newAlignment ) => ( setAttributes( { alignment: newAlignment } ) ) }
 						/>
 					</BlockControls>
