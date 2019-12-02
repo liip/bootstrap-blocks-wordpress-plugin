@@ -30,17 +30,6 @@ describe( 'button block', () => {
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 	} );
 
-	it( 'Should be possible to select style', async () => {
-		await insertButtonBlock();
-		await selectButtonBlock();
-
-		// Style option should be applied
-		await selectOption( 'Style', 'secondary' );
-
-		// Editor content should match snapshot
-		expect( await getEditedPostContent() ).toMatchSnapshot();
-	} );
-
 	it( 'Should be possible to set link url and text', async () => {
 		await insertButtonBlock();
 		await selectButtonBlock();
@@ -53,6 +42,17 @@ describe( 'button block', () => {
 
 		// Set button url
 		await page.type( 'input[aria-label="URL"]', 'https://liip.ch' );
+
+		// Editor content should match snapshot
+		expect( await getEditedPostContent() ).toMatchSnapshot();
+	} );
+
+	it( 'Should be possible to select style', async () => {
+		await insertButtonBlock();
+		await selectButtonBlock();
+
+		// Style option should be applied
+		await selectOption( 'Style', 'secondary' );
 
 		// Editor content should match snapshot
 		expect( await getEditedPostContent() ).toMatchSnapshot();
