@@ -13,6 +13,7 @@ import {
 	getCheckboxValueByLabel,
 	getSelectedValueBySelectLabel,
 	selectOption,
+	selectOptionIsAvailable,
 } from '../helper';
 import {
 	insertContainerBlock,
@@ -37,7 +38,7 @@ describe( 'container block filters', () => {
 		await selectContainerBlock();
 
 		// Additional padding option should be available
-		expect( await page.$( 'select.components-select-control__input > option[value="mb-8"]' ) ).not.toBeNull();
+		expect( await selectOptionIsAvailable( 'Margin After', 'mb-8' ) ).toBe( true );
 
 		// Margin option should be applied
 		await selectOption( 'Margin After', 'mb-8' );

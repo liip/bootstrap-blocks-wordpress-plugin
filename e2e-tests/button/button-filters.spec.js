@@ -16,6 +16,7 @@ import {
 	getRichTextValueByLabel,
 	getSelectedValueBySelectLabel,
 	selectOption,
+	selectOptionIsAvailable,
 	toolbarOptionIsActive,
 } from '../helper';
 
@@ -37,7 +38,7 @@ describe( 'button block filters', () => {
 		await selectButtonBlock();
 
 		// Additional style option should be available
-		expect( await page.$( 'select.components-select-control__input > option[value="brand"]' ) ).not.toBeNull();
+		expect( await selectOptionIsAvailable( 'Style', 'brand' ) ).toBe( true );
 
 		// Style option should be applied
 		await selectOption( 'Style', 'brand' );

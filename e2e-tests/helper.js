@@ -71,7 +71,12 @@ export const inputIsDisabledByLabel = async ( label ) => {
 
 export const selectIsDisabledByLabel = async ( label ) => {
 	const [ selectEl ] = await page.$x( `//select[@disabled]/preceding-sibling::label[contains(text(),"${ label }")]` );
-	return selectEl !== null;
+	return !! selectEl;
+};
+
+export const selectOptionIsAvailable = async ( selectLabel, optionValue ) => {
+	const [ optionEl ] = await page.$x( `//label[@class="components-base-control__label"][contains(text(),"${ selectLabel }")]/following-sibling::select[@class="components-select-control__input"]/option[@value="${ optionValue }"]` );
+	return !! optionEl;
 };
 
 export const getCheckboxValueByLabel = async ( label ) => {

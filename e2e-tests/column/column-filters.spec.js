@@ -20,6 +20,7 @@ import {
 	getSelectedValueBySelectLabel,
 	openSidebarPanelWithTitle,
 	selectOption,
+	selectOptionIsAvailable,
 } from '../helper';
 
 describe( 'column block filters', () => {
@@ -55,7 +56,7 @@ describe( 'column block filters', () => {
 		await openSidebarPanelWithTitle( 'Padding (inside column)' );
 
 		// Additional padding option should be available
-		expect( await page.$( 'select.components-select-control__input > option[value="p-8"]' ) ).not.toBeNull();
+		expect( await selectOptionIsAvailable( 'Size', 'p-8' ) ).toBe( true );
 
 		// Padding option should be applied
 		await selectOption( 'Size', 'p-8' );
