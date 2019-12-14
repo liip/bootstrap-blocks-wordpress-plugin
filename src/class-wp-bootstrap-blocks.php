@@ -33,7 +33,7 @@ class WP_Bootstrap_Blocks {
 	 *
 	 * @var string
 	 */
-	public $version = '2.0.0';
+	public $version = '2.0.1';
 
 	/**
 	 * The plugin token.
@@ -250,14 +250,18 @@ class WP_Bootstrap_Blocks {
 			return;
 		}
 
-		$old_version = get_transient( 'wp_bootstrap_blocks_version' );
+		$transient_name = 'wp_bootstrap_blocks_version';
+
+		$old_version = get_transient( $transient_name );
 		if ( false === $old_version ) {
 			$old_version = get_option( $this->token . '_version' );
-			set_transient( 'wp_bootstrap_blocks_version', $old_version, 5 * MINUTE_IN_SECONDS );
+			set_transient( $transient_name, $old_version, 5 * MINUTE_IN_SECONDS );
 		}
 		$new_version = $this->version;
 		if ( $old_version !== $new_version ) {
 			$this->log_version_number();
+			delete_transient( $transient_name );
+
 			/**
 			 * Fires when a new version of the plugin is used for the first time.
 			 *

@@ -370,7 +370,7 @@ Fires when a new version of the plugin is used for the first time.
 add_action( 'wp-bootstrap-blocks_updated', 'my_after_plugin_update', 10, 2 );
 
 function my_after_plugin_update( $new_version, $old_version ) {
-    echo "wp-bootstrap-blocks got updated from v" . $new_version . " to v" . $old_version;
+    echo "wp-bootstrap-blocks got updated from v" . $old_version . " to v" . $new_version;
 }
 ```
 
