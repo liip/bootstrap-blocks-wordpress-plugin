@@ -246,9 +246,27 @@ class WP_Bootstrap_Blocks {
 	 * This check is done on all requests and runs if the versions do not match.
 	 */
 	public function check_version() {
-		if ( ! defined( 'IFRAME_REQUEST' ) && get_option( $this->token . '_version' ) !== $this->version ) {
+		if ( defined( 'IFRAME_REQUEST' ) ) {
+			return;
+		}
+
+		$old_version = get_transient( 'wp_bootstrap_blocks_version' );
+		if ( false === $old_version ) {
+			$old_version = get_option( $this->token . '_version' );
+			set_transient( 'wp_bootstrap_blocks_version', $old_version, 5 * MINUTE_IN_SECONDS );
+		}
+		$new_version = $this->version;
+		if ( $old_version !== $new_version ) {
 			$this->log_version_number();
-			do_action( $this->token . '_updated' );
+			/**
+			 * Fires when a new version of the plugin is used for the first time.
+			 *
+			 * @since 1.0.0
+			 *
+			 * @param string $new_version New version number.
+			 * @param string $old_version Old version number.
+			 */
+			do_action( $this->token . '_updated', $new_version, $old_version );
 		}
 	}
 

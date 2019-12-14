@@ -353,6 +353,27 @@ function disable_enqueue_block_assets( $enqueue_block_assets ) {
 }
 ```
 
+## PHP Actions
+
+### wp-bootstrap-blocks_updated
+
+Fires when a new version of the plugin is used for the first time.
+
+#### Parameters
+
+* `$new_version` (`string`) New version number.
+* `$old_version` (`string`) Old version number.
+
+#### Usage
+
+```php
+add_action( 'wp-bootstrap-blocks_updated', 'my_after_plugin_update', 10, 2 );
+
+function my_after_plugin_update( $new_version, $old_version ) {
+    echo "wp-bootstrap-blocks got updated from v" . $new_version . " to v" . $old_version;
+}
+```
+
 ## JavaScript Filters
 
 ### wpBootstrapBlocks.button.styleOptions
