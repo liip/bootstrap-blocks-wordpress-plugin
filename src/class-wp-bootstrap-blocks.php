@@ -122,6 +122,13 @@ class WP_Bootstrap_Blocks {
 	 * Load frontend block assets.
 	 */
 	public function enqueue_block_assets() {
+		/**
+		 * Possibility to enable or disable loading of block assets.
+		 *
+		 * @since 1.2.0
+		 *
+		 * @param boolean $enqueue_block_assets If set to true block assets will be loaded.
+		 */
 		$enqueue_block_assets = apply_filters( 'wp_bootstrap_blocks_enqueue_block_assets', true );
 		if ( ! $enqueue_block_assets ) {
 			return;
@@ -246,7 +253,7 @@ class WP_Bootstrap_Blocks {
 	}
 
 	/**
-	 * Log the plugin version number in database.
+	 * Sets the current plugin version number in database.
 	 */
 	protected function log_version_number() {
 		delete_option( $this->token . '_version' );

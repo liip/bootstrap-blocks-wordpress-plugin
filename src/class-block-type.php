@@ -50,7 +50,11 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Block_Type', false ) ) :
 		 */
 		public function register_block_type() {
 			/**
-			 * Possibility to hook into default attribute values.
+			 * Filters default attributes of the block.
+			 *
+			 * @since 1.0.0
+			 *
+			 * @param array $default_attributes Default attributes of block.
 			 */
 			$this->default_attributes = apply_filters( "{$this->get_filter_prefix()}_default_attributes", $this->default_attributes );
 
