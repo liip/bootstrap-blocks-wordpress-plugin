@@ -83,6 +83,7 @@ This is a major update of the plugin. Please check if the mentioned **breaking c
 * [FEATURE] Support for [responsive containers](https://getbootstrap.com/docs/4.4/layout/overview/#responsive) which were introduced in Bootstrap 4.4. Use them by setting the `Fluid Breakpoint` option in the container block.
 * [Fix] Reset `centerContent` attribute of column block if background-color gets removed.
 * [Fix] Check if className attribute isn't empty before adding it to template to avoid empty strings in classes array.
+* [Fix] Fix filemtime() warning if asset version couldn't be found.
 * Modified Templates: `container.php`, `row.php`, `column.php`, `button.php`
 
 = 1.4.0 =
