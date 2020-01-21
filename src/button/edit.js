@@ -25,7 +25,7 @@ class BootstrapButtonEdit extends Component {
 					data-alignment={ alignment }
 				>
 					<RichText
-						placeholder={ __( 'Add text…' ) }
+						placeholder={ __( 'Add text...', 'wp-bootstrap-blocks' ) }
 						value={ text }
 						onChange={ ( value ) => setAttributes( { text: value } ) }
 						formattingControls={ [] }
@@ -60,7 +60,7 @@ class BootstrapButtonEdit extends Component {
 							value={ url }
 							onChange={ ( value ) => setAttributes( { url: value } ) }
 						/>
-						<IconButton icon="editor-break" label={ __( 'Apply' ) } type="submit" />
+						<IconButton icon="editor-break" label={ __( 'Apply', 'wp-bootstrap-blocks' ) } type="submit" />
 					</form>
 				) }
 			</Fragment>

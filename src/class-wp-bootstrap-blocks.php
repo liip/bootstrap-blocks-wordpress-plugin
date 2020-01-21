@@ -230,14 +230,14 @@ class WP_Bootstrap_Blocks {
 	 * Cloning is forbidden.
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?' ), esc_attr( $this->version ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', 'wp-bootstrap-blocks' ), esc_attr( $this->version ) );
 	}
 
 	/**
 	 * Unserializing instances of this class is forbidden.
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?' ), esc_attr( $this->version ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', 'wp-bootstrap-blocks' ), esc_attr( $this->version ) );
 	}
 
 	/**
@@ -265,7 +265,7 @@ class WP_Bootstrap_Blocks {
 			/**
 			 * Fires when a new version of the plugin is used for the first time.
 			 *
-			 * @since 1.0.0
+			 * @since 2.0.1
 			 *
 			 * @param string $new_version New version number.
 			 * @param string $old_version Old version number.
