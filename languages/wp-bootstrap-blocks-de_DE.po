@@ -1,0 +1,300 @@
+# Copyright (C) 2019 Liip AG
+# This file is distributed under the same license as the Bootstrap Blocks plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Bootstrap Blocks 2.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-bootstrap-"
+"blocks\n"
+"POT-Creation-Date: 2020-01-22T10:05:11+00:00\n"
+"PO-Revision-Date: 2020-01-22 11:07+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.4\n"
+"X-Domain: wp-bootstrap-blocks\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Plugin Name of the plugin
+#: src/class-wp-bootstrap-blocks.php:208
+msgid "Bootstrap Blocks"
+msgstr "Bootstrap Blocks"
+
+#. Plugin URI of the plugin
+msgid "https://github.com/liip/bootstrap-blocks-wordpress-plugin"
+msgstr "https://github.com/liip/bootstrap-blocks-wordpress-plugin"
+
+#. Description of the plugin
+msgid "Bootstrap 4 Gutenberg Blocks for WordPress."
+msgstr "Bootstrap 4 Gutenberg Blocks for WordPress."
+
+#. Author of the plugin
+msgid "Liip AG"
+msgstr "Liip AG"
+
+#. Author URI of the plugin
+msgid "https://liip.ch"
+msgstr "https://liip.ch"
+
+#: src/class-wp-bootstrap-blocks.php:258 src/class-wp-bootstrap-blocks.php:265
+msgid "Cheatin&#8217; huh?"
+msgstr "Hier ist etwas falsch gelaufen"
+
+#. translators: %s template
+#: src/wp-bootstrap-blocks-functions.php:24
+msgid "%s does not exist."
+msgstr "%s existiert nicht."
+
+#: src/column/edit.js:35 src/container/block.js:30
+msgid "None"
+msgstr "Deaktiviert"
+
+#: src/column/edit.js:36 src/container/block.js:14
+msgid "Small"
+msgstr "Klein"
+
+#: src/column/edit.js:37 src/container/block.js:18
+msgid "Medium"
+msgstr "Mittel"
+
+#: src/column/edit.js:38 src/container/block.js:22
+msgid "Large"
+msgstr "Gross"
+
+#: src/column/edit.js:71
+msgid "Column size"
+msgstr "Anzahl Spalten"
+
+#: src/column/edit.js:75
+msgid "Xs Column count"
+msgstr "Xs Anzahl Spalten"
+
+#: src/column/edit.js:82
+msgid "Xs equal-width"
+msgstr "Xs gleiche Breite (equal-width)"
+
+#: src/column/edit.js:88
+msgid "Sm Column count"
+msgstr "Sm Anzahl Spalten"
+
+#: src/column/edit.js:95
+msgid "Sm equal-width"
+msgstr "Sm gleiche Breite (equal-width)"
+
+#: src/column/edit.js:101
+msgid "Md Column count"
+msgstr "Md Anzahl Spalten"
+
+#: src/column/edit.js:108
+msgid "Md equal-width"
+msgstr "Md gleiche Breite (equal-width)"
+
+#: src/column/edit.js:114
+msgid "Lg Column count"
+msgstr "Lg Anzahl Spalten"
+
+#: src/column/edit.js:121
+msgid "Lg equal-width"
+msgstr "Lg gleiche Breite (equal-width)"
+
+#: src/column/edit.js:127
+msgid "Xl Column count"
+msgstr "Xl Anzahl Spalten"
+
+#: src/column/edit.js:134
+msgid "Xl equal-width"
+msgstr "Xl gleiche Breite (equal-width)"
+
+#: src/column/edit.js:140
+msgid "Background color"
+msgstr "Hintergrundfarbe"
+
+#: src/column/edit.js:166
+msgid "Center content vertically in row"
+msgstr "Zeileninhalt vertikal zentrieren"
+
+#: src/column/edit.js:169
+msgid ""
+"This setting only applies if there is no vertical alignment set on the "
+"parent row block."
+msgstr ""
+"Diese Einstellung kann nur verwendet werden, wenn auf dem umschliessenden "
+"Row-Block keine vertikale Positionierung gesetzt ist."
+
+#: src/column/edit.js:174
+msgid "Padding (inside column)"
+msgstr "Padding (innerhalb der Spalte)"
+
+#: src/column/edit.js:177
+msgid "Size"
+msgstr "Grösse"
+
+#: src/column/block.js:13 src/column/block.js:17
+msgid "Column"
+msgstr "Column"
+
+#: src/column/block.js:18
+msgid "Bootstrap Column"
+msgstr "Bootstrap Column"
+
+#: src/column/block.js:19 src/container/block.js:67 src/row/block.js:19
+#: src/button/block.js:19
+msgid "Bootstrap"
+msgstr "Bootstrap"
+
+#: src/container/block.js:38
+msgid "No breakpoint selected"
+msgstr "Kein Breakpoint ausgewählt"
+
+#: src/container/block.js:42
+msgid "Xl"
+msgstr "Xl"
+
+#: src/container/block.js:46
+msgid "Lg"
+msgstr "Lg"
+
+#: src/container/block.js:50
+msgid "Md"
+msgstr "Md"
+
+#: src/container/block.js:54
+msgid "Sm"
+msgstr "Sm"
+
+#: src/container/block.js:61 src/container/block.js:65
+msgid "Container"
+msgstr "Container"
+
+#: src/container/block.js:66
+msgid "Bootstrap Container"
+msgstr "Bootstrap Container"
+
+#: src/container/block.js:83 src/container/block.js:86
+msgid "Fluid"
+msgstr "Fluid"
+
+#: src/container/block.js:93
+msgid "Fluid Breakpoint"
+msgstr "Fluid Breakpoint"
+
+#: src/container/block.js:100
+msgid ""
+"Fluid breakpoints only work with Bootstrap v4.4+. The container will be 100% "
+"wide until the specified breakpoint is reached, after which max-widths for "
+"each of the higher breakpoints will be applied."
+msgstr ""
+"Fluid Breakpoints werden erst ab Bootstrap v4.4+ unterstützt. Wenn die "
+"Option aktiviert ist, nimmt der Container 100% der Breite ein bis zum "
+"gewählten Breakpoint. Ab diesem Breakpoint gilt die jeweilige maximale "
+"Breite (max-width) des Containers."
+
+#: src/container/block.js:104
+msgid "Margin"
+msgstr "Margin"
+
+#: src/container/block.js:107
+msgid "Margin After"
+msgstr "Margin unterhalb vom Block"
+
+#: src/row/edit.js:22
+msgid "2 Columns (1:1)"
+msgstr "2 Spalten (1:1)"
+
+#: src/row/edit.js:42
+msgid "2 Columns (1:2)"
+msgstr "2 Spalten (1:2)"
+
+#: src/row/edit.js:62
+msgid "2 Columns (2:1)"
+msgstr "2 Spalten (2:1)"
+
+#: src/row/edit.js:82
+msgid "3 Columns (1:1:1)"
+msgstr "3 Spalten (1:1:1)"
+
+#: src/row/edit.js:116
+msgid "Custom"
+msgstr "Benutzerdefiniert"
+
+#: src/row/edit.js:160
+msgid "Align columns left"
+msgstr "Spalten links positionieren"
+
+#: src/row/edit.js:165 src/row/edit.js:183
+msgid "Align columns center"
+msgstr "Spalten zentrieren"
+
+#: src/row/edit.js:170
+msgid "Align columns right"
+msgstr "Spalten rechts positionieren"
+
+#: src/row/edit.js:178
+msgid "Align columns top"
+msgstr "Spalten oben positionieren"
+
+#: src/row/edit.js:188
+msgid "Align columns bottom"
+msgstr "Spalten unten positionieren"
+
+#: src/row/edit.js:197
+msgid "Change layout"
+msgstr "Layout ändern"
+
+#: src/row/edit.js:217
+msgid "Row options"
+msgstr "Zeilen Optionen"
+
+#: src/row/edit.js:220
+msgid "No Gutters"
+msgstr "Keine Abstände zwischen Spalten"
+
+#: src/row/edit.js:229
+msgid "Change horizontal alignment of columns"
+msgstr "Ändere die horizontale Positionierung der Spalten"
+
+#: src/row/edit.js:235
+msgid "Change vertical alignment of columns"
+msgstr "Ändere die vertikale Positionierung der Spalten"
+
+#: src/row/block.js:13 src/row/block.js:17
+msgid "Row"
+msgstr "Row"
+
+#: src/row/block.js:18
+msgid "Bootstrap Row"
+msgstr "Bootstrap Row"
+
+#: src/button/edit.js:16
+msgid "Primary"
+msgstr "Primary"
+
+#: src/button/edit.js:17
+msgid "Secondary"
+msgstr "Secondary"
+
+#: src/button/edit.js:28
+msgid "Add text..."
+msgstr "Text hinzufügen..."
+
+#: src/button/edit.js:37
+msgid "Style"
+msgstr "Stil"
+
+#: src/button/edit.js:49
+msgid "Change button alignment"
+msgstr "Ändere die Positionierung des Buttons"
+
+#: src/button/edit.js:63
+msgid "Apply"
+msgstr "Übernehmen"
+
+#: src/button/block.js:13 src/button/block.js:17
+msgid "Button"
+msgstr "Button"
+
+#: src/button/block.js:18
+msgid "Bootstrap Button"
+msgstr "Bootstrap Button"
