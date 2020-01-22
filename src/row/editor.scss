@@ -112,8 +112,8 @@
 	flex: 0 0 50%;
 	display: flex;
 
-	> .components-button.has-icon,
-	> .components-icon-button {
+	> .components-icon-button,
+	> .components-button.has-icon {
 		flex-direction: column;
 		justify-content: center;
 		width: 100%;
