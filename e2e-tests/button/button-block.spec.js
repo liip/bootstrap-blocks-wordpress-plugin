@@ -35,7 +35,7 @@ describe( 'button block', () => {
 		await selectButtonBlock();
 
 		// Set button text
-		await page.type( '[aria-label="Add text…"].block-editor-rich-text__editable', 'Liip' );
+		await page.type( '[aria-label="Add text..."].block-editor-rich-text__editable', 'Liip' );
 
 		// Editor content should match snapshot
 		expect( await getEditedPostContent() ).toMatchSnapshot();
@@ -58,7 +58,7 @@ describe( 'button block', () => {
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 	} );
 
-	it( 'Should be possible to change alignment', async () => {
+	it( 'Should be possible to change alignment2', async () => {
 		await insertButtonBlock();
 		await selectButtonBlock();
 
