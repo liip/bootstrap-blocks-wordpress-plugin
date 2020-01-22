@@ -57,6 +57,20 @@ class WP_Bootstrap_Blocks {
 	public $assets_url;
 
 	/**
+	 * The plugin languages directory.
+	 *
+	 * @var string
+	 */
+	public $languages_dir;
+
+	/**
+	 * The full path to the plugin languages directory.
+	 *
+	 * @var string
+	 */
+	public $languages_dir_full;
+
+	/**
 	 * WP_Bootstrap_Blocks constructor.
 	 */
 	public function __construct() {
@@ -83,6 +97,8 @@ class WP_Bootstrap_Blocks {
 		// Load plugin environment variables
 		$this->assets_dir = WP_BOOTSTRAP_BLOCKS_ABSPATH . 'build/';
 		$this->assets_url = esc_url( trailingslashit( plugins_url( '/build/', WP_BOOTSTRAP_BLOCKS_PLUGIN_FILE ) ) );
+		$this->languages_dir = dirname( plugin_basename( WP_BOOTSTRAP_BLOCKS_PLUGIN_FILE ) ) . '/languages/';
+		$this->languages_dir_full = plugin_dir_path( WP_BOOTSTRAP_BLOCKS_PLUGIN_FILE ) . 'languages/';
 	}
 
 	/**
@@ -111,8 +127,9 @@ class WP_Bootstrap_Blocks {
 		// Register custom block category
 		add_filter( 'block_categories', array( $this, 'register_custom_block_category' ), 10, 2 );
 
-		// Load textdomain
+		// Initialize translations
 		add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain' ) );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'set_script_translations' ), 100 ); // this needs to be enqueued after enqueue_block_editor_assets (priority 100)
 
 		// check version number on each request
 		add_action( 'init', array( $this, 'check_version' ) );
@@ -199,7 +216,15 @@ class WP_Bootstrap_Blocks {
 	 */
 	public function load_plugin_textdomain() {
 		$domain = 'wp-bootstrap-blocks'; // textdomain can't be stored in class variable since it must be a single string literal
-		load_plugin_textdomain( $domain, false, dirname( plugin_basename( WP_BOOTSTRAP_BLOCKS_PLUGIN_FILE ) ) . '/languages/' );
+		load_plugin_textdomain( $domain, false, $this->languages_dir );
+	}
+
+	/**
+	 * Initialize plugin script translations
+	 */
+	public function set_script_translations() {
+		$domain = 'wp-bootstrap-blocks'; // textdomain can't be stored in class variable since it must be a single string literal
+		wp_set_script_translations( $this->token . '-js', $domain, $this->languages_dir_full );
 	}
 
 	/**
