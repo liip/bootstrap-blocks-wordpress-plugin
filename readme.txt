@@ -5,7 +5,7 @@ Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.0
 Tested up to: 5.3
 Requires PHP: 5.6
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -71,6 +71,13 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 == Changelog ==
 
+= 2.0.1 =
+
+* [IMPROVEMENT] Do not run version check on every request.
+* [FIX] Fix styling issues with Gutenberg plugin v7.2.
+* [FIX] Fix loading of translation files.
+* [FIX] Fix compatibility issues with WordPress <= v5.1.
+
 = 2.0.0 =
 
 This is a major update of the plugin. Please check if the mentioned **breaking changes** affect your code before updating to this version.
@@ -81,9 +88,9 @@ This is a major update of the plugin. Please check if the mentioned **breaking c
 * **Breaking Change** [CHANGE] Removed unused wrapper-div from `row` template. The `alignfull` class now gets added directly to the row.
 * **Breaking Change** [CHANGE] Renamed `wpBootstrapBlocks.container.customMarginOptions` filter to `wpBootstrapBlocks.container.marginAfterOptions`.
 * [FEATURE] Support for [responsive containers](https://getbootstrap.com/docs/4.4/layout/overview/#responsive) which were introduced in Bootstrap 4.4. Use them by setting the `Fluid Breakpoint` option in the container block.
-* [Fix] Reset `centerContent` attribute of column block if background-color gets removed.
-* [Fix] Check if className attribute isn't empty before adding it to template to avoid empty strings in classes array.
-* [Fix] Fix filemtime() warning if asset version couldn't be found.
+* [FIX] Reset `centerContent` attribute of column block if background-color gets removed.
+* [FIX] Check if className attribute isn't empty before adding it to template to avoid empty strings in classes array.
+* [FIX] Fix filemtime() warning if asset version couldn't be found.
 * Modified Templates: `container.php`, `row.php`, `column.php`, `button.php`
 
 = 1.4.0 =
