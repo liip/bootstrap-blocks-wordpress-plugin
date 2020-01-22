@@ -26,29 +26,36 @@
 // Row block
 [data-type="wp-bootstrap-blocks/row"] {
 	// Horizontal alignment
+	&[data-alignment="left"] .wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout,
 	&[data-alignment="left"] .wp-block-wp-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
 		justify-content: flex-start;
 	}
+	&[data-alignment="center"] .wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout,
 	&[data-alignment="center"] .wp-block-wp-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
 		justify-content: center;
 	}
+	&[data-alignment="right"] .wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout,
 	&[data-alignment="right"] .wp-block-wp-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
 		justify-content: flex-end;
 	}
 
 	// Vertical alignment
+	&[data-vertical-alignment="top"] .wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout,
 	&[data-vertical-alignment="top"] .wp-block-wp-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
 		align-items: start;
 	}
+	&[data-vertical-alignment="center"] .wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout,
 	&[data-vertical-alignment="center"] .wp-block-wp-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
 		align-items: center;
 	}
+	&[data-vertical-alignment="bottom"] .wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout,
 	&[data-vertical-alignment="bottom"] .wp-block-wp-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
 		align-items: flex-end;
 	}
 
 	// Row background on hover to make grid visible
 	&:not(.is-selected):not(.has-child-selected) {
+		> .block-editor-block-list__block-edit:hover::before,
 		> .editor-block-list__block-edit:hover::before {
 			background-color: rgba(220, 220, 220, .5);
 		}
@@ -57,10 +64,11 @@
 	/*
      * If there is a block within a full-width block (align full),
      * their toolbar must be offset by 14 px
-     * due to the negative margins on .editor-block-list__layout
+     * due to the negative margins on .block-editor-block-list__layout
      */
 	&[data-align="full"] {
 		.wp-block {
+			.block-editor-block-toolbar,
 			.editor-block-toolbar {
 				left: $block-padding;
 			}
@@ -70,6 +78,7 @@
 
 .wp-block-wp-bootstrap-blocks-row {
 	@include break-small() {
+		> .block-editor-inner-blocks > .block-editor-block-list__layout,
 		> .editor-inner-blocks > .editor-block-list__layout {
 			display: flex;
 			flex-wrap: wrap;
@@ -103,10 +112,13 @@
 	flex: 0 0 50%;
 	display: flex;
 
+	> .components-button.has-icon,
 	> .components-icon-button {
 		flex-direction: column;
 		justify-content: center;
 		width: 100%;
+		height: auto;
+		padding: 8px;
 
 		// Align margin to text position
 		&.has-text svg {
