@@ -58,7 +58,7 @@ describe( 'button block', () => {
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 	} );
 
-	it( 'Should be possible to change alignment2', async () => {
+	it( 'Should be possible to change alignment', async () => {
 		await insertButtonBlock();
 		await selectButtonBlock();
 
