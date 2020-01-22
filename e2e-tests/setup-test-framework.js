@@ -70,6 +70,9 @@ function observeConsoleLogging() {
 		if ( text.includes( 'RichText formattingControls prop is deprecated. Please use allowedFormats instead.' ) ) {
 			return;
 		}
+		if ( text.includes( '[DOM] Found 2 elements with non-unique id #_wpnonce: (More info: https://goo.gl/9p2vKq)' ) ) {
+			return;
+		}
 
 		// An exception is made for _blanket_ deprecation warnings: Those
 		// which log regardless of whether a deprecated feature is in use.
