@@ -54,11 +54,8 @@
 	}
 
 	// Row background on hover to make grid visible
-	&:not(.is-selected):not(.has-child-selected) {
-		> .block-editor-block-list__block-edit:hover::before,
-		> .editor-block-list__block-edit:hover::before {
-			background-color: rgba(220, 220, 220, .5);
-		}
+	&:not(.is-selected):not(.has-child-selected):hover {
+		background-color: rgba(220, 220, 220, .5);
 	}
 
 	/*
@@ -146,7 +143,7 @@
 [data-type="wp-bootstrap-blocks/column"] {
 	// Column background on hover to make grid visible
 	&:not(.is-selected):not(.has-child-selected):hover {
-		background-color: rgba(238, 238, 238, 0.7);
+		background-color: rgba(255, 255, 255, 0.7);
 	}
 
 	&[data-bg-color="primary"],
