@@ -8,3 +8,4 @@ build/*
 wp-cli.phar
 composer.phar
 /wordpress
+/release
