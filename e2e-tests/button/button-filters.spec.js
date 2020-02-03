@@ -58,7 +58,7 @@ describe( 'button block filters', () => {
 		expect( await getSelectedValueBySelectLabel( 'Style' ) ).toMatch( 'secondary' );
 
 		// Text should be set
-		expect( await getRichTextValueByLabel( 'Add text…' ) ).toMatch( 'Liip' );
+		expect( await getRichTextValueByLabel( 'Add text...' ) ).toMatch( 'Liip' );
 
 		// URL should be set
 		expect( await getInputValueByLabel( 'URL' ) ).toMatch( 'https://liip.ch' );

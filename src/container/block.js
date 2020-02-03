@@ -65,7 +65,6 @@ registerBlockType( 'wp-bootstrap-blocks/container', {
 		__( 'Container', 'wp-bootstrap-blocks' ),
 		__( 'Bootstrap Container', 'wp-bootstrap-blocks' ),
 		__( 'Bootstrap', 'wp-bootstrap-blocks' ),
-		__( 'Bootstrap Blocks', 'wp-bootstrap-blocks' ),
 	],
 
 	supports: {

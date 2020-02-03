@@ -16,8 +16,8 @@
 	<exclude-pattern>./e2e-tests/*\.(inc|css|js)$</exclude-pattern>
 
 	<rule ref="WordPress">
-		<exclude name="Squiz.Commenting.InlineComment" />
+		<exclude name="Squiz.Commenting.InlineComment.InvalidEndChar" />
 		<exclude name="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned" />
-		<exclude name="Generic.Formatting.MultipleStatementAlignment" />
+		<exclude name="Generic.Formatting.MultipleStatementAlignment.NotSameWarning" />
 	</rule>
 </ruleset>

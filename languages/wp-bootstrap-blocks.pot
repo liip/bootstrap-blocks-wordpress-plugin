@@ -1,25 +1,21 @@
-# Copyright (C) 2019 Liip AG
+# Copyright (C) 2020 Liip AG
 # This file is distributed under the same license as the Bootstrap Blocks plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Bootstrap Blocks 2.0.0\n"
+"Project-Id-Version: Bootstrap Blocks 2.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-bootstrap-blocks\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-12-02T17:51:35+00:00\n"
+"POT-Creation-Date: 2020-01-22T10:30:46+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.2.0\n"
 "X-Domain: wp-bootstrap-blocks\n"
 
 #. Plugin Name of the plugin
-#: src/class-wp-bootstrap-blocks.php:184
-#: src/column/block.js:20
-#: src/container/block.js:68
-#: src/row/block.js:20
-#: src/button/block.js:20
+#: src/class-wp-bootstrap-blocks.php:208
 msgid "Bootstrap Blocks"
 msgstr ""
 
@@ -37,6 +33,11 @@ msgstr ""
 
 #. Author URI of the plugin
 msgid "https://liip.ch"
+msgstr ""
+
+#: src/class-wp-bootstrap-blocks.php:258
+#: src/class-wp-bootstrap-blocks.php:265
+msgid "Cheatin&#8217; huh?"
 msgstr ""
 
 #. translators: %s template
@@ -173,24 +174,24 @@ msgstr ""
 msgid "Bootstrap Container"
 msgstr ""
 
-#: src/container/block.js:84
-#: src/container/block.js:87
+#: src/container/block.js:83
+#: src/container/block.js:86
 msgid "Fluid"
 msgstr ""
 
-#: src/container/block.js:94
+#: src/container/block.js:93
 msgid "Fluid Breakpoint"
 msgstr ""
 
-#: src/container/block.js:101
+#: src/container/block.js:100
 msgid "Fluid breakpoints only work with Bootstrap v4.4+. The container will be 100% wide until the specified breakpoint is reached, after which max-widths for each of the higher breakpoints will be applied."
 msgstr ""
 
-#: src/container/block.js:105
+#: src/container/block.js:104
 msgid "Margin"
 msgstr ""
 
-#: src/container/block.js:108
+#: src/container/block.js:107
 msgid "Margin After"
 msgstr ""
 
@@ -272,12 +273,20 @@ msgstr ""
 msgid "Secondary"
 msgstr ""
 
+#: src/button/edit.js:28
+msgid "Add text..."
+msgstr ""
+
 #: src/button/edit.js:37
 msgid "Style"
 msgstr ""
 
 #: src/button/edit.js:49
 msgid "Change button alignment"
+msgstr ""
+
+#: src/button/edit.js:63
+msgid "Apply"
 msgstr ""
 
 #: src/button/block.js:13

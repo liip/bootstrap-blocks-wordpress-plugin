@@ -35,7 +35,7 @@ describe( 'button block', () => {
 		await selectButtonBlock();
 
 		// Set button text
-		await page.type( '[aria-label="Add text…"].block-editor-rich-text__editable', 'Liip' );
+		await page.type( '[aria-label="Add text..."].block-editor-rich-text__editable', 'Liip' );
 
 		// Editor content should match snapshot
 		expect( await getEditedPostContent() ).toMatchSnapshot();

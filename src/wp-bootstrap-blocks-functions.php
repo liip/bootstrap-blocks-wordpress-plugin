@@ -25,7 +25,16 @@ function wp_bootstrap_blocks_get_template( $template_name, $attributes, $content
 		return '';
 	}
 
-	// Allow 3rd party plugins or themes to filter the located template file
+	/**
+	 * Filters the located template path before it gets loaded.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $located Located file path.
+	 * @param string $template_name Template name which was requested.
+	 * @param string $template_path Path to template directory.
+	 * @param string $default_path Default template directory path.
+	 */
 	$located = apply_filters( 'wp_bootstrap_blocks_get_template', $located, $template_name, $template_path, $default_path );
 
 	// Start output capture.
@@ -58,6 +67,13 @@ function wp_bootstrap_blocks_get_template( $template_name, $attributes, $content
 function wp_bootstrap_blocks_locate_template( $template_name, $template_path = '', $default_path = '' ) {
 	// If template path is not set get plugin from defined wp_bootstrap_blocks_template_path (default: wp-bootstrap-blocks/)
 	if ( ! $template_path ) {
+		/**
+		 * Filters the default template path.
+		 *
+		 * @since 1.0.0
+		 *
+		 * @param string $template_path Template directory name in theme.
+		 */
 		$template_path = apply_filters( 'wp_bootstrap_blocks_template_path', 'wp-bootstrap-blocks/' );
 	}
 
@@ -84,5 +100,14 @@ function wp_bootstrap_blocks_locate_template( $template_name, $template_path = '
 		$template = $default_path . $template_name;
 	}
 
+	/**
+	 * Filters the located template path.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $template Located file path.
+	 * @param string $template_name Template name which was requested.
+	 * @param string $template_path Path to template directory.
+	 */
 	return apply_filters( 'wp_bootstrap_blocks_locate_template', $template, $template_name, $template_path );
 }

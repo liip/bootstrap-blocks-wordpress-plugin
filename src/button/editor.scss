@@ -31,10 +31,12 @@
 	$blocks-button__link-input-width: 300px + 2px + 2 * $icon-button-size;
 	width: $blocks-button__link-input-width;
 
+	.block-editor-url-input,
 	.editor-url-input {
 		width: auto;
 	}
 
+	.block-editor-url-input__suggestions,
 	.editor-url-input__suggestions {
 		width: $blocks-button__link-input-width - $icon-button-size - $icon-button-size;
 		z-index: z-index(".block-library-button__inline-link .block-editor-url-input__suggestions");
@@ -48,6 +50,7 @@
 		color: $dark-gray-100;
 	}
 
+	.block-editor-url-input input[type="text"]::placeholder,
 	.editor-url-input input[type="text"]::placeholder {
 		color: $dark-gray-100;
 	}

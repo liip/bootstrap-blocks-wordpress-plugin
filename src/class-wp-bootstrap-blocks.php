@@ -33,7 +33,7 @@ class WP_Bootstrap_Blocks {
 	 *
 	 * @var string
 	 */
-	public $version = '2.0.0';
+	public $version = '2.0.1';
 
 	/**
 	 * The plugin token.
@@ -55,6 +55,20 @@ class WP_Bootstrap_Blocks {
 	 * @var string
 	 */
 	public $assets_url;
+
+	/**
+	 * The plugin languages directory.
+	 *
+	 * @var string
+	 */
+	public $languages_dir;
+
+	/**
+	 * The full path to the plugin languages directory.
+	 *
+	 * @var string
+	 */
+	public $languages_dir_full;
 
 	/**
 	 * WP_Bootstrap_Blocks constructor.
@@ -83,6 +97,8 @@ class WP_Bootstrap_Blocks {
 		// Load plugin environment variables
 		$this->assets_dir = WP_BOOTSTRAP_BLOCKS_ABSPATH . 'build/';
 		$this->assets_url = esc_url( trailingslashit( plugins_url( '/build/', WP_BOOTSTRAP_BLOCKS_PLUGIN_FILE ) ) );
+		$this->languages_dir = dirname( plugin_basename( WP_BOOTSTRAP_BLOCKS_PLUGIN_FILE ) ) . '/languages/';
+		$this->languages_dir_full = plugin_dir_path( WP_BOOTSTRAP_BLOCKS_PLUGIN_FILE ) . 'languages/';
 	}
 
 	/**
@@ -111,8 +127,9 @@ class WP_Bootstrap_Blocks {
 		// Register custom block category
 		add_filter( 'block_categories', array( $this, 'register_custom_block_category' ), 10, 2 );
 
-		// Load textdomain
+		// Initialize translations
 		add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain' ) );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'set_script_translations' ), 100 ); // this needs to be enqueued after enqueue_block_editor_assets (priority 100)
 
 		// check version number on each request
 		add_action( 'init', array( $this, 'check_version' ) );
@@ -122,6 +139,13 @@ class WP_Bootstrap_Blocks {
 	 * Load frontend block assets.
 	 */
 	public function enqueue_block_assets() {
+		/**
+		 * Possibility to enable or disable loading of block assets.
+		 *
+		 * @since 1.2.0
+		 *
+		 * @param boolean $enqueue_block_assets If set to true block assets will be loaded.
+		 */
 		$enqueue_block_assets = apply_filters( 'wp_bootstrap_blocks_enqueue_block_assets', true );
 		if ( ! $enqueue_block_assets ) {
 			return;
@@ -192,7 +216,15 @@ class WP_Bootstrap_Blocks {
 	 */
 	public function load_plugin_textdomain() {
 		$domain = 'wp-bootstrap-blocks'; // textdomain can't be stored in class variable since it must be a single string literal
-		load_plugin_textdomain( $domain, false, dirname( plugin_basename( WP_BOOTSTRAP_BLOCKS_PLUGIN_FILE ) ) . '/languages/' );
+		load_plugin_textdomain( $domain, false, $this->languages_dir );
+	}
+
+	/**
+	 * Initialize plugin script translations
+	 */
+	public function set_script_translations() {
+		$domain = 'wp-bootstrap-blocks'; // textdomain can't be stored in class variable since it must be a single string literal
+		wp_set_script_translations( $this->token . '-js', $domain, $this->languages_dir_full );
 	}
 
 	/**
@@ -223,14 +255,14 @@ class WP_Bootstrap_Blocks {
 	 * Cloning is forbidden.
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?' ), esc_attr( $this->version ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', 'wp-bootstrap-blocks' ), esc_attr( $this->version ) );
 	}
 
 	/**
 	 * Unserializing instances of this class is forbidden.
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?' ), esc_attr( $this->version ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', 'wp-bootstrap-blocks' ), esc_attr( $this->version ) );
 	}
 
 	/**
@@ -239,14 +271,36 @@ class WP_Bootstrap_Blocks {
 	 * This check is done on all requests and runs if the versions do not match.
 	 */
 	public function check_version() {
-		if ( ! defined( 'IFRAME_REQUEST' ) && get_option( $this->token . '_version' ) !== $this->version ) {
+		if ( defined( 'IFRAME_REQUEST' ) ) {
+			return;
+		}
+
+		$transient_name = 'wp_bootstrap_blocks_version';
+
+		$old_version = get_transient( $transient_name );
+		if ( false === $old_version ) {
+			$old_version = get_option( $this->token . '_version' );
+			set_transient( $transient_name, $old_version, 5 * MINUTE_IN_SECONDS );
+		}
+		$new_version = $this->version;
+		if ( $old_version !== $new_version ) {
 			$this->log_version_number();
-			do_action( $this->token . '_updated' );
+			delete_transient( $transient_name );
+
+			/**
+			 * Fires when a new version of the plugin is used for the first time.
+			 *
+			 * @since 2.0.1
+			 *
+			 * @param string $new_version New version number.
+			 * @param string $old_version Old version number.
+			 */
+			do_action( $this->token . '_updated', $new_version, $old_version );
 		}
 	}
 
 	/**
-	 * Log the plugin version number in database.
+	 * Sets the current plugin version number in database.
 	 */
 	protected function log_version_number() {
 		delete_option( $this->token . '_version' );

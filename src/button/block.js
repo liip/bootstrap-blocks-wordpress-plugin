@@ -17,7 +17,6 @@ registerBlockType( 'wp-bootstrap-blocks/button', {
 		__( 'Button', 'wp-bootstrap-blocks' ),
 		__( 'Bootstrap Button', 'wp-bootstrap-blocks' ),
 		__( 'Bootstrap', 'wp-bootstrap-blocks' ),
-		__( 'Bootstrap Blocks', 'wp-bootstrap-blocks' ),
 	],
 	example: {
 	},

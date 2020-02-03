@@ -17,7 +17,6 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 		__( 'Row', 'wp-bootstrap-blocks' ),
 		__( 'Bootstrap Row', 'wp-bootstrap-blocks' ),
 		__( 'Bootstrap', 'wp-bootstrap-blocks' ),
-		__( 'Bootstrap Blocks', 'wp-bootstrap-blocks' ),
 	],
 
 	supports: {
