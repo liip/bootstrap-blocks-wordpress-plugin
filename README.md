@@ -53,7 +53,7 @@ You can copy the original template from `wp-bootstrap-blocks/src/templates/<bloc
 
 Changes the default theme directory name (`wp-bootstrap-blocks/`).
 
-#### Usage:
+#### Usage
 
 ```php
 add_filter( 'wp_bootstrap_blocks_template_path', 'my_template_path', 10, 1 );
@@ -63,7 +63,7 @@ function my_template_path( $template_path ) {
 }
 ```
 
-#### Parameters:
+#### Parameters
 
 * `$template_path` (`string`) Template directory name in theme. (Default: `'wp-bootstrap-blocks/'`)
 
@@ -71,14 +71,14 @@ function my_template_path( $template_path ) {
 
 Possibility to overwrite the located template path before it gets loaded.
 
-#### Parameters:
+#### Parameters
 
 * `$located` (`string`) located file path.
 * `$template_name` (`string`) template name which was requested.
 * `$template_path` (`string`) path to template directory.
 * `$default_path` (`string`) default template directory path.
 
-#### Usage:
+#### Usage
 
 ```php
 add_filter( 'wp_bootstrap_blocks_get_template', 'my_located_template', 10, 4 );
@@ -92,13 +92,13 @@ function my_located_template( $located, $template_name, $template_path, $default
 
 Possibility to overwrite the located template path.
 
-#### Parameters:
+#### Parameters
 
 * `$template` (`string`) located file path.
 * `$template_name` (`string`) template name which was requested.
 * `$template_path` (`string`) path to template directory.
 
-#### Usage:
+#### Usage
 
 ```php
 add_filter( 'wp_bootstrap_blocks_locate_template', 'my_template_locater', 10, 3 );
@@ -112,12 +112,12 @@ function my_template_locater( $template, $template_name, $template_path ) {
 
 Change classes of row block.
 
-#### Parameters:
+#### Parameters
 
 * `$classes` (`array`) Classes which are added to the block template.
 * `$attributes` (`array`) Attributes of the block.
 
-#### Usage:
+#### Usage
 
 ```php
 add_filter( 'wp_bootstrap_blocks_row_classes', 'my_custom_row_classes', 10, 2 );
@@ -131,12 +131,12 @@ function my_custom_row_classes( $classes, $attributes ) {
 
 Change classes of column block.
 
-#### Parameters:
+#### Parameters
 
 * `$classes` (`array`) Classes which are added to the block template.
 * `$attributes` (`array`) Attributes of the block.
 
-#### Usage:
+#### Usage
 
 ```php
 add_filter( 'wp_bootstrap_blocks_column_classes', 'my_custom_column_classes', 10, 2 );
@@ -150,12 +150,12 @@ function my_custom_column_classes( $classes, $attributes ) {
 
 Change classes of the inner content of the column block.
 
-#### Parameters:
+#### Parameters
 
 * `$classes` (`array`) Classes which are added to the block template.
 * `$attributes` (`array`) Attributes of the block.
 
-#### Usage:
+#### Usage
 
 ```php
 add_filter( 'wp_bootstrap_blocks_column_content_classes', 'my_custom_column_content_classes', 10, 2 );
@@ -169,12 +169,12 @@ function my_custom_column_content_classes( $classes, $attributes ) {
 
 Change classes of container block.
 
-#### Parameters:
+#### Parameters
 
 * `$classes` (`array`) Classes which are added to the block template.
 * `$attributes` (`array`) Attributes of the block.
 
-#### Usage:
+#### Usage
 
 ```php
 add_filter( 'wp_bootstrap_blocks_container_classes', 'my_custom_container_classes', 10, 2 );
@@ -188,12 +188,12 @@ function my_custom_container_classes( $classes, $attributes ) {
 
 Change classes of button block.
 
-#### Parameters:
+#### Parameters
 
 * `$classes` (`array`) Classes which are added to the block template.
 * `$attributes` (`array`) Attributes of the block.
 
-#### Usage:
+#### Usage
 
 ```php
 add_filter( 'wp_bootstrap_blocks_button_classes', 'my_custom_button_classes', 10, 2 );
@@ -207,12 +207,12 @@ function my_custom_button_classes( $classes, $attributes ) {
 
 Change classes of button block wrapper.
 
-#### Parameters:
+#### Parameters
 
 * `$classes` (`array`) Classes which are added to the block template.
 * `$attributes` (`array`) Attributes of the block.
 
-#### Usage:
+#### Usage
 
 ```php
 add_filter( 'wp_bootstrap_blocks_button_wrapper_classes', 'my_custom_button_wrapper_classes', 10, 2 );
@@ -226,7 +226,7 @@ function my_custom_button_wrapper_classes( $classes, $attributes ) {
 
 Modify default attributes of the row block.
 
-#### Parameters:
+#### Parameters
 
 * `$default_attributes` (`array`) Default attributes of row block.
     * `template` (`string`) Name of default template of row block (Default: `'1-1'`)
@@ -234,7 +234,7 @@ Modify default attributes of the row block.
     * `alignment` (`string`) Default horizontal alignment of inner columns (Default: `''`)
     * `verticalAlignment` (`string`) Default vertical alignment of inner columns (Default: `''`)
 
-#### Usage:
+#### Usage
 
 ```php
 add_filter( 'wp_bootstrap_blocks_row_default_attributes', 'my_row_default_attributes', 10, 1 );
@@ -252,7 +252,7 @@ function my_row_default_attributes( $default_attributes ) {
 
 Modify default attributes of the column block.
 
-#### Parameters:
+#### Parameters
 
 * `$default_attributes` (`array`) Default attributes of column block.
     * `sizeXl` (`int`) Default xl column size (Default: `0`)
@@ -269,7 +269,7 @@ Modify default attributes of the column block.
     * `centerContent` (`boolean`) Defines if center content inside column should be selected or not (Default: `false`)
     * `padding` (`string`) Padding inside column (Default: `''`)
 
-#### Usage:
+#### Usage
 
 ```php
 add_filter( 'wp_bootstrap_blocks_column_default_attributes', 'my_column_default_attributes', 10, 1 );
@@ -289,13 +289,13 @@ function my_column_default_attributes( $default_attributes ) {
 
 Modify default attributes of the container block.
 
-#### Parameters:
+#### Parameters
 
 * `$default_attributes` (`array`) Default attributes of container block.
     * `isFluid` (`boolean`) Defines if container should be fluid or not (Default: `false`)
     * `marginAfter` (`string`) Default margin after container block (Default: `'mb-2'`)
 
-#### Usage:
+#### Usage
 
 ```php
 add_filter( 'wp_bootstrap_blocks_container_default_attributes', 'my_container_default_attributes', 10, 1 );
@@ -312,7 +312,7 @@ function my_container_default_attributes( $default_attributes ) {
 
 Modify default attributes of the button block.
 
-#### Parameters:
+#### Parameters
 
 * `$default_attributes` (`array`) Default attributes of button block.
     * `url` (`string`) Default url of the button (Default: `''`)
@@ -320,7 +320,7 @@ Modify default attributes of the button block.
     * `style` (`string`) Default style of the button (Default: `''`)
     * `alignment` (`string`) Default alignment of the button (Default: `''`)
 
-#### Usage:
+#### Usage
 
 ```php
 add_filter( 'wp_bootstrap_blocks_button_default_attributes', 'my_button_default_attributes', 10, 1 );
@@ -338,11 +338,11 @@ function my_button_default_attributes( $default_attributes ) {
 
 Possibility to disable enqueuing block assets.
 
-#### Parameters:
+#### Parameters
 
 * `$enqueue_block_assets` (`boolean`) Defines if block assets should be enqueued. (Default: `true`)
 
-#### Usage:
+#### Usage
 
 ```php
 add_filter( 'wp_bootstrap_blocks_enqueue_block_assets', 'disable_enqueue_block_assets', 10, 1 );
@@ -380,7 +380,7 @@ function my_after_plugin_update( $new_version, $old_version ) {
 
 Modify available button styles.
 
-#### Usage:
+#### Usage
 
 ```javascript
 function myButtonStyleOptions( styleOptions ) {
@@ -390,7 +390,7 @@ function myButtonStyleOptions( styleOptions ) {
 wp.hooks.addFilter( 'wpBootstrapBlocks.button.styleOptions', 'myplugin/wp-bootstrap-blocks/button/styleOptions', myButtonStyleOptions );
 ```
 
-#### Parameters:
+#### Parameters
 
 * `styleOptions` (`Array`) Array with button style options.
 
@@ -398,7 +398,7 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.button.styleOptions', 'myplugin/wp-bootst
 
 Modify margin after options.
 
-#### Usage:
+#### Usage
 
 ```javascript
 function myMarginAfterOptions( marginAfterOptions ) {
@@ -408,7 +408,7 @@ function myMarginAfterOptions( marginAfterOptions ) {
 wp.hooks.addFilter( 'wpBootstrapBlocks.container.marginAfterOptions', 'myplugin/wp-bootstrap-blocks/container/marginAfterOptions', myMarginAfterOptions );
 ```
 
-#### Parameters:
+#### Parameters
 
 * `marginAfterOptions` (`Array`) Array margin options.
 
@@ -416,14 +416,14 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.container.marginAfterOptions', 'myplugin/
 
 Define block templates.
 
-#### Usage:
+#### Usage
 
 ```javascript
 function myRowTemplates( templates ) {
     templates.push( {
         name: '1-3',
         title: '2 Columns (1:3)',
-        icon: <SVG />,
+        icon: 'layout',
         templateLock: 'all',
         template: [
             [
@@ -445,7 +445,7 @@ function myRowTemplates( templates ) {
 wp.hooks.addFilter( 'wpBootstrapBlocks.row.templates', 'myplugin/wp-bootstrap-blocks/row/templates', myRowTemplates );
 ```
 
-#### Parameters:
+#### Parameters
 
 * `templates` (`array`) List of template objects.
 
@@ -465,14 +465,14 @@ Each template has the following attributes:
 
 Enable/Disable custom option in row templates.
 
-#### Usage:
+#### Usage
 
 ```javascript
 // Disable custom row template
 wp.hooks.addFilter( 'wpBootstrapBlocks.row.enableCustomTemplate', 'myplugin/wp-bootstrap-blocks/row/enableCustomTemplate', () => false );
 ```
 
-#### Parameters:
+#### Parameters
 
 * `enableCustomTemplate` (`boolean`) Return true if custom row template should be enabled. (Default: `true`)
 
@@ -480,7 +480,7 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.row.enableCustomTemplate', 'myplugin/wp-b
 
 Modify available background colors for column block.
 
-#### Usage:
+#### Usage
 
 ```javascript
 function myColumnBgColorOptions( bgColorOptions ) {
@@ -493,15 +493,15 @@ function myColumnBgColorOptions( bgColorOptions ) {
 wp.hooks.addFilter( 'wpBootstrapBlocks.column.bgColorOptions', 'myplugin/wp-bootstrap-blocks/column/bgColorOptions', myColumnBgColorOptions );
 ```
 
-#### Parameters:
+#### Parameters
 
-* `bgColorOptions` (`Array`) Array of available background colors. Each element should be an object containing the `name` of the color and the `color` itself (see: https://github.com/WordPress/gutenberg/tree/master/packages/components/src/color-palette).
+* `bgColorOptions` (`Array`) Array of available background colors. Each element should be an object containing the `name` of the color and the `color` itself (see: <https://github.com/WordPress/gutenberg/tree/master/packages/components/src/color-palette>).
 
 ### wpBootstrapBlocks.column.paddingOptions
 
 Modify available padding options for column block.
 
-#### Usage:
+#### Usage
 
 ```javascript
 function myColumnPaddingOptions( paddingOptions ) {
@@ -511,7 +511,7 @@ function myColumnPaddingOptions( paddingOptions ) {
 wp.hooks.addFilter( 'wpBootstrapBlocks.column.paddingOptions', 'myplugin/wp-bootstrap-blocks/column/paddingOptions', myColumnPaddingOptions );
 ```
 
-#### Parameters:
+#### Parameters
 
 * `paddingOptions` (`Array`) Array of padding options.
 
@@ -528,15 +528,15 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.column.paddingOptions', 'myplugin/wp-boot
 
 1. Install composer dependencies
 
-    ```
-    $ curl -s https://getcomposer.org/installer | php
-    $ php composer.phar install
+    ```shell script
+    curl -s https://getcomposer.org/installer | php
+    php composer.phar install
     ```
 
 1. Install Node dependencies
 
-    ```
-    $ npm install
+    ```shell script
+    npm install
     ```
 
 ### Compile assets
@@ -551,9 +551,9 @@ The build process is based on the official [`@wordpress/scripts`](https://develo
 
 To extract the labels and generate the `languages/wp-bootstrap-blocks.pot` file run the following command:
 
-```
-$ curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-$ php wp-cli.phar i18n make-pot --exclude="wordpress" . languages/wp-bootstrap-blocks.pot
+```shell script
+curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+php wp-cli.phar i18n make-pot --exclude="wordpress" . languages/wp-bootstrap-blocks.pot
 ```
 
 ### Setup local dev environment
@@ -585,14 +585,14 @@ This file gets automatically generated if the test runs for the first time and t
 
 To run the tests use the following command:
 
-```
-$ npm run env test-php
+```shell script
+npm run env test-php
 ```
 
 or the following command to run a specific test:
 
-```
-$ npm run env test-php -- --filter 'my_test'
+```shell script
+npm run env test-php -- --filter 'my_test'
 ```
 
 #### Puppeteer E2E Tests
@@ -601,12 +601,12 @@ The Puppeteer E2E Tests are stored in the `e2e-tests` directory.
 
 To run the tests use the following command:
 
-```
-$ npm run test:e2e
+```shell script
+npm run test:e2e
 ```
 
 or the following command to run a specific test:
 
-```
-$ npm run test:e2e -- -t 'my test'
+```shell script
+npm run test:e2e -- -t 'my test'
 ```
