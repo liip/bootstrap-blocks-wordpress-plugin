@@ -528,14 +528,14 @@ wp.hooks.addFilter( 'wpBootstrapBlocks.column.paddingOptions', 'myplugin/wp-boot
 
 1. Install composer dependencies
 
-    ```shell script
+    ```bash
     curl -s https://getcomposer.org/installer | php
     php composer.phar install
     ```
 
 1. Install Node dependencies
 
-    ```shell script
+    ```bash
     npm install
     ```
 
@@ -551,7 +551,7 @@ The build process is based on the official [`@wordpress/scripts`](https://develo
 
 To extract the labels and generate the `languages/wp-bootstrap-blocks.pot` file run the following command:
 
-```shell script
+```bash
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 php wp-cli.phar i18n make-pot --exclude="wordpress" . languages/wp-bootstrap-blocks.pot
 ```
@@ -585,13 +585,13 @@ This file gets automatically generated if the test runs for the first time and t
 
 To run the tests use the following command:
 
-```shell script
+```bash
 npm run env test-php
 ```
 
 or the following command to run a specific test:
 
-```shell script
+```bash
 npm run env test-php -- --filter 'my_test'
 ```
 
@@ -601,12 +601,12 @@ The Puppeteer E2E Tests are stored in the `e2e-tests` directory.
 
 To run the tests use the following command:
 
-```shell script
+```bash
 npm run test:e2e
 ```
 
 or the following command to run a specific test:
 
-```shell script
+```bash
 npm run test:e2e -- -t 'my test'
 ```
