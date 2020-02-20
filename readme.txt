@@ -5,7 +5,7 @@ Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.0
 Tested up to: 5.3
 Requires PHP: 5.6
-Stable tag: 2.0.1
+Stable tag: 2.1.0
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -70,6 +70,11 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 1. Container block
 
 == Changelog ==
+
+= 2.1.0 =
+
+* **Breaking Change** [CHANGE] Do not render empty content `<div>` in `column` template. This is a rather small change but it could break your current design (if it relies on this `<div>`). Please verify that this isn't the case before updating.
+* Modified Templates: `column.php`
 
 = 2.0.1 =
 
