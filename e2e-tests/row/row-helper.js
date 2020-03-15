@@ -1,9 +1,5 @@
-import {
-	searchForBlock,
-} from '@wordpress/e2e-test-utils';
-import {
-	selectBlockByName,
-} from '../helper';
+import { searchForBlock } from '@wordpress/e2e-test-utils';
+import { selectBlockByName } from '../helper';
 
 export const insertRowBlock = async () => {
 	await searchForBlock( 'Bootstrap Row' );
@@ -15,5 +11,9 @@ export const selectRowBlock = async ( index = 0 ) => {
 };
 
 export const rowTemplateIsSelected = async ( label ) => {
-	return ( await page.$( `.wp-bootstrap-blocks-template-selector-button > button[aria-label="${ label }"].is-active` ) ) !== null;
+	return (
+		( await page.$(
+			`.wp-bootstrap-blocks-template-selector-button > button[aria-label="${ label }"].is-active`
+		) ) !== null
+	);
 };

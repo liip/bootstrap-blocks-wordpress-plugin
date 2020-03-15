@@ -3,7 +3,13 @@
  */
 const { __ } = wp.i18n;
 const { Component, Fragment } = wp.element;
-const { RichText, URLInput, InspectorControls, BlockControls, AlignmentToolbar } = wp.editor;
+const {
+	RichText,
+	URLInput,
+	InspectorControls,
+	BlockControls,
+	AlignmentToolbar,
+} = wp.editor;
 const { Dashicon, IconButton, SelectControl, PanelBody } = wp.components;
 const { applyFilters } = wp.hooks;
 
@@ -14,20 +20,28 @@ class BootstrapButtonEdit extends Component {
 
 		let styleOptions = [
 			{ label: __( 'Primary', 'wp-bootstrap-blocks' ), value: 'primary' },
-			{ label: __( 'Secondary', 'wp-bootstrap-blocks' ), value: 'secondary' },
+			{
+				label: __( 'Secondary', 'wp-bootstrap-blocks' ),
+				value: 'secondary',
+			},
 		];
-		styleOptions = applyFilters( 'wpBootstrapBlocks.button.styleOptions', styleOptions );
+		styleOptions = applyFilters(
+			'wpBootstrapBlocks.button.styleOptions',
+			styleOptions
+		);
 
 		return (
 			<Fragment>
-				<div
-					className={ className }
-					data-alignment={ alignment }
-				>
+				<div className={ className } data-alignment={ alignment }>
 					<RichText
-						placeholder={ __( 'Add text...', 'wp-bootstrap-blocks' ) }
+						placeholder={ __(
+							'Add text...',
+							'wp-bootstrap-blocks'
+						) }
 						value={ text }
-						onChange={ ( value ) => setAttributes( { text: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { text: value } )
+						}
 						formattingControls={ [] }
 						keepPlaceholderOnFocus
 					/>
@@ -46,21 +60,33 @@ class BootstrapButtonEdit extends Component {
 					<BlockControls>
 						<AlignmentToolbar
 							value={ alignment }
-							label={ __( 'Change button alignment', 'wp-bootstrap-blocks' ) }
-							onChange={ ( newAlignment ) => ( setAttributes( { alignment: newAlignment } ) ) }
+							label={ __(
+								'Change button alignment',
+								'wp-bootstrap-blocks'
+							) }
+							onChange={ ( newAlignment ) =>
+								setAttributes( { alignment: newAlignment } )
+							}
 						/>
 					</BlockControls>
 				</div>
 				{ isSelected && (
 					<form
 						className="wp-block-wp-bootstrap-blocks-button-link"
-						onSubmit={ ( event ) => event.preventDefault() }>
+						onSubmit={ ( event ) => event.preventDefault() }
+					>
 						<Dashicon icon="admin-links" />
 						<URLInput
 							value={ url }
-							onChange={ ( value ) => setAttributes( { url: value } ) }
+							onChange={ ( value ) =>
+								setAttributes( { url: value } )
+							}
 						/>
-						<IconButton icon="editor-break" label={ __( 'Apply', 'wp-bootstrap-blocks' ) } type="submit" />
+						<IconButton
+							icon="editor-break"
+							label={ __( 'Apply', 'wp-bootstrap-blocks' ) }
+							type="submit"
+						/>
 					</form>
 				) }
 			</Fragment>

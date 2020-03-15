@@ -7,15 +7,8 @@ import {
 	createNewPost,
 	getEditedPostContent,
 } from '@wordpress/e2e-test-utils';
-import {
-} from '../row/row-helper';
-import {
-	selectOption,
-} from '../helper';
-import {
-	insertButtonBlock,
-	selectButtonBlock,
-} from './button-helper';
+import { selectOption } from '../helper';
+import { insertButtonBlock, selectButtonBlock } from './button-helper';
 
 describe( 'button block', () => {
 	beforeEach( async () => {
@@ -35,7 +28,10 @@ describe( 'button block', () => {
 		await selectButtonBlock();
 
 		// Set button text
-		await page.type( '[aria-label="Add text..."].block-editor-rich-text__editable', 'Liip' );
+		await page.type(
+			'[aria-label="Add text..."].block-editor-rich-text__editable',
+			'Liip'
+		);
 
 		// Editor content should match snapshot
 		expect( await getEditedPostContent() ).toMatchSnapshot();
@@ -65,7 +61,11 @@ describe( 'button block', () => {
 		// Change alignment
 		await clickBlockToolbarButton( 'Change button alignment' );
 		await clickButton( 'Align Text Center' );
-		expect( await page.$( '[data-type="wp-bootstrap-blocks/button"][data-alignment="center"]' ) ).not.toBeNull();
+		expect(
+			await page.$(
+				'[data-type="wp-bootstrap-blocks/button"][data-alignment="center"]'
+			)
+		).not.toBeNull();
 
 		// Editor content should match snapshot
 		expect( await getEditedPostContent() ).toMatchSnapshot();

@@ -42,20 +42,18 @@ const config = {
 						options: {
 							ident: 'postcss',
 							plugins: () => [
-								postcssPresetEnv(
-									{
-										stage: 3,
-										features: {
-											'custom-media-queries': {
-												preserve: false,
-											},
-											'custom-properties': {
-												preserve: true,
-											},
-											'nesting-rules': true,
+								postcssPresetEnv( {
+									stage: 3,
+									features: {
+										'custom-media-queries': {
+											preserve: false,
 										},
-									}
-								),
+										'custom-properties': {
+											preserve: true,
+										},
+										'nesting-rules': true,
+									},
+								} ),
 							],
 						},
 					},
@@ -64,7 +62,9 @@ const config = {
 						options: {
 							sourceMap: ! isProduction,
 							sassOptions: {
-								outputStyle: isProduction ? 'compressed' : 'nested',
+								outputStyle: isProduction
+									? 'compressed'
+									: 'nested',
 							},
 						},
 					},
@@ -74,11 +74,9 @@ const config = {
 	},
 	plugins: [
 		...defaultConfig.plugins,
-		new MiniCssExtractPlugin(
-			{
-				filename: '[name].css',
-			}
-		),
+		new MiniCssExtractPlugin( {
+			filename: '[name].css',
+		} ),
 		new IgnoreEmitPlugin( [ 'editor.js', 'style.js' ] ),
 	],
 };

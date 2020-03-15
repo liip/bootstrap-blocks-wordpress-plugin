@@ -1,12 +1,7 @@
 /**
  * WordPress dependencies
  */
-import {
-	createNewPost,
-	getEditedPostContent,
-} from '@wordpress/e2e-test-utils';
-import {
-} from '../row/row-helper';
+import { createNewPost, getEditedPostContent } from '@wordpress/e2e-test-utils';
 import {
 	clickElementByText,
 	getCheckboxValueByLabel,
@@ -14,10 +9,7 @@ import {
 	selectIsDisabledByLabel,
 	getSelectedValueBySelectLabel,
 } from '../helper';
-import {
-	insertContainerBlock,
-	selectContainerBlock,
-} from './container-helper';
+import { insertContainerBlock, selectContainerBlock } from './container-helper';
 
 describe( 'container block', () => {
 	beforeEach( async () => {
@@ -32,10 +24,14 @@ describe( 'container block', () => {
 		expect( await getCheckboxValueByLabel( 'Fluid' ) ).toBe( false );
 
 		// Fluid Breakpoint select field should be disabled
-		expect( await selectIsDisabledByLabel( 'Fluid Breakpoint' ) ).toBe( true );
+		expect( await selectIsDisabledByLabel( 'Fluid Breakpoint' ) ).toBe(
+			true
+		);
 
 		// Margin After should be set
-		expect( await getSelectedValueBySelectLabel( 'Margin After' ) ).toMatch( 'mb-2' );
+		expect( await getSelectedValueBySelectLabel( 'Margin After' ) ).toMatch(
+			'mb-2'
+		);
 
 		// Editor content should match snapshot
 		expect( await getEditedPostContent() ).toMatchSnapshot();

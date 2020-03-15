@@ -40,9 +40,20 @@ registerBlockType( 'wp-bootstrap-blocks/column', {
 		} = attributes;
 
 		return {
-			'data-size-xs': equalWidthXl || equalWidthLg || equalWidthMd || equalWidthSm || equalWidthXs ? 0 : sizeXs,
-			'data-size-sm': equalWidthXl || equalWidthLg || equalWidthMd || equalWidthSm ? 0 : sizeSm,
-			'data-size-md': equalWidthXl || equalWidthLg || equalWidthMd ? 0 : sizeMd,
+			'data-size-xs':
+				equalWidthXl ||
+				equalWidthLg ||
+				equalWidthMd ||
+				equalWidthSm ||
+				equalWidthXs
+					? 0
+					: sizeXs,
+			'data-size-sm':
+				equalWidthXl || equalWidthLg || equalWidthMd || equalWidthSm
+					? 0
+					: sizeSm,
+			'data-size-md':
+				equalWidthXl || equalWidthLg || equalWidthMd ? 0 : sizeMd,
 			'data-size-lg': equalWidthXl || equalWidthLg ? 0 : sizeLg,
 			'data-size-xl': equalWidthXl ? 0 : sizeXl,
 			'data-bg-color': bgColor,
@@ -54,8 +65,6 @@ registerBlockType( 'wp-bootstrap-blocks/column', {
 	edit,
 
 	save() {
-		return (
-			<InnerBlocks.Content />
-		);
+		return <InnerBlocks.Content />;
 	},
 } );

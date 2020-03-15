@@ -7,14 +7,8 @@ import {
 	createNewPost,
 	getEditedPostContent,
 } from '@wordpress/e2e-test-utils';
-import {
-	insertRowBlock,
-	selectRowBlock,
-} from './row-helper';
-import {
-	getCheckboxValueByLabel,
-	toolbarOptionIsActive,
-} from '../helper';
+import { insertRowBlock, selectRowBlock } from './row-helper';
+import { getCheckboxValueByLabel, toolbarOptionIsActive } from '../helper';
 
 describe( 'row block filters', () => {
 	beforeAll( async () => {
@@ -34,12 +28,24 @@ describe( 'row block filters', () => {
 		await selectRowBlock();
 
 		// Additional template should be available
-		expect( await page.$$( '.wp-bootstrap-blocks-template-selector-button' ) ).toHaveLength( 5 ); // 4 default templates + 1 additional template (custom template disabled)
-		expect( await page.$( '.wp-bootstrap-blocks-template-selector-button > button[aria-label="1 Column (2/3 width)"]' ) ).not.toBeNull();
-		expect( await page.$( '.wp-bootstrap-blocks-template-selector-button > button[aria-label="1 Column (2/3 width)"] > svg.dashicons-yes' ) ).not.toBeNull();
+		expect(
+			await page.$$( '.wp-bootstrap-blocks-template-selector-button' )
+		).toHaveLength( 5 ); // 4 default templates + 1 additional template (custom template disabled)
+		expect(
+			await page.$(
+				'.wp-bootstrap-blocks-template-selector-button > button[aria-label="1 Column (2/3 width)"]'
+			)
+		).not.toBeNull();
+		expect(
+			await page.$(
+				'.wp-bootstrap-blocks-template-selector-button > button[aria-label="1 Column (2/3 width)"] > svg.dashicons-yes'
+			)
+		).not.toBeNull();
 
 		// Template should be applied
-		await page.click( '.wp-bootstrap-blocks-template-selector-button > button[aria-label="1 Column (2/3 width)"]' );
+		await page.click(
+			'.wp-bootstrap-blocks-template-selector-button > button[aria-label="1 Column (2/3 width)"]'
+		);
 
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 	} );
@@ -49,8 +55,14 @@ describe( 'row block filters', () => {
 		await selectRowBlock();
 
 		// Custom template shouldn't be available
-		expect( await page.$$( '.wp-bootstrap-blocks-template-selector-button' ) ).toHaveLength( 5 ); // 4 default templates + 1 additional template (custom template disabled)
-		expect( await page.$( '.wp-bootstrap-blocks-template-selector-button > button[aria-label="Custom"]' ) ).toBeNull();
+		expect(
+			await page.$$( '.wp-bootstrap-blocks-template-selector-button' )
+		).toHaveLength( 5 ); // 4 default templates + 1 additional template (custom template disabled)
+		expect(
+			await page.$(
+				'.wp-bootstrap-blocks-template-selector-button > button[aria-label="Custom"]'
+			)
+		).toBeNull();
 	} );
 
 	it( 'wp_bootstrap_blocks_row_default_attributes should override default attributes', async () => {
@@ -58,16 +70,30 @@ describe( 'row block filters', () => {
 		await selectRowBlock();
 
 		// 1:2 template should be selected
-		expect( await page.$( '.wp-bootstrap-blocks-template-selector-button > button[aria-label="2 Columns (1:2)"].is-active' ) ).not.toBeNull();
+		expect(
+			await page.$(
+				'.wp-bootstrap-blocks-template-selector-button > button[aria-label="2 Columns (1:2)"].is-active'
+			)
+		).not.toBeNull();
 
 		// No Gutters option should be checked
 		expect( await getCheckboxValueByLabel( 'No Gutters' ) ).toBe( true );
 
 		// Align columns right should be selected
-		expect( await toolbarOptionIsActive( 'Change horizontal alignment of columns', 'Align columns right' ) ).toBe( true );
+		expect(
+			await toolbarOptionIsActive(
+				'Change horizontal alignment of columns',
+				'Align columns right'
+			)
+		).toBe( true );
 
 		// Align columns bottom should be selected
-		expect( await toolbarOptionIsActive( 'Change vertical alignment of columns', 'Align columns bottom' ) ).toBe( true );
+		expect(
+			await toolbarOptionIsActive(
+				'Change vertical alignment of columns',
+				'Align columns bottom'
+			)
+		).toBe( true );
 
 		// Check if attributes are set correctly
 		expect( await getEditedPostContent() ).toMatchSnapshot();

@@ -23,7 +23,10 @@ let marginAfterOptions = [
 		value: 'mb-5',
 	},
 ];
-marginAfterOptions = applyFilters( 'wpBootstrapBlocks.container.marginAfterOptions', marginAfterOptions );
+marginAfterOptions = applyFilters(
+	'wpBootstrapBlocks.container.marginAfterOptions',
+	marginAfterOptions
+);
 
 marginAfterOptions = [
 	{
@@ -79,9 +82,7 @@ registerBlockType( 'wp-bootstrap-blocks/container', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody
-						title={ __( 'Fluid', 'wp-bootstrap-blocks' ) }
-					>
+					<PanelBody title={ __( 'Fluid', 'wp-bootstrap-blocks' ) }>
 						<CheckboxControl
 							label={ __( 'Fluid', 'wp-bootstrap-blocks' ) }
 							checked={ isFluid }
@@ -90,25 +91,36 @@ registerBlockType( 'wp-bootstrap-blocks/container', {
 							} }
 						/>
 						<SelectControl
-							label={ __( 'Fluid Breakpoint', 'wp-bootstrap-blocks' ) }
+							label={ __(
+								'Fluid Breakpoint',
+								'wp-bootstrap-blocks'
+							) }
 							disabled={ ! isFluid }
 							value={ fluidBreakpoint }
 							options={ fluidBreakpointOptions }
 							onChange={ ( selectedFluidBreakpoint ) => {
-								setAttributes( { fluidBreakpoint: selectedFluidBreakpoint } );
+								setAttributes( {
+									fluidBreakpoint: selectedFluidBreakpoint,
+								} );
 							} }
-							help={ __( 'Fluid breakpoints only work with Bootstrap v4.4+. The container will be 100% wide until the specified breakpoint is reached, after which max-widths for each of the higher breakpoints will be applied.', 'wp-bootstrap-blocks' ) }
+							help={ __(
+								'Fluid breakpoints only work with Bootstrap v4.4+. The container will be 100% wide until the specified breakpoint is reached, after which max-widths for each of the higher breakpoints will be applied.',
+								'wp-bootstrap-blocks'
+							) }
 						/>
 					</PanelBody>
-					<PanelBody
-						title={ __( 'Margin', 'wp-bootstrap-blocks' ) }
-					>
+					<PanelBody title={ __( 'Margin', 'wp-bootstrap-blocks' ) }>
 						<SelectControl
-							label={ __( 'Margin After', 'wp-bootstrap-blocks' ) }
+							label={ __(
+								'Margin After',
+								'wp-bootstrap-blocks'
+							) }
 							value={ marginAfter }
 							options={ marginAfterOptions }
 							onChange={ ( selectedMarginAfter ) => {
-								setAttributes( { marginAfter: selectedMarginAfter } );
+								setAttributes( {
+									marginAfter: selectedMarginAfter,
+								} );
 							} }
 						/>
 					</PanelBody>
@@ -121,8 +133,6 @@ registerBlockType( 'wp-bootstrap-blocks/container', {
 	},
 
 	save() {
-		return (
-			<InnerBlocks.Content />
-		);
+		return <InnerBlocks.Content />;
 	},
 } );

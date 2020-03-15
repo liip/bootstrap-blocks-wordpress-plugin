@@ -51,7 +51,11 @@ function observeConsoleLogging() {
 		let text = message.text();
 
 		// wp-bootstrap-block exceptions for WordPress 5.2
-		if ( text.startsWith( 'Warning: Unsafe lifecycle methods were found within a strict-mode tree' ) ) {
+		if (
+			text.startsWith(
+				'Warning: Unsafe lifecycle methods were found within a strict-mode tree'
+			)
+		) {
 			return;
 		}
 		if ( text.startsWith( 'Warning: %s is deprecated in StrictMode.' ) ) {
@@ -61,16 +65,32 @@ function observeConsoleLogging() {
 		if ( text.includes( 'is deprecated. Please use wp.blockEditor.' ) ) {
 			return;
 		}
-		if ( text.includes( 'is deprecated. Please use `wp.data.select( \'core/block-editor\' )' ) ) {
+		if (
+			text.includes(
+				"is deprecated. Please use `wp.data.select( 'core/block-editor' )"
+			)
+		) {
 			return;
 		}
-		if ( text.includes( 'is deprecated. Please use `wp.data.dispatch( \'core/block-editor\' )' ) ) {
+		if (
+			text.includes(
+				"is deprecated. Please use `wp.data.dispatch( 'core/block-editor' )"
+			)
+		) {
 			return;
 		}
-		if ( text.includes( 'RichText formattingControls prop is deprecated. Please use allowedFormats instead.' ) ) {
+		if (
+			text.includes(
+				'RichText formattingControls prop is deprecated. Please use allowedFormats instead.'
+			)
+		) {
 			return;
 		}
-		if ( text.includes( '[DOM] Found 2 elements with non-unique id #_wpnonce: (More info: https://goo.gl/9p2vKq)' ) ) {
+		if (
+			text.includes(
+				'[DOM] Found 2 elements with non-unique id #_wpnonce: (More info: https://goo.gl/9p2vKq)'
+			)
+		) {
 			return;
 		}
 
@@ -86,7 +106,9 @@ function observeConsoleLogging() {
 		// See: https://core.trac.wordpress.org/ticket/37000
 		// See: https://www.chromestatus.com/feature/5088147346030592
 		// See: https://www.chromestatus.com/feature/5633521622188032
-		if ( text.includes( 'A cookie associated with a cross-site resource' ) ) {
+		if (
+			text.includes( 'A cookie associated with a cross-site resource' )
+		) {
 			return;
 		}
 
@@ -98,7 +120,10 @@ function observeConsoleLogging() {
 
 		// Network errors are ignored only if we are intentionally testing
 		// offline mode.
-		if ( text.includes( 'net::ERR_INTERNET_DISCONNECTED' ) && isOfflineMode() ) {
+		if (
+			text.includes( 'net::ERR_INTERNET_DISCONNECTED' ) &&
+			isOfflineMode()
+		) {
 			return;
 		}
 
@@ -128,7 +153,11 @@ function observeConsoleLogging() {
 		// correctly. Instead, the logic here synchronously inspects the
 		// internal object shape of the JSHandle to find the error text. If it
 		// cannot be found, the default text value is used instead.
-		text = get( message.args(), [ 0, '_remoteObject', 'description' ], text );
+		text = get(
+			message.args(),
+			[ 0, '_remoteObject', 'description' ],
+			text
+		);
 
 		// Disable reason: We intentionally bubble up the console message
 		// which, unless the test explicitly anticipates the logging via

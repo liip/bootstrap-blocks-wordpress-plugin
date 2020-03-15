@@ -7,10 +7,7 @@ import {
 	createNewPost,
 	getEditedPostContent,
 } from '@wordpress/e2e-test-utils';
-import {
-	insertButtonBlock,
-	selectButtonBlock,
-} from './button-helper';
+import { insertButtonBlock, selectButtonBlock } from './button-helper';
 import {
 	getInputValueByLabel,
 	getRichTextValueByLabel,
@@ -38,7 +35,9 @@ describe( 'button block filters', () => {
 		await selectButtonBlock();
 
 		// Additional style option should be available
-		expect( await selectOptionIsAvailable( 'Style', 'brand' ) ).toBe( true );
+		expect( await selectOptionIsAvailable( 'Style', 'brand' ) ).toBe(
+			true
+		);
 
 		// Style option should be applied
 		await selectOption( 'Style', 'brand' );
@@ -52,16 +51,27 @@ describe( 'button block filters', () => {
 		await selectButtonBlock();
 
 		// Alignment should be selected
-		expect( await toolbarOptionIsActive( 'Change button alignment', 'Align Text Center' ) ).toBe( true );
+		expect(
+			await toolbarOptionIsActive(
+				'Change button alignment',
+				'Align Text Center'
+			)
+		).toBe( true );
 
 		// Style should be selected
-		expect( await getSelectedValueBySelectLabel( 'Style' ) ).toMatch( 'secondary' );
+		expect( await getSelectedValueBySelectLabel( 'Style' ) ).toMatch(
+			'secondary'
+		);
 
 		// Text should be set
-		expect( await getRichTextValueByLabel( 'Add text...' ) ).toMatch( 'Liip' );
+		expect( await getRichTextValueByLabel( 'Add text...' ) ).toMatch(
+			'Liip'
+		);
 
 		// URL should be set
-		expect( await getInputValueByLabel( 'URL' ) ).toMatch( 'https://liip.ch' );
+		expect( await getInputValueByLabel( 'URL' ) ).toMatch(
+			'https://liip.ch'
+		);
 
 		// Check if attributes are set correctly
 		expect( await getEditedPostContent() ).toMatchSnapshot();
