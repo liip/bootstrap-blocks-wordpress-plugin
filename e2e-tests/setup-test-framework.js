@@ -94,6 +94,15 @@ function observeConsoleLogging() {
 			return;
 		}
 
+		// wp-bootstrap-block exceptions for WordPress 5.4
+		if (
+			text.includes(
+				'wp.components.IconButton is deprecated. Please use wp.components.Button instead.'
+			)
+		) {
+			return;
+		}
+
 		// An exception is made for _blanket_ deprecation warnings: Those
 		// which log regardless of whether a deprecated feature is in use.
 		if ( text.includes( 'This is a global warning' ) ) {
