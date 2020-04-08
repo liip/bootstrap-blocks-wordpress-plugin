@@ -127,9 +127,7 @@ describe( 'row block', () => {
 			'.wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout > .block-list-appender'
 		);
 		const numberOfColumnBlocks = (
-			await page.$$(
-				'[data-type="wp-bootstrap-blocks/column"]'
-			)
+			await page.$$( '[data-type="wp-bootstrap-blocks/column"]' )
 		 ).length;
 		expect( numberOfColumnBlocks ).toEqual( 3 );
 	} );
