@@ -3,7 +3,7 @@ Contributors: liip, tschortsch
 Donate link: https://liip.ch/
 Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.0
-Tested up to: 5.3
+Tested up to: 5.4
 Requires PHP: 5.6
 Stable tag: 2.1.0
 License: GPLv2
@@ -74,6 +74,7 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 = 2.1.0 =
 
 * **Breaking Change** [CHANGE] Do not render empty content `<div>` in `column` template. This is a rather small change but it could break your current design (if it relies on this `<div>`). Please verify that this isn't the case before updating.
+* [FIX] Fix styling issues of column block with WordPress 5.4.
 * Modified Templates: `column.php`
 
 = 2.0.1 =
