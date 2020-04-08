@@ -3,11 +3,23 @@
  */
 const { __ } = wp.i18n;
 const { InnerBlocks, InspectorControls } = wp.editor;
-const { CheckboxControl, ColorPalette, PanelBody, RangeControl, SelectControl } = wp.components;
+const {
+	CheckboxControl,
+	ColorPalette,
+	PanelBody,
+	RangeControl,
+	SelectControl,
+} = wp.components;
 const { Component, Fragment } = wp.element;
 const { applyFilters } = wp.hooks;
 
-const ColumnSizeRangeControl = ( { label, attributeName, value, setAttributes, ...props } ) => {
+const ColumnSizeRangeControl = ( {
+	label,
+	attributeName,
+	value,
+	setAttributes,
+	...props
+} ) => {
 	return (
 		<RangeControl
 			label={ label }
@@ -29,7 +41,10 @@ let bgColorOptions = [
 	{ name: 'secondary', color: '#6c757d' },
 ];
 
-bgColorOptions = applyFilters( 'wpBootstrapBlocks.column.bgColorOptions', bgColorOptions );
+bgColorOptions = applyFilters(
+	'wpBootstrapBlocks.column.bgColorOptions',
+	bgColorOptions
+);
 
 let paddingOptions = [
 	{ label: __( 'None', 'wp-bootstrap-blocks' ), value: '' },
@@ -38,7 +53,10 @@ let paddingOptions = [
 	{ label: __( 'Large', 'wp-bootstrap-blocks' ), value: 'p-5' },
 ];
 
-paddingOptions = applyFilters( 'wpBootstrapBlocks.column.paddingOptions', paddingOptions );
+paddingOptions = applyFilters(
+	'wpBootstrapBlocks.column.paddingOptions',
+	paddingOptions
+);
 
 export default class BootstrapColumnEdit extends Component {
 	render() {
@@ -72,72 +90,115 @@ export default class BootstrapColumnEdit extends Component {
 						initialOpen={ false }
 					>
 						<ColumnSizeRangeControl
-							label={ __( 'Xs Column count', 'wp-bootstrap-blocks' ) }
+							label={ __(
+								'Xs Column count',
+								'wp-bootstrap-blocks'
+							) }
 							attributeName="sizeXs"
 							value={ sizeXs }
 							disabled={ equalWidthXs }
 							setAttributes={ setAttributes }
 						/>
 						<CheckboxControl
-							label={ __( 'Xs equal-width', 'wp-bootstrap-blocks' ) }
+							label={ __(
+								'Xs equal-width',
+								'wp-bootstrap-blocks'
+							) }
 							checked={ equalWidthXs }
-							onChange={ ( isChecked ) => setAttributes( { equalWidthXs: isChecked } ) }
+							onChange={ ( isChecked ) =>
+								setAttributes( { equalWidthXs: isChecked } )
+							}
 						/>
 						<hr />
 						<ColumnSizeRangeControl
-							label={ __( 'Sm Column count', 'wp-bootstrap-blocks' ) }
+							label={ __(
+								'Sm Column count',
+								'wp-bootstrap-blocks'
+							) }
 							attributeName="sizeSm"
 							value={ sizeSm }
 							disabled={ equalWidthSm }
 							setAttributes={ setAttributes }
 						/>
 						<CheckboxControl
-							label={ __( 'Sm equal-width', 'wp-bootstrap-blocks' ) }
+							label={ __(
+								'Sm equal-width',
+								'wp-bootstrap-blocks'
+							) }
 							checked={ equalWidthSm }
-							onChange={ ( isChecked ) => setAttributes( { equalWidthSm: isChecked } ) }
+							onChange={ ( isChecked ) =>
+								setAttributes( { equalWidthSm: isChecked } )
+							}
 						/>
 						<hr />
 						<ColumnSizeRangeControl
-							label={ __( 'Md Column count', 'wp-bootstrap-blocks' ) }
+							label={ __(
+								'Md Column count',
+								'wp-bootstrap-blocks'
+							) }
 							attributeName="sizeMd"
 							value={ sizeMd }
 							disabled={ equalWidthMd }
 							setAttributes={ setAttributes }
 						/>
 						<CheckboxControl
-							label={ __( 'Md equal-width', 'wp-bootstrap-blocks' ) }
+							label={ __(
+								'Md equal-width',
+								'wp-bootstrap-blocks'
+							) }
 							checked={ equalWidthMd }
-							onChange={ ( isChecked ) => setAttributes( { equalWidthMd: isChecked } ) }
+							onChange={ ( isChecked ) =>
+								setAttributes( { equalWidthMd: isChecked } )
+							}
 						/>
 						<hr />
 						<ColumnSizeRangeControl
-							label={ __( 'Lg Column count', 'wp-bootstrap-blocks' ) }
+							label={ __(
+								'Lg Column count',
+								'wp-bootstrap-blocks'
+							) }
 							attributeName="sizeLg"
 							value={ sizeLg }
 							disabled={ equalWidthLg }
 							setAttributes={ setAttributes }
 						/>
 						<CheckboxControl
-							label={ __( 'Lg equal-width', 'wp-bootstrap-blocks' ) }
+							label={ __(
+								'Lg equal-width',
+								'wp-bootstrap-blocks'
+							) }
 							checked={ equalWidthLg }
-							onChange={ ( isChecked ) => setAttributes( { equalWidthLg: isChecked } ) }
+							onChange={ ( isChecked ) =>
+								setAttributes( { equalWidthLg: isChecked } )
+							}
 						/>
 						<hr />
 						<ColumnSizeRangeControl
-							label={ __( 'Xl Column count', 'wp-bootstrap-blocks' ) }
+							label={ __(
+								'Xl Column count',
+								'wp-bootstrap-blocks'
+							) }
 							attributeName="sizeXl"
 							value={ sizeXl }
 							disabled={ equalWidthXl }
 							setAttributes={ setAttributes }
 						/>
 						<CheckboxControl
-							label={ __( 'Xl equal-width', 'wp-bootstrap-blocks' ) }
+							label={ __(
+								'Xl equal-width',
+								'wp-bootstrap-blocks'
+							) }
 							checked={ equalWidthXl }
-							onChange={ ( isChecked ) => setAttributes( { equalWidthXl: isChecked } ) }
+							onChange={ ( isChecked ) =>
+								setAttributes( { equalWidthXl: isChecked } )
+							}
 						/>
 					</PanelBody>
 					<PanelBody
-						title={ __( 'Background color', 'wp-bootstrap-blocks' ) }
+						title={ __(
+							'Background color',
+							'wp-bootstrap-blocks'
+						) }
 						initialOpen={ false }
 					>
 						<ColorPalette
@@ -151,7 +212,9 @@ export default class BootstrapColumnEdit extends Component {
 										centerContent: false,
 									} );
 								} else {
-									const selectedColor = bgColorOptions.find( ( c ) => c.color === value );
+									const selectedColor = bgColorOptions.find(
+										( c ) => c.color === value
+									);
 									if ( selectedColor ) {
 										setAttributes( {
 											bgColor: selectedColor.name,
@@ -161,18 +224,32 @@ export default class BootstrapColumnEdit extends Component {
 							} }
 							disableCustomColors
 						/>
-						{ bgColor ?
+						{ bgColor ? (
 							<CheckboxControl
-								label={ __( 'Center content vertically in row', 'wp-bootstrap-blocks' ) }
+								label={ __(
+									'Center content vertically in row',
+									'wp-bootstrap-blocks'
+								) }
 								checked={ centerContent }
-								onChange={ ( isChecked ) => setAttributes( { centerContent: isChecked } ) }
-								help={ __( 'This setting only applies if there is no vertical alignment set on the parent row block.', 'wp-bootstrap-blocks' ) }
-							/> : null
-						}
+								onChange={ ( isChecked ) =>
+									setAttributes( {
+										centerContent: isChecked,
+									} )
+								}
+								help={ __(
+									'This setting only applies if there is no vertical alignment set on the parent row block.',
+									'wp-bootstrap-blocks'
+								) }
+							/>
+						) : null }
 					</PanelBody>
 					<PanelBody
-						title={ __( 'Padding (inside column)', 'wp-bootstrap-blocks' ) }
-						initialOpen={ false }>
+						title={ __(
+							'Padding (inside column)',
+							'wp-bootstrap-blocks'
+						) }
+						initialOpen={ false }
+					>
 						<SelectControl
 							label={ __( 'Size', 'wp-bootstrap-blocks' ) }
 							value={ padding }

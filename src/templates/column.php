@@ -5,7 +5,7 @@
  * This template can be overridden by copying it to theme/wp-bootstrap-blocks/column.php.
  *
  * @package wp-bootstrap-blocks/templates/column
- * @version 2.0.0
+ * @version 2.1.0
  */
 
 /**
@@ -110,7 +110,11 @@ $column_content_classes = apply_filters( 'wp_bootstrap_blocks_column_content_cla
 ?>
 
 <div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
-	<div class="<?php echo esc_attr( implode( ' ', $column_content_classes ) ); ?>">
+	<?php if ( ! empty( $column_content_classes ) ) : ?>
+		<div class="<?php echo esc_attr( implode( ' ', $column_content_classes ) ); ?>">
+			<?php echo $content; // phpcs:ignore ?>
+		</div>
+	<?php else : ?>
 		<?php echo $content; // phpcs:ignore ?>
-	</div>
+	<?php endif; ?>
 </div>

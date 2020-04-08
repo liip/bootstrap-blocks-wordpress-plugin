@@ -1,6 +1,6 @@
 {
   "name": "wp-bootstrap-blocks",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "private": true,
   "description": "Bootstrap 4 Gutenberg Blocks for WordPress",
   "author": "Liip AG",
@@ -19,10 +19,10 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@wordpress/base-styles": "^1.3.0",
-    "@wordpress/e2e-test-utils": "^3.0.0",
-    "@wordpress/scripts": "^7.0.1",
-    "css-loader": "^3.4.2",
+    "@wordpress/base-styles": "^1.5.0",
+    "@wordpress/e2e-test-utils": "^4.4.0",
+    "@wordpress/scripts": "^7.1.3",
+    "css-loader": "^3.5.1",
     "ignore-emit-webpack-plugin": "^2.0.2",
     "lodash": "^4.17.15",
     "mini-css-extract-plugin": "^0.9.0",
@@ -30,7 +30,7 @@
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
     "sass-loader": "^8.0.2",
-    "webpack": "^4.41.5"
+    "webpack": "^4.42.1"
   },
   "scripts": {
     "start": "wp-scripts start",
@@ -40,9 +40,10 @@
     "env": "wp-scripts env",
     "check-engines": "wp-scripts check-engines",
     "check-licenses": "wp-scripts check-licenses",
-    "lint": "npm run lint:pkg-json && npm run lint:css && npm run lint:js && npm run lint:md-docs && npm run lint:md-js",
+    "lint": "npm run lint:pkg-json && npm run lint:css && npm run lint:js && npm run lint:md-docs",
     "lint:css": "wp-scripts lint-style 'src/**/*.scss'",
     "lint:js": "wp-scripts lint-js",
+    "lint:js-fix": "npm run lint:js -- --fix",
     "lint:md-docs": "wp-scripts lint-md-docs",
     "lint:md-js": "wp-scripts lint-md-js",
     "lint:pkg-json": "wp-scripts lint-pkg-json",

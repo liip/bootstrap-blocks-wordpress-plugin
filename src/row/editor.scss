@@ -100,6 +100,18 @@
 	}
 }
 
+// Fix column padding in WordPress >= 5.4 (block-editor-xy classes only exists in WordPress 5.2 & 5.3)
+body:not(.branch-5-2):not(.branch-5-3) .wp-block-wp-bootstrap-blocks-row {
+	@include break-small() {
+		> .block-editor-inner-blocks > .block-editor-block-list__layout {
+			> [data-type="wp-bootstrap-blocks/column"] {
+				padding-left: $block-padding;
+				padding-right: $block-padding;
+			}
+		}
+	}
+}
+
 .wp-bootstrap-blocks-template-selector-list {
 	display: flex;
 	flex-wrap: wrap;

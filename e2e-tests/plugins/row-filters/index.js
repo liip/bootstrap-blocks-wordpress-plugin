@@ -20,8 +20,16 @@
 		];
 		return templates;
 	}
-	wp.hooks.addFilter( 'wpBootstrapBlocks.row.templates', 'row-filters/wp-bootstrap-blocks/row/templates', rowFiltersTemplates );
+	wp.hooks.addFilter(
+		'wpBootstrapBlocks.row.templates',
+		'row-filters/wp-bootstrap-blocks/row/templates',
+		rowFiltersTemplates
+	);
 
 	// Disable custom row template
-	wp.hooks.addFilter( 'wpBootstrapBlocks.row.enableCustomTemplate', 'row-filters/wp-bootstrap-blocks/row/enableCustomTemplate', () => false );
+	wp.hooks.addFilter(
+		'wpBootstrapBlocks.row.enableCustomTemplate',
+		'row-filters/wp-bootstrap-blocks/row/enableCustomTemplate',
+		() => false
+	);
 } )();

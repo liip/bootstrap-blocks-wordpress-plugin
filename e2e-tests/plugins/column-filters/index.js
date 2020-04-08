@@ -10,14 +10,19 @@
 			},
 		];
 	}
-	wp.hooks.addFilter( 'wpBootstrapBlocks.column.bgColorOptions', 'column-filters/wp-bootstrap-blocks/column/bgColorOptions', addBgColorOptions );
+	wp.hooks.addFilter(
+		'wpBootstrapBlocks.column.bgColorOptions',
+		'column-filters/wp-bootstrap-blocks/column/bgColorOptions',
+		addBgColorOptions
+	);
 
 	// Add custom padding option
 	function addPaddingOption( paddingOptions ) {
-		return [
-			...paddingOptions,
-			{ label: 'Huge', value: 'p-8' },
-		];
+		return [ ...paddingOptions, { label: 'Huge', value: 'p-8' } ];
 	}
-	wp.hooks.addFilter( 'wpBootstrapBlocks.column.paddingOptions', 'column-filters/wp-bootstrap-blocks/column/paddingOptions', addPaddingOption );
+	wp.hooks.addFilter(
+		'wpBootstrapBlocks.column.paddingOptions',
+		'column-filters/wp-bootstrap-blocks/column/paddingOptions',
+		addPaddingOption
+	);
 } )();

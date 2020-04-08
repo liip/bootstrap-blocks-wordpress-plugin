@@ -20,7 +20,7 @@ ROOT="$HERE/.."
 WP_DIR_NAME="wordpress" # This needs to be hardcoded since @wordpress/scipts also hardcoded the directory name in env/install.js.
 WP_DIR="${ROOT}/${WP_DIR_NAME}"
 WP_VERSION=${1:-latest}
-WP_DEVELOP_REPO_VERSION="5.3.2"
+WP_DEVELOP_REPO_VERSION="5.4.0"
 
 # Minor WordPress releases do not have a trailing 0 in the version number (eg. 5.3 not 5.3.0) -> Remove it from version number
 VERSION_WITHZERO_REGEX="^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.0$"
@@ -71,7 +71,7 @@ npm run env:start
 # Wait till docker containers are really started
 sleep 10
 
-echo "Downloading WordPress Core..."
+echo "Downloading WordPress ${WP_VERSION} Core..."
 echo
 
 docker-compose run --rm cli core download --version=${WP_VERSION} --path=/var/www/src --force --quiet

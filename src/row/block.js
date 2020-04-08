@@ -35,8 +35,6 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 	edit,
 
 	save() {
-		return (
-			<InnerBlocks.Content />
-		);
+		return <InnerBlocks.Content />;
 	},
 } );

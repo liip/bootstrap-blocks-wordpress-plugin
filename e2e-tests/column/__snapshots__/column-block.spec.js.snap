@@ -2,7 +2,11 @@
 
 exports[`column block Should be possible to change column size 1`] = `
 "<!-- wp:wp-bootstrap-blocks/row -->
-<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6,\\"equalWidthLg\\":true} /-->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6,\\"equalWidthLg\\":true} -->
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
+<!-- /wp:wp-bootstrap-blocks/column -->
 
 <!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
 <!-- /wp:wp-bootstrap-blocks/row -->"
@@ -10,7 +14,11 @@ exports[`column block Should be possible to change column size 1`] = `
 
 exports[`column block Should be possible to change column size 2`] = `
 "<!-- wp:wp-bootstrap-blocks/row -->
-<!-- wp:wp-bootstrap-blocks/column {\\"sizeXl\\":2,\\"sizeMd\\":6,\\"equalWidthLg\\":true} /-->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeXl\\":2,\\"sizeMd\\":6,\\"equalWidthLg\\":true} -->
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
+<!-- /wp:wp-bootstrap-blocks/column -->
 
 <!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
 <!-- /wp:wp-bootstrap-blocks/row -->"
@@ -18,7 +26,11 @@ exports[`column block Should be possible to change column size 2`] = `
 
 exports[`column block Should be possible to select background color 1`] = `
 "<!-- wp:wp-bootstrap-blocks/row -->
-<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6,\\"bgColor\\":\\"secondary\\"} /-->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6,\\"bgColor\\":\\"secondary\\"} -->
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
+<!-- /wp:wp-bootstrap-blocks/column -->
 
 <!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
 <!-- /wp:wp-bootstrap-blocks/row -->"
@@ -26,7 +38,11 @@ exports[`column block Should be possible to select background color 1`] = `
 
 exports[`column block Should be possible to select background color 2`] = `
 "<!-- wp:wp-bootstrap-blocks/row -->
-<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6,\\"bgColor\\":\\"secondary\\",\\"centerContent\\":true} /-->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6,\\"bgColor\\":\\"secondary\\",\\"centerContent\\":true} -->
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
+<!-- /wp:wp-bootstrap-blocks/column -->
 
 <!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
 <!-- /wp:wp-bootstrap-blocks/row -->"
@@ -34,7 +50,11 @@ exports[`column block Should be possible to select background color 2`] = `
 
 exports[`column block Should be possible to select padding 1`] = `
 "<!-- wp:wp-bootstrap-blocks/row -->
-<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6,\\"padding\\":\\"p-2\\"} /-->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6,\\"padding\\":\\"p-2\\"} -->
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
+<!-- /wp:wp-bootstrap-blocks/column -->
 
 <!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
 <!-- /wp:wp-bootstrap-blocks/row -->"
@@ -42,7 +62,11 @@ exports[`column block Should be possible to select padding 1`] = `
 
 exports[`column block Should reset centerContent if bgColor gets removed 1`] = `
 "<!-- wp:wp-bootstrap-blocks/row -->
-<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6,\\"bgColor\\":\\"secondary\\",\\"centerContent\\":true} /-->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6,\\"bgColor\\":\\"secondary\\",\\"centerContent\\":true} -->
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
+<!-- /wp:wp-bootstrap-blocks/column -->
 
 <!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
 <!-- /wp:wp-bootstrap-blocks/row -->"
@@ -50,7 +74,11 @@ exports[`column block Should reset centerContent if bgColor gets removed 1`] = `
 
 exports[`column block Should reset centerContent if bgColor gets removed 2`] = `
 "<!-- wp:wp-bootstrap-blocks/row -->
-<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} -->
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
+<!-- /wp:wp-bootstrap-blocks/column -->
 
 <!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
 <!-- /wp:wp-bootstrap-blocks/row -->"

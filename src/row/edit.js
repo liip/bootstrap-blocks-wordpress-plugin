@@ -1,7 +1,17 @@
-import { alignBottom, alignCenter, alignTop, templateIconMissing } from './icons';
+import {
+	alignBottom,
+	alignCenter,
+	alignTop,
+	templateIconMissing,
+} from './icons';
 
 const { __ } = wp.i18n;
-const { InnerBlocks, InspectorControls, BlockControls, AlignmentToolbar } = wp.editor;
+const {
+	InnerBlocks,
+	InspectorControls,
+	BlockControls,
+	AlignmentToolbar,
+} = wp.editor;
 const { IconButton, CheckboxControl, PanelBody, SVG, Path } = wp.components;
 const { Component, Fragment } = wp.element;
 const { withSelect, withDispatch } = wp.data;
@@ -20,7 +30,20 @@ let templates = [
 	{
 		name: '1-1',
 		title: __( '2 Columns (1:1)', 'wp-bootstrap-blocks' ),
-		icon: <SVG width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><Path fillRule="evenodd" clipRule="evenodd" d="M39 12C40.1046 12 41 12.8954 41 14V34C41 35.1046 40.1046 36 39 36H9C7.89543 36 7 35.1046 7 34V14C7 12.8954 7.89543 12 9 12H39ZM39 34V14H25V34H39ZM23 34H9V14H23V34Z" /></SVG>,
+		icon: (
+			<SVG
+				width="48"
+				height="48"
+				viewBox="0 0 48 48"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<Path
+					fillRule="evenodd"
+					clipRule="evenodd"
+					d="M39 12C40.1046 12 41 12.8954 41 14V34C41 35.1046 40.1046 36 39 36H9C7.89543 36 7 35.1046 7 34V14C7 12.8954 7.89543 12 9 12H39ZM39 34V14H25V34H39ZM23 34H9V14H23V34Z"
+				/>
+			</SVG>
+		),
 		templateLock: 'all',
 		template: [
 			[
@@ -40,7 +63,20 @@ let templates = [
 	{
 		name: '1-2',
 		title: __( '2 Columns (1:2)', 'wp-bootstrap-blocks' ),
-		icon: <SVG width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><Path fillRule="evenodd" clipRule="evenodd" d="M39 12C40.1046 12 41 12.8954 41 14V34C41 35.1046 40.1046 36 39 36H9C7.89543 36 7 35.1046 7 34V14C7 12.8954 7.89543 12 9 12H39ZM39 34V14H20V34H39ZM18 34H9V14H18V34Z" /></SVG>,
+		icon: (
+			<SVG
+				width="48"
+				height="48"
+				viewBox="0 0 48 48"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<Path
+					fillRule="evenodd"
+					clipRule="evenodd"
+					d="M39 12C40.1046 12 41 12.8954 41 14V34C41 35.1046 40.1046 36 39 36H9C7.89543 36 7 35.1046 7 34V14C7 12.8954 7.89543 12 9 12H39ZM39 34V14H20V34H39ZM18 34H9V14H18V34Z"
+				/>
+			</SVG>
+		),
 		templateLock: 'all',
 		template: [
 			[
@@ -60,7 +96,20 @@ let templates = [
 	{
 		name: '2-1',
 		title: __( '2 Columns (2:1)', 'wp-bootstrap-blocks' ),
-		icon: <SVG width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><Path fillRule="evenodd" clipRule="evenodd" d="M39 12C40.1046 12 41 12.8954 41 14V34C41 35.1046 40.1046 36 39 36H9C7.89543 36 7 35.1046 7 34V14C7 12.8954 7.89543 12 9 12H39ZM39 34V14H30V34H39ZM28 34H9V14H28V34Z" /></SVG>,
+		icon: (
+			<SVG
+				width="48"
+				height="48"
+				viewBox="0 0 48 48"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<Path
+					fillRule="evenodd"
+					clipRule="evenodd"
+					d="M39 12C40.1046 12 41 12.8954 41 14V34C41 35.1046 40.1046 36 39 36H9C7.89543 36 7 35.1046 7 34V14C7 12.8954 7.89543 12 9 12H39ZM39 34V14H30V34H39ZM28 34H9V14H28V34Z"
+				/>
+			</SVG>
+		),
 		templateLock: 'all',
 		template: [
 			[
@@ -80,7 +129,19 @@ let templates = [
 	{
 		name: '1-1-1',
 		title: __( '3 Columns (1:1:1)', 'wp-bootstrap-blocks' ),
-		icon: <SVG width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><Path fillRule="evenodd" d="M41 14a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h30a2 2 0 0 0 2-2V14zM28.5 34h-9V14h9v20zm2 0V14H39v20h-8.5zm-13 0H9V14h8.5v20z" /></SVG>,
+		icon: (
+			<SVG
+				width="48"
+				height="48"
+				viewBox="0 0 48 48"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<Path
+					fillRule="evenodd"
+					d="M41 14a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h30a2 2 0 0 0 2-2V14zM28.5 34h-9V14h9v20zm2 0V14H39v20h-8.5zm-13 0H9V14h8.5v20z"
+				/>
+			</SVG>
+		),
 		templateLock: 'all',
 		template: [
 			[
@@ -108,19 +169,18 @@ let templates = [
 templates = applyFilters( 'wpBootstrapBlocks.row.templates', templates );
 templates = addMissingTemplateIcons( templates );
 
-const enableCustomTemplate = applyFilters( 'wpBootstrapBlocks.row.enableCustomTemplate', true );
+const enableCustomTemplate = applyFilters(
+	'wpBootstrapBlocks.row.enableCustomTemplate',
+	true
+);
 if ( enableCustomTemplate ) {
-	templates.push(
-		{
-			name: 'custom',
-			title: __( 'Custom', 'wp-bootstrap-blocks' ),
-			icon: templateIconMissing,
-			templateLock: false,
-			template: [
-				[ 'wp-bootstrap-blocks/column' ],
-			],
-		}
-	);
+	templates.push( {
+		name: 'custom',
+		title: __( 'Custom', 'wp-bootstrap-blocks' ),
+		icon: templateIconMissing,
+		templateLock: false,
+		template: [ [ 'wp-bootstrap-blocks/column' ] ],
+	} );
 }
 
 const getColumnsTemplate = ( templateName ) => {
@@ -134,11 +194,24 @@ const getColumnsTemplateLock = ( templateName ) => {
 
 class BootstrapRowEdit extends Component {
 	render() {
-		const { className, attributes, setAttributes, columns, updateBlockAttributes } = this.props;
-		const { template: selectedTemplateName, noGutters, alignment, verticalAlignment } = attributes;
+		const {
+			className,
+			attributes,
+			setAttributes,
+			columns,
+			updateBlockAttributes,
+		} = this.props;
+		const {
+			template: selectedTemplateName,
+			noGutters,
+			alignment,
+			verticalAlignment,
+		} = attributes;
 
 		const onTemplateChange = ( newSelectedTemplateName ) => {
-			const template = templates.find( ( t ) => t.name === newSelectedTemplateName );
+			const template = templates.find(
+				( t ) => t.name === newSelectedTemplateName
+			);
 			if ( template ) {
 				// Update sizes to fit with selected template
 				columns.forEach( ( column, index ) => {
@@ -197,17 +270,30 @@ class BootstrapRowEdit extends Component {
 						title={ __( 'Change layout', 'wp-bootstrap-blocks' ) }
 					>
 						<ul className="wp-bootstrap-blocks-template-selector-list">
-							{ templates.map( ( template, index ) => ( // eslint-disable-line no-shadow
-								<li className="wp-bootstrap-blocks-template-selector-button" key={ index }>
+							{ templates.map( (
+								template,
+								index // eslint-disable-line no-shadow
+							) => (
+								<li
+									className="wp-bootstrap-blocks-template-selector-button"
+									key={ index }
+								>
 									<IconButton
 										label={ template.title }
 										icon={ template.icon }
 										onClick={ () => {
 											onTemplateChange( template.name );
 										} }
-										className={ selectedTemplateName === template.name ? 'is-active' : null }
+										className={
+											selectedTemplateName ===
+											template.name
+												? 'is-active'
+												: null
+										}
 									>
-										<div className="wp-bootstrap-blocks-template-selector-button-label">{ template.title }</div>
+										<div className="wp-bootstrap-blocks-template-selector-button-label">
+											{ template.title }
+										</div>
 									</IconButton>
 								</li>
 							) ) }
@@ -219,21 +305,35 @@ class BootstrapRowEdit extends Component {
 						<CheckboxControl
 							label={ __( 'No Gutters', 'wp-bootstrap-blocks' ) }
 							checked={ noGutters }
-							onChange={ ( isChecked ) => setAttributes( { noGutters: isChecked } ) }
+							onChange={ ( isChecked ) =>
+								setAttributes( { noGutters: isChecked } )
+							}
 						/>
 					</PanelBody>
 				</InspectorControls>
 				<BlockControls>
 					<AlignmentToolbar
 						value={ alignment }
-						label={ __( 'Change horizontal alignment of columns', 'wp-bootstrap-blocks' ) }
-						onChange={ ( newAlignment ) => setAttributes( { alignment: newAlignment } ) }
+						label={ __(
+							'Change horizontal alignment of columns',
+							'wp-bootstrap-blocks'
+						) }
+						onChange={ ( newAlignment ) =>
+							setAttributes( { alignment: newAlignment } )
+						}
 						alignmentControls={ alignmentControls }
 					/>
 					<AlignmentToolbar
 						value={ verticalAlignment }
-						label={ __( 'Change vertical alignment of columns', 'wp-bootstrap-blocks' ) }
-						onChange={ ( newVerticalAlignment ) => setAttributes( { verticalAlignment: newVerticalAlignment } ) }
+						label={ __(
+							'Change vertical alignment of columns',
+							'wp-bootstrap-blocks'
+						) }
+						onChange={ ( newVerticalAlignment ) =>
+							setAttributes( {
+								verticalAlignment: newVerticalAlignment,
+							} )
+						}
 						alignmentControls={ verticalAlignmentControls }
 					/>
 				</BlockControls>
@@ -241,7 +341,9 @@ class BootstrapRowEdit extends Component {
 					<InnerBlocks
 						allowedBlocks={ ALLOWED_BLOCKS }
 						template={ getColumnsTemplate( selectedTemplateName ) }
-						templateLock={ getColumnsTemplateLock( selectedTemplateName ) }
+						templateLock={ getColumnsTemplateLock(
+							selectedTemplateName
+						) }
 					/>
 				</div>
 			</Fragment>
@@ -252,7 +354,9 @@ class BootstrapRowEdit extends Component {
 const applyWithSelect = withSelect( ( select, { clientId } ) => {
 	const { getBlocksByClientId } = select( 'core/editor' );
 
-	const columns = getBlocksByClientId( clientId )[ 0 ] ? getBlocksByClientId( clientId )[ 0 ].innerBlocks : [];
+	const columns = getBlocksByClientId( clientId )[ 0 ]
+		? getBlocksByClientId( clientId )[ 0 ].innerBlocks
+		: [];
 
 	return {
 		columns,
@@ -269,5 +373,5 @@ const applyWithDispatch = withDispatch( ( dispatch ) => {
 
 export default compose(
 	applyWithSelect,
-	applyWithDispatch,
+	applyWithDispatch
 )( BootstrapRowEdit );

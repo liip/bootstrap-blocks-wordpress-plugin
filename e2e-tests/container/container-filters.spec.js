@@ -8,17 +8,12 @@ import {
 	getEditedPostContent,
 } from '@wordpress/e2e-test-utils';
 import {
-} from '../row/row-helper';
-import {
 	getCheckboxValueByLabel,
 	getSelectedValueBySelectLabel,
 	selectOption,
 	selectOptionIsAvailable,
 } from '../helper';
-import {
-	insertContainerBlock,
-	selectContainerBlock,
-} from './container-helper';
+import { insertContainerBlock, selectContainerBlock } from './container-helper';
 
 describe( 'container block filters', () => {
 	beforeAll( async () => {
@@ -38,7 +33,9 @@ describe( 'container block filters', () => {
 		await selectContainerBlock();
 
 		// Additional padding option should be available
-		expect( await selectOptionIsAvailable( 'Margin After', 'mb-8' ) ).toBe( true );
+		expect( await selectOptionIsAvailable( 'Margin After', 'mb-8' ) ).toBe(
+			true
+		);
 
 		// Margin option should be applied
 		await selectOption( 'Margin After', 'mb-8' );
@@ -55,10 +52,14 @@ describe( 'container block filters', () => {
 		expect( await getCheckboxValueByLabel( 'Fluid' ) ).toBe( true );
 
 		// Fluid Breakpoint should be selected
-		expect( await getSelectedValueBySelectLabel( 'Fluid Breakpoint' ) ).toMatch( 'md' );
+		expect(
+			await getSelectedValueBySelectLabel( 'Fluid Breakpoint' )
+		).toMatch( 'md' );
 
 		// Margin should be selected
-		expect( await getSelectedValueBySelectLabel( 'Margin After' ) ).toMatch( 'mb-3' );
+		expect( await getSelectedValueBySelectLabel( 'Margin After' ) ).toMatch(
+			'mb-3'
+		);
 
 		// Check if attributes are set correctly
 		expect( await getEditedPostContent() ).toMatchSnapshot();
