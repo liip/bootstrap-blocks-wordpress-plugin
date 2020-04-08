@@ -181,7 +181,7 @@ describe( 'column block', () => {
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 
 		// Remove background color
-		await page.click( 'button.components-color-palette__clear' );
+		await page.click( 'button.components-circular-option-picker__clear' );
 
 		columnData = await getDataValuesOfElement(
 			`#block-${ firstColumnBlockClientId }`

@@ -60,7 +60,7 @@ describe( 'button block', () => {
 
 		// Change alignment
 		await clickBlockToolbarButton( 'Change button alignment' );
-		await clickButton( 'Align Text Center' );
+		await clickButton( 'Align text center' );
 		expect(
 			await page.$(
 				'[data-type="wp-bootstrap-blocks/button"][data-alignment="center"]'

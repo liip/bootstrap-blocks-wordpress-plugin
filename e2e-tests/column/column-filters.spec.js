@@ -40,13 +40,13 @@ describe( 'column block filters', () => {
 		// Additional background color should be available
 		expect(
 			await page.$(
-				'.components-color-palette__item[aria-label="Color: brand"]'
+				'.components-circular-option-picker__option[aria-label="Color: brand"]'
 			)
 		).not.toBeNull();
 
 		// Background color should be applied
 		await page.click(
-			'.components-color-palette__item[aria-label="Color: brand"]'
+			'.components-circular-option-picker__option[aria-label="Color: brand"]'
 		);
 
 		expect( await getEditedPostContent() ).toMatchSnapshot();
@@ -97,8 +97,10 @@ describe( 'column block filters', () => {
 		// Background color should be selected
 		await openSidebarPanelWithTitle( 'Background color' );
 		// There is no way to see which color of a color palette is selected. That's why we check the data attribute value.
+		// TODO since e2e-test-utils 4.x (or WordPress 5.4) the elements list always has one prepended element -> that's why we raise the index by 1 (in this case index 1 instead of 0)
 		const columnData = await getDataValuesOfElement(
-			'[data-type="wp-bootstrap-blocks/column"]'
+			'[data-type="wp-bootstrap-blocks/column"]',
+			1
 		);
 		expect( columnData.bgColor ).toMatch( 'primary' );
 		expect(

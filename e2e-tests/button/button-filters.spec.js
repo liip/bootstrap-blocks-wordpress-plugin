@@ -54,7 +54,7 @@ describe( 'button block filters', () => {
 		expect(
 			await toolbarOptionIsActive(
 				'Change button alignment',
-				'Align Text Center'
+				'Align text center'
 			)
 		).toBe( true );
 

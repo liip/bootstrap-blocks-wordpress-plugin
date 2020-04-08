@@ -108,7 +108,7 @@ describe( 'row block', () => {
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 	} );
 
-	it( 'Should only be possible to select column blocks in block inserter', async () => {
+	it( 'Should only be possible to add column in custom layout', async () => {
 		await insertRowBlock();
 		await selectRowBlock();
 
@@ -122,24 +122,16 @@ describe( 'row block', () => {
 			)
 		).not.toBeNull();
 
-		// Only wp-bootstrap-blocks/column should be available in block inserter
+		// Add column block by clicking the block list appender
 		await page.click(
 			'.wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout > .block-list-appender'
 		);
-		const numberOfAvailableBlocks = (
+		const numberOfColumnBlocks = (
 			await page.$$(
-				'.block-editor-inserter__popover button.block-editor-block-types-list__item'
+				'[data-type="wp-bootstrap-blocks/column"]'
 			)
 		 ).length;
-		const numberOfAvailableColumnBlocks = (
-			await page.$$(
-				'.block-editor-inserter__popover button.block-editor-block-types-list__item.editor-block-list-item-wp-bootstrap-blocks-column'
-			)
-		 ).length;
-		expect( numberOfAvailableColumnBlocks ).toBeGreaterThanOrEqual( 1 );
-		expect( numberOfAvailableBlocks ).toEqual(
-			numberOfAvailableColumnBlocks
-		);
+		expect( numberOfColumnBlocks ).toEqual( 3 );
 	} );
 
 	it( 'Should be possible to apply row options', async () => {
