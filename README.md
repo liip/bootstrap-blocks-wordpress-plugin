@@ -610,3 +610,9 @@ or the following command to run a specific test:
 ```bash
 npm run test:e2e -- -t 'my test'
 ```
+
+To update the snapshots run the following command:
+
+```bash
+npm run test:e2e -- -u
+```
