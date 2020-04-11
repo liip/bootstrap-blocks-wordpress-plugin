@@ -6,12 +6,8 @@ import {
 } from './icons';
 
 const { __ } = wp.i18n;
-const {
-	InnerBlocks,
-	InspectorControls,
-	BlockControls,
-	AlignmentToolbar,
-} = wp.editor;
+const { InnerBlocks, InspectorControls, BlockControls, AlignmentToolbar } =
+	wp.blockEditor || wp.editor; // Fallback to 'wp.editor' for backwards compatibility
 const { IconButton, CheckboxControl, PanelBody, SVG, Path } = wp.components;
 const { Component, Fragment } = wp.element;
 const { withSelect, withDispatch } = wp.data;
@@ -352,7 +348,8 @@ class BootstrapRowEdit extends Component {
 }
 
 const applyWithSelect = withSelect( ( select, { clientId } ) => {
-	const { getBlocksByClientId } = select( 'core/editor' );
+	const { getBlocksByClientId } =
+		select( 'core/block-editor' ) || select( 'core/editor' ); // Fallback to 'core/editor' for backwards compatibility
 
 	const columns = getBlocksByClientId( clientId )[ 0 ]
 		? getBlocksByClientId( clientId )[ 0 ].innerBlocks
@@ -364,7 +361,8 @@ const applyWithSelect = withSelect( ( select, { clientId } ) => {
 } );
 
 const applyWithDispatch = withDispatch( ( dispatch ) => {
-	const { updateBlockAttributes } = dispatch( 'core/editor' );
+	const { updateBlockAttributes } =
+		dispatch( 'core/block-editor' ) || dispatch( 'core/editor' ); // Fallback to 'core/editor' for backwards compatibility
 
 	return {
 		updateBlockAttributes,

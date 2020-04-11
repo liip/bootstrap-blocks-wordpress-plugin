@@ -2,7 +2,7 @@
  * WordPress dependencies
  */
 const { __ } = wp.i18n;
-const { InnerBlocks, InspectorControls } = wp.editor;
+const { InnerBlocks, InspectorControls } = wp.blockEditor || wp.editor; // Fallback to 'wp.editor' for backwards compatibility
 const {
 	CheckboxControl,
 	ColorPalette,

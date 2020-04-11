@@ -9,7 +9,7 @@ const {
 	InspectorControls,
 	BlockControls,
 	AlignmentToolbar,
-} = wp.editor;
+} = wp.blockEditor || wp.editor; // Fallback to 'wp.editor' for backwards compatibility
 const { Dashicon, IconButton, SelectControl, PanelBody } = wp.components;
 const { applyFilters } = wp.hooks;
 

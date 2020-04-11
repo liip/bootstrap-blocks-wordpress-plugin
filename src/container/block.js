@@ -4,7 +4,7 @@
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
-const { InnerBlocks, InspectorControls } = wp.editor;
+const { InnerBlocks, InspectorControls } = wp.blockEditor || wp.editor; // Fallback to 'wp.editor' for backwards compatibility
 const { SelectControl, CheckboxControl, PanelBody } = wp.components;
 const { Fragment } = wp.element;
 const { applyFilters } = wp.hooks;
