@@ -4,11 +4,41 @@
 
 This plugin adds Bootstrap components and layout options as Gutenberg blocks.
 
-The following blocks are currently available:
+## Available blocks
 
-* Container
-* Grid (Row / Column)
-* Button
+### Container
+
+#### Options
+
+* Fluid: If enabled the container will use the full available width, spanning the entire width of the viewport.
+* Fluid Breakpoint: Used to enable [responsive containers](https://getbootstrap.com/docs/4.4/layout/overview/#responsive). This feature only work with Bootstrap v4.4+. The container will use 100% of the width until the specified breakpoint is reached, after which the defined max-widths will apply for each of the higher breakpoints.
+* Margin After: Define a margin which should be added after the container.
+
+### Row
+
+#### Options
+
+* Template: Choose from a predefined template for the inner `column` blocks.
+* No Gutters: Disable gutters between columns.
+* Alignment: Horizontal alignment of inner `column` blocks.
+* Vertical Alignment: Vertical alignment of inner `column` blocks.
+
+### Column
+
+#### Options
+
+* Sizes for all breakpoints (xl, lg, md, sm, xs): How much space the column should use for the given breakpoint.
+* Equal width for all breakpoints (xl, lg, md, sm, xs): If enabled column will spread width evenly with other columns.
+* Background Color: Set background color to column.
+* Center content: Center content vertically in column. This option is only needed if a background color is set. Otherwise use the **Alignment** option of the otuer `row` block.
+* Padding: Define padding inside the column.
+
+### Button
+
+#### Options
+
+* Style: Choose the styling of the button.
+* Alignment: Horizontal alignment of the button.
 
 ## Further Information
 
