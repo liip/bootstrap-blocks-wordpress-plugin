@@ -5,7 +5,7 @@ Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.0
 Tested up to: 5.4
 Requires PHP: 5.6
-Stable tag: 2.1.0
+Stable tag: 2.2.0
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -101,8 +101,10 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 == Changelog ==
 
-= 2.1.1 =
+= 2.2.0 =
 
+* [IMPROVEMENT] Improve visibility of row, column and container blocks in editor.
+* [IMPROVEMENT] Do not automatically insert default block in wrapper blocks (column and container) [WordPress >=5.3].
 * [FIX] Replace usage of deprecated packages.
 
 = 2.1.0 =
