@@ -2,11 +2,7 @@
 
 exports[`column block filters wp_bootstrap_blocks_column_default_attributes should override default attributes 1`] = `
 "<!-- wp:wp-bootstrap-blocks/row -->
-<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} -->
-<!-- wp:paragraph -->
-<p></p>
-<!-- /wp:paragraph -->
-<!-- /wp:wp-bootstrap-blocks/column -->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
 
 <!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
 <!-- /wp:wp-bootstrap-blocks/row -->"
@@ -14,11 +10,7 @@ exports[`column block filters wp_bootstrap_blocks_column_default_attributes shou
 
 exports[`column block filters wpBootstrapBlocks.column.bgColorOptions should add background color 1`] = `
 "<!-- wp:wp-bootstrap-blocks/row -->
-<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6,\\"bgColor\\":\\"brand\\"} -->
-<!-- wp:paragraph -->
-<p></p>
-<!-- /wp:paragraph -->
-<!-- /wp:wp-bootstrap-blocks/column -->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6,\\"bgColor\\":\\"brand\\"} /-->
 
 <!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
 <!-- /wp:wp-bootstrap-blocks/row -->"
@@ -26,11 +18,7 @@ exports[`column block filters wpBootstrapBlocks.column.bgColorOptions should add
 
 exports[`column block filters wpBootstrapBlocks.column.paddingOptions should add padding option 1`] = `
 "<!-- wp:wp-bootstrap-blocks/row -->
-<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6,\\"padding\\":\\"p-8\\"} -->
-<!-- wp:paragraph -->
-<p></p>
-<!-- /wp:paragraph -->
-<!-- /wp:wp-bootstrap-blocks/column -->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6,\\"padding\\":\\"p-8\\"} /-->
 
 <!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
 <!-- /wp:wp-bootstrap-blocks/row -->"
