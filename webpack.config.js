@@ -1,8 +1,6 @@
 /**
  * Extend webpack configuration from @wordpress/scripts.
  * Source: https://jeffreycarandang.com/create-gutenberg-block-plugin-wp-scripts-postcss-build/
- *
- * @package wp-boostrap-blocks
  */
 
 const defaultConfig = require( './node_modules/@wordpress/scripts/config/webpack.config.js' );

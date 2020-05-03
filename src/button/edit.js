@@ -34,6 +34,7 @@ class BootstrapButtonEdit extends Component {
 			<Fragment>
 				<div className={ className } data-alignment={ alignment }>
 					<RichText
+						// eslint-disable-next-line @wordpress/i18n-ellipsis
 						placeholder={ __(
 							'Add text...',
 							'wp-bootstrap-blocks'
