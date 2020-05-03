@@ -11,7 +11,9 @@ const {
 	SelectControl,
 } = wp.components;
 const { Component, Fragment } = wp.element;
+const { withSelect } = wp.data;
 const { applyFilters } = wp.hooks;
+const { compose } = wp.compose;
 
 const ColumnSizeRangeControl = ( {
 	label,
@@ -58,9 +60,14 @@ paddingOptions = applyFilters(
 	paddingOptions
 );
 
-export default class BootstrapColumnEdit extends Component {
+class BootstrapColumnEdit extends Component {
 	render() {
-		const { attributes, className, setAttributes } = this.props;
+		const {
+			attributes,
+			className,
+			setAttributes,
+			hasChildBlocks,
+		} = this.props;
 		const {
 			sizeXl,
 			sizeLg,
@@ -263,9 +270,28 @@ export default class BootstrapColumnEdit extends Component {
 					</PanelBody>
 				</InspectorControls>
 				<div className={ className }>
-					<InnerBlocks templateLock={ false } />
+					<InnerBlocks
+						templateLock={ false }
+						renderAppender={
+							hasChildBlocks
+								? undefined
+								: () => <InnerBlocks.ButtonBlockAppender />
+						}
+					/>
 				</div>
 			</Fragment>
 		);
 	}
 }
+
+export default compose(
+	withSelect( ( select, ownProps ) => {
+		const { clientId } = ownProps;
+		const { getBlockOrder } =
+			select( 'core/block-editor' ) || select( 'core/editor' ); // Fallback to 'core/editor' for backwards compatibility
+
+		return {
+			hasChildBlocks: getBlockOrder( clientId ).length > 0,
+		};
+	} )
+)( BootstrapColumnEdit );
