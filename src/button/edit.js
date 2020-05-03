@@ -9,7 +9,7 @@ const {
 	InspectorControls,
 	BlockControls,
 	AlignmentToolbar,
-} = wp.editor;
+} = wp.blockEditor || wp.editor; // Fallback to 'wp.editor' for backwards compatibility
 const { Dashicon, IconButton, SelectControl, PanelBody } = wp.components;
 const { applyFilters } = wp.hooks;
 
@@ -34,6 +34,7 @@ class BootstrapButtonEdit extends Component {
 			<Fragment>
 				<div className={ className } data-alignment={ alignment }>
 					<RichText
+						// eslint-disable-next-line @wordpress/i18n-ellipsis
 						placeholder={ __(
 							'Add text...',
 							'wp-bootstrap-blocks'

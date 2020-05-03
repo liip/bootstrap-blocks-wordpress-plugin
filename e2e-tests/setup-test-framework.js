@@ -61,24 +61,8 @@ function observeConsoleLogging() {
 		if ( text.startsWith( 'Warning: %s is deprecated in StrictMode.' ) ) {
 			return;
 		}
+
 		// wp-bootstrap-block exceptions for WordPress 5.3
-		if ( text.includes( 'is deprecated. Please use wp.blockEditor.' ) ) {
-			return;
-		}
-		if (
-			text.includes(
-				"is deprecated. Please use `wp.data.select( 'core/block-editor' )"
-			)
-		) {
-			return;
-		}
-		if (
-			text.includes(
-				"is deprecated. Please use `wp.data.dispatch( 'core/block-editor' )"
-			)
-		) {
-			return;
-		}
 		if (
 			text.includes(
 				'RichText formattingControls prop is deprecated. Please use allowedFormats instead.'

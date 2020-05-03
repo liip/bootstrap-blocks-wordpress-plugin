@@ -28,10 +28,14 @@ describe( 'row block backwards compatibility', () => {
 
 		// Row blocks should be successfully inserted
 		expect(
-			await page.$$( '[data-type="wp-bootstrap-blocks/row"]' )
+			await page.$$(
+				'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/row"]'
+			)
 		).toHaveLength( 2 );
 		expect(
-			await page.$$( '[data-type="wp-bootstrap-blocks/column"]' )
+			await page.$$(
+				'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/column"]'
+			)
 		).toHaveLength( 4 );
 
 		expect( await getEditedPostContent() ).toMatchSnapshot();
@@ -39,21 +43,27 @@ describe( 'row block backwards compatibility', () => {
 		await testVersion100RowFeatures();
 	} );
 
+	/* eslint-disable jest/expect-expect */
 	it( 'v1.0.0 column block content should be compatible', async () => {
 		await setPostContent( rowContent100 );
 
 		await testVersion100ColumnFeatures();
 	} );
+	/* eslint-enable jest/expect-expect */
 
 	it( 'v1.1.0 row block content should be compatible', async () => {
 		await setPostContent( rowContent110 );
 
 		// Row blocks should be successfully inserted
 		expect(
-			await page.$$( '[data-type="wp-bootstrap-blocks/row"]' )
+			await page.$$(
+				'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/row"]'
+			)
 		).toHaveLength( 3 );
 		expect(
-			await page.$$( '[data-type="wp-bootstrap-blocks/column"]' )
+			await page.$$(
+				'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/column"]'
+			)
 		).toHaveLength( 6 );
 
 		expect( await getEditedPostContent() ).toMatchSnapshot();
@@ -63,6 +73,7 @@ describe( 'row block backwards compatibility', () => {
 		await testVersion110RowFeatures();
 	} );
 
+	/* eslint-disable jest/expect-expect */
 	it( 'v1.1.0 column block content should be compatible', async () => {
 		await setPostContent( rowContent110 );
 
@@ -70,7 +81,9 @@ describe( 'row block backwards compatibility', () => {
 
 		await testVersion110ColumnFeatures();
 	} );
+	/* eslint-enable jest/expect-expect */
 
+	/* eslint-disable jest/expect-expect */
 	it( 'v1.4.0 column block content should be compatible', async () => {
 		await setPostContent( rowContent140 );
 
@@ -80,4 +93,5 @@ describe( 'row block backwards compatibility', () => {
 
 		await testVersion140ColumnFeatures();
 	} );
+	/* eslint-enable jest/expect-expect */
 } );

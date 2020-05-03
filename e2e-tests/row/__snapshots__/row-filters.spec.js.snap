@@ -2,11 +2,7 @@
 
 exports[`row block filters wp_bootstrap_blocks_row_default_attributes should override default attributes 1`] = `
 "<!-- wp:wp-bootstrap-blocks/row -->
-<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":4} -->
-<!-- wp:paragraph -->
-<p></p>
-<!-- /wp:paragraph -->
-<!-- /wp:wp-bootstrap-blocks/column -->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":4} /-->
 
 <!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":8} /-->
 <!-- /wp:wp-bootstrap-blocks/row -->"
@@ -14,10 +10,6 @@ exports[`row block filters wp_bootstrap_blocks_row_default_attributes should ove
 
 exports[`row block filters wpBootstrapBlocks.row.templates should add additional template 1`] = `
 "<!-- wp:wp-bootstrap-blocks/row {\\"template\\":\\"1-66percent\\"} -->
-<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":8} -->
-<!-- wp:paragraph -->
-<p></p>
-<!-- /wp:paragraph -->
-<!-- /wp:wp-bootstrap-blocks/column -->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":8} /-->
 <!-- /wp:wp-bootstrap-blocks/row -->"
 `;

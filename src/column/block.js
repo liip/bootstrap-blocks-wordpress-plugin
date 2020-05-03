@@ -6,7 +6,7 @@ import edit from './edit';
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
-const { InnerBlocks } = wp.editor;
+const { InnerBlocks } = wp.blockEditor || wp.editor; // Fallback to 'wp.editor' for backwards compatibility
 
 registerBlockType( 'wp-bootstrap-blocks/column', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
