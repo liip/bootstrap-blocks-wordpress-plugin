@@ -20,10 +20,14 @@ describe( 'row block', () => {
 
 		// Check if row block was inserted
 		expect(
-			await page.$( '[data-type="wp-bootstrap-blocks/row"]' )
+			await page.$(
+				'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/row"]'
+			)
 		).not.toBeNull();
 		expect(
-			await page.$$( '[data-type="wp-bootstrap-blocks/column"]' )
+			await page.$$(
+				'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/column"]'
+			)
 		).toHaveLength( 2 );
 
 		expect( await getEditedPostContent() ).toMatchSnapshot();
@@ -40,7 +44,7 @@ describe( 'row block', () => {
 		await clickButton( 'Align columns right' );
 		expect(
 			await page.$(
-				'[data-type="wp-bootstrap-blocks/row"][data-alignment="right"]'
+				'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/row"][data-alignment="right"]'
 			)
 		).not.toBeNull();
 		expect( await getEditedPostContent() ).toMatchSnapshot();
@@ -50,7 +54,7 @@ describe( 'row block', () => {
 		await clickButton( 'Align columns bottom' );
 		expect(
 			await page.$(
-				'[data-type="wp-bootstrap-blocks/row"][data-vertical-alignment="bottom"]'
+				'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/row"][data-vertical-alignment="bottom"]'
 			)
 		).not.toBeNull();
 		expect( await getEditedPostContent() ).toMatchSnapshot();
@@ -71,7 +75,7 @@ describe( 'row block', () => {
 		).not.toBeNull();
 		expect(
 			await page.$$(
-				'[data-type="wp-bootstrap-blocks/column"][data-size-md="6"]'
+				'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/column"][data-size-md="6"]'
 			)
 		).toHaveLength( 2 );
 
@@ -82,7 +86,7 @@ describe( 'row block', () => {
 		await page.waitFor( 1000 );
 		expect(
 			await page.$$(
-				'[data-type="wp-bootstrap-blocks/column"][data-size-md="4"]'
+				'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/column"][data-size-md="4"]'
 			)
 		).toHaveLength( 3 );
 		expect( await getEditedPostContent() ).toMatchSnapshot();
@@ -127,7 +131,9 @@ describe( 'row block', () => {
 			'.wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout > .block-list-appender'
 		);
 		const numberOfColumnBlocks = (
-			await page.$$( '[data-type="wp-bootstrap-blocks/column"]' )
+			await page.$$(
+				'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/column"]'
+			)
 		 ).length;
 		expect( numberOfColumnBlocks ).toEqual( 3 );
 	} );

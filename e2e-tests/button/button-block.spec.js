@@ -63,7 +63,7 @@ describe( 'button block', () => {
 		await clickButton( 'Align text center' );
 		expect(
 			await page.$(
-				'[data-type="wp-bootstrap-blocks/button"][data-alignment="center"]'
+				'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/button"][data-alignment="center"]'
 			)
 		).not.toBeNull();
 

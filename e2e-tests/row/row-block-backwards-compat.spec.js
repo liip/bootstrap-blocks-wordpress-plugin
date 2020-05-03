@@ -28,10 +28,14 @@ describe( 'row block backwards compatibility', () => {
 
 		// Row blocks should be successfully inserted
 		expect(
-			await page.$$( '[data-type="wp-bootstrap-blocks/row"]' )
+			await page.$$(
+				'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/row"]'
+			)
 		).toHaveLength( 2 );
 		expect(
-			await page.$$( '[data-type="wp-bootstrap-blocks/column"]' )
+			await page.$$(
+				'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/column"]'
+			)
 		).toHaveLength( 4 );
 
 		expect( await getEditedPostContent() ).toMatchSnapshot();
@@ -50,10 +54,14 @@ describe( 'row block backwards compatibility', () => {
 
 		// Row blocks should be successfully inserted
 		expect(
-			await page.$$( '[data-type="wp-bootstrap-blocks/row"]' )
+			await page.$$(
+				'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/row"]'
+			)
 		).toHaveLength( 3 );
 		expect(
-			await page.$$( '[data-type="wp-bootstrap-blocks/column"]' )
+			await page.$$(
+				'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/column"]'
+			)
 		).toHaveLength( 6 );
 
 		expect( await getEditedPostContent() ).toMatchSnapshot();
