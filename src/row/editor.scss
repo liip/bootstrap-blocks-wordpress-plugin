@@ -161,15 +161,6 @@ body:not(.branch-5-2):not(.branch-5-3) .wp-block-wp-bootstrap-blocks-row {
 		outline: 1px dashed $dark-gray-150;
 	}
 
-	&[data-bg-color="primary"],
-	&[data-bg-color="primary"]:not(.is-selected):not(.has-child-selected):hover {
-		background-color: #007bff;
-	}
-	&[data-bg-color="secondary"],
-	&[data-bg-color="secondary"]:not(.is-selected):not(.has-child-selected):hover {
-		background-color: #6c757d;
-	}
-
 	&[data-center-content="true"] {
 		display: flex;
 		flex-direction: column;

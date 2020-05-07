@@ -89,6 +89,19 @@ class BootstrapColumnEdit extends Component {
 			setAttributes( { centerContent: false } );
 		}
 
+		// Prepare styles for selected background-color
+		let blockWrapperStyles = {};
+		if ( bgColor ) {
+			const selectedBgColor = bgColorOptions.find(
+				( bgColorOption ) => bgColorOption.name === bgColor
+			);
+			if ( selectedBgColor ) {
+				blockWrapperStyles = {
+					backgroundColor: selectedBgColor.color,
+				};
+			}
+		}
+
 		return (
 			<Fragment>
 				<InspectorControls>
@@ -269,7 +282,7 @@ class BootstrapColumnEdit extends Component {
 						/>
 					</PanelBody>
 				</InspectorControls>
-				<div className={ className }>
+				<div className={ className } style={ blockWrapperStyles }>
 					<InnerBlocks
 						templateLock={ false }
 						renderAppender={
