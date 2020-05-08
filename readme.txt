@@ -41,7 +41,7 @@ Options:
 * Sizes for all breakpoints (xl, lg, md, sm, xs): How much space the column should use for the given breakpoint.
 * Equal width for all breakpoints (xl, lg, md, sm, xs): If enabled column will spread width evenly with other columns.
 * Background Color: Set background color to column.
-* Center content: Center content vertically in column. This option is only needed if a background color is set. Otherwise use the **Alignment** option of the otuer `row` block.
+* Center content: Center content vertically in column. This option is only needed if a background color is set. Otherwise use the **Alignment** option of the outer `row` block.
 * Padding: Define padding inside the column.
 
 **Button**
@@ -53,9 +53,9 @@ Options:
 
 = Bootstrap library =
 
-Please be aware that this plugin does not include the Bootstrap library in your website. You need to do this for yourself. We decided not to include the library so that you can modify Bootstrap to your own needs before loading it.
+Please be aware that this plugin does not include the Bootstrap library in your website. You need to do this by yourself. We decided not to include the library so that you can modify Bootstrap to your own needs before loading it.
 
-The easiest way to do this is to add the following to your theme's `function.php`. You'll find an example for that in the [documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin).
+You'll find an example how to include it in your theme's `function.php` in the [documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin).
 
 = Templates =
 
@@ -86,7 +86,7 @@ To overwrite a block template create a folder called `wp-bootstrap-blocks/` in y
 
 = Is Bootstrap included? =
 
-No. This plugin doesn't load the Bootstrap library for you. You have to do this for yourself in your theme. Please read more about this in the [documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin).
+No. This plugin doesn't load the Bootstrap library for you. You have to do this by yourself in your theme. Please read more about this in the [documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin).
 
 = Have you found a bug or do you have a feature request? =
 
