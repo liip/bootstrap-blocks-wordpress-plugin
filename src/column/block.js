@@ -28,11 +28,13 @@ registerBlockType( 'wp-bootstrap-blocks/column', {
 
 	getEditWrapperProps( attributes ) {
 		const {
+			sizeXxl,
 			sizeXl,
 			sizeLg,
 			sizeMd,
 			sizeSm,
 			sizeXs,
+			equalWidthXxl,
 			equalWidthXl,
 			equalWidthLg,
 			equalWidthMd,
@@ -58,6 +60,7 @@ registerBlockType( 'wp-bootstrap-blocks/column', {
 
 		return {
 			'data-size-xs':
+				equalWidthXxl ||
 				equalWidthXl ||
 				equalWidthLg ||
 				equalWidthMd ||
@@ -66,13 +69,14 @@ registerBlockType( 'wp-bootstrap-blocks/column', {
 					? 0
 					: sizeXs,
 			'data-size-sm':
-				equalWidthXl || equalWidthLg || equalWidthMd || equalWidthSm
+				equalWidthXxl || equalWidthXl || equalWidthLg || equalWidthMd || equalWidthSm
 					? 0
 					: sizeSm,
 			'data-size-md':
-				equalWidthXl || equalWidthLg || equalWidthMd ? 0 : sizeMd,
-			'data-size-lg': equalWidthXl || equalWidthLg ? 0 : sizeLg,
-			'data-size-xl': equalWidthXl ? 0 : sizeXl,
+				equalWidthXxl || equalWidthXl || equalWidthLg || equalWidthMd ? 0 : sizeMd,
+			'data-size-lg': equalWidthXxl || equalWidthXl || equalWidthLg ? 0 : sizeLg,
+			'data-size-xl': equalWidthXxl || equalWidthXl ? 0 : sizeXl,
+			'data-size-xxl': equalWidthXxl ? 0 : sizeXxl,
 			'data-bg-color': bgColor,
 			'data-padding': padding,
 			'data-center-content': centerContent,
