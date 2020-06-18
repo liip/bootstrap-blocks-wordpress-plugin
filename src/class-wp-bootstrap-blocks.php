@@ -196,6 +196,14 @@ class WP_Bootstrap_Blocks {
 			true // Enqueue the script in the footer.
 		);
 
+		wp_localize_script(
+			$this->token . '-js',
+			'wpBootstrapBlocks',
+			array(
+				'bootstrapVersion' => Settings::get_bootstrap_version(),
+			)
+		);
+
 		// Styles.
 		wp_enqueue_style(
 			$this->token . '-editor-styles', // Handle.

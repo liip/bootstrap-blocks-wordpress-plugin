@@ -18,21 +18,33 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 	 */
 	class Settings {
 
-		const SETTINGS_BOOTSTRAP_VERSION_CONSTANT_NAME = 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION';
+		/**
+		 * Name of bootstrap version constant.
+		 *
+		 * @var string
+		 */
+		const BOOTSTRAP_VERSION_CONSTANT_NAME = 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION';
+
+		/**
+		 * Default bootstrap version value.
+		 *
+		 * @var int
+		 */
+		const BOOTSTRAP_VERSION_DEFAULT_VALUE = 4;
 
 		/**
 		 * Prefix for plugin settings.
 		 *
 		 * @var string
 		 */
-		public $option_prefix = 'wp-bootstrap-blocks_';
+		const OPTION_PREFIX = 'wp-bootstrap-blocks_';
 
 		/**
 		 * Menu slug.
 		 *
 		 * @var string
 		 */
-		public $menu_slug = 'wp-bootstrap-blocks_settings';
+		const MENU_SLUG = 'wp-bootstrap-blocks_settings';
 
 		/**
 		 * Settings constructor.
@@ -58,7 +70,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 		 * Add settings page to admin menu.
 		 */
 		public function add_menu_item() {
-			add_options_page( __( 'Bootstrap Blocks Settings', 'wp-bootstrap-blocks' ), __( 'Bootstrap Blocks', 'wp-bootstrap-blocks' ), 'manage_options', $this->menu_slug, array( $this, 'settings_page' ) );
+			add_options_page( __( 'Bootstrap Blocks Settings', 'wp-bootstrap-blocks' ), __( 'Bootstrap Blocks', 'wp-bootstrap-blocks' ), 'manage_options', self::MENU_SLUG, array( $this, 'settings_page' ) );
 		}
 
 		/**
@@ -69,7 +81,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 		 * @return array Modified links
 		 */
 		public function add_settings_link( $links ) {
-			$settings_link = '<a href="' . esc_url( admin_url( 'options-general.php?page=' . $this->menu_slug ) ) . '">' . esc_html__( 'Settings', 'wp-bootstrap-blocks' ) . '</a>';
+			$settings_link = '<a href="' . esc_url( admin_url( 'options-general.php?page=' . self::MENU_SLUG ) ) . '">' . esc_html__( 'Settings', 'wp-bootstrap-blocks' ) . '</a>';
 			// add settings link as first element
 			array_unshift( $links, $settings_link );
 
@@ -85,13 +97,14 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 			$settings_fields = array(
 				array(
 					'id' => 'bootstrap_version',
-					'label' => __( 'Bootstrap Version', 'wp-bootstrap-blocks' ),
+					'label' => __( 'Bootstrap Version (experimental)', 'wp-bootstrap-blocks' ),
 					'type' => 'select',
+					'default' => self::BOOTSTRAP_VERSION_DEFAULT_VALUE,
 					'options' => array(
-						'4' => '4.x',
-						'5' => '5.x',
+						4 => '4.x',
+						5 => '5.x',
 					),
-					'constant_name' => self::SETTINGS_BOOTSTRAP_VERSION_CONSTANT_NAME,
+					'constant_name' => self::BOOTSTRAP_VERSION_CONSTANT_NAME,
 				),
 			);
 
@@ -103,13 +116,13 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 					$this,
 					'settings_section',
 				),
-				$this->menu_slug
+				self::MENU_SLUG
 			);
 
 			foreach ( $settings_fields as $field ) {
 				// Register field
-				$option_name = $this->option_prefix . $field['id'];
-				register_setting( $this->menu_slug, $option_name );
+				$option_name = self::OPTION_PREFIX . $field['id'];
+				register_setting( self::MENU_SLUG, $option_name );
 
 				// Add field to page
 				add_settings_field(
@@ -119,25 +132,16 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 						$this,
 						'display_field',
 					),
-					$this->menu_slug,
+					self::MENU_SLUG,
 					$section,
 					array(
 						'field' => $field,
-						'prefix' => $this->option_prefix,
+						'prefix' => self::OPTION_PREFIX,
 						'label_for' => $field['id'],
 						'constant_name' => array_key_exists( 'constant_name', $field ) ? $field['constant_name'] : '',
 						'disabled' => array_key_exists( 'disabled', $field ) ? $field['disabled'] : '',
 					)
 				);
-
-				// disable saving of options which are stored in constants
-				if ( array_key_exists( 'constant_name', $field ) && ! empty( $field['constant_name'] ) && defined( $field['constant_name'] ) ) {
-					global $new_whitelist_options;
-					$option_key = array_search( $option_name, $new_whitelist_options[ $this->menu_slug ], true );
-					if ( false !== $option_key ) {
-						unset( $new_whitelist_options[ $this->menu_slug ][ $option_key ] );
-					}
-				}
 			}
 		}
 
@@ -157,14 +161,14 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 				wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'wp-bootstrap-blocks' ) );
 			}
 			?>
-			<div class="wrap" id="<?php echo esc_attr( $this->menu_slug ); ?>">
+			<div class="wrap" id="<?php echo esc_attr( self::MENU_SLUG ); ?>">
 				<h1><?php esc_html_e( 'Bootstrap Blocks Settings', 'wp-bootstrap-blocks' ); ?></h1>
 
 				<form method="post" action="options.php" enctype="multipart/form-data">
 					<?php
 					// Get settings fields
-					settings_fields( $this->menu_slug );
-					do_settings_sections( $this->menu_slug );
+					settings_fields( self::MENU_SLUG );
+					do_settings_sections( self::MENU_SLUG );
 					submit_button();
 					?>
 				</form>
@@ -275,7 +279,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 				$html .= '<div class="constant-notice">' . sprintf(
 					// translators: %s contains constant name
 					esc_html_x(
-						'Option disabled because %s constant is set',
+						'Option disabled because %s constant is set.',
 						'%s contains constant name',
 						'wp-bootstrap-blocks'
 					),
@@ -286,6 +290,31 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 			// @codingStandardsIgnoreStart
 			echo $html;
 			// @codingStandardsIgnoreEnd
+		}
+
+		/**
+		 * Get bootstrap version option.
+		 *
+		 * @return int
+		 */
+		public static function get_bootstrap_version() {
+			return intval( self::get_option( 'bootstrap_version', self::BOOTSTRAP_VERSION_CONSTANT_NAME, self::BOOTSTRAP_VERSION_DEFAULT_VALUE ) );
+		}
+
+		/**
+		 * Get option value in the following order:
+		 * - from constant if defined
+		 * - from database
+		 * - default value
+		 *
+		 * @param string $option_name Name of option.
+		 * @param string $constant_name Name of constant.
+		 * @param mixed  $default_value Default value if option is not set.
+		 *
+		 * @return mixed
+		 */
+		public static function get_option( $option_name, $constant_name, $default_value ) {
+			return defined( $constant_name ) ? constant( $constant_name ) : get_option( self::OPTION_PREFIX . $option_name, $default_value );
 		}
 
 	}
