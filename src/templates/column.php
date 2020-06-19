@@ -71,10 +71,12 @@ if ( array_key_exists( 'equalWidthXl', $attributes ) && $attributes['equalWidthX
 } elseif ( array_key_exists( 'sizeXl', $attributes ) && $attributes['sizeXl'] > 0 ) {
 	array_push( $classes, 'col-xl-' . $attributes['sizeXl'] );
 }
-if ( array_key_exists( 'equalWidthXxl', $attributes ) && $attributes['equalWidthXxl'] ) {
-	array_push( $classes, 'col-xxl' );
-} elseif ( array_key_exists( 'sizeXxl', $attributes ) && $attributes['sizeXxl'] > 0 ) {
-	array_push( $classes, 'col-xxl-' . $attributes['sizeXxl'] );
+if ( \WP_Bootstrap_Blocks\Settings::get_bootstrap_version() >= 5 ) {
+	if ( array_key_exists( 'equalWidthXxl', $attributes ) && $attributes['equalWidthXxl'] ) {
+		array_push( $classes, 'col-xxl' );
+	} elseif ( array_key_exists( 'sizeXxl', $attributes ) && $attributes['sizeXxl'] > 0 ) {
+		array_push( $classes, 'col-xxl-' . $attributes['sizeXxl'] );
+	}
 }
 if ( array_key_exists( 'className', $attributes ) && ! empty( $attributes['className'] ) ) {
 	array_push( $classes, $attributes['className'] );

@@ -204,27 +204,31 @@ class BootstrapColumnEdit extends Component {
 								setAttributes( { equalWidthXl: isChecked } )
 							}
 						/>
-						<hr />
-						<ColumnSizeRangeControl
-							label={ __(
-								'Xxl Column count',
-								'wp-bootstrap-blocks'
-							) }
-							attributeName="sizeXxl"
-							value={ sizeXxl }
-							disabled={ equalWidthXxl }
-							setAttributes={ setAttributes }
-						/>
-						<CheckboxControl
-							label={ __(
-								'Xxl equal-width',
-								'wp-bootstrap-blocks'
-							) }
-							checked={ equalWidthXxl }
-							onChange={ ( isChecked ) =>
-								setAttributes( { equalWidthXxl: isChecked } )
-							}
-						/>
+						{ wpBootstrapBlocks.bootstrapVersion >= 5 && (
+							<Fragment>
+								<hr />
+								<ColumnSizeRangeControl
+									label={ __(
+										'Xxl Column count',
+										'wp-bootstrap-blocks'
+									) }
+									attributeName="sizeXxl"
+									value={ sizeXxl }
+									disabled={ equalWidthXxl }
+									setAttributes={ setAttributes }
+								/>
+								<CheckboxControl
+									label={ __(
+										'Xxl equal-width',
+										'wp-bootstrap-blocks'
+									) }
+									checked={ equalWidthXxl }
+									onChange={ ( isChecked ) =>
+										setAttributes( { equalWidthXxl: isChecked } )
+									}
+								/>
+							</Fragment>
+						) }
 					</PanelBody>
 					<PanelBody
 						title={ __(
