@@ -78,8 +78,8 @@ class WP_Bootstrap_Blocks {
 		$this->init_plugin_environment();
 		$this->includes();
 		$this->init_hooks();
-		$this->init_settings();
 		$this->register_block_types();
+		Settings::init();
 	}
 
 	/**
@@ -247,13 +247,6 @@ class WP_Bootstrap_Blocks {
 	public function set_script_translations() {
 		$domain = 'wp-bootstrap-blocks'; // textdomain can't be stored in class variable since it must be a single string literal
 		wp_set_script_translations( $this->token . '-js', $domain, $this->languages_dir_full );
-	}
-
-	/**
-	 * Initialize settings
-	 */
-	public function init_settings() {
-		new Settings();
 	}
 
 	/**

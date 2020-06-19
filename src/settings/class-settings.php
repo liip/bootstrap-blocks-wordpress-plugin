@@ -47,30 +47,44 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 		const MENU_SLUG = 'wp-bootstrap-blocks_settings';
 
 		/**
+		 * True if settings are already initialized.
+		 *
+		 * @var bool
+		 */
+		private static $initialized = false;
+
+		/**
 		 * Settings constructor.
 		 */
-		public function __construct() {
-			// Add settings page to menu
-			add_action( 'admin_menu', array( $this, 'add_menu_item' ) );
+		public static function init() {
+			if ( ! self::$initialized ) {
+				// Add settings page to menu
+				add_action( 'admin_menu', array( __CLASS__, 'add_menu_item' ) );
 
-			// Register plugin settings
-			add_action( 'admin_init', array( $this, 'register_settings' ) );
+				// Register plugin settings
+				add_action( 'admin_init', array( __CLASS__, 'register_settings' ) );
 
-			// Add settings link to plugin list table
-			add_filter(
-				'plugin_action_links_' . plugin_basename( WP_BOOTSTRAP_BLOCKS_PLUGIN_FILE ),
-				array(
-					$this,
-					'add_settings_link',
-				)
-			);
+				// Add settings link to plugin list table
+				add_filter(
+					'plugin_action_links_' . plugin_basename( WP_BOOTSTRAP_BLOCKS_PLUGIN_FILE ),
+					array(
+						__CLASS__,
+						'add_settings_link',
+					)
+				);
+
+				// Filter saving of bootstrap version
+				add_filter( 'pre_update_option_' . self::OPTION_PREFIX . 'bootstrap_version', array( __CLASS__, 'pre_update_option_bootstrap_version' ), 10, 2 );
+
+				self::$initialized = true;
+			}
 		}
 
 		/**
 		 * Add settings page to admin menu.
 		 */
-		public function add_menu_item() {
-			add_options_page( __( 'Bootstrap Blocks Settings', 'wp-bootstrap-blocks' ), __( 'Bootstrap Blocks', 'wp-bootstrap-blocks' ), 'manage_options', self::MENU_SLUG, array( $this, 'settings_page' ) );
+		public static function add_menu_item() {
+			add_options_page( __( 'Bootstrap Blocks Settings', 'wp-bootstrap-blocks' ), __( 'Bootstrap Blocks', 'wp-bootstrap-blocks' ), 'manage_options', self::MENU_SLUG, array( __CLASS__, 'settings_page' ) );
 		}
 
 		/**
@@ -80,7 +94,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 		 *
 		 * @return array Modified links
 		 */
-		public function add_settings_link( $links ) {
+		public static function add_settings_link( $links ) {
 			$settings_link = '<a href="' . esc_url( admin_url( 'options-general.php?page=' . self::MENU_SLUG ) ) . '">' . esc_html__( 'Settings', 'wp-bootstrap-blocks' ) . '</a>';
 			// add settings link as first element
 			array_unshift( $links, $settings_link );
@@ -91,7 +105,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 		/**
 		 * Register plugin settings.
 		 */
-		public function register_settings() {
+		public static function register_settings() {
 			$section = 'default';
 
 			$settings_fields = array(
@@ -113,7 +127,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 				$section,
 				__( 'Main settings', 'wp-bootstrap-blocks' ),
 				array(
-					$this,
+					__CLASS__,
 					'settings_section',
 				),
 				self::MENU_SLUG
@@ -129,7 +143,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 					$field['id'],
 					$field['label'],
 					array(
-						$this,
+						__CLASS__,
 						'display_field',
 					),
 					self::MENU_SLUG,
@@ -150,13 +164,13 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 		 *
 		 * @param array $section Settings section.
 		 */
-		public function settings_section( $section ) {
+		public static function settings_section( $section ) {
 		}
 
 		/**
 		 * Load settings page content.
 		 */
-		public function settings_page() {
+		public static function settings_page() {
 			if ( ! current_user_can( 'manage_options' ) ) {
 				wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'wp-bootstrap-blocks' ) );
 			}
@@ -182,7 +196,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 		 *
 		 * @param array $data Additional data which is added in add_settings_field() method.
 		 */
-		public function display_field( $data = array() ) {
+		public static function display_field( $data = array() ) {
 			// Get field info
 			if ( isset( $data['field'] ) ) {
 				$field = $data['field'];
@@ -290,6 +304,18 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 			// @codingStandardsIgnoreStart
 			echo $html;
 			// @codingStandardsIgnoreEnd
+		}
+
+		/**
+		 * Always use constant value for bootstrap version if set.
+		 *
+		 * @param mixed $new_value The new, unserialized option value.
+		 * @param mixed $old_value The old option value.
+		 *
+		 * @return mixed
+		 */
+		public static function pre_update_option_bootstrap_version( $new_value, $old_value ) {
+			return defined( self::BOOTSTRAP_VERSION_CONSTANT_NAME ) ? constant( self::BOOTSTRAP_VERSION_CONSTANT_NAME ) : $new_value;
 		}
 
 		/**
