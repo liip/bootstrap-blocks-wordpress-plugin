@@ -1,5 +1,5 @@
 /* eslint-disable wrap-iife */
-( function() {
+( function () {
 	function rowFiltersTemplates( templates ) {
 		templates = [
 			...templates,

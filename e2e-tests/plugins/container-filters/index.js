@@ -1,5 +1,5 @@
 /* eslint-disable wrap-iife */
-( function() {
+( function () {
 	// Add margin after option
 	function myMarginAfterOptions( marginAfterOptions ) {
 		return [ ...marginAfterOptions, { label: 'Huge', value: 'mb-8' } ];
