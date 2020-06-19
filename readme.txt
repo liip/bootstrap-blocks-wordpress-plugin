@@ -5,7 +5,7 @@ Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.0
 Tested up to: 5.4
 Requires PHP: 5.6
-Stable tag: 2.2.0
+Stable tag: 2.3.0
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -100,6 +100,10 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 1. Container block
 
 == Changelog ==
+
+= 2.3.0 =
+
+* [FEATURE] Visually show all column background colors in editor (not only preconfigured).
 
 = 2.2.0 =
 
