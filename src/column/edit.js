@@ -38,7 +38,7 @@ const ColumnSizeRangeControl = ( {
 	);
 };
 
-let bgColorOptions = [
+export let bgColorOptions = [
 	{ name: 'primary', color: '#007bff' },
 	{ name: 'secondary', color: '#6c757d' },
 ];
@@ -87,19 +87,6 @@ class BootstrapColumnEdit extends Component {
 		// If centerContent is enabled but no background-color is selected -> reset attribute
 		if ( ! bgColor && centerContent ) {
 			setAttributes( { centerContent: false } );
-		}
-
-		// Prepare styles for selected background-color
-		let blockWrapperStyles = {};
-		if ( bgColor ) {
-			const selectedBgColor = bgColorOptions.find(
-				( bgColorOption ) => bgColorOption.name === bgColor
-			);
-			if ( selectedBgColor ) {
-				blockWrapperStyles = {
-					backgroundColor: selectedBgColor.color,
-				};
-			}
 		}
 
 		return (
@@ -282,7 +269,7 @@ class BootstrapColumnEdit extends Component {
 						/>
 					</PanelBody>
 				</InspectorControls>
-				<div className={ className } style={ blockWrapperStyles }>
+				<div className={ className }>
 					<InnerBlocks
 						templateLock={ false }
 						renderAppender={

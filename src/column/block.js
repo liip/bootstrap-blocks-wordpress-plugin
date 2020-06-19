@@ -2,7 +2,7 @@
  * BLOCK: wp-bootstrap-blocks/column
  */
 
-import edit from './edit';
+import edit, { bgColorOptions } from './edit';
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
@@ -39,6 +39,19 @@ registerBlockType( 'wp-bootstrap-blocks/column', {
 			centerContent,
 		} = attributes;
 
+		// Prepare styles for selected background-color
+		let style = {};
+		if ( bgColor ) {
+			const selectedBgColor = bgColorOptions.find(
+				( bgColorOption ) => bgColorOption.name === bgColor
+			);
+			if ( selectedBgColor ) {
+				style = {
+					backgroundColor: selectedBgColor.color,
+				};
+			}
+		}
+
 		return {
 			'data-size-xs':
 				equalWidthXl ||
@@ -59,6 +72,7 @@ registerBlockType( 'wp-bootstrap-blocks/column', {
 			'data-bg-color': bgColor,
 			'data-padding': padding,
 			'data-center-content': centerContent,
+			style,
 		};
 	},
 
