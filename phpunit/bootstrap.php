@@ -5,9 +5,17 @@
  * @package wp-bootstrap-blocks
  */
 
+// Require composer dependencies.
+require_once dirname( dirname( __FILE__ ) ) . '/vendor/autoload.php';
+
 // Determine the tests directory (from a WP dev checkout).
 // Try the WP_TESTS_DIR environment variable first.
 $_tests_dir = getenv( 'WP_TESTS_DIR' );
+
+// Next, try the WP_PHPUNIT composer package.
+if ( ! $_tests_dir ) {
+	$_tests_dir = getenv( 'WP_PHPUNIT__DIR' );
+}
 
 // See if we're installed inside an existing WP dev instance.
 if ( ! $_tests_dir ) {

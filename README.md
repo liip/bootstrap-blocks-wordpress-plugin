@@ -591,8 +591,8 @@ php wp-cli.phar i18n make-pot --exclude="wordpress" . languages/wp-bootstrap-blo
 The following commands can be used to setup a local dev environment. See the official [documentation of `@wordpress/scripts`](https://developer.wordpress.org/block-editor/packages/packages-scripts/#available-sub-scripts) for a complete list of commands.
 
 * `scripts/install-wp.sh [wp-version]`: Install local WordPress environment
-* `npm run env start`: Starts the Docker containers.
-* `npm run env stop`: Stops the Docker containers.
+* `npm run wp-env start`: Starts the Docker containers.
+* `npm run wp-env stop`: Stops the Docker containers.
 
 ### Testing
 
@@ -616,13 +616,13 @@ This file gets automatically generated if the test runs for the first time and t
 To run the tests use the following command:
 
 ```bash
-npm run env test-php
+npm run test:unit:php
 ```
 
 or the following command to run a specific test:
 
 ```bash
-npm run env test-php -- --filter 'my_test'
+npm run test:unit:php -- --filter 'my_test'
 ```
 
 #### Puppeteer E2E Tests
