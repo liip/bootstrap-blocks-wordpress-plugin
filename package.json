@@ -19,16 +19,18 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@wordpress/base-styles": "^1.7.0",
-    "@wordpress/e2e-test-utils": "^4.4.0",
-    "@wordpress/scripts": "^9.0.0",
-    "css-loader": "^3.5.3",
+    "@wordpress/base-styles": "^1.10.0",
+    "@wordpress/e2e-test-utils": "^4.9.0",
+    "@wordpress/env": "^1.5.0",
+    "@wordpress/scripts": "^11.0.0",
+    "css-loader": "^3.6.0",
     "ignore-emit-webpack-plugin": "^2.0.2",
     "lodash": "^4.17.15",
     "mini-css-extract-plugin": "^0.9.0",
-    "node-sass": "^4.14.0",
+    "node-sass": "^4.14.1",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
+    "prettier": "npm:wp-prettier@^2.0.5",
     "sass-loader": "^8.0.2",
     "webpack": "^4.43.0"
   },
@@ -37,7 +39,7 @@
     "dev": "npm run start",
     "prebuild": "npm run check-engines",
     "build": "wp-scripts build",
-    "env": "wp-scripts env",
+    "wp-env": "wp-env",
     "check-engines": "wp-scripts check-engines",
     "check-licenses": "wp-scripts check-licenses",
     "lint": "npm run lint:pkg-json && npm run lint:css && npm run lint:js && npm run lint:md-docs",
@@ -47,17 +49,11 @@
     "lint:md-docs": "wp-scripts lint-md-docs",
     "lint:md-js": "wp-scripts lint-md-js",
     "lint:pkg-json": "wp-scripts lint-pkg-json",
+    "lint:php": "npm run wp-env run composer run-script lint",
     "test:e2e": "wp-scripts test-e2e -c ./e2e-tests/jest.config.js",
     "test:e2e-interactive": "wp-scripts test-e2e -c ./e2e-tests/jest.config.js --puppeteer-interactive",
-    "test:unit": "wp-scripts test-unit-js"
-  },
-  "wp-env": {
-    "plugin-dir": "wp-bootstrap-blocks",
-    "plugin-name": "Bootstrap Blocks",
-    "docker-template": "./docker-compose.override.yml",
-    "welcome-logo": [
-      "Bootstrap Blocks"
-    ],
-    "welcome-build-command": "npm run dev"
+    "test:unit:js": "wp-scripts test-unit-js",
+    "test:unit:php": "npm run wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/wp-bootstrap-blocks/phpunit.xml.dist --verbose'",
+    "test:unit:php:ci": "npm run wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/bootstrap-blocks-wordpress-plugin/phpunit.xml.dist --verbose'"
   }
 }

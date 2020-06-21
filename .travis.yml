@@ -9,7 +9,6 @@ services:
 env:
   global:
     - secure: pTuC5XVCyo85IzE2pCulnvmsrUA6UicQH+lo2t7x7h+cJQP4YThEI8CE64L1cbH8aBby2+7mZfKvXJTEsLN4FOclY0WzIu8kncRtXmnSysM8cwXSx6ly9Ro3E1JWjT9W7BrWoE6tOMMmv5f0FKTw6b4Rwlv9sFICEERdCIcI6mrRORWwcznoMs2Pg8d0BkZsOm7gcJ7QRL+lfw72fqb8+jCaatzO9WjeUPq5txueVntgaBG+R4Pt6WNHdFPIvYjN7onos9Mw+xeZqZmubG/htTne1ZPQTX7KeI68Hic4rxGEC5eGvXOZoUxfmpoJyoBYb3uPPxWkvsSmgqEMEbTFwtXvLqOkaLXrypGZfksP+yMuBF337uwz8/7eFanYjSsY8qRHDCbQ7xQOboTZyp+soKqQStr6dfLcwsF8v5nRnLBvTBzbgSgCK81SeStH4VcumJoVvWEKPTNx4yRvSK+7W9JuHajR6EXA1YZs0jyfOXM8oDRWaP45CRbu6cKtF+YZykOXYUV8/ZCcFjixmd04VO8M31vnuHN5nF+45JtWkhW2wL62y+x3czc8mMKemhGoCPdR2V+iE38aQ8uHPzyp0dtoXsEBiaypV/c8CvYryirKqGnvNIhmOwgg7k04L5yULkRJlEw27SRnTTyNJ3Dv9NJ+9A7bX4utZcOiSxkohdM=
-    - WP_DEVELOP_DIR: ./wordpress
     - PHP_FPM_UID: 2000
     - PHP_FPM_GID: 2000
 
@@ -19,13 +18,13 @@ before_install:
 install:
   - composer install
   - npm ci
-  - scripts/install-wp.sh
+  - npm run wp-env start
 
 script:
   - npm run lint
-  - npm run env lint-php
+  - npm run lint:php
   - npm run test:e2e
-  - npm run env test-php
+  - npm run test:unit:php:ci
 
 deploy:
   provider: script

@@ -1,5 +1,5 @@
 /* eslint-disable wrap-iife */
-( function() {
+( function () {
 	function buttonFiltersStyleOptions( styleOptions ) {
 		return [ ...styleOptions, { label: 'Brand', value: 'brand' } ];
 	}
