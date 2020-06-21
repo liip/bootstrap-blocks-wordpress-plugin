@@ -1,7 +1,12 @@
 /**
  * WordPress dependencies
  */
-import { createNewPost, getEditedPostContent } from '@wordpress/e2e-test-utils';
+import {
+	clickBlockToolbarButton,
+	clickButton,
+	createNewPost,
+	getEditedPostContent,
+} from '@wordpress/e2e-test-utils';
 import { selectOption } from '../helper';
 import { insertButtonBlock, selectButtonBlock } from './button-helper';
 
@@ -49,8 +54,8 @@ describe( 'button block', () => {
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 	} );
 
-	/* TODO fix broken test
-	it( 'Should be possible to change alignment', async () => {
+	// TODO fix broken test
+	it.skip( 'Should be possible to change alignment', async () => {
 		await insertButtonBlock();
 		await selectButtonBlock();
 
@@ -66,5 +71,4 @@ describe( 'button block', () => {
 		// Editor content should match snapshot
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 	} );
-	 */
 } );

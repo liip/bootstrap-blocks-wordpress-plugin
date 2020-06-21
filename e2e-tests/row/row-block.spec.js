@@ -1,7 +1,12 @@
 /**
  * WordPress dependencies
  */
-import { createNewPost, getEditedPostContent } from '@wordpress/e2e-test-utils';
+import {
+	createNewPost,
+	getEditedPostContent,
+	clickBlockToolbarButton,
+	clickButton,
+} from '@wordpress/e2e-test-utils';
 import { insertRowBlock, selectRowBlock } from './row-helper';
 import { clickElementByText } from '../helper';
 
@@ -28,8 +33,8 @@ describe( 'row block', () => {
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 	} );
 
-	/* TODO fix broken test
-	it( 'Should be possible to change alignment', async () => {
+	// TODO fix broken test
+	it.skip( 'Should be possible to change alignment', async () => {
 		await insertRowBlock();
 		await selectRowBlock();
 
@@ -55,7 +60,6 @@ describe( 'row block', () => {
 		).not.toBeNull();
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 	} );
-	 */
 
 	it( 'Should be possible to change column layout', async () => {
 		await insertRowBlock();

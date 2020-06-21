@@ -29,7 +29,7 @@ export const testVersion100RowFeatures = async () => {
 			'Align columns right'
 		)
 	).toBe( true );
-	 */
+	*/
 
 	/* TODO fix broken test
 	// Align columns bottom should be selected
