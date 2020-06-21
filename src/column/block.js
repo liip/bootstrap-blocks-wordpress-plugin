@@ -69,12 +69,19 @@ registerBlockType( 'wp-bootstrap-blocks/column', {
 					? 0
 					: sizeXs,
 			'data-size-sm':
-				equalWidthXxl || equalWidthXl || equalWidthLg || equalWidthMd || equalWidthSm
+				equalWidthXxl ||
+				equalWidthXl ||
+				equalWidthLg ||
+				equalWidthMd ||
+				equalWidthSm
 					? 0
 					: sizeSm,
 			'data-size-md':
-				equalWidthXxl || equalWidthXl || equalWidthLg || equalWidthMd ? 0 : sizeMd,
-			'data-size-lg': equalWidthXxl || equalWidthXl || equalWidthLg ? 0 : sizeLg,
+				equalWidthXxl || equalWidthXl || equalWidthLg || equalWidthMd
+					? 0
+					: sizeMd,
+			'data-size-lg':
+				equalWidthXxl || equalWidthXl || equalWidthLg ? 0 : sizeLg,
 			'data-size-xl': equalWidthXxl || equalWidthXl ? 0 : sizeXl,
 			'data-size-xxl': equalWidthXxl ? 0 : sizeXxl,
 			'data-bg-color': bgColor,
