@@ -16,6 +16,8 @@ import { applyFilters } from '@wordpress/hooks';
 import * as BlockEditor from '@wordpress/block-editor';
 import * as Editor from '@wordpress/editor';
 
+import { getBootstrapVersion } from '../helper';
+
 const { InnerBlocks, InspectorControls } = BlockEditor || Editor; // Fallback to deprecated '@wordpress/editor' for backwards compatibility
 
 const ColumnSizeRangeControl = ( {
@@ -205,7 +207,7 @@ class BootstrapColumnEdit extends Component {
 								setAttributes( { equalWidthXl: isChecked } )
 							}
 						/>
-						{ wpBootstrapBlocks.bootstrapVersion >= 5 && (
+						{ getBootstrapVersion() >= 5 && (
 							<Fragment>
 								<hr />
 								<ColumnSizeRangeControl
