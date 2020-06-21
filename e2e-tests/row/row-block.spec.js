@@ -1,12 +1,7 @@
 /**
  * WordPress dependencies
  */
-import {
-	createNewPost,
-	getEditedPostContent,
-	clickBlockToolbarButton,
-	clickButton,
-} from '@wordpress/e2e-test-utils';
+import { createNewPost, getEditedPostContent } from '@wordpress/e2e-test-utils';
 import { insertRowBlock, selectRowBlock } from './row-helper';
 import { clickElementByText } from '../helper';
 

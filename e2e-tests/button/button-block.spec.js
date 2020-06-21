@@ -1,12 +1,7 @@
 /**
  * WordPress dependencies
  */
-import {
-	clickBlockToolbarButton,
-	clickButton,
-	createNewPost,
-	getEditedPostContent,
-} from '@wordpress/e2e-test-utils';
+import { createNewPost, getEditedPostContent } from '@wordpress/e2e-test-utils';
 import { selectOption } from '../helper';
 import { insertButtonBlock, selectButtonBlock } from './button-helper';
 

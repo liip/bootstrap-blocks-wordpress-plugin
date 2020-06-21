@@ -2,7 +2,6 @@ import { rowTemplateIsSelected, selectRowBlock } from './row-helper';
 import {
 	getCheckboxValueByLabel,
 	openSidebarPanelWithTitle,
-	toolbarOptionIsActive,
 	getInputValueByLabel,
 	getDataValuesOfElement,
 	getSelectedValueBySelectLabel,
