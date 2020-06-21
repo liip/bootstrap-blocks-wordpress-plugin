@@ -10,6 +10,8 @@ env:
   global:
     - secure: pTuC5XVCyo85IzE2pCulnvmsrUA6UicQH+lo2t7x7h+cJQP4YThEI8CE64L1cbH8aBby2+7mZfKvXJTEsLN4FOclY0WzIu8kncRtXmnSysM8cwXSx6ly9Ro3E1JWjT9W7BrWoE6tOMMmv5f0FKTw6b4Rwlv9sFICEERdCIcI6mrRORWwcznoMs2Pg8d0BkZsOm7gcJ7QRL+lfw72fqb8+jCaatzO9WjeUPq5txueVntgaBG+R4Pt6WNHdFPIvYjN7onos9Mw+xeZqZmubG/htTne1ZPQTX7KeI68Hic4rxGEC5eGvXOZoUxfmpoJyoBYb3uPPxWkvsSmgqEMEbTFwtXvLqOkaLXrypGZfksP+yMuBF337uwz8/7eFanYjSsY8qRHDCbQ7xQOboTZyp+soKqQStr6dfLcwsF8v5nRnLBvTBzbgSgCK81SeStH4VcumJoVvWEKPTNx4yRvSK+7W9JuHajR6EXA1YZs0jyfOXM8oDRWaP45CRbu6cKtF+YZykOXYUV8/ZCcFjixmd04VO8M31vnuHN5nF+45JtWkhW2wL62y+x3czc8mMKemhGoCPdR2V+iE38aQ8uHPzyp0dtoXsEBiaypV/c8CvYryirKqGnvNIhmOwgg7k04L5yULkRJlEw27SRnTTyNJ3Dv9NJ+9A7bX4utZcOiSxkohdM=
     - WP_DEVELOP_DIR: ./wordpress
+    - LOCAL_SCRIPT_DEBUG: false
+    - INSTALL_WORDPRESS: true
     - PHP_FPM_UID: 2000
     - PHP_FPM_GID: 2000
 
@@ -19,7 +21,13 @@ before_install:
 install:
   - composer install
   - npm ci
-  - npm run wp-env start
+  - |
+    if [[ "$INSTALL_WORDPRESS" = "true" ]]; then
+      echo '{ "config": { "SCRIPT_DEBUG": false, "WP_PHP_BINARY": "php", "WP_TESTS_EMAIL": "admin@example.org", "WP_TESTS_TITLE": "Test Blog" } }' > .wp-env.override.json
+      chmod -R 767 ./ # TODO: Possibly integrate in wp-env
+      npm run wp-env start
+    fi
+  - npm run wp-env run phpunit 'ls -la /var/www/html/wp-content/plugins' # Debug phpunit docker container
 
 script:
   - npm run lint
