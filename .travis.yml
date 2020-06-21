@@ -24,7 +24,7 @@ script:
   - npm run lint
   - npm run lint:php
   - npm run test:e2e
-  - npm run test:unit:php
+  - npm run test:unit:php:ci
 
 deploy:
   provider: script
