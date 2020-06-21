@@ -75,8 +75,8 @@ cp $SOURCEPATH/screenshot* $RELEASEPATH/trunk/
 cp -R $SOURCEPATH/languages $RELEASEPATH/trunk/
 cp -R $SOURCEPATH/src $RELEASEPATH/trunk/
 mkdir -p $RELEASEPATH/trunk/build/
-cp $SOURCEPATH/build/editor.css $RELEASEPATH/trunk/build/
-cp $SOURCEPATH/build/style.css $RELEASEPATH/trunk/build/
+cp $SOURCEPATH/build/index.css $RELEASEPATH/trunk/build/
+cp $SOURCEPATH/build/style-index.css $RELEASEPATH/trunk/build/
 cp $SOURCEPATH/build/index.js $RELEASEPATH/trunk/build/
 cp $SOURCEPATH/build/index.asset.php $RELEASEPATH/trunk/build/
 
