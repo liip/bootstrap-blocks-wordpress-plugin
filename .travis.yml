@@ -20,7 +20,6 @@ install:
   - composer install
   - npm ci
   - npm run wp-env start
-  - npm run wp-env run tests-cli 'wp theme activate twentytwenty' # fix broken theme activation after installation
 
 script:
   - npm run lint
