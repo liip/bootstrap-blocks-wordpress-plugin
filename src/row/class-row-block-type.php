@@ -47,6 +47,12 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Row\Row_Block_Type', false ) ) :
 			'editorStackColumns' => array(
 				'type' => 'boolean',
 			),
+			'horizontalGutters' => array(
+				'type' => 'string',
+			),
+			'verticalGutters' => array(
+				'type' => 'string',
+			),
 		);
 
 		/**
@@ -60,6 +66,8 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Row\Row_Block_Type', false ) ) :
 			'alignment' => '',
 			'verticalAlignment' => '',
 			'editorStackColumns' => false,
+			'horizontalGutters' => '',
+			'verticalGutters' => '',
 		);
 	}
 
