@@ -3,6 +3,8 @@
  */
 
 import edit from './edit';
+import './editor.scss';
+import './style.scss';
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

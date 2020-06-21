@@ -1,0 +1,7 @@
+{
+  "core": "WordPress/WordPress",
+  "plugins": [ "." ],
+  "mappings": {
+    "wp-content/plugins/wp-bootstrap-blocks-test-plugins": "./e2e-tests/plugins"
+  }
+}

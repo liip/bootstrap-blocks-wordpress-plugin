@@ -3,8 +3,8 @@ vendor
 build/*
 !build/index.js
 !build/index.asset.php
-!build/editor.css
-!build/style.css
+!build/index.css
+!build/style-index.css
 wp-cli.phar
 composer.phar
 /wordpress

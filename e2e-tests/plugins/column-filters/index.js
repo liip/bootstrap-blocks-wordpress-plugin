@@ -1,5 +1,5 @@
 /* eslint-disable wrap-iife */
-( function() {
+( function () {
 	// Add custom background color
 	function addBgColorOptions( bgColorOptions ) {
 		return [

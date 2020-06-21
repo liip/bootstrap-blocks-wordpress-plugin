@@ -25,8 +25,9 @@
 	},
 	"require-dev": {
 		"squizlabs/php_codesniffer": "^3.5",
-		"wp-coding-standards/wpcs": "^2.2",
-		"dealerdirect/phpcodesniffer-composer-installer": "^0.6.2"
+		"wp-coding-standards/wpcs": "^2.3",
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.6.2",
+		"wp-phpunit/wp-phpunit": "^5.4"
 	},
 	"scripts": {
 		"lint": "phpcs --standard=phpcs.xml"

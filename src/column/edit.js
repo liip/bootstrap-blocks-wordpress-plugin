@@ -38,7 +38,7 @@ const ColumnSizeRangeControl = ( {
 	);
 };
 
-let bgColorOptions = [
+export let bgColorOptions = [
 	{ name: 'primary', color: '#007bff' },
 	{ name: 'secondary', color: '#6c757d' },
 ];

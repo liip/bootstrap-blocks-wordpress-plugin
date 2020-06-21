@@ -30,7 +30,7 @@ This plugin adds Bootstrap components and layout options as Gutenberg blocks.
 * Sizes for all breakpoints (xl, lg, md, sm, xs): How much space the column should use for the given breakpoint.
 * Equal width for all breakpoints (xl, lg, md, sm, xs): If enabled column will spread width evenly with other columns.
 * Background Color: Set background color to column.
-* Center content: Center content vertically in column. This option is only needed if a background color is set. Otherwise use the **Alignment** option of the otuer `row` block.
+* Center content: Center content vertically in column. This option is only needed if a background color is set. Otherwise use the **Alignment** option of the outer `row` block.
 * Padding: Define padding inside the column.
 
 ### Button
@@ -49,7 +49,7 @@ This plugin adds Bootstrap components and layout options as Gutenberg blocks.
 
 ## Bootstrap library
 
-Please be aware that this plugin does not include the Bootstrap library in your website. You need to do this for yourself. 
+Please be aware that this plugin does not include the Bootstrap library in your website. You need to do this by yourself. 
 We decided not to include the library so that you can modify Bootstrap to your own needs before loading it.
 
 The easiest way to do this is to add the following to your theme's `function.php`:
@@ -591,8 +591,8 @@ php wp-cli.phar i18n make-pot --exclude="wordpress" . languages/wp-bootstrap-blo
 The following commands can be used to setup a local dev environment. See the official [documentation of `@wordpress/scripts`](https://developer.wordpress.org/block-editor/packages/packages-scripts/#available-sub-scripts) for a complete list of commands.
 
 * `scripts/install-wp.sh [wp-version]`: Install local WordPress environment
-* `npm run env start`: Starts the Docker containers.
-* `npm run env stop`: Stops the Docker containers.
+* `npm run wp-env start`: Starts the Docker containers.
+* `npm run wp-env stop`: Stops the Docker containers.
 
 ### Testing
 
@@ -616,13 +616,13 @@ This file gets automatically generated if the test runs for the first time and t
 To run the tests use the following command:
 
 ```bash
-npm run env test-php
+npm run test:unit:php
 ```
 
 or the following command to run a specific test:
 
 ```bash
-npm run env test-php -- --filter 'my_test'
+npm run test:unit:php -- --filter 'my_test'
 ```
 
 #### Puppeteer E2E Tests
