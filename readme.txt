@@ -105,6 +105,7 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 * [FEATURE] Visually show all column background colors in editor (not only preconfigured).
 * [DEVELOPMENT] Switch from @wordpress/scripts to @wordpress/env for local dev environment.
+* [DEVELOPMENT] Use official webpack config from @wordpress/scripts to compile scss files.
 
 = 2.2.0 =
 
