@@ -19,6 +19,7 @@ before_install:
 install:
   - composer install
   - npm ci
+  - chmod -R 767 ./ # TODO: Possibly integrate in wp-env
   - npm run wp-env start
   - npm run wp-env run cli 'wp theme activate twentytwenty' # fix broken theme activation after installation
 
