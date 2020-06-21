@@ -154,7 +154,7 @@ class WP_Bootstrap_Blocks {
 		// Styles.
 		wp_enqueue_style(
 			$this->token . '-styles', // Handle.
-			esc_url( $this->assets_url ) . 'style.css', // Block style CSS.
+			esc_url( $this->assets_url ) . 'style-index.css', // Block style CSS.
 			array(),
 			$this->version
 		);
@@ -185,7 +185,7 @@ class WP_Bootstrap_Blocks {
 		// Styles.
 		wp_enqueue_style(
 			$this->token . '-editor-styles', // Handle.
-			esc_url( $this->assets_url ) . 'editor.css', // Block editor CSS.
+			esc_url( $this->assets_url ) . 'index.css', // Block editor CSS.
 			array( 'wp-edit-blocks' ), // Dependency to include the CSS after it.
 			$this->version
 		);
