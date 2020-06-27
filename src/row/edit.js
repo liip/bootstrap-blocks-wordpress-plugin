@@ -220,10 +220,6 @@ horizontalGuttersOptions = [
 
 let verticalGuttersOptions = [
 	{
-		label: __( 'None', 'wp-bootstrap-blocks' ),
-		value: 'gy-0',
-	},
-	{
 		label: __( 'Small', 'wp-bootstrap-blocks' ),
 		value: 'gy-3',
 	},
@@ -239,7 +235,7 @@ verticalGuttersOptions = applyFilters(
 
 verticalGuttersOptions = [
 	{
-		label: __( 'Bootstrap Default', 'wp-bootstrap-blocks' ),
+		label: __( 'Bootstrap Default (None)', 'wp-bootstrap-blocks' ),
 		value: '',
 	},
 	...verticalGuttersOptions,

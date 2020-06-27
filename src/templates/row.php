@@ -45,6 +45,13 @@ if ( array_key_exists( 'noGutters', $attributes ) && $attributes['noGutters'] ) 
 	} else {
 		array_push( $classes, 'g-0' );
 	}
+} else {
+	if ( array_key_exists( 'horizontalGutters', $attributes ) && $attributes['horizontalGutters'] ) {
+		array_push( $classes, $attributes['horizontalGutters'] );
+	}
+	if ( array_key_exists( 'verticalGutters', $attributes ) && $attributes['verticalGutters'] ) {
+		array_push( $classes, $attributes['verticalGutters'] );
+	}
 }
 if ( array_key_exists( 'alignment', $attributes ) ) {
 	if ( 'left' === $attributes['alignment'] ) {
