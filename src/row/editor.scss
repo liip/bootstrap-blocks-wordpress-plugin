@@ -34,6 +34,31 @@
 
 	@include break-small() {
 		&:not([data-editor-column-layout="true"]) {
+			.wp-block-wp-bootstrap-blocks-row {
+				> .block-editor-inner-blocks > .block-editor-block-list__layout,
+				> .editor-inner-blocks > .editor-block-list__layout {
+					display: flex;
+					flex-wrap: wrap;
+
+					> [data-type="wp-bootstrap-blocks/column"] {
+						margin-left: 0;
+						margin-right: 0;
+
+						// Grid implementation
+						@include make-grid-columns();
+
+						// Prevent long unbroken words from overflowing.
+						word-break: break-word; // For back-compat.
+						overflow-wrap: break-word; // New standard.
+					}
+
+					// Set block list appender width to use full width of container to wrap to new line
+					> .block-list-appender {
+						width: 100%;
+					}
+				}
+			}
+
 			// Horizontal alignment
 			&[data-alignment="left"] .wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout,
 			&[data-alignment="left"] .wp-block-wp-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
@@ -60,31 +85,6 @@
 			&[data-vertical-alignment="bottom"] .wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout,
 			&[data-vertical-alignment="bottom"] .wp-block-wp-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
 				align-items: flex-end;
-			}
-
-			.wp-block-wp-bootstrap-blocks-row {
-				> .block-editor-inner-blocks > .block-editor-block-list__layout,
-				> .editor-inner-blocks > .editor-block-list__layout {
-					display: flex;
-					flex-wrap: wrap;
-
-					> [data-type="wp-bootstrap-blocks/column"] {
-						margin-left: 0;
-						margin-right: 0;
-
-						// Grid implementation
-						@include make-grid-columns();
-
-						// Prevent long unbroken words from overflowing.
-						word-break: break-word; // For back-compat.
-						overflow-wrap: break-word; // New standard.
-					}
-
-					// Set block list appender width to use full width of container to wrap to new line
-					> .block-list-appender {
-						width: 100%;
-					}
-				}
 			}
 
 			/*
