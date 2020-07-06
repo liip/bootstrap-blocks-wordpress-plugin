@@ -53,7 +53,7 @@ describe( 'container block', () => {
 		// Editor content should match snapshot
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 
-		// Padding option should be applied
+		// Fluid breakpoint option should be applied
 		await selectOption( 'Fluid Breakpoint', 'lg' );
 
 		// Editor content should match snapshot
