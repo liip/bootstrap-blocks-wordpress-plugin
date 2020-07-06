@@ -36,6 +36,7 @@ function row_filters_default_attributes( $default_attributes ) {
 	$default_attributes['noGutters'] = true;
 	$default_attributes['alignment'] = 'right';
 	$default_attributes['verticalAlignment'] = 'bottom';
+	$default_attributes['editorColumnLayout'] = true;
 	return $default_attributes;
 }
 add_filter( 'wp_bootstrap_blocks_row_default_attributes', 'row_filters_default_attributes', 10, 1 );
