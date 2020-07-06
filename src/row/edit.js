@@ -202,6 +202,7 @@ class BootstrapRowEdit extends Component {
 			noGutters,
 			alignment,
 			verticalAlignment,
+			editorColumnLayout,
 		} = attributes;
 
 		const onTemplateChange = ( newSelectedTemplateName ) => {
@@ -262,6 +263,16 @@ class BootstrapRowEdit extends Component {
 		return (
 			<Fragment>
 				<InspectorControls>
+					<PanelBody>
+						<CheckboxControl
+							label={ __( 'Editor: Display columns stacked', 'wp-bootstrap-blocks' ) }
+							description={ __( 'Displays stacked columns in editor to enhance readability of block content. This option is only used in the editor and won\'t affect the output of the row.', 'wp-bootstrap-blocks' ) }
+							checked={ editorColumnLayout }
+							onChange={ ( isChecked ) =>
+								setAttributes( { editorColumnLayout: isChecked } )
+							}
+						/>
+					</PanelBody>
 					<PanelBody
 						title={ __( 'Change layout', 'wp-bootstrap-blocks' ) }
 					>
