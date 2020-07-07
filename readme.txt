@@ -5,7 +5,7 @@ Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.0
 Tested up to: 5.4
 Requires PHP: 5.6
-Stable tag: 2.3.0
+Stable tag: 2.3.1
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -100,6 +100,10 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 1. Container block
 
 == Changelog ==
+
+= 2.3.1 =
+
+* [FIX] Regression in built assets which was introduced by the `@wordpress/scripts` package. Using multiple plugins which were built with the `@wordpress/scripts` `build`-script resulted in a JavaScript error.
 
 = 2.3.0 =
 
