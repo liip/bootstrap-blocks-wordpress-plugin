@@ -20,9 +20,9 @@
   "dependencies": {},
   "devDependencies": {
     "@wordpress/base-styles": "^1.10.0",
-    "@wordpress/e2e-test-utils": "^4.9.0",
-    "@wordpress/env": "^1.5.0",
-    "@wordpress/scripts": "^11.0.0",
+    "@wordpress/e2e-test-utils": "^4.11.0",
+    "@wordpress/env": "^1.6.0",
+    "@wordpress/scripts": "^12.1.0",
     "css-loader": "^3.6.0",
     "ignore-emit-webpack-plugin": "^2.0.2",
     "lodash": "^4.17.15",
