@@ -224,4 +224,32 @@ describe( 'column block', () => {
 
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 	} );
+
+	it( 'Should not display xxl breakpoint options if run with Bootstrap 4', async () => {
+		await insertRowBlock();
+
+		// Select first column block
+		const columnBlocks = await getColumnBlocks();
+		const firstColumnBlockClientId = columnBlocks[ 0 ].clientId;
+		await selectBlockByClientId( firstColumnBlockClientId );
+		await openSidebarPanelWithTitle( 'Column size' );
+
+		// Xl column count option should exist
+		expect( await page.$x(
+			'//label[@class="components-base-control__label"][contains(text(),"Xl Column count")]'
+		) ).toHaveLength( 1 );
+		// Xxl column count option should not exist
+		expect( await page.$x(
+			'//label[@class="components-base-control__label"][contains(text(),"Xxl Column count")]'
+		) ).toHaveLength( 0 );
+
+		// Xl equal-width option should exist
+		expect( await page.$x(
+			'//label[@class="components-checkbox-control__label"][contains(text(),"Xl equal-width")]'
+		) ).toHaveLength( 1 );
+		// Xxl equal-width option should not exist
+		expect( await page.$x(
+			'//label[@class="components-checkbox-control__label"][contains(text(),"Xxl equal-width")]'
+		) ).toHaveLength( 0 );
+	} );
 } );
