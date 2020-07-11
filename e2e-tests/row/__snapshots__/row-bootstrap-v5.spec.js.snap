@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`row block Bootstrap 5 Should be possible to select change gutter sizes 1`] = `
+"<!-- wp:wp-bootstrap-blocks/row {\\"horizontalGutters\\":\\"gx-5\\",\\"verticalGutters\\":\\"gy-3\\"} -->
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
+
+<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
+<!-- /wp:wp-bootstrap-blocks/row -->"
+`;
