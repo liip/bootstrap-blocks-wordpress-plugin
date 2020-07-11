@@ -235,21 +235,29 @@ describe( 'column block', () => {
 		await openSidebarPanelWithTitle( 'Column size' );
 
 		// Xl column count option should exist
-		expect( await page.$x(
-			'//label[@class="components-base-control__label"][contains(text(),"Xl Column count")]'
-		) ).toHaveLength( 1 );
+		expect(
+			await page.$x(
+				'//label[@class="components-base-control__label"][contains(text(),"Xl Column count")]'
+			)
+		).toHaveLength( 1 );
 		// Xxl column count option should not exist
-		expect( await page.$x(
-			'//label[@class="components-base-control__label"][contains(text(),"Xxl Column count")]'
-		) ).toHaveLength( 0 );
+		expect(
+			await page.$x(
+				'//label[@class="components-base-control__label"][contains(text(),"Xxl Column count")]'
+			)
+		).toHaveLength( 0 );
 
 		// Xl equal-width option should exist
-		expect( await page.$x(
-			'//label[@class="components-checkbox-control__label"][contains(text(),"Xl equal-width")]'
-		) ).toHaveLength( 1 );
+		expect(
+			await page.$x(
+				'//label[@class="components-checkbox-control__label"][contains(text(),"Xl equal-width")]'
+			)
+		).toHaveLength( 1 );
 		// Xxl equal-width option should not exist
-		expect( await page.$x(
-			'//label[@class="components-checkbox-control__label"][contains(text(),"Xxl equal-width")]'
-		) ).toHaveLength( 0 );
+		expect(
+			await page.$x(
+				'//label[@class="components-checkbox-control__label"][contains(text(),"Xxl equal-width")]'
+			)
+		).toHaveLength( 0 );
 	} );
 } );

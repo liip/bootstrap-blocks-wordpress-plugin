@@ -64,13 +64,17 @@ describe( 'container block', () => {
 		await insertContainerBlock();
 		await selectContainerBlock();
 
-		expect( await page.$x(
-			`//label[@class="components-base-control__label"][contains(text(),"Fluid Breakpoint")]/following-sibling::select[@class="components-select-control__input"]/option`
-		) ).toHaveLength( 5 );
+		expect(
+			await page.$x(
+				`//label[@class="components-base-control__label"][contains(text(),"Fluid Breakpoint")]/following-sibling::select[@class="components-select-control__input"]/option`
+			)
+		).toHaveLength( 5 );
 
 		// xxl option should not exist
-		expect( await page.$x(
-			`//label[@class="components-base-control__label"][contains(text(),"Fluid Breakpoint")]/following-sibling::select[@class="components-select-control__input"]/option[@value='xxl']`
-		) ).toHaveLength( 0 );
+		expect(
+			await page.$x(
+				`//label[@class="components-base-control__label"][contains(text(),"Fluid Breakpoint")]/following-sibling::select[@class="components-select-control__input"]/option[@value='xxl']`
+			)
+		).toHaveLength( 0 );
 	} );
 } );

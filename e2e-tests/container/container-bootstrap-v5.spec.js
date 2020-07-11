@@ -25,13 +25,17 @@ describe( 'container block Bootstrap 5', () => {
 		await insertContainerBlock();
 		await selectContainerBlock();
 
-		expect( await page.$x(
-			`//label[@class="components-base-control__label"][contains(text(),"Fluid Breakpoint")]/following-sibling::select[@class="components-select-control__input"]/option`
-		) ).toHaveLength( 6 );
+		expect(
+			await page.$x(
+				`//label[@class="components-base-control__label"][contains(text(),"Fluid Breakpoint")]/following-sibling::select[@class="components-select-control__input"]/option`
+			)
+		).toHaveLength( 6 );
 
 		// xxl option should exist
-		expect( await page.$x(
-			`//label[@class="components-base-control__label"][contains(text(),"Fluid Breakpoint")]/following-sibling::select[@class="components-select-control__input"]/option[@value='xxl']`
-		) ).toHaveLength( 1 );
+		expect(
+			await page.$x(
+				`//label[@class="components-base-control__label"][contains(text(),"Fluid Breakpoint")]/following-sibling::select[@class="components-select-control__input"]/option[@value='xxl']`
+			)
+		).toHaveLength( 1 );
 	} );
 } );
