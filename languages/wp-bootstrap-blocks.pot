@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-01-22T10:30:46+00:00\n"
+"POT-Creation-Date: 2020-07-12T18:54:31+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.2.0\n"
 "X-Domain: wp-bootstrap-blocks\n"
@@ -45,87 +45,87 @@ msgstr ""
 msgid "%s does not exist."
 msgstr ""
 
-#: src/column/edit.js:35
-#: src/container/block.js:30
+#: src/column/edit.js:52
+#: src/container/edit.js:33
 msgid "None"
 msgstr ""
 
-#: src/column/edit.js:36
-#: src/container/block.js:14
+#: src/column/edit.js:53
+#: src/container/edit.js:14
 msgid "Small"
 msgstr ""
 
-#: src/column/edit.js:37
-#: src/container/block.js:18
+#: src/column/edit.js:54
+#: src/container/edit.js:18
 msgid "Medium"
 msgstr ""
 
-#: src/column/edit.js:38
-#: src/container/block.js:22
+#: src/column/edit.js:55
+#: src/container/edit.js:22
 msgid "Large"
 msgstr ""
 
-#: src/column/edit.js:71
+#: src/column/edit.js:96
 msgid "Column size"
 msgstr ""
 
-#: src/column/edit.js:75
+#: src/column/edit.js:100
 msgid "Xs Column count"
 msgstr ""
 
-#: src/column/edit.js:82
+#: src/column/edit.js:110
 msgid "Xs equal-width"
 msgstr ""
 
-#: src/column/edit.js:88
+#: src/column/edit.js:121
 msgid "Sm Column count"
 msgstr ""
 
-#: src/column/edit.js:95
+#: src/column/edit.js:131
 msgid "Sm equal-width"
 msgstr ""
 
-#: src/column/edit.js:101
+#: src/column/edit.js:142
 msgid "Md Column count"
 msgstr ""
 
-#: src/column/edit.js:108
+#: src/column/edit.js:152
 msgid "Md equal-width"
 msgstr ""
 
-#: src/column/edit.js:114
+#: src/column/edit.js:163
 msgid "Lg Column count"
 msgstr ""
 
-#: src/column/edit.js:121
+#: src/column/edit.js:173
 msgid "Lg equal-width"
 msgstr ""
 
-#: src/column/edit.js:127
+#: src/column/edit.js:184
 msgid "Xl Column count"
 msgstr ""
 
-#: src/column/edit.js:134
+#: src/column/edit.js:194
 msgid "Xl equal-width"
 msgstr ""
 
-#: src/column/edit.js:140
+#: src/column/edit.js:205
 msgid "Background color"
 msgstr ""
 
-#: src/column/edit.js:166
+#: src/column/edit.js:236
 msgid "Center content vertically in row"
 msgstr ""
 
-#: src/column/edit.js:169
+#: src/column/edit.js:246
 msgid "This setting only applies if there is no vertical alignment set on the parent row block."
 msgstr ""
 
-#: src/column/edit.js:174
+#: src/column/edit.js:254
 msgid "Padding (inside column)"
 msgstr ""
 
-#: src/column/edit.js:177
+#: src/column/edit.js:261
 msgid "Size"
 msgstr ""
 
@@ -139,161 +139,169 @@ msgid "Bootstrap Column"
 msgstr ""
 
 #: src/column/block.js:19
-#: src/container/block.js:67
-#: src/row/block.js:19
-#: src/button/block.js:19
+#: src/container/block.js:20
+#: src/row/block.js:21
+#: src/button/block.js:27
 msgid "Bootstrap"
 msgstr ""
 
-#: src/container/block.js:38
+#: src/container/edit.js:41
 msgid "No breakpoint selected"
 msgstr ""
 
-#: src/container/block.js:42
+#: src/container/edit.js:45
 msgid "Xl"
 msgstr ""
 
-#: src/container/block.js:46
+#: src/container/edit.js:49
 msgid "Lg"
 msgstr ""
 
-#: src/container/block.js:50
+#: src/container/edit.js:53
 msgid "Md"
 msgstr ""
 
-#: src/container/block.js:54
+#: src/container/edit.js:57
 msgid "Sm"
 msgstr ""
 
-#: src/container/block.js:61
-#: src/container/block.js:65
-msgid "Container"
-msgstr ""
-
-#: src/container/block.js:66
-msgid "Bootstrap Container"
-msgstr ""
-
-#: src/container/block.js:83
-#: src/container/block.js:86
+#: src/container/edit.js:75
+#: src/container/edit.js:77
 msgid "Fluid"
 msgstr ""
 
-#: src/container/block.js:93
+#: src/container/edit.js:84
 msgid "Fluid Breakpoint"
 msgstr ""
 
-#: src/container/block.js:100
+#: src/container/edit.js:96
 msgid "Fluid breakpoints only work with Bootstrap v4.4+. The container will be 100% wide until the specified breakpoint is reached, after which max-widths for each of the higher breakpoints will be applied."
 msgstr ""
 
-#: src/container/block.js:104
+#: src/container/edit.js:102
 msgid "Margin"
 msgstr ""
 
-#: src/container/block.js:107
+#: src/container/edit.js:104
 msgid "Margin After"
 msgstr ""
 
-#: src/row/edit.js:22
+#: src/container/block.js:14
+#: src/container/block.js:18
+msgid "Container"
+msgstr ""
+
+#: src/container/block.js:19
+msgid "Bootstrap Container"
+msgstr ""
+
+#: src/row/edit.js:28
 msgid "2 Columns (1:1)"
 msgstr ""
 
-#: src/row/edit.js:42
+#: src/row/edit.js:61
 msgid "2 Columns (1:2)"
 msgstr ""
 
-#: src/row/edit.js:62
+#: src/row/edit.js:94
 msgid "2 Columns (2:1)"
 msgstr ""
 
-#: src/row/edit.js:82
+#: src/row/edit.js:127
 msgid "3 Columns (1:1:1)"
 msgstr ""
 
-#: src/row/edit.js:116
+#: src/row/edit.js:175
 msgid "Custom"
 msgstr ""
 
-#: src/row/edit.js:160
+#: src/row/edit.js:230
 msgid "Align columns left"
 msgstr ""
 
-#: src/row/edit.js:165
-#: src/row/edit.js:183
+#: src/row/edit.js:235
+#: src/row/edit.js:253
 msgid "Align columns center"
 msgstr ""
 
-#: src/row/edit.js:170
+#: src/row/edit.js:240
 msgid "Align columns right"
 msgstr ""
 
-#: src/row/edit.js:178
+#: src/row/edit.js:248
 msgid "Align columns top"
 msgstr ""
 
-#: src/row/edit.js:188
+#: src/row/edit.js:258
 msgid "Align columns bottom"
 msgstr ""
 
-#: src/row/edit.js:197
+#: src/row/edit.js:268
+msgid "Editor: Display columns stacked"
+msgstr ""
+
+#: src/row/edit.js:272
+msgid "Displays stacked columns in editor to enhance readability of block content. This option is only used in the editor and won't affect the output of the row."
+msgstr ""
+
+#: src/row/edit.js:285
 msgid "Change layout"
 msgstr ""
 
-#: src/row/edit.js:217
+#: src/row/edit.js:318
 msgid "Row options"
 msgstr ""
 
-#: src/row/edit.js:220
+#: src/row/edit.js:321
 msgid "No Gutters"
 msgstr ""
 
-#: src/row/edit.js:229
+#: src/row/edit.js:332
 msgid "Change horizontal alignment of columns"
 msgstr ""
 
-#: src/row/edit.js:235
+#: src/row/edit.js:343
 msgid "Change vertical alignment of columns"
 msgstr ""
 
-#: src/row/block.js:13
-#: src/row/block.js:17
+#: src/row/block.js:15
+#: src/row/block.js:19
 msgid "Row"
 msgstr ""
 
-#: src/row/block.js:18
+#: src/row/block.js:20
 msgid "Bootstrap Row"
 msgstr ""
 
-#: src/button/edit.js:16
+#: src/button/edit.js:22
 msgid "Primary"
 msgstr ""
 
-#: src/button/edit.js:17
+#: src/button/edit.js:24
 msgid "Secondary"
 msgstr ""
 
-#: src/button/edit.js:28
+#: src/button/edit.js:38
 msgid "Add text..."
 msgstr ""
 
-#: src/button/edit.js:37
+#: src/button/edit.js:52
 msgid "Style"
 msgstr ""
 
-#: src/button/edit.js:49
+#: src/button/edit.js:64
 msgid "Change button alignment"
 msgstr ""
 
-#: src/button/edit.js:63
+#: src/button/edit.js:88
 msgid "Apply"
 msgstr ""
 
-#: src/button/block.js:13
-#: src/button/block.js:17
+#: src/button/block.js:14
+#: src/button/block.js:25
 msgid "Button"
 msgstr ""
 
-#: src/button/block.js:18
+#: src/button/block.js:26
 msgid "Bootstrap Button"
 msgstr ""
