@@ -35,7 +35,7 @@ exports[`row block Should be possible to change column layout 2`] = `
 `;
 
 exports[`row block Should be possible to enable column layout in editor 1`] = `
-"<!-- wp:wp-bootstrap-blocks/row {\\"editorColumnLayout\\":true} -->
+"<!-- wp:wp-bootstrap-blocks/row {\\"editorStackColumns\\":true} -->
 <!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
 
 <!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->

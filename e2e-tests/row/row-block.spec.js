@@ -156,7 +156,7 @@ describe( 'row block', () => {
 		await clickElementByText( 'label', 'Editor: Display columns stacked' );
 		expect(
 			await page.$$(
-				'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/row"][data-editor-column-layout="true"]'
+				'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/row"][data-editor-stack-columns="true"]'
 			)
 		).toHaveLength( 1 );
 		expect( await getEditedPostContent() ).toMatchSnapshot();

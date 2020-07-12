@@ -103,7 +103,7 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 = 2.4.0 =
 
-* [FEATURE] Possibility to enable stacked layout for column blocks in editor to enhance readability of block content. This feature can be enabled by default by setting the `editorColumnLayout` value to `true` in the `wp_bootstrap_blocks_row_default_attributes` PHP filter.
+* [FEATURE] Possibility to enable stacked layout for column blocks in editor to enhance readability of block content. This feature can be enabled by default by setting the `editorStackColumns` value to `true` in the `wp_bootstrap_blocks_row_default_attributes` PHP filter.
 
 = 2.3.1 =
 

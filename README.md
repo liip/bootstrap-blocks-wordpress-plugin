@@ -264,7 +264,7 @@ Modify default attributes of the row block.
     * `noGutters` (`boolean`) Defines if noGutters option should be selected or not (Default: `false`)
     * `alignment` (`string`) Default horizontal alignment of inner columns (Default: `''`)
     * `verticalAlignment` (`string`) Default vertical alignment of inner columns (Default: `''`)
-    * `editorColumnLayout` (`boolean`) Defines if editorColumnLayout option should be selected or not (Default: `false`)
+    * `editorStackColumns` (`boolean`) Defines if editorStackColumns option should be selected by default or not (Default: `false`)
 
 #### Usage
 
@@ -276,7 +276,7 @@ function my_row_default_attributes( $default_attributes ) {
     $default_attributes['noGutters'] = true;
     $default_attributes['alignment'] = 'right';
     $default_attributes['verticalAlignment'] = 'bottom';
-    $default_attributes['editorColumnLayout'] = true;
+    $default_attributes['editorStackColumns'] = true;
     return $default_attributes;
 }
 ```

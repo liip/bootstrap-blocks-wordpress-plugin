@@ -44,7 +44,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Row\Row_Block_Type', false ) ) :
 			'verticalAlignment' => array(
 				'type' => 'string',
 			),
-			'editorColumnLayout' => array(
+			'editorStackColumns' => array(
 				'type' => 'boolean',
 			),
 		);
@@ -59,7 +59,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Row\Row_Block_Type', false ) ) :
 			'noGutters' => false,
 			'alignment' => '',
 			'verticalAlignment' => '',
-			'editorColumnLayout' => false,
+			'editorStackColumns' => false,
 		);
 	}
 
