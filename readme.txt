@@ -123,6 +123,7 @@ This version adds (experimental) support for Bootstrap 5. Please read the [docum
 * [FEATURE] Add options to define vertical and horizontal gutters sizes in `row` block (Bootstrap 5 only).
 * [FEATURE] Add support for Xxl breakpoint size (Bootstrap 5 only).
 * [FEATURE] Introduce new JavaScript filters for Bootstrap 5 specific options: `wpBootstrapBlocks.row.horizontalGuttersOptions`, `wpBootstrapBlocks.row.verticalGuttersOptions`
+* Modified Templates: `column.php`, `row.php`
 
 = 2.4.3 =
 
