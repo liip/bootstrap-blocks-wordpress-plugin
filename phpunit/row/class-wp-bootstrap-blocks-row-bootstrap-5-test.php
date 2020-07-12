@@ -41,4 +41,22 @@ class WP_Bootstrap_Blocks_Row_Bootstrap_5_Test extends WP_Bootstrap_Blocks_UnitT
 		list( $expected, $actual ) = $this->get_block_output( $variant );
 		$this->assertEquals( $expected, $actual );
 	}
+
+	/**
+	 * Tests row horizontal gutters.
+	 */
+	public function test_row_horizontal_gutters() {
+		$variant = 'horizontal-gutters';
+		list( $expected, $actual ) = $this->get_block_output( $variant );
+		$this->assertEquals( $expected, $actual );
+	}
+
+	/**
+	 * Tests row vertical gutters.
+	 */
+	public function test_row_vertical_gutters() {
+		$variant = 'vertical-gutters';
+		list( $expected, $actual ) = $this->get_block_output( $variant );
+		$this->assertEquals( $expected, $actual );
+	}
 }
