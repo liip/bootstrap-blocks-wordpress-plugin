@@ -42,7 +42,7 @@ describe( 'row block Bootstrap 5', () => {
 		).toHaveLength( 1 );
 	} );
 
-	it( 'Should be possible to select change gutter sizes', async () => {
+	it( 'Should be possible to change gutter sizes', async () => {
 		await insertRowBlock();
 		await selectRowBlock();
 
