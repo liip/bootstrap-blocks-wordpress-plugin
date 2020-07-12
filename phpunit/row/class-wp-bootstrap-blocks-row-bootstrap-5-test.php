@@ -59,4 +59,13 @@ class WP_Bootstrap_Blocks_Row_Bootstrap_5_Test extends WP_Bootstrap_Blocks_UnitT
 		list( $expected, $actual ) = $this->get_block_output( $variant );
 		$this->assertEquals( $expected, $actual );
 	}
+
+	/**
+	 * Tests row vertical gutters.
+	 */
+	public function test_row_no_gutters_ignore_gutters_options() {
+		$variant = 'no-gutters-with-gutters-options';
+		list( $expected, $actual ) = $this->get_block_output( $variant );
+		$this->assertEquals( $expected, $actual );
+	}
 }
