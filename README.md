@@ -559,7 +559,7 @@ Modify available vertical gutters options for row block.
 
 ```javascript
 function myRowVerticalGuttersOptions( verticalGuttersOptions ) {
-    verticalGuttersOptions.push( { label: 'Medium', value: 'gx-4' } );
+    verticalGuttersOptions.push( { label: 'Medium', value: 'gy-4' } );
     return verticalGuttersOptions;
 }
 wp.hooks.addFilter( 'wpBootstrapBlocks.row.verticalGuttersOptions', 'myplugin/wp-bootstrap-blocks/row/verticalGuttersOptions', myRowVerticalGuttersOptions );
