@@ -578,7 +578,7 @@ The build process is based on the official [`@wordpress/scripts`](https://develo
 
 * `npm start`: Compiles the block in development mode. Watches for any changes and reports back any errors in your code.
 * `npm run lint`: Lints JavaScript, CSS and package.json files.
-* `npm run build`: Use to build production code for your block inside `build` folder.
+* `npm run build`: Build production code of your blocks inside `build` folder.
 
 ### Extract labels
 
