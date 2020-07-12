@@ -1,12 +1,12 @@
 <?php
 /**
- * Row tests.
+ * Row tests Bootstrap 5.
  *
  * @package wp-bootstrap-blocks
  */
 
 /**
- * Class WP_Bootstrap_Blocks_Row_Test
+ * Class WP_Bootstrap_Blocks_Row_Bootstrap_5_Test
  */
 class WP_Bootstrap_Blocks_Row_Bootstrap_5_Test extends WP_Bootstrap_Blocks_UnitTestCase {
 	/**
