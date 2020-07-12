@@ -34,13 +34,15 @@ Options:
 * Alignment: Horizontal alignment of inner `column` blocks.
 * Vertical Alignment: Vertical alignment of inner `column` blocks.
 * Editor stack columns: Displays stacked columns in the editor to enhance readability of block content.
+* Horizontal Gutters: Size of horizontal gutters.
+* Vertical Gutters: Size of vertical gutters.
 
 **Column**
 
 Options:
 
-* Sizes for all breakpoints (xl, lg, md, sm, xs): How much space the column should use for the given breakpoint.
-* Equal width for all breakpoints (xl, lg, md, sm, xs): If enabled column will spread width evenly with other columns.
+* Sizes for all breakpoints (xxl, xl, lg, md, sm, xs): How much space the column should use for the given breakpoint.
+* Equal width for all breakpoints (xxl, xl, lg, md, sm, xs): If enabled column will spread width evenly with other columns.
 * Background Color: Set background color to column.
 * Center content: Center content vertically in column. This option is only needed if a background color is set. Otherwise use the **Alignment** option of the outer `row` block.
 * Padding: Define padding inside the column.
