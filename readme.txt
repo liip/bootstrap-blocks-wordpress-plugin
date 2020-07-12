@@ -5,7 +5,7 @@ Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.0
 Tested up to: 5.4
 Requires PHP: 5.6
-Stable tag: 2.3.1
+Stable tag: 2.4.0
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -100,6 +100,10 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 1. Container block
 
 == Changelog ==
+
+= 2.4.0 =
+
+* [FEATURE] Possibility to enable stacked layout for column blocks in editor to enhance readability of block content. This feature can be enabled by default by setting the `editorColumnLayout` value to `true` in the `wp_bootstrap_blocks_row_default_attributes` PHP filter.
 
 = 2.3.1 =
 
