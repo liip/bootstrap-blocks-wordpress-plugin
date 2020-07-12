@@ -59,6 +59,8 @@ The version can be selected in the plugin settings (Settings > Bootstrap Blocks)
 * Bootstrap 4: `define( 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION', 4 );`
 * Bootstrap 5: `define( 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION', 5 );`
 
+By default Bootstrap version **4** is selected.
+
 ## Bootstrap library
 
 Please be aware that this plugin does not include the Bootstrap library in your website. You need to do this by yourself. 
