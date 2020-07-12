@@ -9,17 +9,9 @@ import {
 } from '@wordpress/e2e-test-utils';
 import { insertRowBlock } from '../row/row-helper';
 import { selectColumnBlock } from './column-helper';
-import {
-	getCheckboxValueByLabel,
-	getDataValuesOfElement,
-	getInputValueByLabel,
-	getSelectedValueBySelectLabel,
-	openSidebarPanelWithTitle,
-	selectOption,
-	selectOptionIsAvailable,
-} from '../helper';
+import { getInputValueByLabel, openSidebarPanelWithTitle } from '../helper';
 
-describe( 'column block filters', () => {
+describe( 'column block filters Bootstrap 5', () => {
 	beforeAll( async () => {
 		await activatePlugin( 'wp-bootstrap-blocks-test-bootstrap-v5' );
 		await activatePlugin( 'wp-bootstrap-blocks-test-column-filters' );
