@@ -53,6 +53,16 @@ class WP_Bootstrap_Blocks_Row_Test extends WP_Bootstrap_Blocks_UnitTestCase {
 	}
 
 	/**
+	 * Tests editor column layout.
+	 */
+	public function test_row_editor_column_layout() {
+		// The editorColumnLayout option should not affect output
+		$variant = 'editor-column-layout';
+		list( $expected, $actual ) = $this->get_block_output( $variant );
+		$this->assertEquals( $expected, $actual );
+	}
+
+	/**
 	 * Tests row classname.
 	 */
 	public function test_row_classname() {
