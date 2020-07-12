@@ -33,6 +33,7 @@ Options:
 * No Gutters: Disable gutters between columns.
 * Alignment: Horizontal alignment of inner `column` blocks.
 * Vertical Alignment: Vertical alignment of inner `column` blocks.
+* Editor stack columns: Displays stacked columns in the editor to enhance readability of block content.
 
 **Column**
 
