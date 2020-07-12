@@ -79,7 +79,7 @@ describe( 'row block filters', () => {
 		// No Gutters option should be checked
 		expect( await getCheckboxValueByLabel( 'No Gutters' ) ).toBe( true );
 
-		// Editor column layout option should be checked
+		// Editor stack columns option should be checked
 		expect(
 			await getCheckboxValueByLabel( 'Editor: Display columns stacked' )
 		).toBe( true );

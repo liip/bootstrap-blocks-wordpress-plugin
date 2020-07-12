@@ -152,7 +152,7 @@ describe( 'row block', () => {
 		await insertRowBlock();
 		await selectRowBlock();
 
-		// Enable editor column layout
+		// Enable editor stack columns
 		await clickElementByText( 'label', 'Editor: Display columns stacked' );
 		expect(
 			await page.$$(

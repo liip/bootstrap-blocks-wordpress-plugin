@@ -22,7 +22,7 @@ This plugin adds Bootstrap components and layout options as Gutenberg blocks.
 * No Gutters: Disable gutters between columns.
 * Alignment: Horizontal alignment of inner `column` blocks.
 * Vertical Alignment: Vertical alignment of inner `column` blocks.
-* Editor column layout: Displays stacked columns in editor to enhance readability of block content.
+* Editor stack columns: Displays stacked columns in the editor to enhance readability of block content.
 
 ### Column
 
