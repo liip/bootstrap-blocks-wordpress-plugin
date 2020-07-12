@@ -206,7 +206,7 @@ let horizontalGuttersOptions = [
 	},
 ];
 horizontalGuttersOptions = applyFilters(
-	'wpBootstrapBlocks.row.horizontalGutterOptions',
+	'wpBootstrapBlocks.row.horizontalGuttersOptions',
 	horizontalGuttersOptions
 );
 

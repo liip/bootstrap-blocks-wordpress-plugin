@@ -19,6 +19,8 @@
  *   'noGutters' (boolean) => Defines if no gutters should be applied or not.
  *   'alignment' (string) => Horizontal alignment of inner columns.
  *   'verticalAlignment' (string) => Vertical alignment of inner columns.
+ *   'horizontalGutters' (string) => Size of horizontal gutters.
+ *   'verticalGutters' (string) => Size of vertical gutters.
  *   'align' (string) => If set to 'full' row should use full width of page.
  *   'className' (string) => Additional class names which should be added to block.
  * )
