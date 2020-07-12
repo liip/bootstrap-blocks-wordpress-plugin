@@ -9,7 +9,7 @@ Stable tag: 2.4.3
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Bootstrap 4 Gutenberg Blocks for WordPress.
+Bootstrap Gutenberg Blocks for WordPress. Supports Bootstrap v4 and v5 (experimental).
 
 == Description ==
 
@@ -52,6 +52,15 @@ Options:
 * Style: Choose the styling of the button.
 * Alignment: Horizontal alignment of the button.
 
+= Supported Bootstrap versions =
+
+This plugin supports Bootstrap v4 and v5 (experimental). The support for v5 is still flagged as experimental since this Bootstrap version is not officially released yet. The API could still change which could affect the options defined in this plugin.
+
+The version can be selected in the plugin settings (Settings > Bootstrap Blocks) or by defining the `WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION` constant in the `wp-config.php` file:
+
+* Bootstrap 4: `define( 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION', 4 );`
+* Bootstrap 5: `define( 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION', 5 );`
+
 = Bootstrap library =
 
 Please be aware that this plugin does not include the Bootstrap library in your website. You need to do this by yourself. We decided not to include the library so that you can modify Bootstrap to your own needs before loading it.
@@ -85,6 +94,10 @@ To overwrite a block template create a folder called `wp-bootstrap-blocks/` in y
 
 == Frequently Asked Questions ==
 
+= Which version of Bootstrap are supported? =
+
+This plugin supports Bootstrap v4 and v5 (experimental).
+
 = Is Bootstrap included? =
 
 No. This plugin doesn't load the Bootstrap library for you. You have to do this by yourself in your theme. Please read more about this in the [documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin).
@@ -101,6 +114,15 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 1. Container block
 
 == Changelog ==
+
+= 3.0.0 =
+
+This version adds (experimental) support for Bootstrap 5. Please read the [documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin#supported-bootstrap-versions) for further information.
+
+* [FEATURE] Add Bootstrap 5 support.
+* [FEATURE] Add options to define vertical and horizontal gutters sizes in `row` block (Bootstrap 5 only).
+* [FEATURE] Add support for Xxl breakpoint size (Bootstrap 5 only).
+* [FEATURE] Introduce new JavaScript filters for Bootstrap 5 specific options: `wpBootstrapBlocks.row.horizontalGuttersOptions`, `wpBootstrapBlocks.row.verticalGuttersOptions`
 
 = 2.4.3 =
 

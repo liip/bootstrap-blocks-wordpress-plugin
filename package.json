@@ -2,7 +2,7 @@
   "name": "wp-bootstrap-blocks",
   "version": "2.4.3",
   "private": true,
-  "description": "Bootstrap 4 Gutenberg Blocks for WordPress",
+  "description": "Bootstrap Gutenberg Blocks for WordPress",
   "author": "Liip AG",
   "license": "GPL-2.0-or-later",
   "keywords": [

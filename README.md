@@ -1,8 +1,8 @@
-# Bootstrap 4 Gutenberg Blocks for WordPress
+# Bootstrap Gutenberg Blocks for WordPress
 
 [![Build Status](https://travis-ci.org/liip/bootstrap-blocks-wordpress-plugin.svg?branch=master)](https://travis-ci.org/liip/bootstrap-blocks-wordpress-plugin)
 
-This plugin adds Bootstrap components and layout options as Gutenberg blocks.
+This plugin adds Bootstrap components and layout options as Gutenberg blocks. Supports Bootstrap v4 and v5 (experimental).
 
 ## Available blocks
 
@@ -49,6 +49,15 @@ This plugin adds Bootstrap components and layout options as Gutenberg blocks.
 * WordPress Plugin: [https://wordpress.org/plugins/wp-bootstrap-blocks](https://wordpress.org/plugins/wp-bootstrap-blocks)
 * Changelog: [https://github.com/liip/bootstrap-blocks-wordpress-plugin/releases](https://github.com/liip/bootstrap-blocks-wordpress-plugin/releases)
 * Issue tracker: [https://github.com/liip/bootstrap-blocks-wordpress-plugin/issues](https://github.com/liip/bootstrap-blocks-wordpress-plugin/issues)
+
+## Supported Bootstrap versions
+
+This plugin supports Bootstrap v4 and v5 (experimental). The support for v5 is still flagged as experimental since this version of Bootstrap is not officially released yet. The API could still change which could affect the options defined in this plugin.
+
+The version can be selected in the plugin settings (Settings > Bootstrap Blocks) or by defining the `WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION` constant in the `wp-config.php` file:
+             
+* Bootstrap 4: `define( 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION', 4 );`
+* Bootstrap 5: `define( 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION', 5 );`
 
 ## Bootstrap library
 
