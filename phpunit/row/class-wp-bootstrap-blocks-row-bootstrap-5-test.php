@@ -61,7 +61,7 @@ class WP_Bootstrap_Blocks_Row_Bootstrap_5_Test extends WP_Bootstrap_Blocks_UnitT
 	}
 
 	/**
-	 * Tests row vertical gutters.
+	 * Tests if gutters options are ignored when no gutters is set.
 	 */
 	public function test_row_no_gutters_ignore_gutters_options() {
 		$variant = 'no-gutters-with-gutters-options';
