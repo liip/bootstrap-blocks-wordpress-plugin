@@ -22,6 +22,7 @@ This plugin adds Bootstrap components and layout options as Gutenberg blocks.
 * No Gutters: Disable gutters between columns.
 * Alignment: Horizontal alignment of inner `column` blocks.
 * Vertical Alignment: Vertical alignment of inner `column` blocks.
+* Editor stack columns: Displays stacked columns in the editor to enhance readability of block content.
 
 ### Column
 
@@ -263,6 +264,7 @@ Modify default attributes of the row block.
     * `noGutters` (`boolean`) Defines if noGutters option should be selected or not (Default: `false`)
     * `alignment` (`string`) Default horizontal alignment of inner columns (Default: `''`)
     * `verticalAlignment` (`string`) Default vertical alignment of inner columns (Default: `''`)
+    * `editorStackColumns` (`boolean`) Defines if editorStackColumns option should be selected by default or not (Default: `false`)
 
 #### Usage
 
@@ -274,6 +276,7 @@ function my_row_default_attributes( $default_attributes ) {
     $default_attributes['noGutters'] = true;
     $default_attributes['alignment'] = 'right';
     $default_attributes['verticalAlignment'] = 'bottom';
+    $default_attributes['editorStackColumns'] = true;
     return $default_attributes;
 }
 ```
@@ -575,7 +578,7 @@ The build process is based on the official [`@wordpress/scripts`](https://develo
 
 * `npm start`: Compiles the block in development mode. Watches for any changes and reports back any errors in your code.
 * `npm run lint`: Lints JavaScript, CSS and package.json files.
-* `npm run build`: Use to build production code for your block inside `build` folder.
+* `npm run build`: Build production code of your blocks inside `build` folder.
 
 ### Extract labels
 
