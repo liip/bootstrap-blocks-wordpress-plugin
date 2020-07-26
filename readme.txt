@@ -9,7 +9,7 @@ Stable tag: 3.0.0
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Bootstrap Gutenberg Blocks for WordPress. Supports Bootstrap v4 and v5 (experimental).
+Bootstrap Gutenberg Blocks for WordPress. Supports Bootstrap 4 and **Bootstrap 5** (experimental).
 
 == Description ==
 
@@ -121,9 +121,9 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 = 3.0.0 =
 
-This version adds (experimental) support for Bootstrap 5. Please read the [documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin#supported-bootstrap-versions) for further information.
+**This version adds (experimental) support for Bootstrap 5!** Please read the [documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin#supported-bootstrap-versions) for further information.
 
-* [FEATURE] Add Bootstrap 5 support.
+* **[FEATURE] Add Bootstrap 5 support**.
 * [FEATURE] Add options to define vertical and horizontal gutters sizes in `row` block (Bootstrap 5 only).
 * [FEATURE] Add support for Xxl breakpoint size (Bootstrap 5 only).
 * [FEATURE] Introduce new JavaScript filters for Bootstrap 5 specific options: `wpBootstrapBlocks.row.horizontalGuttersOptions`, `wpBootstrapBlocks.row.verticalGuttersOptions`
