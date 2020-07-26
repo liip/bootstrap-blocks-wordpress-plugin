@@ -13,9 +13,11 @@ import {
 } from '@wordpress/e2e-test-utils';
 
 /**
- * Environment variables
+ * Timeout, in seconds, that the test should be allowed to run.
+ *
+ * @type {string|undefined}
  */
-const { PUPPETEER_TIMEOUT } = process.env;
+const PUPPETEER_TIMEOUT = process.env.PUPPETEER_TIMEOUT;
 
 /**
  * Set of console logging types observed to protect against unexpected yet
@@ -70,13 +72,6 @@ function observeConsoleLogging() {
 		) {
 			return;
 		}
-		if (
-			text.includes(
-				'[DOM] Found 2 elements with non-unique id #_wpnonce: (More info: https://goo.gl/9p2vKq)'
-			)
-		) {
-			return;
-		}
 
 		// wp-bootstrap-block exceptions for WordPress 5.4
 		if (
@@ -120,16 +115,11 @@ function observeConsoleLogging() {
 			return;
 		}
 
-		// A bug present in WordPress 5.2 will produce console warnings when
-		// loading the Dashicons font. These can be safely ignored, as they do
-		// not otherwise regress on application behavior. This logic should be
-		// removed once the associated ticket has been closed.
-		//
-		// See: https://core.trac.wordpress.org/ticket/47183
-		if (
-			text.startsWith( 'Failed to decode downloaded font:' ) ||
-			text.startsWith( 'OTS parsing error:' )
-		) {
+		// As of WordPress 5.3.2 in Chrome 79, navigating to the block editor
+		// (Posts > Add New) will display a console warning about
+		// non - unique IDs.
+		// See: https://core.trac.wordpress.org/ticket/23165
+		if ( text.includes( 'elements with non-unique id #_wpnonce' ) ) {
 			return;
 		}
 
