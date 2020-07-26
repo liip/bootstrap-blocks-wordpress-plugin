@@ -9,7 +9,11 @@ import {
 } from '@wordpress/e2e-test-utils';
 import { insertRowBlock } from '../row/row-helper';
 import { selectColumnBlock } from './column-helper';
-import { getInputValueByLabel, openSidebarPanelWithTitle } from '../helper';
+import {
+	ensureSidebarOpened,
+	getInputValueByLabel,
+	openSidebarPanelWithTitle,
+} from '../helper';
 
 describe( 'column block filters Bootstrap 5', () => {
 	beforeAll( async () => {
@@ -29,6 +33,7 @@ describe( 'column block filters Bootstrap 5', () => {
 	it( 'wp_bootstrap_blocks_column_default_attributes should override default attributes with Bootstrap 5', async () => {
 		await insertRowBlock();
 		await selectColumnBlock();
+		await ensureSidebarOpened();
 
 		// Xxl Columm size value should be set
 		await openSidebarPanelWithTitle( 'Column size' );

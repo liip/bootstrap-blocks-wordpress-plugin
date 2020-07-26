@@ -170,6 +170,7 @@ describe( 'row block', () => {
 	it( 'Should not display Bootstrap v5 options', async () => {
 		await insertRowBlock();
 		await selectRowBlock();
+		await ensureSidebarOpened();
 
 		// Horizontal Gutters options should not exist
 		expect(

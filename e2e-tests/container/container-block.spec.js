@@ -63,6 +63,7 @@ describe( 'container block', () => {
 	it( 'Should not display xxl breakpoint options if run with Bootstrap 4', async () => {
 		await insertContainerBlock();
 		await selectContainerBlock();
+		await ensureSidebarOpened();
 
 		expect(
 			await page.$x(

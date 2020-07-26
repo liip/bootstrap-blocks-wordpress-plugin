@@ -227,6 +227,7 @@ describe( 'column block', () => {
 
 	it( 'Should not display xxl breakpoint options if run with Bootstrap 4', async () => {
 		await insertRowBlock();
+		await ensureSidebarOpened();
 
 		// Select first column block
 		const columnBlocks = await getColumnBlocks();

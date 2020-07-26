@@ -7,6 +7,7 @@ import {
 	createNewPost,
 } from '@wordpress/e2e-test-utils';
 import { insertContainerBlock, selectContainerBlock } from './container-helper';
+import { ensureSidebarOpened } from '../helper';
 
 describe( 'container block Bootstrap 5', () => {
 	beforeAll( async () => {
@@ -24,6 +25,7 @@ describe( 'container block Bootstrap 5', () => {
 	it( 'Should display xxl breakpoint', async () => {
 		await insertContainerBlock();
 		await selectContainerBlock();
+		await ensureSidebarOpened();
 
 		expect(
 			await page.$x(

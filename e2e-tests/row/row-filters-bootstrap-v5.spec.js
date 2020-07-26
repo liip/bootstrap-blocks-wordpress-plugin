@@ -10,6 +10,7 @@ import {
 import { insertRowBlock, selectRowBlock } from './row-helper';
 import {
 	clickElementByText,
+	ensureSidebarOpened,
 	getSelectedValueBySelectLabel,
 	selectOption,
 	selectOptionIsAvailable,
@@ -33,6 +34,7 @@ describe( 'row block filters Bootstrap 5', () => {
 	it( 'wpBootstrapBlocks.row.horizontalGuttersOptions should add horizontal gutters option', async () => {
 		await insertRowBlock();
 		await selectRowBlock();
+		await ensureSidebarOpened();
 
 		// Disable No Gutters option to make Gutter options visible
 		await clickElementByText( 'label', 'No Gutters' );
@@ -51,6 +53,7 @@ describe( 'row block filters Bootstrap 5', () => {
 	it( 'wpBootstrapBlocks.row.verticalGuttersOptions should add vertical gutters option', async () => {
 		await insertRowBlock();
 		await selectRowBlock();
+		await ensureSidebarOpened();
 
 		// Disable No Gutters option to make Gutter options visible
 		await clickElementByText( 'label', 'No Gutters' );
@@ -69,6 +72,7 @@ describe( 'row block filters Bootstrap 5', () => {
 	it( 'wp_bootstrap_blocks_row_default_attributes should override default attributes with Bootstrap 5', async () => {
 		await insertRowBlock();
 		await selectRowBlock();
+		await ensureSidebarOpened();
 
 		// Disable No Gutters option to make Gutter options visible
 		await clickElementByText( 'label', 'No Gutters' );

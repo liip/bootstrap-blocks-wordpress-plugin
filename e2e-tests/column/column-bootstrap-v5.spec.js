@@ -12,6 +12,7 @@ import { insertRowBlock } from '../row/row-helper';
 import { getColumnBlocks } from './column-helper';
 import {
 	clickElementByText,
+	ensureSidebarOpened,
 	getDataValuesOfElement,
 	openSidebarPanelWithTitle,
 } from '../helper';
@@ -31,6 +32,7 @@ describe( 'column block Bootstrap 5', () => {
 
 	it( 'Should display xxl breakpoint options', async () => {
 		await insertRowBlock();
+		await ensureSidebarOpened();
 
 		// Select first column block
 		const columnBlocks = await getColumnBlocks();
@@ -55,6 +57,7 @@ describe( 'column block Bootstrap 5', () => {
 
 	it( 'Should be possible to select column size for xxl breakpoint', async () => {
 		await insertRowBlock();
+		await ensureSidebarOpened();
 
 		// Select first column block
 		const columnBlocks = await getColumnBlocks();
@@ -63,7 +66,10 @@ describe( 'column block Bootstrap 5', () => {
 		await openSidebarPanelWithTitle( 'Column size' );
 
 		// Change column count
-		await page.type( '[aria-label="Xxl Column count"]', '2' );
+		await page.type(
+			'input.components-input-control__input[aria-label="Xxl Column count"]',
+			'2'
+		);
 		const columnData = await getDataValuesOfElement(
 			`#block-${ firstColumnBlockClientId }`
 		);

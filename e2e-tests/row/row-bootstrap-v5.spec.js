@@ -8,7 +8,11 @@ import {
 	getEditedPostContent,
 } from '@wordpress/e2e-test-utils';
 import { insertRowBlock, selectRowBlock } from './row-helper';
-import { clickElementByText, selectOption } from '../helper';
+import {
+	clickElementByText,
+	ensureSidebarOpened,
+	selectOption,
+} from '../helper';
 
 describe( 'row block Bootstrap 5', () => {
 	beforeAll( async () => {
@@ -26,6 +30,7 @@ describe( 'row block Bootstrap 5', () => {
 	it( 'Should display Bootstrap v5 options', async () => {
 		await insertRowBlock();
 		await selectRowBlock();
+		await ensureSidebarOpened();
 
 		// Horizontal Gutters options should exist
 		expect(
@@ -45,6 +50,7 @@ describe( 'row block Bootstrap 5', () => {
 	it( 'Should be possible to change gutter sizes', async () => {
 		await insertRowBlock();
 		await selectRowBlock();
+		await ensureSidebarOpened();
 
 		// Change horizontal gutter
 		await selectOption( 'Horizontal Gutters', 'gx-5' );
@@ -58,6 +64,7 @@ describe( 'row block Bootstrap 5', () => {
 	it( 'Should hide gutter options when no gutters is checked', async () => {
 		await insertRowBlock();
 		await selectRowBlock();
+		await ensureSidebarOpened();
 
 		// Enable no gutters option
 		await clickElementByText( 'label', 'No Gutters' );
