@@ -28,12 +28,14 @@ describe( 'column block', () => {
 	it( 'Column block should not be available in block inserter', async () => {
 		await searchForBlock( 'Bootstrap Column' );
 
-		const noResultPreWP55 = await page.$( '.block-editor-inserter__no-results' )
-		const noResultWP55 = await page.$( '.block-editor-inserter__content .has-no-results' )
+		const noResultPreWP55 = await page.$(
+			'.block-editor-inserter__no-results'
+		);
+		const noResultWP55 = await page.$(
+			'.block-editor-inserter__content .has-no-results'
+		);
 
-		expect(
-			noResultPreWP55 || noResultWP55
-		).not.toBeNull();
+		expect( noResultPreWP55 || noResultWP55 ).not.toBeNull();
 	} );
 
 	it( 'Column block should be initialized with default attributes', async () => {
@@ -126,7 +128,10 @@ describe( 'column block', () => {
 
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 
-		await page.type( 'input.components-input-control__input[aria-label="Xl Column count"]', '2' );
+		await page.type(
+			'input.components-input-control__input[aria-label="Xl Column count"]',
+			'2'
+		);
 		columnData = await getDataValuesOfElement(
 			`#block-${ firstColumnBlockClientId }`
 		);
