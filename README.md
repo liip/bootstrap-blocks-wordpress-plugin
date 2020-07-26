@@ -552,10 +552,14 @@ Modify available horizontal gutters options for row block.
 
 ```javascript
 function myRowHorizontalGuttersOptions( horizontalGuttersOptions ) {
-    horizontalGuttersOptions.push( { label: 'Medium', value: 'gx-4' } );
-    return horizontalGuttersOptions;
+	horizontalGuttersOptions.push( { label: 'Medium', value: 'gx-4' } );
+	return horizontalGuttersOptions;
 }
-wp.hooks.addFilter( 'wpBootstrapBlocks.row.horizontalGuttersOptions', 'myplugin/wp-bootstrap-blocks/row/horizontalGuttersOptions', myRowHorizontalGuttersOptions );
+wp.hooks.addFilter(
+	'wpBootstrapBlocks.row.horizontalGuttersOptions',
+	'myplugin/wp-bootstrap-blocks/row/horizontalGuttersOptions',
+	myRowHorizontalGuttersOptions
+);
 ```
 
 #### Parameters
@@ -570,10 +574,14 @@ Modify available vertical gutters options for row block.
 
 ```javascript
 function myRowVerticalGuttersOptions( verticalGuttersOptions ) {
-    verticalGuttersOptions.push( { label: 'Medium', value: 'gy-4' } );
-    return verticalGuttersOptions;
+	verticalGuttersOptions.push( { label: 'Medium', value: 'gy-4' } );
+	return verticalGuttersOptions;
 }
-wp.hooks.addFilter( 'wpBootstrapBlocks.row.verticalGuttersOptions', 'myplugin/wp-bootstrap-blocks/row/verticalGuttersOptions', myRowVerticalGuttersOptions );
+wp.hooks.addFilter(
+	'wpBootstrapBlocks.row.verticalGuttersOptions',
+	'myplugin/wp-bootstrap-blocks/row/verticalGuttersOptions',
+	myRowVerticalGuttersOptions
+);
 ```
 
 #### Parameters
