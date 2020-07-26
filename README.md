@@ -417,10 +417,14 @@ Modify available button styles.
 
 ```javascript
 function myButtonStyleOptions( styleOptions ) {
-    styleOptions.push( { label: 'My Option', value: 'my-option' } );
-    return styleOptions;
+	styleOptions.push( { label: 'My Option', value: 'my-option' } );
+	return styleOptions;
 }
-wp.hooks.addFilter( 'wpBootstrapBlocks.button.styleOptions', 'myplugin/wp-bootstrap-blocks/button/styleOptions', myButtonStyleOptions );
+wp.hooks.addFilter(
+	'wpBootstrapBlocks.button.styleOptions',
+	'myplugin/wp-bootstrap-blocks/button/styleOptions',
+	myButtonStyleOptions
+);
 ```
 
 #### Parameters
@@ -435,10 +439,14 @@ Modify margin after options.
 
 ```javascript
 function myMarginAfterOptions( marginAfterOptions ) {
-    marginAfterOptions.push( { label: 'Huge', value: 'mb-8' } );
-    return marginAfterOptions;
+	marginAfterOptions.push( { label: 'Huge', value: 'mb-8' } );
+	return marginAfterOptions;
 }
-wp.hooks.addFilter( 'wpBootstrapBlocks.container.marginAfterOptions', 'myplugin/wp-bootstrap-blocks/container/marginAfterOptions', myMarginAfterOptions );
+wp.hooks.addFilter(
+	'wpBootstrapBlocks.container.marginAfterOptions',
+	'myplugin/wp-bootstrap-blocks/container/marginAfterOptions',
+	myMarginAfterOptions
+);
 ```
 
 #### Parameters
@@ -453,29 +461,33 @@ Define block templates.
 
 ```javascript
 function myRowTemplates( templates ) {
-    templates.push( {
-        name: '1-3',
-        title: '2 Columns (1:3)',
-        icon: 'layout',
-        templateLock: 'all',
-        template: [
-            [
-                'wp-bootstrap-blocks/column',
-                {
-                    sizeMd: 3,
-                },
-            ],
-            [
-                'wp-bootstrap-blocks/column',
-                {
-                    sizeMd: 9,
-                },
-            ],
-        ],
-    } );
-    return templates;
+	templates.push( {
+		name: '1-3',
+		title: '2 Columns (1:3)',
+		icon: 'layout',
+		templateLock: 'all',
+		template: [
+			[
+				'wp-bootstrap-blocks/column',
+				{
+					sizeMd: 3,
+				},
+			],
+			[
+				'wp-bootstrap-blocks/column',
+				{
+					sizeMd: 9,
+				},
+			],
+		],
+	} );
+	return templates;
 }
-wp.hooks.addFilter( 'wpBootstrapBlocks.row.templates', 'myplugin/wp-bootstrap-blocks/row/templates', myRowTemplates );
+wp.hooks.addFilter(
+	'wpBootstrapBlocks.row.templates',
+	'myplugin/wp-bootstrap-blocks/row/templates',
+	myRowTemplates
+);
 ```
 
 #### Parameters
@@ -502,7 +514,11 @@ Enable/Disable custom option in row templates.
 
 ```javascript
 // Disable custom row template
-wp.hooks.addFilter( 'wpBootstrapBlocks.row.enableCustomTemplate', 'myplugin/wp-bootstrap-blocks/row/enableCustomTemplate', () => false );
+wp.hooks.addFilter(
+	'wpBootstrapBlocks.row.enableCustomTemplate',
+	'myplugin/wp-bootstrap-blocks/row/enableCustomTemplate',
+	() => false
+);
 ```
 
 #### Parameters
@@ -517,13 +533,17 @@ Modify available background colors for column block.
 
 ```javascript
 function myColumnBgColorOptions( bgColorOptions ) {
-    bgColorOptions.push({
-        name: 'brand',
-        color: '#6EA644',
-    });
-    return bgColorOptions;
+	bgColorOptions.push( {
+		name: 'brand',
+		color: '#6EA644',
+	} );
+	return bgColorOptions;
 }
-wp.hooks.addFilter( 'wpBootstrapBlocks.column.bgColorOptions', 'myplugin/wp-bootstrap-blocks/column/bgColorOptions', myColumnBgColorOptions );
+wp.hooks.addFilter(
+	'wpBootstrapBlocks.column.bgColorOptions',
+	'myplugin/wp-bootstrap-blocks/column/bgColorOptions',
+	myColumnBgColorOptions
+);
 ```
 
 #### Parameters
@@ -538,10 +558,14 @@ Modify available padding options for column block.
 
 ```javascript
 function myColumnPaddingOptions( paddingOptions ) {
-    paddingOptions.push( { label: 'Huge', value: 'p-8' } );
-    return paddingOptions;
+	paddingOptions.push( { label: 'Huge', value: 'p-8' } );
+	return paddingOptions;
 }
-wp.hooks.addFilter( 'wpBootstrapBlocks.column.paddingOptions', 'myplugin/wp-bootstrap-blocks/column/paddingOptions', myColumnPaddingOptions );
+wp.hooks.addFilter(
+	'wpBootstrapBlocks.column.paddingOptions',
+	'myplugin/wp-bootstrap-blocks/column/paddingOptions',
+	myColumnPaddingOptions
+);
 ```
 
 #### Parameters
