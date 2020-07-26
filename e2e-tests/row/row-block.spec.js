@@ -8,7 +8,7 @@ import {
 	clickButton,
 } from '@wordpress/e2e-test-utils';
 import { insertRowBlock, selectRowBlock } from './row-helper';
-import { clickElementByText } from '../helper';
+import { clickElementByText, ensureSidebarOpened } from '../helper';
 
 describe( 'row block', () => {
 	beforeEach( async () => {
@@ -64,6 +64,7 @@ describe( 'row block', () => {
 	it( 'Should be possible to change column layout', async () => {
 		await insertRowBlock();
 		await selectRowBlock();
+		await ensureSidebarOpened();
 
 		// Layout options should be visible
 		expect(
@@ -100,6 +101,7 @@ describe( 'row block', () => {
 	it( 'Should be possible to select custom template', async () => {
 		await insertRowBlock();
 		await selectRowBlock();
+		await ensureSidebarOpened();
 
 		// Custom template should add block list appender (shouldn't change current layout)
 		await page.click(
@@ -116,6 +118,7 @@ describe( 'row block', () => {
 	it( 'Should only be possible to add column in custom layout', async () => {
 		await insertRowBlock();
 		await selectRowBlock();
+		await ensureSidebarOpened();
 
 		// Select custom template
 		await page.click(
@@ -142,6 +145,7 @@ describe( 'row block', () => {
 	it( 'Should be possible to apply row options', async () => {
 		await insertRowBlock();
 		await selectRowBlock();
+		await ensureSidebarOpened();
 
 		// Enable no gutters option
 		await clickElementByText( 'label', 'No Gutters' );
@@ -151,6 +155,7 @@ describe( 'row block', () => {
 	it( 'Should be possible to enable column layout in editor', async () => {
 		await insertRowBlock();
 		await selectRowBlock();
+		await ensureSidebarOpened();
 
 		// Enable editor stack columns
 		await clickElementByText( 'label', 'Editor: Display columns stacked' );

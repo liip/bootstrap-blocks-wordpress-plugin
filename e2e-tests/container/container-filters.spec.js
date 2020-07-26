@@ -8,6 +8,7 @@ import {
 	getEditedPostContent,
 } from '@wordpress/e2e-test-utils';
 import {
+	ensureSidebarOpened,
 	getCheckboxValueByLabel,
 	getSelectedValueBySelectLabel,
 	selectOption,
@@ -31,6 +32,7 @@ describe( 'container block filters', () => {
 	it( 'wpBootstrapBlocks.container.marginAfterOptions should add margin option', async () => {
 		await insertContainerBlock();
 		await selectContainerBlock();
+		await ensureSidebarOpened();
 
 		// Additional padding option should be available
 		expect( await selectOptionIsAvailable( 'Margin After', 'mb-8' ) ).toBe(
@@ -47,6 +49,7 @@ describe( 'container block filters', () => {
 	it( 'wp_bootstrap_blocks_container_default_attributes should override default attributes', async () => {
 		await insertContainerBlock();
 		await selectContainerBlock();
+		await ensureSidebarOpened();
 
 		// Fluid options should be enabled
 		expect( await getCheckboxValueByLabel( 'Fluid' ) ).toBe( true );

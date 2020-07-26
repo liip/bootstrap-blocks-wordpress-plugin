@@ -8,6 +8,7 @@ import {
 	selectOption,
 	selectIsDisabledByLabel,
 	getSelectedValueBySelectLabel,
+	ensureSidebarOpened,
 } from '../helper';
 import { insertContainerBlock, selectContainerBlock } from './container-helper';
 
@@ -19,6 +20,7 @@ describe( 'container block', () => {
 	it( 'Container block should be initialized with default attributes', async () => {
 		await insertContainerBlock();
 		await selectContainerBlock();
+		await ensureSidebarOpened();
 
 		// Fluid option should not be checked
 		expect( await getCheckboxValueByLabel( 'Fluid' ) ).toBe( false );
@@ -40,6 +42,7 @@ describe( 'container block', () => {
 	it( 'Should be possible to enable fluid option', async () => {
 		await insertContainerBlock();
 		await selectContainerBlock();
+		await ensureSidebarOpened();
 
 		// Change column size attributes
 		await clickElementByText( 'label', 'Fluid' );

@@ -308,8 +308,8 @@ Modify default attributes of the column block.
 add_filter( 'wp_bootstrap_blocks_column_default_attributes', 'my_column_default_attributes', 10, 1 );
 
 function my_column_default_attributes( $default_attributes ) {
-    $default_attributes['sizeLg'] = '4';
-    $default_attributes['sizeMd'] = '6';
+    $default_attributes['sizeLg'] = 4;
+    $default_attributes['sizeMd'] = 6;
     $default_attributes['equalWidthXl'] = true;
     $default_attributes['bgColor'] = 'primary';
     $default_attributes['padding'] = 'p-3';

@@ -7,7 +7,7 @@ import {
 	createNewPost,
 	getEditedPostContent,
 } from '@wordpress/e2e-test-utils';
-import { selectOption } from '../helper';
+import { ensureSidebarOpened, selectOption } from '../helper';
 import { insertButtonBlock, selectButtonBlock } from './button-helper';
 
 describe( 'button block', () => {
@@ -46,6 +46,7 @@ describe( 'button block', () => {
 	it( 'Should be possible to select style', async () => {
 		await insertButtonBlock();
 		await selectButtonBlock();
+		await ensureSidebarOpened();
 
 		// Style option should be applied
 		await selectOption( 'Style', 'secondary' );

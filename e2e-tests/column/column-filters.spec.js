@@ -10,6 +10,7 @@ import {
 import { insertRowBlock } from '../row/row-helper';
 import { selectColumnBlock } from './column-helper';
 import {
+	ensureSidebarOpened,
 	getCheckboxValueByLabel,
 	getDataValuesOfElement,
 	getInputValueByLabel,
@@ -35,6 +36,7 @@ describe( 'column block filters', () => {
 	it( 'wpBootstrapBlocks.column.bgColorOptions should add background color', async () => {
 		await insertRowBlock();
 		await selectColumnBlock();
+		await ensureSidebarOpened();
 		await openSidebarPanelWithTitle( 'Background color' );
 
 		// Additional background color should be available
@@ -55,6 +57,7 @@ describe( 'column block filters', () => {
 	it( 'wpBootstrapBlocks.column.paddingOptions should add padding option', async () => {
 		await insertRowBlock();
 		await selectColumnBlock();
+		await ensureSidebarOpened();
 		await openSidebarPanelWithTitle( 'Padding (inside column)' );
 
 		// Additional padding option should be available
@@ -69,6 +72,7 @@ describe( 'column block filters', () => {
 	it( 'wp_bootstrap_blocks_column_default_attributes should override default attributes', async () => {
 		await insertRowBlock();
 		await selectColumnBlock();
+		await ensureSidebarOpened();
 
 		// Columm size values should be set
 		await openSidebarPanelWithTitle( 'Column size' );

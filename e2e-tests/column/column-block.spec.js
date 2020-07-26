@@ -17,6 +17,7 @@ import {
 	getInputValueByLabel,
 	openSidebarPanelWithTitle,
 	selectOption,
+	ensureSidebarOpened,
 } from '../helper';
 
 describe( 'column block', () => {
@@ -26,13 +27,20 @@ describe( 'column block', () => {
 
 	it( 'Column block should not be available in block inserter', async () => {
 		await searchForBlock( 'Bootstrap Column' );
-		expect(
-			await page.$( '.block-editor-inserter__no-results' )
-		).not.toBeNull();
+
+		const noResultPreWP55 = await page.$(
+			'.block-editor-inserter__no-results'
+		);
+		const noResultWP55 = await page.$(
+			'.block-editor-inserter__content .has-no-results'
+		);
+
+		expect( noResultPreWP55 || noResultWP55 ).not.toBeNull();
 	} );
 
 	it( 'Column block should be initialized with default attributes', async () => {
 		await insertRowBlock();
+		await ensureSidebarOpened();
 
 		// Check attributes of first column block
 		const columnBlocks = await getColumnBlocks();
@@ -88,6 +96,7 @@ describe( 'column block', () => {
 
 	it( 'Should be possible to change column size', async () => {
 		await insertRowBlock();
+		await ensureSidebarOpened();
 
 		// Select first column block
 		const columnBlocks = await getColumnBlocks();
@@ -119,7 +128,10 @@ describe( 'column block', () => {
 
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 
-		await page.type( '[aria-label="Xl Column count"]', '2' );
+		await page.type(
+			'input.components-input-control__input[aria-label="Xl Column count"]',
+			'2'
+		);
 		columnData = await getDataValuesOfElement(
 			`#block-${ firstColumnBlockClientId }`
 		);
@@ -130,6 +142,7 @@ describe( 'column block', () => {
 
 	it( 'Should be possible to select background color', async () => {
 		await insertRowBlock();
+		await ensureSidebarOpened();
 
 		// Select first column block
 		const columnBlocks = await getColumnBlocks();
@@ -160,6 +173,7 @@ describe( 'column block', () => {
 
 	it( 'Should reset centerContent if bgColor gets removed', async () => {
 		await insertRowBlock();
+		await ensureSidebarOpened();
 
 		// Select first column block
 		const columnBlocks = await getColumnBlocks();
@@ -193,6 +207,7 @@ describe( 'column block', () => {
 
 	it( 'Should be possible to select padding', async () => {
 		await insertRowBlock();
+		await ensureSidebarOpened();
 
 		// Select first column block
 		const columnBlocks = await getColumnBlocks();

@@ -8,7 +8,7 @@ import {
 	getEditedPostContent,
 } from '@wordpress/e2e-test-utils';
 import { insertRowBlock, selectRowBlock } from './row-helper';
-import { getCheckboxValueByLabel } from '../helper';
+import { ensureSidebarOpened, getCheckboxValueByLabel } from '../helper';
 
 describe( 'row block filters', () => {
 	beforeAll( async () => {
@@ -26,6 +26,7 @@ describe( 'row block filters', () => {
 	it( 'wpBootstrapBlocks.row.templates should add additional template', async () => {
 		await insertRowBlock();
 		await selectRowBlock();
+		await ensureSidebarOpened();
 
 		// Additional template should be available
 		expect(
@@ -53,6 +54,7 @@ describe( 'row block filters', () => {
 	it( 'wpBootstrapBlocks.row.enableCustomTemplate should disable custom template', async () => {
 		await insertRowBlock();
 		await selectRowBlock();
+		await ensureSidebarOpened();
 
 		// Custom template shouldn't be available
 		expect(
@@ -68,6 +70,7 @@ describe( 'row block filters', () => {
 	it( 'wp_bootstrap_blocks_row_default_attributes should override default attributes', async () => {
 		await insertRowBlock();
 		await selectRowBlock();
+		await ensureSidebarOpened();
 
 		// 1:2 template should be selected
 		expect(
