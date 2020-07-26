@@ -17,6 +17,7 @@ import {
 	testVersion110ColumnFeatures,
 	testVersion140ColumnFeatures,
 } from './feature-tests';
+import { ensureSidebarOpened } from '../helper';
 
 describe( 'row block backwards compatibility', () => {
 	beforeEach( async () => {
@@ -25,6 +26,7 @@ describe( 'row block backwards compatibility', () => {
 
 	it( 'v1.0.0 row block content should be compatible', async () => {
 		await setPostContent( rowContent100 );
+		await ensureSidebarOpened();
 
 		// Row blocks should be successfully inserted
 		expect(
@@ -46,6 +48,7 @@ describe( 'row block backwards compatibility', () => {
 	/* eslint-disable jest/expect-expect */
 	it( 'v1.0.0 column block content should be compatible', async () => {
 		await setPostContent( rowContent100 );
+		await ensureSidebarOpened();
 
 		await testVersion100ColumnFeatures();
 	} );
@@ -53,6 +56,7 @@ describe( 'row block backwards compatibility', () => {
 
 	it( 'v1.1.0 row block content should be compatible', async () => {
 		await setPostContent( rowContent110 );
+		await ensureSidebarOpened();
 
 		// Row blocks should be successfully inserted
 		expect(
@@ -76,6 +80,7 @@ describe( 'row block backwards compatibility', () => {
 	/* eslint-disable jest/expect-expect */
 	it( 'v1.1.0 column block content should be compatible', async () => {
 		await setPostContent( rowContent110 );
+		await ensureSidebarOpened();
 
 		await testVersion100ColumnFeatures();
 
@@ -86,6 +91,7 @@ describe( 'row block backwards compatibility', () => {
 	/* eslint-disable jest/expect-expect */
 	it( 'v1.4.0 column block content should be compatible', async () => {
 		await setPostContent( rowContent140 );
+		await ensureSidebarOpened();
 
 		await testVersion100ColumnFeatures();
 

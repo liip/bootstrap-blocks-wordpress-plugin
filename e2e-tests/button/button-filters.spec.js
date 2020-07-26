@@ -9,6 +9,7 @@ import {
 } from '@wordpress/e2e-test-utils';
 import { insertButtonBlock, selectButtonBlock } from './button-helper';
 import {
+	ensureSidebarOpened,
 	getInputValueByLabel,
 	getRichTextValueByLabel,
 	getSelectedValueBySelectLabel,
@@ -33,6 +34,7 @@ describe( 'button block filters', () => {
 	it( 'wpBootstrapBlocks.button.styleOptions should add style option', async () => {
 		await insertButtonBlock();
 		await selectButtonBlock();
+		await ensureSidebarOpened();
 
 		// Additional style option should be available
 		expect( await selectOptionIsAvailable( 'Style', 'brand' ) ).toBe(
@@ -49,6 +51,7 @@ describe( 'button block filters', () => {
 	it( 'wp_bootstrap_blocks_button_default_attributes should override default attributes', async () => {
 		await insertButtonBlock();
 		await selectButtonBlock();
+		await ensureSidebarOpened();
 
 		// Alignment should be selected
 		expect(

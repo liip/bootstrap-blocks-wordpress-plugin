@@ -4,6 +4,17 @@ import {
 	selectBlockByClientId,
 } from '@wordpress/e2e-test-utils';
 
+// This function also exists in the @wordpress/e2e-test-utils package but somehow the function doesn't work as expected
+export const ensureSidebarOpened = async () => {
+	try {
+		await page.$eval( '.edit-post-sidebar', () => {} )
+	} catch (e) {
+		await page.click(
+			'.edit-post-header__settings [aria-label="Settings"]'
+		);
+	}
+}
+
 export const selectBlockByName = async ( name, index = 0 ) => {
 	await selectBlockByClientId(
 		( await getBlockByName( name, index ) ).clientId
@@ -42,6 +53,8 @@ export const getDataValuesOfElement = async ( selector, index = 0 ) => {
 };
 
 export const openSidebarPanelWithTitle = async ( title ) => {
+	await ensureSidebarOpened();
+
 	// Check if sidebar panel exists
 	await page.waitForXPath(
 		`//div[contains(@class,"edit-post-sidebar")]//button[@class="components-button components-panel__body-toggle"][contains(text(),"${ title }")]`

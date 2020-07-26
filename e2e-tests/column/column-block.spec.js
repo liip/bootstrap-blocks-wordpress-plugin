@@ -17,6 +17,7 @@ import {
 	getInputValueByLabel,
 	openSidebarPanelWithTitle,
 	selectOption,
+	ensureSidebarOpened,
 } from '../helper';
 
 describe( 'column block', () => {
@@ -33,6 +34,7 @@ describe( 'column block', () => {
 
 	it( 'Column block should be initialized with default attributes', async () => {
 		await insertRowBlock();
+		await ensureSidebarOpened();
 
 		// Check attributes of first column block
 		const columnBlocks = await getColumnBlocks();
@@ -88,6 +90,7 @@ describe( 'column block', () => {
 
 	it( 'Should be possible to change column size', async () => {
 		await insertRowBlock();
+		await ensureSidebarOpened();
 
 		// Select first column block
 		const columnBlocks = await getColumnBlocks();
@@ -130,6 +133,7 @@ describe( 'column block', () => {
 
 	it( 'Should be possible to select background color', async () => {
 		await insertRowBlock();
+		await ensureSidebarOpened();
 
 		// Select first column block
 		const columnBlocks = await getColumnBlocks();
@@ -160,6 +164,7 @@ describe( 'column block', () => {
 
 	it( 'Should reset centerContent if bgColor gets removed', async () => {
 		await insertRowBlock();
+		await ensureSidebarOpened();
 
 		// Select first column block
 		const columnBlocks = await getColumnBlocks();
@@ -193,6 +198,7 @@ describe( 'column block', () => {
 
 	it( 'Should be possible to select padding', async () => {
 		await insertRowBlock();
+		await ensureSidebarOpened();
 
 		// Select first column block
 		const columnBlocks = await getColumnBlocks();
