@@ -27,8 +27,12 @@ describe( 'column block', () => {
 
 	it( 'Column block should not be available in block inserter', async () => {
 		await searchForBlock( 'Bootstrap Column' );
+
+		const noResultPreWP55 = await page.$( '.block-editor-inserter__no-results' )
+		const noResultWP55 = await page.$( '.block-editor-inserter__content .has-no-results' )
+
 		expect(
-			await page.$( '.block-editor-inserter__no-results' )
+			noResultPreWP55 || noResultWP55
 		).not.toBeNull();
 	} );
 
@@ -122,7 +126,7 @@ describe( 'column block', () => {
 
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 
-		await page.type( '[aria-label="Xl Column count"]', '2' );
+		await page.type( 'input.components-input-control__input[aria-label="Xl Column count"]', '2' );
 		columnData = await getDataValuesOfElement(
 			`#block-${ firstColumnBlockClientId }`
 		);
