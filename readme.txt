@@ -102,6 +102,10 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 == Changelog ==
 
+= 2.4.1 =
+
+* [FIX] Fix documentation of `wp_bootstrap_blocks_column_default_attributes` filter (see: https://github.com/liip/bootstrap-blocks-wordpress-plugin#wp_bootstrap_blocks_column_default_attributes). `sizeXY` attributes have been defined as `string` values instead of `int` values in example. If you're using this filter please check if you pass the values correctly. Passing `string` values to `int` attributes will stop working in WordPress 5.5.
+
 = 2.4.0 =
 
 * [FEATURE] Possibility to enable stacked layout for column blocks in editor to enhance readability of block content. This feature can be enabled by default by setting the `editorStackColumns` value to `true` in the `wp_bootstrap_blocks_row_default_attributes` PHP filter.
