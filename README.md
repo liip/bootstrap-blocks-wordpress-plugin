@@ -615,9 +615,8 @@ php wp-cli.phar i18n make-pot --exclude="wordpress" . languages/wp-bootstrap-blo
 
 ### Setup local dev environment
 
-The following commands can be used to setup a local dev environment. See the official [documentation of `@wordpress/scripts`](https://developer.wordpress.org/block-editor/packages/packages-scripts/#available-sub-scripts) for a complete list of commands.
+The following commands can be used to set up a local dev environment. See the official [documentation of `@wordpress/env`](https://developer.wordpress.org/block-editor/packages/packages-env/#command-reference) for a complete list of commands.
 
-* `scripts/install-wp.sh [wp-version]`: Install local WordPress environment
 * `npm run wp-env start`: Starts the Docker containers.
 * `npm run wp-env stop`: Stops the Docker containers.
 
