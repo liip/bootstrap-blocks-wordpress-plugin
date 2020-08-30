@@ -104,7 +104,8 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 = 2.4.2 =
 
-* [FIX] Fix loading of German translation.
+* [FIX] Fix loading of translations.
+* [TRANSLATION] Add Swiss-German translation.
 
 = 2.4.1 =
 
