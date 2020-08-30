@@ -303,7 +303,7 @@ msgstr "Zeilen Optionen"
 
 #: build/index.js:1834
 msgid "No Gutters"
-msgstr "Keine Abstände zwischen Spalten"
+msgstr "Keine Abstände zwischen Spalten (No Gutters)"
 
 #: build/index.js:1843
 msgid "Change horizontal alignment of columns"
