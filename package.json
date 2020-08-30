@@ -20,10 +20,10 @@
   "dependencies": {},
   "devDependencies": {
     "@wordpress/base-styles": "^1.10.0",
-    "@wordpress/e2e-test-utils": "^4.11.1",
+    "@wordpress/e2e-test-utils": "^4.11.2",
     "@wordpress/env": "^1.6.0",
     "@wordpress/scripts": "^12.1.1",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.20",
     "prettier": "npm:wp-prettier@^2.0.5"
   },
   "scripts": {
