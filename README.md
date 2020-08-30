@@ -624,12 +624,6 @@ The build process is based on the official [`@wordpress/scripts`](https://develo
     ./scripts/translations/compile-translation-files.sh
     ```
 
-### Compile translation file
-
-```bash
-php wp-cli.phar i18n make-json languages/wp-bootstrap-blocks-de_DE.po --no-purge
-```
-
 ### Setup local dev environment
 
 The following commands can be used to set up a local dev environment. See the official [documentation of `@wordpress/env`](https://developer.wordpress.org/block-editor/packages/packages-env/#command-reference) for a complete list of commands.
