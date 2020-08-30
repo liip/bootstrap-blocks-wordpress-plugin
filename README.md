@@ -614,25 +614,25 @@ curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.pha
 
 1. To extract the labels and generate the `languages/wp-bootstrap-blocks.pot` file run the following command:
 
-```bash
-./scripts/translations/extract_messages.sh
-```
+    ```bash
+    ./scripts/translations/extract_messages.sh
+    ```
 
-2. To update the translation files (*.po) run the following command:
+1. To update the translation files (*.po) run the following command:
 
-```bash
-./scripts/translations/update_translation_files.sh
-```
+    ```bash
+    ./scripts/translations/update_translation_files.sh
+    ```
 
-3. To generate the JSON translation file run the following command:
+1. To generate the JSON translation file run the following command:
 
-```bash
-./scripts/translations/make_json.sh
-```
+    ```bash
+    ./scripts/translations/make_json.sh
+    ```
 
 ### Compile translation file
 
-```
+```bash
 php wp-cli.phar i18n make-json languages/wp-bootstrap-blocks-de_DE.po --no-purge
 ```
 
