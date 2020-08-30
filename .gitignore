@@ -5,7 +5,5 @@ build/*
 !build/index.asset.php
 !build/index.css
 !build/style-index.css
-wp-cli.phar
 composer.phar
-/wordpress
 /release

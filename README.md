@@ -604,14 +604,25 @@ The build process is based on the official [`@wordpress/scripts`](https://develo
 * `npm run lint`: Lints JavaScript, CSS and package.json files.
 * `npm run build`: Build production code of your blocks inside `build` folder.
 
-### Extract labels
+### Generate translation files
 
-To extract the labels and generate the `languages/wp-bootstrap-blocks.pot` file run the following command:
+1. To extract the labels and generate the `languages/wp-bootstrap-blocks.pot` file run the following command:
 
-```bash
-curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-php wp-cli.phar i18n make-pot --exclude="wordpress" . languages/wp-bootstrap-blocks.pot
-```
+    ```bash
+    ./scripts/translations/extract-messages.sh
+    ```
+
+1. To update the translation files (`*.po`) run the following command:
+
+    ```bash
+    ./scripts/translations/update-translation-files.sh
+    ```
+
+1. To generate the `*.mo` and `*.json` translation files run the following command:
+
+    ```bash
+    ./scripts/translations/compile-translation-files.sh
+    ```
 
 ### Setup local dev environment
 
