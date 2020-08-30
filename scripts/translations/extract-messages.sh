@@ -2,10 +2,11 @@
 
 HERE=`dirname $0`
 ROOT="$HERE/../.."
+DOCKER_ROOT="/var/www/html/wp-content/plugins/wp-bootstrap-blocks"
 
 # Create non-minified build to be able to extract labels
-(cd $ROOT && NODE_ENV=development npm run build)
+NODE_ENV=development npm run build
 
-php $ROOT/wp-cli.phar i18n make-pot --include="build,wp-bootstrap-blocks.php,src/*.php" . $ROOT/languages/wp-bootstrap-blocks.pot
+npm run wp-env run cli "wp i18n make-pot --exclude=\"e2e-tests,phpunit,src/*.js\" $DOCKER_ROOT $DOCKER_ROOT/languages/wp-bootstrap-blocks.pot"
 
-(cd $ROOT && npm run build)
+npm run build

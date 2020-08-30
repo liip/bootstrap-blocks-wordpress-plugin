@@ -606,12 +606,6 @@ The build process is based on the official [`@wordpress/scripts`](https://develo
 
 ### Generate translation files
 
-The following scripts are based on wp-cli. Please run the following command to install it:
-
-```bash
-curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-```
-
 1. To extract the labels and generate the `languages/wp-bootstrap-blocks.pot` file run the following command:
 
     ```bash
@@ -624,10 +618,10 @@ curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.pha
     ./scripts/translations/update-translation-files.sh
     ```
 
-1. To generate the JSON translation files run the following command:
+1. To generate the `*.mo` and `*.json` translation files run the following command:
 
     ```bash
-    ./scripts/translations/make-json.sh
+    ./scripts/translations/compile-translation-files.sh
     ```
 
 ### Compile translation file
