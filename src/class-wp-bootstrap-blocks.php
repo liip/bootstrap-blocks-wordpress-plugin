@@ -171,23 +171,25 @@ class WP_Bootstrap_Blocks {
 		$index_asset = file_exists( $index_asset_file )
 			? require_once $index_asset_file
 			: null;
-		// Generated dependency array is only usable if WordPress dependencies are imported from NPM packages (eg. `import { __ } from '@wordpress/i18n'`)
-		// $index_dependencies = isset( $index_asset['dependencies'] ) ? $index_asset['dependencies'] : array();
+
+		$index_dependencies = isset( $index_asset['dependencies'] ) ? $index_asset['dependencies'] : array();
+		global $wp_version;
+		if ( version_compare( $wp_version, '5.2', '<' ) ) {
+			// We have to filter out the dependency to 'wp-block-editor' since it's not available in WordPress 5.1 and older.
+			$index_dependencies = array_filter(
+				$index_dependencies,
+				function ( $dependency ) {
+					return 'wp-block-editor' !== $dependency;
+				}
+			);
+		}
+
 		$index_version = isset( $index_asset['version'] ) ? $index_asset['version'] : filemtime( $index_path );
 
 		wp_enqueue_script(
 			$this->token . '-js', // Handle.
 			$index_url,
-			array(
-				'wp-element',
-				'wp-polyfill',
-				'wp-i18n',
-				'wp-blocks',
-				'wp-components',
-				'wp-hooks',
-				'wp-data',
-				'wp-compose',
-			),
+			$index_dependencies,
 			$index_version,
 			true // Enqueue the script in the footer.
 		);
