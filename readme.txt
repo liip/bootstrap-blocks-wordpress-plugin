@@ -5,7 +5,7 @@ Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.0
 Tested up to: 5.5
 Requires PHP: 5.6
-Stable tag: 2.4.2
+Stable tag: 2.4.3
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -102,9 +102,14 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 == Changelog ==
 
+= 2.4.3 =
+
+* [FIX] Import dependencies from `@wordpress` npm-packages instead of relying on the global `wp` namespace during development.
+
 = 2.4.2 =
 
 * [FIX] Fix loading of translations.
+* [FIX] Fix dependencies of editor script.
 * [TRANSLATION] Add Swiss-German translation.
 
 = 2.4.1 =
