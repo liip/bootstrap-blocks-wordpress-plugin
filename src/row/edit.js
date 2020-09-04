@@ -1,3 +1,19 @@
+// WordPress dependencies
+import { __ } from '@wordpress/i18n';
+import {
+	IconButton,
+	CheckboxControl,
+	PanelBody,
+	SVG,
+	Path,
+} from '@wordpress/components';
+import { Component, Fragment } from '@wordpress/element';
+import { withSelect, withDispatch } from '@wordpress/data';
+import { compose } from '@wordpress/compose';
+import { applyFilters } from '@wordpress/hooks';
+import * as BlockEditor from '@wordpress/block-editor';
+import * as Editor from '@wordpress/editor';
+
 import {
 	alignBottom,
 	alignCenter,
@@ -5,14 +21,8 @@ import {
 	templateIconMissing,
 } from './icons';
 
-const { __ } = wp.i18n;
 const { InnerBlocks, InspectorControls, BlockControls, AlignmentToolbar } =
-	wp.blockEditor || wp.editor; // Fallback to 'wp.editor' for backwards compatibility
-const { IconButton, CheckboxControl, PanelBody, SVG, Path } = wp.components;
-const { Component, Fragment } = wp.element;
-const { withSelect, withDispatch } = wp.data;
-const { applyFilters } = wp.hooks;
-const { compose } = wp.compose;
+	BlockEditor || Editor; // Fallback to deprecated '@wordpress/editor' for backwards compatibility
 
 const ALLOWED_BLOCKS = [ 'wp-bootstrap-blocks/column' ];
 

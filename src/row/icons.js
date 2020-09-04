@@ -2,7 +2,7 @@
  * Backport from Gutenberg 5.5
  * Source: https://github.com/WordPress/gutenberg/blob/master/packages/block-editor/src/components/block-vertical-alignment-toolbar/icons.js
  */
-const { Path, SVG } = wp.components;
+import { Path, SVG } from '@wordpress/components';
 
 export const alignBottom = (
 	<SVG

@@ -2,12 +2,13 @@
  * BLOCK: wp-bootstrap-blocks/button
  */
 
+// WordPress dependencies
+import { registerBlockType } from '@wordpress/blocks';
+import { __ } from '@wordpress/i18n';
+import { G, Path, SVG } from '@wordpress/components';
+
 import edit from './edit';
 import './editor.scss';
-
-const { __ } = wp.i18n;
-const { registerBlockType } = wp.blocks;
-const { G, Path, SVG } = wp.components;
 
 registerBlockType( 'wp-bootstrap-blocks/button', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
