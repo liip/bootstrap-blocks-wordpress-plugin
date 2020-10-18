@@ -3,8 +3,7 @@
 // Container block
 [data-type="wp-bootstrap-blocks/container"] {
 	// Container background on hover to make it visible
-	&.editor-block-list__block:not(.is-selected):not(.has-child-selected):hover, /* < WP5.4 */
-	&:not(.editor-block-list__block):not(.is-selected):not(.has-child-selected):hover::before  /* >= WP5.4 */ {
+	&:not(.is-selected):not(.has-child-selected):hover {
 		background-color: rgba(220, 220, 220, 0.5);
 		outline: 1px dashed $gray-600;
 	}

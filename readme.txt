@@ -105,6 +105,7 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 = 2.4.3 =
 
 * [FIX] Import dependencies from `@wordpress` npm-packages instead of relying on the global `wp` namespace during development.
+* [FIX] Fix visibility of row, column and container blocks in WP 5.5.
 
 = 2.4.2 =
 
