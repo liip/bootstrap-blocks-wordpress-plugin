@@ -13,7 +13,7 @@
 .wp-block-wp-bootstrap-blocks-button {
 	display: inline-block;
 	padding: 8px 16px;
-	background-color: $blue-wordpress-700;
+	background-color: $blue-50;
 	color: $white;
 }
 
@@ -47,11 +47,11 @@
 	}
 
 	.dashicon {
-		color: $dark-gray-100;
+		color: $gray-600;
 	}
 
 	.block-editor-url-input input[type="text"]::placeholder,
 	.editor-url-input input[type="text"]::placeholder {
-		color: $dark-gray-100;
+		color: $gray-600;
 	}
 }

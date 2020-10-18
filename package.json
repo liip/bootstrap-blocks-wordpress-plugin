@@ -29,7 +29,7 @@
     "@wordpress/i18n": "^3.16.0"
   },
   "devDependencies": {
-    "@wordpress/base-styles": "^1.10.0",
+    "@wordpress/base-styles": "^3.1.0",
     "@wordpress/e2e-test-utils": "^4.14.0",
     "@wordpress/env": "^2.1.0",
     "@wordpress/scripts": "^12.3.0",

@@ -29,7 +29,7 @@
 	&.editor-block-list__block:not(.is-selected):not(.has-child-selected):hover, /* < WP5.4 */
 	&:not(.editor-block-list__block):not(.is-selected):not(.has-child-selected):hover::before  /* >= WP5.4 */ {
 		background-color: rgba(220, 220, 220, 0.5);
-		outline: 1px dashed $dark-gray-150;
+		outline: 1px dashed $gray-600;
 	}
 
 	@include break-small() {
@@ -141,8 +141,8 @@ body:not(.branch-5-2):not(.branch-5-3) [data-type="wp-bootstrap-blocks/row"]:not
 
 		&.is-active,
 		&.is-active:not(:disabled):not([aria-disabled="true"]):not(.is-default):hover {
-			color: $dark-gray-900;
-			box-shadow: inset 0 0 0 2px $dark-gray-500;
+			color: $gray-900;
+			box-shadow: inset 0 0 0 2px $gray-700;
 
 			// Windows High Contrast mode will show this outline, but not the box-shadow.
 			outline: 2px solid transparent;
@@ -160,7 +160,7 @@ body:not(.branch-5-2):not(.branch-5-3) [data-type="wp-bootstrap-blocks/row"]:not
 	// Column background on hover to make it visible
 	&:not(.is-selected):not(.has-child-selected):hover {
 		background-color: rgba(255, 255, 255, 0.7);
-		outline: 1px dashed $dark-gray-150;
+		outline: 1px dashed $gray-600;
 	}
 
 	&[data-center-content="true"] {
