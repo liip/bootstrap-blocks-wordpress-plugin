@@ -5,5 +5,7 @@ build/*
 !build/index.asset.php
 !build/index.css
 !build/style-index.css
+!build/settings.asset.php
+!build/settings.css
 composer.phar
 /release

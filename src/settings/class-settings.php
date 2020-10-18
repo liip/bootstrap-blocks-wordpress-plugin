@@ -47,6 +47,20 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 		const MENU_SLUG = 'wp-bootstrap-blocks_settings';
 
 		/**
+		 * The plugin assets directory.
+		 *
+		 * @var string
+		 */
+		public static $assets_dir = '';
+
+		/**
+		 * The plugin assets URL.
+		 *
+		 * @var string
+		 */
+		public static $assets_url = '';
+
+		/**
 		 * True if settings are already initialized.
 		 *
 		 * @var bool
@@ -55,9 +69,15 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 
 		/**
 		 * Settings constructor.
+		 *
+		 * @param string $assets_dir The plugin assets directory.
+		 * @param string $assets_url The plugin assets URL.
 		 */
-		public static function init() {
+		public static function init( $assets_dir, $assets_url ) {
 			if ( ! self::$initialized ) {
+				self::$assets_dir = $assets_dir;
+				self::$assets_url = $assets_url;
+
 				// Add settings page to menu
 				add_action( 'admin_menu', array( __CLASS__, 'add_menu_item' ) );
 
@@ -76,8 +96,33 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 				// Filter saving of bootstrap version
 				add_filter( 'pre_update_option_' . self::OPTION_PREFIX . 'bootstrap_version', array( __CLASS__, 'pre_update_option_bootstrap_version' ), 10, 2 );
 
+				// Enqueue settings stylesheet
+				add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue_styles' ) );
+
 				self::$initialized = true;
 			}
+		}
+
+		/**
+		 * Enqueue settings specific styles.
+		 *
+		 * @param string $hook Hook of current screen.
+		 */
+		public static function enqueue_styles( $hook ) {
+			if ( 'settings_page_' . self::MENU_SLUG !== $hook ) {
+				return;
+			}
+
+			$settings_styles_path = self::$assets_dir . 'settings.css';
+			$settings_styles_url = esc_url( self::$assets_url ) . 'settings.css';
+			$settings_asset_file = self::$assets_dir . 'settings.asset.php';
+			$settings_asset = file_exists( $settings_asset_file )
+				? require_once $settings_asset_file
+				: null;
+			$settings_version = isset( $settings_asset['version'] ) ? $settings_asset['version'] : filemtime( $settings_styles_path );
+
+			wp_register_style( self::MENU_SLUG . '_styles', $settings_styles_url, false, $settings_version );
+			wp_enqueue_style( self::MENU_SLUG . '_styles' );
 		}
 
 		/**
@@ -112,6 +157,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 				array(
 					'id' => 'bootstrap_version',
 					'label' => __( 'Bootstrap Version (experimental)', 'wp-bootstrap-blocks' ),
+					'description' => __( 'Depending on the selected Bootstrap version the blocks will be rendered accordingly and version specific features will be available in the editor.', 'wp-bootstrap-blocks' ),
 					'type' => 'select',
 					'default' => self::BOOTSTRAP_VERSION_DEFAULT_VALUE,
 					'options' => array(
@@ -284,21 +330,17 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 						break;
 
 					default:
-						$html .= '<div><span class="description">' . $field['description'] . '</span></div>' . "\n";
+						$html .= '<p class="description">' . $field['description'] . '</p>' . "\n";
 						break;
 				}
 			}
 
 			if ( $is_option_constant_set ) {
-				$html .= '<div class="constant-notice">' . sprintf(
-					// translators: %s contains constant name
-					esc_html_x(
-						'Option disabled because %s constant is set.',
-						'%s contains constant name',
+				$html .= '<p class="description constant-notice">' .
+					esc_html__(
+						'Option is defined in the following constant',
 						'wp-bootstrap-blocks'
-					),
-					esc_html( $data['constant_name'] )
-				) . '</div>' . "\n";
+					) . ': <code>' . esc_html( $data['constant_name'] ) . '</code></p>' . "\n";
 			}
 
 			// @codingStandardsIgnoreStart

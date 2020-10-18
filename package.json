@@ -37,10 +37,10 @@
     "prettier": "npm:wp-prettier@^2.0.5"
   },
   "scripts": {
-    "start": "wp-scripts start",
+    "start": "wp-scripts start src/index.js src/settings/settings.js",
     "dev": "npm run start",
     "prebuild": "npm run check-engines",
-    "build": "wp-scripts build",
+    "build": "wp-scripts build src/index.js src/settings/settings.js",
     "wp-env": "wp-env",
     "check-engines": "wp-scripts check-engines",
     "check-licenses": "wp-scripts check-licenses",

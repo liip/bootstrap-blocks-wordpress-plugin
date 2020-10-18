@@ -79,7 +79,7 @@ class WP_Bootstrap_Blocks {
 		$this->includes();
 		$this->init_hooks();
 		$this->register_block_types();
-		Settings::init();
+		Settings::init( $this->assets_dir, $this->assets_url );
 	}
 
 	/**
