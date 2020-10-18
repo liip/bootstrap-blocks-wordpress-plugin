@@ -1,17 +1,23 @@
-/**
- * WordPress dependencies
- */
-const { __ } = wp.i18n;
-const { Component, Fragment } = wp.element;
+// WordPress dependencies
+import { __ } from '@wordpress/i18n';
+import { Component, Fragment } from '@wordpress/element';
+import {
+	Dashicon,
+	IconButton,
+	SelectControl,
+	PanelBody,
+} from '@wordpress/components';
+import { applyFilters } from '@wordpress/hooks';
+import * as BlockEditor from '@wordpress/block-editor';
+import * as Editor from '@wordpress/editor';
+
 const {
 	RichText,
 	URLInput,
 	InspectorControls,
 	BlockControls,
 	AlignmentToolbar,
-} = wp.blockEditor || wp.editor; // Fallback to 'wp.editor' for backwards compatibility
-const { Dashicon, IconButton, SelectControl, PanelBody } = wp.components;
-const { applyFilters } = wp.hooks;
+} = BlockEditor || Editor; // Fallback to deprecated '@wordpress/editor' for backwards compatibility
 
 class BootstrapButtonEdit extends Component {
 	render() {

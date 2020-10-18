@@ -2,12 +2,16 @@
  * BLOCK: wp-bootstrap-blocks/container
  */
 
+// WordPress dependencies
+import { registerBlockType } from '@wordpress/blocks';
+import { __ } from '@wordpress/i18n';
+import * as BlockEditor from '@wordpress/block-editor';
+import * as Editor from '@wordpress/editor';
+
 import edit from './edit';
 import './editor.scss';
 
-const { __ } = wp.i18n;
-const { registerBlockType } = wp.blocks;
-const { InnerBlocks } = wp.blockEditor || wp.editor; // Fallback to 'wp.editor' for backwards compatibility
+const { InnerBlocks } = BlockEditor || Editor; // Fallback to deprecated '@wordpress/editor' for backwards compatibility
 
 registerBlockType( 'wp-bootstrap-blocks/container', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.

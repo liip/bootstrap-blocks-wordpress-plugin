@@ -1,13 +1,18 @@
-/**
- * WordPress dependencies
- */
-const { __ } = wp.i18n;
-const { InnerBlocks, InspectorControls } = wp.blockEditor || wp.editor; // Fallback to 'wp.editor' for backwards compatibility
-const { CheckboxControl, PanelBody, SelectControl } = wp.components;
-const { Component, Fragment } = wp.element;
-const { withSelect } = wp.data;
-const { compose } = wp.compose;
-const { applyFilters } = wp.hooks;
+// WordPress dependencies
+import { __ } from '@wordpress/i18n';
+import {
+	CheckboxControl,
+	PanelBody,
+	SelectControl,
+} from '@wordpress/components';
+import { Component, Fragment } from '@wordpress/element';
+import { withSelect } from '@wordpress/data';
+import { compose } from '@wordpress/compose';
+import { applyFilters } from '@wordpress/hooks';
+import * as BlockEditor from '@wordpress/block-editor';
+import * as Editor from '@wordpress/editor';
+
+const { InnerBlocks, InspectorControls } = BlockEditor || Editor; // Fallback to deprecated '@wordpress/editor' for backwards compatibility
 
 let marginAfterOptions = [
 	{

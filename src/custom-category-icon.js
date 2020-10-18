@@ -1,5 +1,6 @@
-const { updateCategory } = wp.blocks;
-const { Path, Rect, SVG } = wp.components;
+// WordPress dependencies
+import { updateCategory } from '@wordpress/blocks';
+import { Path, Rect, SVG } from '@wordpress/components';
 
 // Check if updateCategory function exists
 if ( updateCategory ) {
