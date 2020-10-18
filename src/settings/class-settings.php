@@ -19,20 +19,6 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 	class Settings {
 
 		/**
-		 * Name of bootstrap version constant.
-		 *
-		 * @var string
-		 */
-		const BOOTSTRAP_VERSION_CONSTANT_NAME = 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION';
-
-		/**
-		 * Default bootstrap version value.
-		 *
-		 * @var int
-		 */
-		const BOOTSTRAP_VERSION_DEFAULT_VALUE = 4;
-
-		/**
 		 * Prefix for plugin settings.
 		 *
 		 * @var string
@@ -45,6 +31,27 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 		 * @var string
 		 */
 		const MENU_SLUG = 'wp-bootstrap-blocks_settings';
+
+		/**
+		 * Name of bootstrap version constant.
+		 *
+		 * @var string
+		 */
+		const BOOTSTRAP_VERSION_CONSTANT_NAME = 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION';
+
+		/**
+		 * Name of bootstrap version option.
+		 *
+		 * @var string
+		 */
+		const BOOTSTRAP_VERSION_OPTION_NAME = self::OPTION_PREFIX . 'bootstrap_version';
+
+		/**
+		 * Default bootstrap version value.
+		 *
+		 * @var int
+		 */
+		const BOOTSTRAP_VERSION_DEFAULT_VALUE = 4;
 
 		/**
 		 * The plugin assets directory.
@@ -94,7 +101,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 				);
 
 				// Filter saving of bootstrap version
-				add_filter( 'pre_update_option_' . self::OPTION_PREFIX . 'bootstrap_version', array( __CLASS__, 'pre_update_option_bootstrap_version' ), 10, 2 );
+				add_filter( 'pre_update_option_' . self::BOOTSTRAP_VERSION_OPTION_NAME, array( __CLASS__, 'pre_update_option_bootstrap_version' ), 10, 2 );
 
 				// Enqueue settings stylesheet
 				add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue_styles' ) );
@@ -155,7 +162,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 
 			$settings_fields = array(
 				array(
-					'id' => 'bootstrap_version',
+					'option_name' => self::BOOTSTRAP_VERSION_OPTION_NAME,
 					'label' => __( 'Bootstrap Version (experimental)', 'wp-bootstrap-blocks' ),
 					'description' => __( 'Depending on the selected Bootstrap version the blocks will be rendered accordingly and version specific features will be available in the editor.', 'wp-bootstrap-blocks' ),
 					'type' => 'select',
@@ -165,6 +172,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 						5 => '5.x',
 					),
 					'constant_name' => self::BOOTSTRAP_VERSION_CONSTANT_NAME,
+					'disabled' => false,
 				),
 			);
 
@@ -181,12 +189,11 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 
 			foreach ( $settings_fields as $field ) {
 				// Register field
-				$option_name = self::OPTION_PREFIX . $field['id'];
-				register_setting( self::MENU_SLUG, $option_name );
+				register_setting( self::MENU_SLUG, self::BOOTSTRAP_VERSION_OPTION_NAME );
 
 				// Add field to page
 				add_settings_field(
-					$field['id'],
+					$field['option_name'],
 					$field['label'],
 					array(
 						__CLASS__,
@@ -196,10 +203,6 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 					$section,
 					array(
 						'field' => $field,
-						'prefix' => self::OPTION_PREFIX,
-						'label_for' => $field['id'],
-						'constant_name' => array_key_exists( 'constant_name', $field ) ? $field['constant_name'] : '',
-						'disabled' => array_key_exists( 'disabled', $field ) ? $field['disabled'] : '',
 					)
 				);
 			}
@@ -244,76 +247,53 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 		 */
 		public static function display_field( $data = array() ) {
 			// Get field info
-			if ( isset( $data['field'] ) ) {
-				$field = $data['field'];
-			} else {
-				$field = $data;
+			if ( ! isset( $data['field'] ) ) {
+				_doing_it_wrong( __FUNCTION__, esc_html__( 'Field data missing.', 'wp-bootstrap-blocks' ), esc_attr( WP_Bootstrap_Blocks::$version ) );
 			}
 
-			// Check for prefix on option name
-			$option_name = '';
-			if ( isset( $data['prefix'] ) ) {
-				$option_name = $data['prefix'];
-			}
+			$field = $data['field'];
 
-			// Get saved data
-			$option_value = '';
-
-			$option_name .= $field['id'];
-			$is_option_constant_set = ! empty( $data['constant_name'] ) && defined( $data['constant_name'] );
+			$is_option_constant_set = ! empty( $field['constant_name'] ) && defined( $field['constant_name'] );
 			if ( $is_option_constant_set ) {
-				$option = constant( $data['constant_name'] );
+				$option_value = constant( $field['constant_name'] );
+				$disabled = true;
 			} else {
-				$option = get_option( $option_name );
+				if ( isset( $field['default'] ) ) {
+					$option_value = get_option( $field['option_name'], $field['default'] );
+				} else {
+					$option_value = get_option( $field['option_name'], '' );
+				}
+				$disabled = array_key_exists( 'disabled', $field ) ? $field['disabled'] : false;
 			}
 
-			// Get data to display in field
-			if ( isset( $option ) ) {
-				$option_value = $option;
-			}
-
-			// Show default data if no option saved and default is supplied
-			if ( false === $option_value && isset( $field['default'] ) ) {
-				$option_value = $field['default'];
-			} elseif ( false === $option_value ) {
-				$option_value = '';
-			}
-
-			$disabled = ( array_key_exists( 'disabled', $field ) ? $field['disabled'] : false );
-
+			$placeholder = ( array_key_exists( 'placeholder', $field ) ? $field['placeholder'] : '' );
 			$html = '';
 
 			switch ( $field['type'] ) {
 				case 'text':
 				case 'url':
 				case 'email':
-					$placeholder = ( array_key_exists( 'placeholder', $field ) ? $field['placeholder'] : '' );
-					$html .= '<input id="' . esc_attr( $field['id'] ) . '" type="text" name="' . esc_attr( $option_name ) . '" class="' . ( ! empty( $data['constant_name'] ) && defined( $data['constant_name'] ) ? 'disabled' : '' ) . '" placeholder="' . esc_attr( $placeholder ) . '" value="' . esc_attr( $option_value ) . '" ' . disabled( ! empty( $data['constant_name'] ) && defined( $data['constant_name'] ), true, false ) . '/>' . "\n";
+					$html .= '<input id="' . esc_attr( $field['option_name'] ) . '" type="text" name="' . esc_attr( $field['option_name'] ) . '" class="' . ( $disabled ? 'disabled' : '' ) . '" placeholder="' . esc_attr( $placeholder ) . '" value="' . esc_attr( $option_value ) . '" ' . disabled( $disabled, true, false ) . '/>' . "\n";
 					break;
 
 				case 'textarea':
-					$placeholder = ( array_key_exists( 'placeholder', $field ) ? $field['placeholder'] : '' );
-					$html .= '<textarea id="' . esc_attr( $field['id'] ) . '" rows="5" cols="50" name="' . esc_attr( $option_name ) . '" placeholder="' . esc_attr( $placeholder ) . '">' . $option_value . '</textarea><br/>' . "\n";
+					$html .= '<textarea id="' . esc_attr( $field['option_name'] ) . '" rows="5" cols="50" name="' . esc_attr( $field['option_name'] ) . '" placeholder="' . esc_attr( $placeholder ) . '">' . $option_value . '</textarea><br/>' . "\n";
 					break;
 
 				case 'checkbox':
-					$html .= '<input id="' . esc_attr( $field['id'] ) . '" type="' . esc_attr( $field['type'] ) . '" name="' . esc_attr( $option_name ) . '" class="' . ( $disabled ? 'disabled' : '' ) . '" value="1" ' . checked( '1', $option_value, false ) . ' ' . disabled( $disabled, true, false ) . '/>' . "\n";
+					$html .= '<input id="' . esc_attr( $field['option_name'] ) . '" type="' . esc_attr( $field['type'] ) . '" name="' . esc_attr( $field['option_name'] ) . '" class="' . ( $disabled ? 'disabled' : '' ) . '" value="1" ' . checked( '1', $option_value, false ) . ' ' . disabled( $disabled, true, false ) . '/>' . "\n";
 					break;
 
 				case 'radio':
 					foreach ( $field['options'] as $k => $v ) {
-						$html .= '<label for="' . esc_attr( $field['id'] . '_' . $k ) . '"><input type="radio" ' . checked( $k, $option_value, false ) . ' name="' . esc_attr( $option_name ) . '" value="' . esc_attr( $k ) . '" id="' . esc_attr( $field['id'] . '_' . $k ) . '" /> ' . $v . '</label> ';
+						$html .= '<label for="' . esc_attr( $field['option_name'] . '_' . $k ) . '"><input type="radio" ' . checked( strval( $k ), strval( $option_value ), false ) . ' name="' . esc_attr( $field['option_name'] ) . '" value="' . esc_attr( $k ) . '" id="' . esc_attr( $field['option_name'] . '_' . $k ) . '" /> ' . $v . '</label> ';
 					}
 					break;
 
 				case 'select':
-					$html .= '<select name="' . esc_attr( $option_name ) . '" id="' . esc_attr( $field['id'] ) . '"' . disabled( ! empty( $data['constant_name'] ) && defined( $data['constant_name'] ), true, false ) . '>';
+					$html .= '<select name="' . esc_attr( $field['option_name'] ) . '" id="' . esc_attr( $field['option_name'] ) . '"' . disabled( $disabled, true, false ) . '>';
 					foreach ( $field['options'] as $k => $v ) {
-						$selected = false;
-						if ( strval( $k ) === strval( $option_value ) ) {
-							$selected = true;
-						}
-						$html .= '<option ' . selected( $selected, true, false ) . ' value="' . esc_attr( $k ) . '">' . $v . '</option>';
+						$html .= '<option ' . selected( strval( $k ), strval( $option_value ), false ) . ' value="' . esc_attr( $k ) . '">' . $v . '</option>';
 					}
 					$html .= '</select>';
 					break;
@@ -340,7 +320,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 					esc_html__(
 						'Option is defined in the following constant',
 						'wp-bootstrap-blocks'
-					) . ': <code>' . esc_html( $data['constant_name'] ) . '</code></p>' . "\n";
+					) . ': <code>' . esc_html( $field['constant_name'] ) . '</code></p>' . "\n";
 			}
 
 			// @codingStandardsIgnoreStart
@@ -366,7 +346,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 		 * @return int
 		 */
 		public static function get_bootstrap_version() {
-			return intval( self::get_option( 'bootstrap_version', self::BOOTSTRAP_VERSION_CONSTANT_NAME, self::BOOTSTRAP_VERSION_DEFAULT_VALUE ) );
+			return intval( self::get_option( self::BOOTSTRAP_VERSION_OPTION_NAME, self::BOOTSTRAP_VERSION_CONSTANT_NAME, self::BOOTSTRAP_VERSION_DEFAULT_VALUE ) );
 		}
 
 		/**
@@ -382,7 +362,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 		 * @return mixed
 		 */
 		public static function get_option( $option_name, $constant_name, $default_value ) {
-			return defined( $constant_name ) ? constant( $constant_name ) : get_option( self::OPTION_PREFIX . $option_name, $default_value );
+			return defined( $constant_name ) ? constant( $constant_name ) : get_option( $option_name, $default_value );
 		}
 
 	}
