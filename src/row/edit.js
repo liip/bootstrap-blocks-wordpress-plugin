@@ -4,6 +4,7 @@ import {
 	IconButton,
 	CheckboxControl,
 	PanelBody,
+	SelectControl,
 	SVG,
 	Path,
 } from '@wordpress/components';
