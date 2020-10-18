@@ -317,10 +317,15 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 
 			if ( $is_option_constant_set ) {
 				$html .= '<p class="description constant-notice">' .
-					esc_html__(
-						'Option is defined in the following constant',
-						'wp-bootstrap-blocks'
-					) . ': <code>' . esc_html( $field['constant_name'] ) . '</code></p>' . "\n";
+					sprintf(
+						// translators: %s contains constant name
+						esc_html_x(
+							'Option is defined in the following constant: %s',
+							'%s contains constant name',
+							'wp-bootstrap-blocks'
+						),
+						'<code>' . esc_html( $field['constant_name'] ) . '</code>'
+					) . '</p>' . "\n";
 			}
 
 			// @codingStandardsIgnoreStart

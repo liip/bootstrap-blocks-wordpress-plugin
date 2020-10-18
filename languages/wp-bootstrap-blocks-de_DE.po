@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Bootstrap Blocks 3.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-bootstrap-"
 "blocks\n"
-"POT-Creation-Date: 2020-10-18T18:38:55+00:00\n"
-"PO-Revision-Date: 2020-10-18 20:41+0200\n"
+"POT-Creation-Date: 2020-10-18T20:23:35+00:00\n"
+"PO-Revision-Date: 2020-10-18 22:25+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Plugin Name of the plugin
-#: src/class-wp-bootstrap-blocks.php:230 src/settings/class-settings.php:132
+#: src/class-wp-bootstrap-blocks.php:230 src/settings/class-settings.php:139
 msgid "Bootstrap Blocks"
 msgstr "Bootstrap Blocks"
 
@@ -42,19 +42,19 @@ msgstr "https://liip.ch"
 msgid "Cheatin&#8217; huh?"
 msgstr "Hier ist etwas falsch gelaufen"
 
-#: src/settings/class-settings.php:132 src/settings/class-settings.php:225
+#: src/settings/class-settings.php:139 src/settings/class-settings.php:228
 msgid "Bootstrap Blocks Settings"
 msgstr "Bootstrap Blocks Einstellungen"
 
-#: src/settings/class-settings.php:143
+#: src/settings/class-settings.php:150
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: src/settings/class-settings.php:159
+#: src/settings/class-settings.php:166
 msgid "Bootstrap Version (experimental)"
 msgstr "Bootstrap Version (experimentell)"
 
-#: src/settings/class-settings.php:160
+#: src/settings/class-settings.php:167
 msgid ""
 "Depending on the selected Bootstrap version the blocks will be rendered "
 "accordingly and version specific features will be available in the editor."
@@ -63,20 +63,26 @@ msgstr ""
 "entsprechend gerendert und im Editor werden versionsspezifische Optionen "
 "angezeigt."
 
-#: src/settings/class-settings.php:174
+#: src/settings/class-settings.php:182
 msgid "Main settings"
 msgstr "Haupteinstellungen"
 
-#: src/settings/class-settings.php:221
+#: src/settings/class-settings.php:224
 msgid "You do not have sufficient permissions to access this page."
 msgstr "Du hast nicht genügend Berechtigungen um diese Seite anzuzeigen."
 
-#: src/settings/class-settings.php:340
-msgid "Option is defined in the following constant"
-msgstr "Die Option ist in der folgenden Konstante definiert"
+#: src/settings/class-settings.php:251
+msgid "Field data missing."
+msgstr "Felddaten fehlen."
+
+#. translators: %s contains constant name
+#: src/settings/class-settings.php:322
+msgctxt "%s contains constant name"
+msgid "Option is defined in the following constant: %s"
+msgstr "Die Option ist in der folgenden Konstante definiert: %s"
 
 #. translators: %s template
-#: src/wp-bootstrap-blocks-functions.php:24
+#: src/wp-bootstrap-blocks-functions.php:26
 msgid "%s does not exist."
 msgstr "%s existiert nicht."
 
