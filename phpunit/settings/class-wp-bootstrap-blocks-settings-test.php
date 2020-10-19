@@ -1,4 +1,10 @@
 <?php
+/**
+ * Settings tests.
+ *
+ * @package wp-bootstrap-blocks
+ */
+
 use \WP_Bootstrap_Blocks\Settings;
 
 /**
