@@ -121,7 +121,7 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 **This version adds (experimental) support for Bootstrap 5!** Please read the [documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin#supported-bootstrap-versions) for further information.
 
-* **[FEATURE] Add Bootstrap 5 support**.
+* **[FEATURE] Add Bootstrap 5 support.**
 * [FEATURE] Introduce new plugin options page (Settings > Bootstrap Blocks).
 * [FEATURE] Add options to define vertical and horizontal gutters sizes in `row` block (Bootstrap 5 only).
 * [FEATURE] Add support for Xxl breakpoint size (Bootstrap 5 only).
