@@ -56,8 +56,8 @@ This plugin supports Bootstrap v4 and v5 (experimental). The support for v5 is s
 
 The version can be selected in the plugin settings (Settings > Bootstrap Blocks) or by defining the `WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION` constant in the `wp-config.php` file:
              
-* Bootstrap 4: `define( 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION', 4 );`
-* Bootstrap 5: `define( 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION', 5 );`
+* Bootstrap 4: `define( 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION', '4' );`
+* Bootstrap 5: `define( 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION', '5' );`
 
 By default Bootstrap version **4** is selected.
 

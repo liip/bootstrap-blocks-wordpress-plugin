@@ -8,4 +8,4 @@
  * @package wp-bootstrap-blocks-test-bootstrap-v5
  */
 
-define( 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION', 5 );
+define( 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION', '5' );
