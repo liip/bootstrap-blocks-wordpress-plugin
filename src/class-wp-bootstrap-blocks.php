@@ -201,6 +201,7 @@ class WP_Bootstrap_Blocks {
 			'wpBootstrapBlocks',
 			array(
 				'bootstrapVersion' => Settings::get_bootstrap_version(),
+				'isBootstrap5Active' => Settings::is_bootstrap_5_active(),
 			)
 		);
 

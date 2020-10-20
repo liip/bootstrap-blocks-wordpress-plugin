@@ -22,7 +22,7 @@ import {
 	templateIconMissing,
 } from './icons';
 
-import { getBootstrapVersion } from '../helper';
+import { isBootstrap5Active } from '../helper';
 
 const { InnerBlocks, InspectorControls, BlockControls, AlignmentToolbar } =
 	BlockEditor || Editor; // Fallback to deprecated '@wordpress/editor' for backwards compatibility
@@ -389,7 +389,7 @@ class BootstrapRowEdit extends Component {
 								setAttributes( { noGutters: isChecked } )
 							}
 						/>
-						{ getBootstrapVersion() >= 5 && ! noGutters && (
+						{ isBootstrap5Active() && ! noGutters && (
 							<Fragment>
 								<SelectControl
 									label={ __(
