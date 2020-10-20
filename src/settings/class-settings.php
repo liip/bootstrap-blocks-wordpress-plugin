@@ -191,6 +191,14 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 				// Register field
 				register_setting( self::MENU_SLUG, self::BOOTSTRAP_VERSION_OPTION_NAME );
 
+				$field_args = array(
+					'field' => $field,
+				);
+				// add label_for argument to all fields which haven't an additional label
+				if ( 'radio' !== $field['type'] ) {
+					$field_args['label_for'] = $field['option_name'];
+				}
+
 				// Add field to page
 				add_settings_field(
 					$field['option_name'],
@@ -201,9 +209,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 					),
 					self::MENU_SLUG,
 					$section,
-					array(
-						'field' => $field,
-					)
+					$field_args
 				);
 			}
 		}
@@ -273,40 +279,36 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 				case 'text':
 				case 'url':
 				case 'email':
-					$html .= '<input id="' . esc_attr( $field['option_name'] ) . '" type="text" name="' . esc_attr( $field['option_name'] ) . '" class="' . ( $disabled ? 'disabled' : '' ) . '" placeholder="' . esc_attr( $placeholder ) . '" value="' . esc_attr( $option_value ) . '" ' . disabled( $disabled, true, false ) . '/>' . "\n";
+					$html .= '<input id="' . esc_attr( $field['option_name'] ) . '" type="text" name="' . esc_attr( $field['option_name'] ) . '" placeholder="' . esc_attr( $placeholder ) . '" value="' . esc_attr( $option_value ) . '" ' . disabled( $disabled, true, false ) . '/>' . "\n";
 					break;
 
 				case 'textarea':
-					$html .= '<textarea id="' . esc_attr( $field['option_name'] ) . '" rows="5" cols="50" name="' . esc_attr( $field['option_name'] ) . '" placeholder="' . esc_attr( $placeholder ) . '">' . $option_value . '</textarea><br/>' . "\n";
+					$html .= '<textarea id="' . esc_attr( $field['option_name'] ) . '" rows="5" cols="50" name="' . esc_attr( $field['option_name'] ) . '" placeholder="' . esc_attr( $placeholder ) . '" ' . disabled( $disabled, true, false ) . '>' . $option_value . '</textarea>' . "\n";
 					break;
 
 				case 'checkbox':
-					$html .= '<input id="' . esc_attr( $field['option_name'] ) . '" type="' . esc_attr( $field['type'] ) . '" name="' . esc_attr( $field['option_name'] ) . '" class="' . ( $disabled ? 'disabled' : '' ) . '" value="1" ' . checked( '1', $option_value, false ) . ' ' . disabled( $disabled, true, false ) . '/>' . "\n";
+					$html .= '<input id="' . esc_attr( $field['option_name'] ) . '" type="checkbox" name="' . esc_attr( $field['option_name'] ) . '" value="1" ' . checked( '1', $option_value, false ) . ' ' . disabled( $disabled, true, false ) . '/>' . "\n";
 					break;
 
 				case 'radio':
 					foreach ( $field['options'] as $k => $v ) {
-						$html .= '<label for="' . esc_attr( $field['option_name'] . '_' . $k ) . '"><input type="radio" ' . checked( strval( $k ), strval( $option_value ), false ) . ' name="' . esc_attr( $field['option_name'] ) . '" value="' . esc_attr( $k ) . '" id="' . esc_attr( $field['option_name'] . '_' . $k ) . '" /> ' . $v . '</label> ';
+						$html .= '<p><label for="' . esc_attr( $field['option_name'] . '_' . $k ) . '"><input type="radio" id="' . esc_attr( $field['option_name'] . '_' . $k ) . '" name="' . esc_attr( $field['option_name'] ) . '" value="' . esc_attr( $k ) . '" ' . checked( strval( $k ), strval( $option_value ), false ) . ' ' . disabled( $disabled, true, false ) . ' /> ' . $v . '</label></p>' . "\n";
 					}
 					break;
 
 				case 'select':
-					$html .= '<select name="' . esc_attr( $field['option_name'] ) . '" id="' . esc_attr( $field['option_name'] ) . '"' . disabled( $disabled, true, false ) . '>';
+					$html .= '<select name="' . esc_attr( $field['option_name'] ) . '" id="' . esc_attr( $field['option_name'] ) . '"' . disabled( $disabled, true, false ) . '>' . "\n";
 					foreach ( $field['options'] as $k => $v ) {
-						$html .= '<option ' . selected( strval( $k ), strval( $option_value ), false ) . ' value="' . esc_attr( $k ) . '">' . $v . '</option>';
+						$html .= '<option ' . selected( strval( $k ), strval( $option_value ), false ) . ' value="' . esc_attr( $k ) . '">' . $v . '</option>' . "\n";
 					}
-					$html .= '</select>';
+					$html .= '</select>' . "\n";
 					break;
 			}
 
 			if ( array_key_exists( 'description', $field ) ) {
 				switch ( $field['type'] ) {
-					case 'radio':
-						$html .= '<br/><span class="description">' . $field['description'] . '</span>';
-						break;
-
 					case 'checkbox':
-						$html .= '<span class="description">' . $field['description'] . '</span>';
+						$html .= '<span class="description">' . $field['description'] . '</span>' . "\n";
 						break;
 
 					default:
