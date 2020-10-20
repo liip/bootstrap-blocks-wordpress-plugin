@@ -55,11 +55,11 @@ Bootstrap Gutenberg Blocks for WordPress. Supports Bootstrap 4 and **Bootstrap 5
 This plugin supports Bootstrap v4 and v5 (experimental). The support for v5 is still flagged as experimental since this version of Bootstrap is not officially released yet. The API could still change which could affect the options defined in this plugin.
 
 The version can be selected in the plugin settings (Settings > Bootstrap Blocks) or by defining the `WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION` constant in the `wp-config.php` file:
-             
-* Bootstrap 4: `define( 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION', '4' );`
+
+* Bootstrap 4 (default): `define( 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION', '4' );`
 * Bootstrap 5: `define( 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION', '5' );`
 
-By default Bootstrap version **4** is selected.
+Possible values right now are `'4'` or `'5'`. By default Bootstrap version **4** is selected.
 
 ## Bootstrap library
 
