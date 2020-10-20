@@ -338,13 +338,13 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 		/**
 		 * Always use constant value for bootstrap version if set.
 		 *
-		 * @param mixed $new_value The new, unserialized option value.
-		 * @param mixed $old_value The old option value.
+		 * @param string $new_value The new, unserialized option value.
+		 * @param string $old_value The old option value.
 		 *
-		 * @return mixed
+		 * @return string
 		 */
 		public static function pre_update_option_bootstrap_version( $new_value, $old_value ) {
-			return defined( self::BOOTSTRAP_VERSION_CONSTANT_NAME ) ? constant( self::BOOTSTRAP_VERSION_CONSTANT_NAME ) : $new_value;
+			return defined( self::BOOTSTRAP_VERSION_CONSTANT_NAME ) ? strval( constant( self::BOOTSTRAP_VERSION_CONSTANT_NAME ) ) : $new_value;
 		}
 
 		/**
@@ -353,7 +353,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 		 * @return string Bootstrap version from options.
 		 */
 		public static function get_bootstrap_version() {
-			return self::get_option( self::BOOTSTRAP_VERSION_OPTION_NAME, self::BOOTSTRAP_VERSION_CONSTANT_NAME, self::BOOTSTRAP_VERSION_DEFAULT_VALUE );
+			return strval( self::get_option( self::BOOTSTRAP_VERSION_OPTION_NAME, self::BOOTSTRAP_VERSION_CONSTANT_NAME, self::BOOTSTRAP_VERSION_DEFAULT_VALUE ) );
 		}
 
 		/**
