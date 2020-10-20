@@ -119,7 +119,7 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 = 3.0.0 =
 
-**This version adds (experimental) support for Bootstrap 5!**. Please read the [documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin#supported-bootstrap-versions) for further information.
+**This version adds (experimental) support for Bootstrap 5!** Please read the [documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin#supported-bootstrap-versions) for further information.
 
 * **[FEATURE] Add Bootstrap 5 support**.
 * [FEATURE] Introduce new plugin options page (Settings > Bootstrap Blocks).
