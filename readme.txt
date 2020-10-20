@@ -13,7 +13,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Bootstrap Gutenberg Blocks for WordPress. Supports Bootstrap 4 and **Bootstrap 5** (experimental). This plugin adds Bootstrap components and layout options as Gutenberg blocks.
 
-The full documentation of this plugin can be found on GitHub: [https://github.com/liip/bootstrap-blocks-wordpress-plugin](https://github.com/liip/bootstrap-blocks-wordpress-plugin)
+The full documentation of this plugin can be found on GitHub: [https://github.com/liip/bootstrap-blocks-wordpress-plugin#readme](https://github.com/liip/bootstrap-blocks-wordpress-plugin#readme)
 
 = Available Blocks =
 
@@ -69,7 +69,7 @@ By default Bootstrap version **4** is selected.
 
 Please be aware that this plugin does not include the Bootstrap library in your website. You need to do this by yourself. We decided not to include the library so that you can modify Bootstrap to your own needs before loading it.
 
-You'll find an example how to include it in your theme's `function.php` in the [documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin).
+You'll find an example how to include it in your theme's `function.php` in the [documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin#bootstrap-library).
 
 = Templates =
 
@@ -84,7 +84,7 @@ To overwrite a block template create a folder called `wp-bootstrap-blocks/` in y
 
 = Further Information =
 
-* Documentation: [https://github.com/liip/bootstrap-blocks-wordpress-plugin](https://github.com/liip/bootstrap-blocks-wordpress-plugin)
+* Documentation: [https://github.com/liip/bootstrap-blocks-wordpress-plugin#readme](https://github.com/liip/bootstrap-blocks-wordpress-plugin#readme)
 * WordPress Plugin: [https://wordpress.org/plugins/wp-bootstrap-blocks](https://wordpress.org/plugins/wp-bootstrap-blocks)
 * GitHub Repository: [https://github.com/liip/bootstrap-blocks-wordpress-plugin](https://github.com/liip/bootstrap-blocks-wordpress-plugin)
 * Changelog: [https://github.com/liip/bootstrap-blocks-wordpress-plugin/releases](https://github.com/liip/bootstrap-blocks-wordpress-plugin/releases)
@@ -104,7 +104,7 @@ This plugin supports Bootstrap v4 and v5 (experimental).
 
 = Is Bootstrap included? =
 
-No. This plugin doesn't load the Bootstrap library for you. You have to do this by yourself in your theme. Please read more about this in the [documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin).
+No. This plugin doesn't load the Bootstrap library for you. You have to do this by yourself in your theme. Please read more about this in the [documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin#bootstrap-library).
 
 = Have you found a bug or do you have a feature request? =
 
