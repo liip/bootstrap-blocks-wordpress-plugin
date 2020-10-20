@@ -168,8 +168,8 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 					'type' => 'select',
 					'default' => self::BOOTSTRAP_VERSION_DEFAULT_VALUE,
 					'options' => array(
-						4 => '4.x',
-						5 => '5.x',
+						'4' => '4.x',
+						'5' => '5.x',
 					),
 					'constant_name' => self::BOOTSTRAP_VERSION_CONSTANT_NAME,
 					'disabled' => false,
@@ -350,10 +350,19 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 		/**
 		 * Get bootstrap version option.
 		 *
-		 * @return int
+		 * @return string Bootstrap version from options.
 		 */
 		public static function get_bootstrap_version() {
-			return intval( self::get_option( self::BOOTSTRAP_VERSION_OPTION_NAME, self::BOOTSTRAP_VERSION_CONSTANT_NAME, self::BOOTSTRAP_VERSION_DEFAULT_VALUE ) );
+			return self::get_option( self::BOOTSTRAP_VERSION_OPTION_NAME, self::BOOTSTRAP_VERSION_CONSTANT_NAME, self::BOOTSTRAP_VERSION_DEFAULT_VALUE );
+		}
+
+		/**
+		 * Returns true when Bootstrap 5 is activated.
+		 *
+		 * @return bool
+		 */
+		public static function is_bootstrap_5_active() {
+			return version_compare( self::get_bootstrap_version(), '5', '>=' );
 		}
 
 		/**

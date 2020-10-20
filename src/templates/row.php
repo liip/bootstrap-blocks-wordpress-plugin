@@ -42,10 +42,10 @@ if ( array_key_exists( 'align', $attributes ) && 'full' === $attributes['align']
 }
 
 if ( array_key_exists( 'noGutters', $attributes ) && $attributes['noGutters'] ) {
-	if ( \WP_Bootstrap_Blocks\Settings::get_bootstrap_version() === 4 ) {
-		array_push( $classes, 'no-gutters' );
-	} else {
+	if ( \WP_Bootstrap_Blocks\Settings::is_bootstrap_5_active() ) {
 		array_push( $classes, 'g-0' );
+	} else {
+		array_push( $classes, 'no-gutters' );
 	}
 } else {
 	if ( array_key_exists( 'horizontalGutters', $attributes ) && $attributes['horizontalGutters'] ) {
