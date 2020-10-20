@@ -13,6 +13,8 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Bootstrap Gutenberg Blocks for WordPress. Supports Bootstrap 4 and **Bootstrap 5** (experimental). This plugin adds Bootstrap components and layout options as Gutenberg blocks.
 
+The full documentation of this plugin can be found on GitHub: [https://github.com/liip/bootstrap-blocks-wordpress-plugin](https://github.com/liip/bootstrap-blocks-wordpress-plugin)
+
 = Available Blocks =
 
 **Container**
