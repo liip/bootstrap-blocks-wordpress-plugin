@@ -22,7 +22,7 @@ class WP_Bootstrap_Blocks_Row_Bootstrap_5_Test extends WP_Bootstrap_Blocks_UnitT
 	public function setUp() {
 		parent::setUp();
 		// Enable Bootstrap 5
-		update_option( \WP_Bootstrap_Blocks\Settings::OPTION_PREFIX . 'bootstrap_version', 5 );
+		update_option( \WP_Bootstrap_Blocks\Settings::BOOTSTRAP_VERSION_OPTION_NAME, '5' );
 	}
 
 	/**
@@ -30,7 +30,7 @@ class WP_Bootstrap_Blocks_Row_Bootstrap_5_Test extends WP_Bootstrap_Blocks_UnitT
 	 */
 	public function tearDown() {
 		parent::tearDown();
-		delete_option( \WP_Bootstrap_Blocks\Settings::OPTION_PREFIX . 'bootstrap_version' );
+		delete_option( \WP_Bootstrap_Blocks\Settings::BOOTSTRAP_VERSION_OPTION_NAME );
 	}
 
 	/**
