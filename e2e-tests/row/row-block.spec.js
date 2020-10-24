@@ -166,4 +166,24 @@ describe( 'row block', () => {
 		).toHaveLength( 1 );
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 	} );
+
+	it( 'Should not display Bootstrap v5 options', async () => {
+		await insertRowBlock();
+		await selectRowBlock();
+		await ensureSidebarOpened();
+
+		// Horizontal Gutters options should not exist
+		expect(
+			await page.$x(
+				'//label[@class="components-base-control__label"][contains(text(),"Horizontal Gutters")]'
+			)
+		).toHaveLength( 0 );
+
+		// Vertical Gutters options should not exist
+		expect(
+			await page.$x(
+				'//label[@class="components-base-control__label"][contains(text(),"Vertical Gutters")]'
+			)
+		).toHaveLength( 0 );
+	} );
 } );

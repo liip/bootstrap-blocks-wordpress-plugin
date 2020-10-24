@@ -5,6 +5,8 @@
  * @package wp-bootstrap-blocks
  */
 
+use WP_Bootstrap_Blocks\WP_Bootstrap_Blocks;
+
 /**
  * Get template by name and return HTML.
  *
@@ -21,7 +23,7 @@ function wp_bootstrap_blocks_get_template( $template_name, $attributes, $content
 
 	if ( ! file_exists( $located ) ) {
 		/* translators: %s template */
-		_doing_it_wrong( __FUNCTION__, sprintf( esc_html__( '%s does not exist.', 'wp-bootstrap-blocks' ), '<code>' . esc_html( $located ) . '</code>' ), '1.0' );
+		_doing_it_wrong( __FUNCTION__, sprintf( esc_html__( '%s does not exist.', 'wp-bootstrap-blocks' ), '<code>' . esc_html( $located ) . '</code>' ), esc_attr( WP_Bootstrap_Blocks::$version ) );
 		return '';
 	}
 

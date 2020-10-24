@@ -5,7 +5,7 @@
  * This template can be overridden by copying it to theme/wp-bootstrap-blocks/row.php.
  *
  * @package wp-bootstrap-blocks/templates/row
- * @version 2.0.0
+ * @version 3.0.0
  */
 
 /**
@@ -19,6 +19,8 @@
  *   'noGutters' (boolean) => Defines if no gutters should be applied or not.
  *   'alignment' (string) => Horizontal alignment of inner columns.
  *   'verticalAlignment' (string) => Vertical alignment of inner columns.
+ *   'horizontalGutters' (string) => Size of horizontal gutters.
+ *   'verticalGutters' (string) => Size of vertical gutters.
  *   'align' (string) => If set to 'full' row should use full width of page.
  *   'className' (string) => Additional class names which should be added to block.
  * )
@@ -40,7 +42,18 @@ if ( array_key_exists( 'align', $attributes ) && 'full' === $attributes['align']
 }
 
 if ( array_key_exists( 'noGutters', $attributes ) && $attributes['noGutters'] ) {
-	array_push( $classes, 'no-gutters' );
+	if ( \WP_Bootstrap_Blocks\Settings::is_bootstrap_5_active() ) {
+		array_push( $classes, 'g-0' );
+	} else {
+		array_push( $classes, 'no-gutters' );
+	}
+} else {
+	if ( array_key_exists( 'horizontalGutters', $attributes ) && $attributes['horizontalGutters'] ) {
+		array_push( $classes, $attributes['horizontalGutters'] );
+	}
+	if ( array_key_exists( 'verticalGutters', $attributes ) && $attributes['verticalGutters'] ) {
+		array_push( $classes, $attributes['verticalGutters'] );
+	}
 }
 if ( array_key_exists( 'alignment', $attributes ) ) {
 	if ( 'left' === $attributes['alignment'] ) {

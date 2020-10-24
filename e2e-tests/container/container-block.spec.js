@@ -53,10 +53,29 @@ describe( 'container block', () => {
 		// Editor content should match snapshot
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 
-		// Padding option should be applied
+		// Fluid breakpoint option should be applied
 		await selectOption( 'Fluid Breakpoint', 'lg' );
 
 		// Editor content should match snapshot
 		expect( await getEditedPostContent() ).toMatchSnapshot();
+	} );
+
+	it( 'Should not display xxl breakpoint options if run with Bootstrap 4', async () => {
+		await insertContainerBlock();
+		await selectContainerBlock();
+		await ensureSidebarOpened();
+
+		expect(
+			await page.$x(
+				`//label[@class="components-base-control__label"][contains(text(),"Fluid Breakpoint")]/following-sibling::select[@class="components-select-control__input"]/option`
+			)
+		).toHaveLength( 5 );
+
+		// xxl option should not exist
+		expect(
+			await page.$x(
+				`//label[@class="components-base-control__label"][contains(text(),"Fluid Breakpoint")]/following-sibling::select[@class="components-select-control__input"]/option[@value='xxl']`
+			)
+		).toHaveLength( 0 );
 	} );
 } );

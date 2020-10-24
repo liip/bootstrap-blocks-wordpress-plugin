@@ -32,4 +32,36 @@
 		'row-filters/wp-bootstrap-blocks/row/enableCustomTemplate',
 		() => false
 	);
+
+	// Add custom horizontal gutters option
+	function customHorizontalGuttersOption( horizontalGuttersOptions ) {
+		return [
+			...horizontalGuttersOptions,
+			{
+				label: 'Medium',
+				value: 'gx-4',
+			},
+		];
+	}
+	wp.hooks.addFilter(
+		'wpBootstrapBlocks.row.horizontalGuttersOptions',
+		'row-filters/wp-bootstrap-blocks/row/horizontalGuttersOptions',
+		customHorizontalGuttersOption
+	);
+
+	// Add custom vertical gutters option
+	function customVerticalGuttersOption( verticalGuttersOptions ) {
+		return [
+			...verticalGuttersOptions,
+			{
+				label: 'Medium',
+				value: 'gy-4',
+			},
+		];
+	}
+	wp.hooks.addFilter(
+		'wpBootstrapBlocks.row.verticalGuttersOptions',
+		'row-filters/wp-bootstrap-blocks/row/verticalGuttersOptions',
+		customVerticalGuttersOption
+	);
 } )();

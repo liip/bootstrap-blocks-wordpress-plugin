@@ -33,6 +33,7 @@ add_action( 'init', 'enqueue_column_filters_plugin_script' );
  * @return array
  */
 function column_filters_default_attributes( $default_attributes ) {
+	$default_attributes['sizeXxl'] = 5;
 	$default_attributes['sizeXl'] = 0;
 	$default_attributes['sizeLg'] = 10;
 	$default_attributes['sizeMd'] = 8;

@@ -5,7 +5,7 @@
  * This template can be overridden by copying it to theme/wp-bootstrap-blocks/column.php.
  *
  * @package wp-bootstrap-blocks/templates/column
- * @version 2.1.0
+ * @version 3.0.0
  */
 
 /**
@@ -15,11 +15,13 @@
  * The following attributes are available:
  *
  * @var $attributes array(
+ *   'sizeXxl' (int) => Xxl column size.
  *   'sizeXl' (int) => Xl column size.
  *   'sizeLg' (int) => Lg column size.
  *   'sizeMd' (int) => Md column size.
  *   'sizeSm' (int) => Sm column size.
  *   'sizeXs' (int) => Xs column size.
+ *   'equalWidthXxl' (boolean) => Xxl columns equal-width.
  *   'equalWidthXl' (boolean) => Xl columns equal-width.
  *   'equalWidthLg' (boolean) => Lg columns equal-width.
  *   'equalWidthMd' (boolean) => Md columns equal-width.
@@ -68,6 +70,13 @@ if ( array_key_exists( 'equalWidthXl', $attributes ) && $attributes['equalWidthX
 	array_push( $classes, 'col-xl' );
 } elseif ( array_key_exists( 'sizeXl', $attributes ) && $attributes['sizeXl'] > 0 ) {
 	array_push( $classes, 'col-xl-' . $attributes['sizeXl'] );
+}
+if ( \WP_Bootstrap_Blocks\Settings::is_bootstrap_5_active() ) {
+	if ( array_key_exists( 'equalWidthXxl', $attributes ) && $attributes['equalWidthXxl'] ) {
+		array_push( $classes, 'col-xxl' );
+	} elseif ( array_key_exists( 'sizeXxl', $attributes ) && $attributes['sizeXxl'] > 0 ) {
+		array_push( $classes, 'col-xxl-' . $attributes['sizeXxl'] );
+	}
 }
 if ( array_key_exists( 'className', $attributes ) && ! empty( $attributes['className'] ) ) {
 	array_push( $classes, $attributes['className'] );

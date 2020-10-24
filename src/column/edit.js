@@ -15,6 +15,8 @@ import { applyFilters } from '@wordpress/hooks';
 import * as BlockEditor from '@wordpress/block-editor';
 import * as Editor from '@wordpress/editor';
 
+import { isBootstrap5Active } from '../helper';
+
 const { InnerBlocks, InspectorControls } = BlockEditor || Editor; // Fallback to deprecated '@wordpress/editor' for backwards compatibility
 
 const ColumnSizeRangeControl = ( {
@@ -71,11 +73,13 @@ class BootstrapColumnEdit extends Component {
 			hasChildBlocks,
 		} = this.props;
 		const {
+			sizeXxl,
 			sizeXl,
 			sizeLg,
 			sizeMd,
 			sizeSm,
 			sizeXs,
+			equalWidthXxl,
 			equalWidthXl,
 			equalWidthLg,
 			equalWidthMd,
@@ -202,6 +206,33 @@ class BootstrapColumnEdit extends Component {
 								setAttributes( { equalWidthXl: isChecked } )
 							}
 						/>
+						{ isBootstrap5Active() && (
+							<Fragment>
+								<hr />
+								<ColumnSizeRangeControl
+									label={ __(
+										'Xxl Column count',
+										'wp-bootstrap-blocks'
+									) }
+									attributeName="sizeXxl"
+									value={ sizeXxl }
+									disabled={ equalWidthXxl }
+									setAttributes={ setAttributes }
+								/>
+								<CheckboxControl
+									label={ __(
+										'Xxl equal-width',
+										'wp-bootstrap-blocks'
+									) }
+									checked={ equalWidthXxl }
+									onChange={ ( isChecked ) =>
+										setAttributes( {
+											equalWidthXxl: isChecked,
+										} )
+									}
+								/>
+							</Fragment>
+						) }
 					</PanelBody>
 					<PanelBody
 						title={ __(

@@ -12,6 +12,8 @@ import { applyFilters } from '@wordpress/hooks';
 import * as BlockEditor from '@wordpress/block-editor';
 import * as Editor from '@wordpress/editor';
 
+import { isBootstrap5Active } from '../helper';
+
 const { InnerBlocks, InspectorControls } = BlockEditor || Editor; // Fallback to deprecated '@wordpress/editor' for backwards compatibility
 
 let marginAfterOptions = [
@@ -41,11 +43,7 @@ marginAfterOptions = [
 	...marginAfterOptions,
 ];
 
-const fluidBreakpointOptions = [
-	{
-		label: __( 'No breakpoint selected', 'wp-bootstrap-blocks' ),
-		value: '',
-	},
+let fluidBreakpointOptions = [
 	{
 		label: __( 'Xl', 'wp-bootstrap-blocks' ),
 		value: 'xl',
@@ -62,6 +60,24 @@ const fluidBreakpointOptions = [
 		label: __( 'Sm', 'wp-bootstrap-blocks' ),
 		value: 'sm',
 	},
+];
+
+if ( isBootstrap5Active() ) {
+	fluidBreakpointOptions = [
+		{
+			label: __( 'Xxl', 'wp-bootstrap-blocks' ),
+			value: 'xxl',
+		},
+		...fluidBreakpointOptions,
+	];
+}
+
+fluidBreakpointOptions = [
+	{
+		label: __( 'No breakpoint selected', 'wp-bootstrap-blocks' ),
+		value: '',
+	},
+	...fluidBreakpointOptions,
 ];
 
 class BootstrapContainerEdit extends Component {

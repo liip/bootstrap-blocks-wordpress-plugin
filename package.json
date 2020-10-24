@@ -1,8 +1,8 @@
 {
   "name": "wp-bootstrap-blocks",
-  "version": "2.4.3",
+  "version": "3.0.0",
   "private": true,
-  "description": "Bootstrap 4 Gutenberg Blocks for WordPress",
+  "description": "Bootstrap Gutenberg Blocks for WordPress",
   "author": "Liip AG",
   "license": "GPL-2.0-or-later",
   "keywords": [
@@ -18,29 +18,30 @@
     "url": "https://github.com/liip/bootstrap-blocks-wordpress-plugin/issues"
   },
   "dependencies": {
-    "@wordpress/block-editor": "^5.0.2",
-    "@wordpress/blocks": "^6.23.0",
-    "@wordpress/components": "^11.0.1",
-    "@wordpress/compose": "^3.21.0",
-    "@wordpress/data": "^4.24.0",
-    "@wordpress/editor": "^9.23.2",
+    "@wordpress/block-editor": "^5.1.0",
+    "@wordpress/blocks": "^6.24.0",
+    "@wordpress/components": "^11.1.0",
+    "@wordpress/compose": "^3.22.0",
+    "@wordpress/data": "^4.25.0",
+    "@wordpress/editor": "^9.24.0",
     "@wordpress/element": "^2.18.0",
     "@wordpress/hooks": "^2.10.0",
     "@wordpress/i18n": "^3.16.0"
   },
   "devDependencies": {
-    "@wordpress/base-styles": "^3.1.0",
-    "@wordpress/e2e-test-utils": "^4.14.0",
+    "@wordpress/base-styles": "^3.2.0",
+    "@wordpress/e2e-test-utils": "^4.15.0",
     "@wordpress/env": "^2.1.0",
-    "@wordpress/scripts": "^12.3.0",
+    "@wordpress/scripts": "^12.4.0",
     "lodash": "^4.17.20",
     "prettier": "npm:wp-prettier@^2.0.5"
   },
   "scripts": {
-    "start": "wp-scripts start",
+    "start": "wp-scripts start src/index.js src/settings/settings.js",
     "dev": "npm run start",
     "prebuild": "npm run check-engines",
-    "build": "wp-scripts build",
+    "build": "wp-scripts build src/index.js src/settings/settings.js",
+    "update-translations": "scripts/translations/extract-messages.sh && scripts/translations/update-translation-files.sh && scripts/translations/compile-translation-files.sh",
     "wp-env": "wp-env",
     "check-engines": "wp-scripts check-engines",
     "check-licenses": "wp-scripts check-licenses",

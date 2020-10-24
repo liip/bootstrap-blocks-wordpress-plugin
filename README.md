@@ -1,8 +1,8 @@
-# Bootstrap 4 Gutenberg Blocks for WordPress
+# Bootstrap Gutenberg Blocks for WordPress
 
 [![Build Status](https://travis-ci.org/liip/bootstrap-blocks-wordpress-plugin.svg?branch=master)](https://travis-ci.org/liip/bootstrap-blocks-wordpress-plugin)
 
-This plugin adds Bootstrap components and layout options as Gutenberg blocks.
+Bootstrap Gutenberg Blocks for WordPress. Supports Bootstrap 4 and **Bootstrap 5** (experimental). This plugin adds Bootstrap components and layout options as Gutenberg blocks.
 
 ## Available blocks
 
@@ -23,13 +23,15 @@ This plugin adds Bootstrap components and layout options as Gutenberg blocks.
 * Alignment: Horizontal alignment of inner `column` blocks.
 * Vertical Alignment: Vertical alignment of inner `column` blocks.
 * Editor stack columns: Displays stacked columns in the editor to enhance readability of block content.
+* Horizontal Gutters: Size of horizontal gutters.
+* Vertical Gutters: Size of vertical gutters.
 
 ### Column
 
 #### Options
 
-* Sizes for all breakpoints (xl, lg, md, sm, xs): How much space the column should use for the given breakpoint.
-* Equal width for all breakpoints (xl, lg, md, sm, xs): If enabled column will spread width evenly with other columns.
+* Sizes for all breakpoints (xxl, xl, lg, md, sm, xs): How much space the column should use for the given breakpoint.
+* Equal width for all breakpoints (xxl, xl, lg, md, sm, xs): If enabled column will spread width evenly with other columns.
 * Background Color: Set background color to column.
 * Center content: Center content vertically in column. This option is only needed if a background color is set. Otherwise use the **Alignment** option of the outer `row` block.
 * Padding: Define padding inside the column.
@@ -47,6 +49,17 @@ This plugin adds Bootstrap components and layout options as Gutenberg blocks.
 * WordPress Plugin: [https://wordpress.org/plugins/wp-bootstrap-blocks](https://wordpress.org/plugins/wp-bootstrap-blocks)
 * Changelog: [https://github.com/liip/bootstrap-blocks-wordpress-plugin/releases](https://github.com/liip/bootstrap-blocks-wordpress-plugin/releases)
 * Issue tracker: [https://github.com/liip/bootstrap-blocks-wordpress-plugin/issues](https://github.com/liip/bootstrap-blocks-wordpress-plugin/issues)
+
+## Supported Bootstrap versions
+
+This plugin supports Bootstrap v4 and v5 (experimental). The support for v5 is still flagged as experimental since this version of Bootstrap is not officially released yet. The API could still change which could affect the options defined in this plugin.
+
+The version can be selected in the plugin settings (Settings > Bootstrap Blocks) or by defining the `WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION` constant in the `wp-config.php` file:
+
+* Bootstrap 4 (default): `define( 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION', '4' );`
+* Bootstrap 5: `define( 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION', '5' );`
+
+Possible values right now are `'4'` or `'5'`. By default Bootstrap version **4** is selected.
 
 ## Bootstrap library
 
@@ -265,6 +278,8 @@ Modify default attributes of the row block.
     * `alignment` (`string`) Default horizontal alignment of inner columns (Default: `''`)
     * `verticalAlignment` (`string`) Default vertical alignment of inner columns (Default: `''`)
     * `editorStackColumns` (`boolean`) Defines if editorStackColumns option should be selected by default or not (Default: `false`)
+    * `horizontalGutters` (`string`) Default horizontal gutters size (Default: `''`)
+    * `verticalGutters` (`string`) Default vertical gutters size (Default: `''`)
 
 #### Usage
 
@@ -277,6 +292,8 @@ function my_row_default_attributes( $default_attributes ) {
     $default_attributes['alignment'] = 'right';
     $default_attributes['verticalAlignment'] = 'bottom';
     $default_attributes['editorStackColumns'] = true;
+    $default_attributes['horizontalGutters'] = 'gx-5';
+    $default_attributes['verticalGutters'] = 'gy-3';
     return $default_attributes;
 }
 ```
@@ -288,11 +305,13 @@ Modify default attributes of the column block.
 #### Parameters
 
 * `$default_attributes` (`array`) Default attributes of column block.
+    * `sizeXxl` (`int`) Default xxl column size (Default: `0`)
     * `sizeXl` (`int`) Default xl column size (Default: `0`)
     * `sizeLg` (`int`) Default lg column size (Default: `0`)
     * `sizeMd` (`int`) Default md column size (Default: `0`)
     * `sizeSm` (`int`) Default sm column size (Default: `0`)
     * `sizeXs` (`int`) Default xs column size (Default: `12`))
+    * `equalWidthXxl` (`boolean`) Defines if equal-width xxl option should be selected or not (Default: `false`)
     * `equalWidthXl` (`boolean`) Defines if equal-width xl option should be selected or not (Default: `false`)
     * `equalWidthLg` (`boolean`) Defines if equal-width lg option should be selected or not (Default: `false`)
     * `equalWidthMd` (`boolean`) Defines if equal-width md option should be selected or not (Default: `false`)
@@ -524,6 +543,50 @@ wp.hooks.addFilter(
 #### Parameters
 
 * `enableCustomTemplate` (`boolean`) Return true if custom row template should be enabled. (Default: `true`)
+
+### wpBootstrapBlocks.row.horizontalGuttersOptions
+
+Modify available horizontal gutters options for row block.
+
+#### Usage
+
+```javascript
+function myRowHorizontalGuttersOptions( horizontalGuttersOptions ) {
+	horizontalGuttersOptions.push( { label: 'Medium', value: 'gx-4' } );
+	return horizontalGuttersOptions;
+}
+wp.hooks.addFilter(
+	'wpBootstrapBlocks.row.horizontalGuttersOptions',
+	'myplugin/wp-bootstrap-blocks/row/horizontalGuttersOptions',
+	myRowHorizontalGuttersOptions
+);
+```
+
+#### Parameters
+
+* `horizontalGuttersOptions` (`Array`) Array of horizontal gutters options.
+
+### wpBootstrapBlocks.row.verticalGuttersOptions
+
+Modify available vertical gutters options for row block.
+
+#### Usage
+
+```javascript
+function myRowVerticalGuttersOptions( verticalGuttersOptions ) {
+	verticalGuttersOptions.push( { label: 'Medium', value: 'gy-4' } );
+	return verticalGuttersOptions;
+}
+wp.hooks.addFilter(
+	'wpBootstrapBlocks.row.verticalGuttersOptions',
+	'myplugin/wp-bootstrap-blocks/row/verticalGuttersOptions',
+	myRowVerticalGuttersOptions
+);
+```
+
+#### Parameters
+
+* `verticalGuttersOptions` (`Array`) Array of vertical gutters options.
 
 ### wpBootstrapBlocks.column.bgColors
 
