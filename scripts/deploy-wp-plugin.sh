@@ -79,6 +79,8 @@ cp $SOURCEPATH/build/index.css $RELEASEPATH/trunk/build/
 cp $SOURCEPATH/build/style-index.css $RELEASEPATH/trunk/build/
 cp $SOURCEPATH/build/index.js $RELEASEPATH/trunk/build/
 cp $SOURCEPATH/build/index.asset.php $RELEASEPATH/trunk/build/
+cp $SOURCEPATH/build/settings.css $RELEASEPATH/trunk/build/
+cp $SOURCEPATH/build/settings.asset.php $RELEASEPATH/trunk/build/
 
 echo "Changing directory to SVN and committing to trunk"
 cd $RELEASEPATH/trunk/
