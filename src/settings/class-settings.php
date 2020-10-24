@@ -51,7 +51,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 		 *
 		 * @var int
 		 */
-		const BOOTSTRAP_VERSION_DEFAULT_VALUE = 4;
+		const BOOTSTRAP_VERSION_DEFAULT_VALUE = '4';
 
 		/**
 		 * The plugin assets directory.
