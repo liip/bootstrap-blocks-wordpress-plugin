@@ -72,15 +72,15 @@ class WP_Bootstrap_Blocks_Settings_Test extends WP_UnitTestCase {
 	 */
 	public function test_pre_update_option_bootstrap_version() {
 		// Option value should be set if constant is not set
-		$option_value = 5;
+		$option_value = '5';
 		update_option( Settings::BOOTSTRAP_VERSION_OPTION_NAME, $option_value );
 		$bootstrap_version_option_value = get_option( Settings::BOOTSTRAP_VERSION_OPTION_NAME );
 		$this->assertEquals( $option_value, $bootstrap_version_option_value );
 
 		// Constant value should be saved as option value if available.
-		$constant_value = 4;
+		$constant_value = '4';
 		define( Settings::BOOTSTRAP_VERSION_CONSTANT_NAME, $constant_value );
-		$option_value = 5;
+		$option_value = '5';
 		update_option( Settings::BOOTSTRAP_VERSION_OPTION_NAME, $option_value );
 		$bootstrap_version_option_value = get_option( Settings::BOOTSTRAP_VERSION_OPTION_NAME );
 		$this->assertEquals( $constant_value, $bootstrap_version_option_value );
