@@ -98,7 +98,7 @@ To overwrite a block template create a folder called `wp-bootstrap-blocks/` in y
 
 == Frequently Asked Questions ==
 
-= Which version of Bootstrap are supported? =
+= Which versions of Bootstrap are supported? =
 
 This plugin supports Bootstrap v4 and v5 (experimental).
 
