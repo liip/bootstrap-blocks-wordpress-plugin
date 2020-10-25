@@ -5,7 +5,7 @@
  * This template can be overridden by copying it to theme/wp-bootstrap-blocks/button.php.
  *
  * @package wp-bootstrap-blocks/templates/button
- * @version 2.0.0
+ * @version 3.1.0
  */
 
 /**
@@ -60,7 +60,16 @@ $classes = apply_filters( 'wp_bootstrap_blocks_button_wrapper_classes', $classes
 $btn_classes = apply_filters( 'wp_bootstrap_blocks_button_classes', $btn_classes, $attributes );
 ?>
 <div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
-	<a href="<?php echo esc_url( $attributes['url'] ); ?>" class="<?php echo esc_attr( implode( ' ', $btn_classes ) ); ?>">
+	<a
+		href="<?php echo esc_url( $attributes['url'] ); ?>"
+		<?php if ( ! empty( $attributes['linkTarget'] ) ) : ?>
+			target="<?php echo esc_attr( $attributes['linkTarget'] ); ?>"
+		<?php endif; ?>
+		<?php if ( ! empty( $attributes['rel'] ) ) : ?>
+			rel="<?php echo esc_attr( $attributes['rel'] ); ?>"
+		<?php endif; ?>
+		class="<?php echo esc_attr( implode( ' ', $btn_classes ) ); ?>"
+	>
 		<?php echo esc_html( $attributes['text'] ); ?>
 	</a>
 </div>

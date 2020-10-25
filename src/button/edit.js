@@ -6,6 +6,8 @@ import {
 	IconButton,
 	SelectControl,
 	PanelBody,
+	ToggleControl,
+	TextControl,
 } from '@wordpress/components';
 import { applyFilters } from '@wordpress/hooks';
 import * as BlockEditor from '@wordpress/block-editor';
@@ -19,10 +21,12 @@ const {
 	AlignmentToolbar,
 } = BlockEditor || Editor; // Fallback to deprecated '@wordpress/editor' for backwards compatibility
 
+const NEW_TAB_REL_DEFAULT = 'noreferrer noopener';
+
 class BootstrapButtonEdit extends Component {
 	render() {
 		const { attributes, className, setAttributes, isSelected } = this.props;
-		const { url, text, style, alignment } = attributes;
+		const { url, linkTarget, rel, text, style, alignment } = attributes;
 
 		let styleOptions = [
 			{ label: __( 'Primary', 'wp-bootstrap-blocks' ), value: 'primary' },
@@ -35,6 +39,23 @@ class BootstrapButtonEdit extends Component {
 			'wpBootstrapBlocks.button.styleOptions',
 			styleOptions
 		);
+
+		// Open in new tab behavior from core/button (source: https://github.com/WordPress/gutenberg/blob/master/packages/block-library/src/button/edit.js)
+		const onToggleOpenInNewTab = ( value ) => {
+			const newLinkTarget = value ? '_blank' : undefined;
+
+			let updatedRel = rel;
+			if ( newLinkTarget && ! rel ) {
+				updatedRel = NEW_TAB_REL_DEFAULT;
+			} else if ( ! newLinkTarget && rel === NEW_TAB_REL_DEFAULT ) {
+				updatedRel = undefined;
+			}
+
+			setAttributes( {
+				linkTarget: newLinkTarget,
+				rel: updatedRel,
+			} );
+		};
 
 		return (
 			<Fragment>
@@ -60,6 +81,31 @@ class BootstrapButtonEdit extends Component {
 								options={ styleOptions }
 								onChange={ ( selectedStyle ) => {
 									setAttributes( { style: selectedStyle } );
+								} }
+							/>
+						</PanelBody>
+						<PanelBody
+							title={ __(
+								'Link settings',
+								'wp-bootstrap-blocks'
+							) }
+						>
+							<ToggleControl
+								label={ __(
+									'Open in new tab',
+									'wp-bootstrap-blocks'
+								) }
+								onChange={ onToggleOpenInNewTab }
+								checked={ linkTarget === '_blank' }
+							/>
+							<TextControl
+								label={ __(
+									'Link rel',
+									'wp-bootstrap-blocks'
+								) }
+								value={ rel || '' }
+								onChange={ ( newRel ) => {
+									setAttributes( { rel: newRel } );
 								} }
 							/>
 						</PanelBody>
