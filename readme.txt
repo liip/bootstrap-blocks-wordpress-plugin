@@ -22,7 +22,7 @@ The full documentation of this plugin can be found on GitHub: [https://github.co
 Options:
 
 * Fluid: If enabled the container will use the full available width, spanning the entire width of the viewport.
-* Fluid Breakpoint: Used to enable [responsive containers](https://getbootstrap.com/docs/4.4/layout/overview/#responsive). This feature only work with Bootstrap v4.4+. The container will use 100% of the width until the specified breakpoint is reached, after which the defined max-widths will apply for each of the higher breakpoints.
+* Fluid Breakpoint: Used to enable [responsive containers](https://getbootstrap.com/docs/4.4/layout/overview/#responsive). This feature only works with Bootstrap v4.4+. The container will use 100% of the width until the specified breakpoint is reached, after which the defined max-widths will apply for each of the higher breakpoints.
 * Margin After: Define a margin which should be added after the container.
 
 **Row**
