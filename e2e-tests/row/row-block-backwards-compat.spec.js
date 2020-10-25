@@ -10,6 +10,7 @@ import {
 import rowContent100 from './row-block-content/row-1.0.0';
 import rowContent110 from './row-block-content/row-1.1.0';
 import rowContent140 from './row-block-content/row-1.4.0';
+import rowContentBootstrap5 from './row-block-content/row-bootstrap5';
 import {
 	testVersion100RowFeatures,
 	testVersion110RowFeatures,
@@ -17,7 +18,12 @@ import {
 	testVersion110ColumnFeatures,
 	testVersion140ColumnFeatures,
 } from './feature-tests';
-import { ensureSidebarOpened } from '../helper';
+import {
+	ensureSidebarOpened,
+	getInputValueByLabel,
+	openSidebarPanelWithTitle,
+} from '../helper';
+import { selectColumnBlock } from '../column/column-helper';
 
 describe( 'row block backwards compatibility', () => {
 	beforeEach( async () => {
@@ -100,4 +106,30 @@ describe( 'row block backwards compatibility', () => {
 		await testVersion140ColumnFeatures();
 	} );
 	/* eslint-enable jest/expect-expect */
+
+	it( 'Bootstrap 4 works with Bootstrap 5 settings', async () => {
+		await setPostContent( rowContentBootstrap5 );
+		await ensureSidebarOpened();
+
+		// Select 1. Column of 1. Row
+		await selectColumnBlock( 0, 0 );
+
+		// Check if row block could be inserted without error
+		expect(
+			await page.$(
+				'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/row"]'
+			)
+		).not.toBeNull();
+		expect(
+			await page.$$(
+				'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/column"]'
+			)
+		).toHaveLength( 2 );
+
+		// Check if Bootstrap 4 values are set in inspector controls
+		await openSidebarPanelWithTitle( 'Column size' );
+		expect( await getInputValueByLabel( 'Md Column count' ) ).toMatch(
+			'8'
+		);
+	} );
 } );
