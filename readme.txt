@@ -52,6 +52,8 @@ Options:
 Options:
 
 * Style: Choose the styling of the button.
+* Open in new tab: Choose if link should be opened in a new tab.
+* Rel: Set rel attribute of the link.
 * Alignment: Horizontal alignment of the button.
 
 = Supported Bootstrap versions =
@@ -118,6 +120,12 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 1. Container block
 
 == Changelog ==
+
+= 3.1.0 =
+
+* [FEATURE] Add possibility to open link of `button` block in new tab.
+* [FEATURE] Add possibility to set the `rel` attribute of the `button` blocks link.
+* Modified Templates: `buttom.php`
 
 = 3.0.0 =
 
