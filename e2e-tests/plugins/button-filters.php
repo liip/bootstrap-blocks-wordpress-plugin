@@ -33,6 +33,8 @@ add_action( 'init', 'enqueue_button_filters_plugin_script' );
  */
 function button_filters_default_attributes( $default_attributes ) {
 	$default_attributes['url'] = 'https://liip.ch';
+	$default_attributes['linkTarget'] = '_blank';
+	$default_attributes['rel'] = 'custom rel';
 	$default_attributes['text'] = 'Liip';
 	$default_attributes['style'] = 'secondary';
 	$default_attributes['alignment'] = 'center';

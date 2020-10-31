@@ -124,6 +124,13 @@ export const getCheckboxValueByLabel = async ( label ) => {
 	return await page.evaluate( ( el ) => el.checked, inputEl );
 };
 
+export const getToggleValueByLabel = async ( label ) => {
+	const [ inputEl ] = await page.$x(
+		`//label[@class="components-toggle-control__label"][contains(text(),"${ label }")]/preceding-sibling::span[contains(@class, "components-form-toggle")]/input`
+	);
+	return await page.evaluate( ( el ) => el.checked, inputEl );
+};
+
 export const getSelectedValueBySelectLabel = async ( label ) => {
 	const [ selectEl ] = await page.$x(
 		`//label[@class="components-base-control__label"][contains(text(),"${ label }")]/following-sibling::select[@class="components-select-control__input"]`
