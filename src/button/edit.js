@@ -21,7 +21,7 @@ const {
 	AlignmentToolbar,
 } = BlockEditor || Editor; // Fallback to deprecated '@wordpress/editor' for backwards compatibility
 
-const NEW_TAB_REL_DEFAULT = 'noreferrer noopener';
+const NEW_TAB_REL_DEFAULT_VALUE = 'noreferrer noopener';
 
 class BootstrapButtonEdit extends Component {
 	render() {
@@ -46,8 +46,8 @@ class BootstrapButtonEdit extends Component {
 
 			let updatedRel = rel;
 			if ( newLinkTarget && ! rel ) {
-				updatedRel = NEW_TAB_REL_DEFAULT;
-			} else if ( ! newLinkTarget && rel === NEW_TAB_REL_DEFAULT ) {
+				updatedRel = NEW_TAB_REL_DEFAULT_VALUE;
+			} else if ( ! newLinkTarget && rel === NEW_TAB_REL_DEFAULT_VALUE ) {
 				updatedRel = undefined;
 			}
 
