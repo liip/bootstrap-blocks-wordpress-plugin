@@ -83,6 +83,20 @@ export const getRichTextValueByLabel = async ( label ) => {
 	);
 };
 
+export const getTextControlValueByLabel = async ( label ) => {
+	const [ inputEl ] = await page.$x(
+		`//label[@class="components-base-control__label"][contains(text(),"${ label }")]/following-sibling::input[@class="components-text-control__input"]`
+	);
+	return await page.evaluate( ( el ) => el.value, inputEl );
+};
+
+export const setTextControlValueByLabel = async ( label, value ) => {
+	const [ inputEl ] = await page.$x(
+		`//label[@class="components-base-control__label"][contains(text(),"${ label }")]/following-sibling::input[@class="components-text-control__input"]`
+	);
+	await inputEl.type( value );
+};
+
 export const inputIsDisabledByLabel = async ( label ) => {
 	return (
 		( await page.$( `input[aria-label="${ label }"][disabled]` ) ) !== null
