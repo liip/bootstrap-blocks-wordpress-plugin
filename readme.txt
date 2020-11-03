@@ -125,7 +125,7 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 * [FEATURE] Add possibility to open link of `button` block in new tab.
 * [FEATURE] Add possibility to set the `rel` attribute of the `button` blocks link.
-* Modified Templates: `buttom.php`
+* Modified Templates: `button.php`
 
 = 3.0.0 =
 
