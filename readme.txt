@@ -5,7 +5,7 @@ Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.0
 Tested up to: 5.5
 Requires PHP: 5.6
-Stable tag: 3.0.0
+Stable tag: 3.1.0
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,6 +52,8 @@ Options:
 Options:
 
 * Style: Choose the styling of the button.
+* Open in new tab: Choose if link should be opened in a new tab.
+* Rel: Set rel attribute of the link.
 * Alignment: Horizontal alignment of the button.
 
 = Supported Bootstrap versions =
@@ -118,6 +120,12 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 1. Container block
 
 == Changelog ==
+
+= 3.1.0 =
+
+* [FEATURE] Add possibility to open link of `button` block in new tab.
+* [FEATURE] Add possibility to set the `rel` attribute of the `button` blocks link.
+* Modified Templates: `button.php`
 
 = 3.0.0 =
 

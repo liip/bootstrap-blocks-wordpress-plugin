@@ -51,4 +51,22 @@ class WP_Bootstrap_Blocks_Button_Test extends WP_Bootstrap_Blocks_UnitTestCase {
 		list( $expected, $actual ) = $this->get_block_output( $variant );
 		$this->assertEquals( $expected, $actual );
 	}
+
+	/**
+	 * Tests button open in new tab.
+	 */
+	public function test_button_open_in_new_tab() {
+		$variant = 'open-in-new-tab';
+		list( $expected, $actual ) = $this->get_block_output( $variant );
+		$this->assertEquals( $expected, $actual );
+	}
+
+	/**
+	 * Tests button rel.
+	 */
+	public function test_button_rel() {
+		$variant = 'rel';
+		list( $expected, $actual ) = $this->get_block_output( $variant );
+		$this->assertEquals( $expected, $actual );
+	}
 }

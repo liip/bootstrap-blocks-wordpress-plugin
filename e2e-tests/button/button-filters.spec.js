@@ -13,6 +13,8 @@ import {
 	getInputValueByLabel,
 	getRichTextValueByLabel,
 	getSelectedValueBySelectLabel,
+	getTextControlValueByLabel,
+	getToggleValueByLabel,
 	selectOption,
 	selectOptionIsAvailable,
 	toolbarOptionIsActive,
@@ -74,6 +76,14 @@ describe( 'button block filters', () => {
 		// URL should be set
 		expect( await getInputValueByLabel( 'URL' ) ).toMatch(
 			'https://liip.ch'
+		);
+
+		// Open in new tab is enabled
+		expect( await getToggleValueByLabel( 'Open in new tab' ) ).toBe( true );
+
+		// Rel should be set
+		expect( await getTextControlValueByLabel( 'Link rel' ) ).toBe(
+			'custom rel'
 		);
 
 		// Check if attributes are set correctly

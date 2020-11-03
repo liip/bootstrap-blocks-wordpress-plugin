@@ -41,6 +41,8 @@ Bootstrap Gutenberg Blocks for WordPress. Supports Bootstrap 4 and **Bootstrap 5
 #### Options
 
 * Style: Choose the styling of the button.
+* Open in new tab: Choose if link should be opened in a new tab.
+* Rel: Set rel attribute of the link.
 * Alignment: Horizontal alignment of the button.
 
 ## Further Information
@@ -368,6 +370,10 @@ Modify default attributes of the button block.
 
 * `$default_attributes` (`array`) Default attributes of button block.
     * `url` (`string`) Default url of the button (Default: `''`)
+    * `linkTarget` (`string`) Default link target (Default: `''`). Possible values:
+        * `''`: Target attribute empty
+        * `_blank`: Target attribute is set to `_blank`
+    * `rel` (`string`) Default rel attribute of the link (Default: `''`)
     * `text` (`string`) Default text of the button (Default: `''`)
     * `style` (`string`) Default style of the button (Default: `''`)
     * `alignment` (`string`) Default alignment of the button (Default: `''`)
@@ -379,6 +385,8 @@ add_filter( 'wp_bootstrap_blocks_button_default_attributes', 'my_button_default_
 
 function my_button_default_attributes( $default_attributes ) {
     $default_attributes['url'] = 'https://getbootstrap.com/';
+    $default_attributes['linkTarget'] = '_blank';
+    $default_attributes['rel'] = 'noreferrer noopener';
     $default_attributes['text'] = 'Bootstrap';
     $default_attributes['style'] = 'secondary';
     $default_attributes['alignment'] = 'right';

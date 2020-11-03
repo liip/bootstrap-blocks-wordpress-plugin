@@ -35,6 +35,12 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Button\Button_Block_Type', false ) ) 
 			'url' => array(
 				'type' => 'string',
 			),
+			'linkTarget' => array(
+				'type' => 'string',
+			),
+			'rel' => array(
+				'type' => 'string',
+			),
 			'text' => array(
 				'type' => 'string',
 			),
@@ -53,6 +59,8 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Button\Button_Block_Type', false ) ) 
 		 */
 		protected $default_attributes = array(
 			'url' => '',
+			'linkTarget' => '',
+			'rel' => '',
 			'text' => '',
 			'style' => '',
 			'alignment' => '',
