@@ -5,7 +5,7 @@
 // WordPress dependencies
 import { registerBlockType } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
-
+import { columns } from '@wordpress/icons';
 import * as BlockEditor from '@wordpress/block-editor';
 import * as Editor from '@wordpress/editor';
 
@@ -18,7 +18,7 @@ const { InnerBlocks } = BlockEditor || Editor; // Fallback to deprecated '@wordp
 registerBlockType( 'wp-bootstrap-blocks/row', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
 	title: __( 'Row', 'wp-bootstrap-blocks' ), // Block title.
-	icon: 'layout', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
+	icon: columns, // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
 	category: 'wp-bootstrap-blocks', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
 		__( 'Row', 'wp-bootstrap-blocks' ),
