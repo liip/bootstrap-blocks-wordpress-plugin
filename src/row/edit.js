@@ -12,16 +12,18 @@ import { Component, Fragment } from '@wordpress/element';
 import { withSelect, withDispatch } from '@wordpress/data';
 import { compose } from '@wordpress/compose';
 import { applyFilters } from '@wordpress/hooks';
-import { alignCenter, alignLeft, alignRight } from '@wordpress/icons';
 import * as BlockEditor from '@wordpress/block-editor';
 import * as Editor from '@wordpress/editor';
 
 import {
+	alignCenter,
+	alignLeft,
+	alignRight,
 	templateIconMissing,
 	verticalAlignBottom,
 	verticalAlignCenter,
 	verticalAlignTop,
-} from './icons';
+} from '../icons';
 
 import { isBootstrap5Active } from '../helper';
 

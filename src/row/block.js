@@ -5,11 +5,11 @@
 // WordPress dependencies
 import { registerBlockType } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
-import { columns } from '@wordpress/icons';
 import * as BlockEditor from '@wordpress/block-editor';
 import * as Editor from '@wordpress/editor';
 
 import edit from './edit';
+import { columns } from '../icons';
 import './editor.scss';
 import './style.scss';
 

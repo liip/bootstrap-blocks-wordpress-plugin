@@ -5,11 +5,11 @@
 // WordPress dependencies
 import { registerBlockType } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
-import { stack } from '@wordpress/icons';
 import * as BlockEditor from '@wordpress/block-editor';
 import * as Editor from '@wordpress/editor';
 
 import edit from './edit';
+import { stack } from '../icons';
 import './editor.scss';
 
 const { InnerBlocks } = BlockEditor || Editor; // Fallback to deprecated '@wordpress/editor' for backwards compatibility

@@ -5,9 +5,9 @@
 // WordPress dependencies
 import { registerBlockType } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
-import { button } from '@wordpress/icons';
 
 import edit from './edit';
+import { button } from '../icons';
 import './editor.scss';
 
 registerBlockType( 'wp-bootstrap-blocks/button', {

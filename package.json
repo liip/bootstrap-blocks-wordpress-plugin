@@ -26,8 +26,7 @@
     "@wordpress/editor": "^9.24.1",
     "@wordpress/element": "^2.18.0",
     "@wordpress/hooks": "^2.10.0",
-    "@wordpress/i18n": "^3.16.0",
-    "@wordpress/icons": "^2.8.0"
+    "@wordpress/i18n": "^3.16.0"
   },
   "devDependencies": {
     "@wordpress/base-styles": "^3.2.0",
