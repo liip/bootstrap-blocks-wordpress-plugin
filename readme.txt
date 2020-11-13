@@ -121,6 +121,10 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 == Changelog ==
 
+= 3.1.1 =
+
+* [FIX] Use unique `jsonpFunction` name in webpack config to avoid conflict with other plugins built with `@wordpress/scripts`. (Thanks CP-Antoine for the hint)
+
 = 3.1.0 =
 
 * [FEATURE] Add possibility to open link of `button` block in new tab.
