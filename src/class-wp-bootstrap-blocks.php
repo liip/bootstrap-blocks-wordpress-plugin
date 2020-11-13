@@ -33,7 +33,7 @@ class WP_Bootstrap_Blocks {
 	 *
 	 * @var string
 	 */
-	public static $version = '3.1.0';
+	public static $version = '3.1.1';
 
 	/**
 	 * The plugin token.
@@ -193,7 +193,7 @@ class WP_Bootstrap_Blocks {
 			$index_url,
 			$index_dependencies,
 			$index_version,
-			true // Enqueue the script in the footer.
+			false // Enqueue the script in the footer.
 		);
 
 		wp_localize_script(
