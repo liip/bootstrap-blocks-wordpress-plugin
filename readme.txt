@@ -124,6 +124,7 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 = 3.1.1 =
 
 * [FIX] Use unique `jsonpFunction` name in webpack config to avoid conflict with other plugins built with `@wordpress/scripts`. (Thanks CP-Antoine for the hint)
+* [IMPROVEMENT] Replace WordPress Dashicons with SVG icons.
 
 = 3.1.0 =
 
