@@ -9,13 +9,14 @@ import * as BlockEditor from '@wordpress/block-editor';
 import * as Editor from '@wordpress/editor';
 
 import edit, { bgColorOptions } from './edit';
+import { column } from '../icons';
 
 const { InnerBlocks } = BlockEditor || Editor; // Fallback to deprecated '@wordpress/editor' for backwards compatibility
 
 registerBlockType( 'wp-bootstrap-blocks/column', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
 	title: __( 'Column', 'wp-bootstrap-blocks' ), // Block title.
-	icon: 'menu', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
+	icon: column, // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
 	category: 'wp-bootstrap-blocks', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
 		__( 'Column', 'wp-bootstrap-blocks' ),

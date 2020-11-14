@@ -16,11 +16,14 @@ import * as BlockEditor from '@wordpress/block-editor';
 import * as Editor from '@wordpress/editor';
 
 import {
-	alignBottom,
 	alignCenter,
-	alignTop,
+	alignLeft,
+	alignRight,
 	templateIconMissing,
-} from './icons';
+	verticalAlignBottom,
+	verticalAlignCenter,
+	verticalAlignTop,
+} from '../icons';
 
 import { isBootstrap5Active } from '../helper';
 
@@ -291,27 +294,9 @@ class BootstrapRowEdit extends Component {
 
 		const alignmentControls = [
 			{
-				icon: 'editor-alignleft',
+				icon: alignLeft,
 				title: __( 'Align columns left', 'wp-bootstrap-blocks' ),
 				align: 'left',
-			},
-			{
-				icon: 'editor-aligncenter',
-				title: __( 'Align columns center', 'wp-bootstrap-blocks' ),
-				align: 'center',
-			},
-			{
-				icon: 'editor-alignright',
-				title: __( 'Align columns right', 'wp-bootstrap-blocks' ),
-				align: 'right',
-			},
-		];
-
-		const verticalAlignmentControls = [
-			{
-				icon: alignTop,
-				title: __( 'Align columns top', 'wp-bootstrap-blocks' ),
-				align: 'top',
 			},
 			{
 				icon: alignCenter,
@@ -319,7 +304,25 @@ class BootstrapRowEdit extends Component {
 				align: 'center',
 			},
 			{
-				icon: alignBottom,
+				icon: alignRight,
+				title: __( 'Align columns right', 'wp-bootstrap-blocks' ),
+				align: 'right',
+			},
+		];
+
+		const verticalAlignmentControls = [
+			{
+				icon: verticalAlignTop,
+				title: __( 'Align columns top', 'wp-bootstrap-blocks' ),
+				align: 'top',
+			},
+			{
+				icon: verticalAlignCenter,
+				title: __( 'Align columns center', 'wp-bootstrap-blocks' ),
+				align: 'center',
+			},
+			{
+				icon: verticalAlignBottom,
 				title: __( 'Align columns bottom', 'wp-bootstrap-blocks' ),
 				align: 'bottom',
 			},
