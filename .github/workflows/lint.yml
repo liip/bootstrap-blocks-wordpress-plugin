@@ -1,4 +1,4 @@
-name: Unit Tests
+name: Lint
 
 on: [push]
 
@@ -21,3 +21,24 @@ jobs:
 
       - name: Run linter
         run: npm run lint
+
+  lint-php:
+    name: Lint PHP
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          composer install
+
+      - name: Run PHP linter
+        run: npm run lint:php
