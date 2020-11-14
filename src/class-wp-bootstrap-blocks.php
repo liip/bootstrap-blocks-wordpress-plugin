@@ -193,7 +193,7 @@ class WP_Bootstrap_Blocks {
 			$index_url,
 			$index_dependencies,
 			$index_version,
-			false // Enqueue the script in the footer.
+			true // Enqueue the script in the footer.
 		);
 
 		wp_localize_script(
