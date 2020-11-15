@@ -26,10 +26,10 @@ script:
   - npm run test:e2e
   - npm run test:unit:php:ci
 
-deploy:
-  provider: script
-  script: scripts/deploy-wp-plugin.sh
-  on:
-    php: 7.4
-    tags: true
-    all_branches: true
+#deploy:
+#  provider: script
+#  script: scripts/deploy-wp-plugin.sh
+#  on:
+#    php: 7.4
+#    tags: true
+#    all_branches: true
