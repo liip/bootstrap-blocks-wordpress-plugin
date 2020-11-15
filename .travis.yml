@@ -18,13 +18,13 @@ before_install:
 install:
   - composer install
   - npm ci
-  - npm run wp-env start
+  #- npm run wp-env start
 
 script:
   - npm run lint
   - npm run lint:php
-  - npm run test:e2e
-  - npm run test:unit:php:ci
+  #- npm run test:e2e
+  #- npm run test:unit:php:ci
 
 #deploy:
 #  provider: script
