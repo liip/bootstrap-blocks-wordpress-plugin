@@ -106,7 +106,7 @@ jobs:
 
     steps:
       - shell: bash
-          env:
-            SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
-          run: |
-            scripts/deploy-wp-plugin.sh
+        env:
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+        run: |
+          scripts/deploy-wp-plugin.sh
