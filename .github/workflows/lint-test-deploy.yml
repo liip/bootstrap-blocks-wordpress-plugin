@@ -62,7 +62,7 @@ jobs:
     # only run on tags
     #if: contains(github.ref, "refs/tags/")
 
-    needs: [ lint, lint-php, e2e-tests, unit-php ]
+    needs: [ lint, tests ]
 
     runs-on: ubuntu-latest
 
