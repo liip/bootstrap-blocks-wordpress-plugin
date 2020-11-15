@@ -17,59 +17,18 @@ jobs:
           node-version: 12.x
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          npm ci
+          composer install
 
       - name: Run linter
         run: npm run lint
 
-  lint-php:
-    name: Lint PHP
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
-
-      - name: Install dependencies
-        run: |
-          npm ci
-          composer install
-
       - name: Run PHP linter
         run: npm run lint:php
 
-  e2e-tests:
-    name: JavaScript E2E Tests
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
-
-      - name: Install dependencies
-        run: |
-          npm ci
-
-      - name: Install WordPress
-        run: |
-          chmod -R 767 ./ # TODO: Possibly integrate in wp-env
-          npm run wp-env start
-
-      - name: Running the tests
-        run: npm run test:e2e
-
-  unit-php:
-    name: PHP Unit Tests
+  tests:
+    name: Tests
 
     runs-on: ubuntu-latest
 
@@ -91,7 +50,10 @@ jobs:
           chmod -R 767 ./ # TODO: Possibly integrate in wp-env
           npm run wp-env start
 
-      - name: Running the tests
+      - name: Running JavaScript E2E tests
+        run: npm run test:e2e
+
+      - name: Running PHP unit tests
         run: npm run test:unit:php:ci
 
   deploy:
@@ -105,6 +67,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v2
+
       - shell: bash
         env:
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
