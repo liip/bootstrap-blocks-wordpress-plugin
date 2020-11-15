@@ -18,7 +18,7 @@ SVN_USERNAME=liip
 SOURCEPATH="$HERE/.." # this file should be in the base of your git repository
 RELEASEPATH="$SOURCEPATH/release"
 MAINFILE="$PLUGINSLUG.php"
-DRYRUN=${DRYRUN:-"true"}
+DRYRUN=${DRYRUN:-"false"}
 
 if [[ "${DRYRUN}" == "false" ]] ; then
   echo "Deploy with following configuration"
