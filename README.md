@@ -1,6 +1,6 @@
 # Bootstrap Gutenberg Blocks for WordPress
 
-![Build Status](https://github.com/liip/bootstrap-blocks-wordpress-plugin/workflows/Lint%20Test%20Deploy/badge.svg?branch=master)
+[![Build Status](https://github.com/liip/bootstrap-blocks-wordpress-plugin/workflows/Lint%20Test%20Deploy/badge.svg?branch=master)](https://github.com/liip/bootstrap-blocks-wordpress-plugin/actions?query=workflow%3A%22Lint+Test+Deploy%22+branch%3Amaster)
 
 Bootstrap Gutenberg Blocks for WordPress. Supports Bootstrap 4 and **Bootstrap 5** (experimental). This plugin adds Bootstrap components and layout options as Gutenberg blocks.
 
