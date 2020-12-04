@@ -67,14 +67,14 @@ describe( 'container block', () => {
 
 		expect(
 			await page.$x(
-				`//label[contains(@class,"components-base-control__label")][contains(text(),"Fluid Breakpoint")]/following-sibling::select[contains(@class,"components-select-control__input")]/option`
+				`//label[contains(@class,"components-input-control__label")][contains(text(),"Fluid Breakpoint")]/parent::div/following-sibling::div/select[contains(@class,"components-select-control__input")]/option`
 			)
 		).toHaveLength( 5 );
 
 		// xxl option should not exist
 		expect(
 			await page.$x(
-				`//label[contains(@class,"components-base-control__label")][contains(text(),"Fluid Breakpoint")]/following-sibling::select[contains(@class,"components-select-control__input")]/option[@value='xxl']`
+				`//label[contains(@class,"components-input-control__label")][contains(text(),"Fluid Breakpoint")]/parent::div/following-sibling::div/select[contains(@class,"components-select-control__input")]/option[@value='xxl']`
 			)
 		).toHaveLength( 0 );
 	} );

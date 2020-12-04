@@ -37,7 +37,7 @@ export const clickElementByText = async ( elementExpression, text ) => {
 
 export const selectOption = async ( label, value ) => {
 	const [ selectEl ] = await page.$x(
-		`//label[@class="components-base-control__label"][contains(text(),"${ label }")]/following-sibling::select[@class="components-select-control__input"]`
+		`//label[contains(@class,"components-input-control__label") and contains(text(),"${ label }")]/parent::div/following-sibling::div/select[contains(@class, "components-select-control__input")]`
 	);
 	const selectId = await page.evaluate( ( el ) => el.id, selectEl );
 	await page.select( `#${ selectId }`, value );
@@ -105,14 +105,14 @@ export const inputIsDisabledByLabel = async ( label ) => {
 
 export const selectIsDisabledByLabel = async ( label ) => {
 	const [ selectEl ] = await page.$x(
-		`//select[@disabled]/preceding-sibling::label[contains(text(),"${ label }")]`
+		`//select[@disabled]/parent::div/preceding-sibling::div/label[contains(text(),"${ label }")]`
 	);
 	return !! selectEl;
 };
 
 export const selectOptionIsAvailable = async ( selectLabel, optionValue ) => {
 	const [ optionEl ] = await page.$x(
-		`//label[@class="components-base-control__label"][contains(text(),"${ selectLabel }")]/following-sibling::select[@class="components-select-control__input"]/option[@value="${ optionValue }"]`
+		`//label[contains(@class,"components-input-control__label") and contains(text(),"${ selectLabel }")]/parent::div/following-sibling::div/select[contains(@class,"components-select-control__input")]/option[@value="${ optionValue }"]`
 	);
 	return !! optionEl;
 };
@@ -133,7 +133,7 @@ export const getToggleValueByLabel = async ( label ) => {
 
 export const getSelectedValueBySelectLabel = async ( label ) => {
 	const [ selectEl ] = await page.$x(
-		`//label[contains(@class,"components-base-control__label")][contains(text(),"${ label }")]/following-sibling::select[contains(@class,"components-select-control__input")]`
+		`//label[contains(@class,"components-input-control__label") and contains(text(),"${ label }")]/parent::div/following-sibling::div/select[contains(@class,"components-select-control__input")]`
 	);
 	return await page.evaluate( ( el ) => el.value, selectEl );
 };

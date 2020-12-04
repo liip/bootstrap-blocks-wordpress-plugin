@@ -35,14 +35,14 @@ describe( 'row block Bootstrap 5', () => {
 		// Horizontal Gutters options should exist
 		expect(
 			await page.$x(
-				'//label[contains(@class,"components-base-control__label")][contains(text(),"Horizontal Gutters")]'
+				'//label[contains(@class,"components-input-control__label")][contains(text(),"Horizontal Gutters")]'
 			)
 		).toHaveLength( 1 );
 
 		// Vertical Gutters options should exist
 		expect(
 			await page.$x(
-				'//label[contains(@class,"components-base-control__label")][contains(text(),"Vertical Gutters")]'
+				'//label[contains(@class,"components-input-control__label")][contains(text(),"Vertical Gutters")]'
 			)
 		).toHaveLength( 1 );
 	} );
