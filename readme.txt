@@ -123,7 +123,7 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 = 3.1.2 =
 
-* [COMPATIBILITY] Tested up to WordPress 5.6
+* [COMPATIBILITY] Tested up to WordPress 5.6.
 * [FIX] Fix editor styling issues when used with Twenty Twenty-One theme (which will be shipped with WordPress 5.6).
 
 = 3.1.1 =
