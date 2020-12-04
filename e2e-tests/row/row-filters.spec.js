@@ -39,7 +39,7 @@ describe( 'row block filters', () => {
 		).not.toBeNull();
 		expect(
 			await page.$(
-				'.wp-bootstrap-blocks-template-selector-button > button[aria-label="1 Column (2/3 width)"] > svg.dashicons-yes'
+				'.wp-bootstrap-blocks-template-selector-button > button[aria-label="1 Column (2/3 width)"] > span.dashicons-yes'
 			)
 		).not.toBeNull();
 

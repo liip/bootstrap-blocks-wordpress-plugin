@@ -1,5 +1,5 @@
 {
-  "core": "WordPress/WordPress#5.5.3",
+  "core": "https://wordpress.org/wordpress-5.6-RC1.zip",
   "plugins": [ "." ],
   "mappings": {
     "wp-content/plugins/wp-bootstrap-blocks-test-plugins": "./e2e-tests/plugins"
