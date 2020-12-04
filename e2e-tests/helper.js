@@ -32,7 +32,9 @@ export const clickElementByText = async ( elementExpression, text ) => {
 	const [ element ] = await page.$x(
 		`//${ elementExpression }[contains(text(),"${ text }")]`
 	);
-	await element.click();
+	await page.evaluate( ( el ) => {
+		el.click();
+	}, element );
 };
 
 export const selectOption = async ( label, value ) => {
@@ -65,7 +67,9 @@ export const openSidebarPanelWithTitle = async ( title ) => {
 		`//div[contains(@class,"edit-post-sidebar")]//button[@class="components-button components-panel__body-toggle"][@aria-expanded="false"][contains(text(),"${ title }")]`
 	);
 	if ( panel ) {
-		await panel.click();
+		await page.evaluate( ( el ) => {
+			el.click();
+		}, panel );
 	}
 };
 
