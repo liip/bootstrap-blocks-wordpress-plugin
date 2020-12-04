@@ -13,7 +13,7 @@ env:
     - PHP_FPM_GID: 2000
 
 before_install:
-  - nvm install 12
+  - nvm install 14
 
 install:
   - composer install
