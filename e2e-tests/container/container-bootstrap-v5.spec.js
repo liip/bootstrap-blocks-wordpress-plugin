@@ -29,14 +29,14 @@ describe( 'container block Bootstrap 5', () => {
 
 		expect(
 			await page.$x(
-				`//label[@class="components-base-control__label"][contains(text(),"Fluid Breakpoint")]/following-sibling::select[@class="components-select-control__input"]/option`
+				`//label[contains(@class,"components-base-control__label")][contains(text(),"Fluid Breakpoint")]/following-sibling::select[contains(@class,"components-select-control__input")]/option`
 			)
 		).toHaveLength( 6 );
 
 		// xxl option should exist
 		expect(
 			await page.$x(
-				`//label[@class="components-base-control__label"][contains(text(),"Fluid Breakpoint")]/following-sibling::select[@class="components-select-control__input"]/option[@value='xxl']`
+				`//label[contains(@class,"components-base-control__label")][contains(text(),"Fluid Breakpoint")]/following-sibling::select[contains(@class,"components-select-control__input")]/option[@value='xxl']`
 			)
 		).toHaveLength( 1 );
 	} );

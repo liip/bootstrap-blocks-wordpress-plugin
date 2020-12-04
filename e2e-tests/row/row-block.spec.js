@@ -175,14 +175,14 @@ describe( 'row block', () => {
 		// Horizontal Gutters options should not exist
 		expect(
 			await page.$x(
-				'//label[@class="components-base-control__label"][contains(text(),"Horizontal Gutters")]'
+				'//label[contains(@class,"components-base-control__label")][contains(text(),"Horizontal Gutters")]'
 			)
 		).toHaveLength( 0 );
 
 		// Vertical Gutters options should not exist
 		expect(
 			await page.$x(
-				'//label[@class="components-base-control__label"][contains(text(),"Vertical Gutters")]'
+				'//label[contains(@class,"components-base-control__label")][contains(text(),"Vertical Gutters")]'
 			)
 		).toHaveLength( 0 );
 	} );

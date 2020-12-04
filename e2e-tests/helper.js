@@ -85,14 +85,14 @@ export const getRichTextValueByLabel = async ( label ) => {
 
 export const getTextControlValueByLabel = async ( label ) => {
 	const [ inputEl ] = await page.$x(
-		`//label[@class="components-base-control__label"][contains(text(),"${ label }")]/following-sibling::input[@class="components-text-control__input"]`
+		`//label[contains(@class,"components-base-control__label")][contains(text(),"${ label }")]/following-sibling::input[contains(@class,"components-text-control__input")]`
 	);
 	return await page.evaluate( ( el ) => el.value, inputEl );
 };
 
 export const setTextControlValueByLabel = async ( label, value ) => {
 	const [ inputEl ] = await page.$x(
-		`//label[@class="components-base-control__label"][contains(text(),"${ label }")]/following-sibling::input[@class="components-text-control__input"]`
+		`//label[contains(@class,"components-base-control__label")][contains(text(),"${ label }")]/following-sibling::input[contains(@class,"components-text-control__input")]`
 	);
 	await inputEl.type( value );
 };
@@ -119,21 +119,21 @@ export const selectOptionIsAvailable = async ( selectLabel, optionValue ) => {
 
 export const getCheckboxValueByLabel = async ( label ) => {
 	const [ inputEl ] = await page.$x(
-		`//label[@class="components-checkbox-control__label"][contains(text(),"${ label }")]/preceding-sibling::span[@class="components-checkbox-control__input-container"]/input`
+		`//label[contains(@class,"components-checkbox-control__label")][contains(text(),"${ label }")]/preceding-sibling::span[contains(@class,"components-checkbox-control__input-container")]/input`
 	);
 	return await page.evaluate( ( el ) => el.checked, inputEl );
 };
 
 export const getToggleValueByLabel = async ( label ) => {
 	const [ inputEl ] = await page.$x(
-		`//label[@class="components-toggle-control__label"][contains(text(),"${ label }")]/preceding-sibling::span[contains(@class, "components-form-toggle")]/input`
+		`//label[contains(@class,"components-toggle-control__label")][contains(text(),"${ label }")]/preceding-sibling::span[contains(@class,"components-form-toggle")]/input`
 	);
 	return await page.evaluate( ( el ) => el.checked, inputEl );
 };
 
 export const getSelectedValueBySelectLabel = async ( label ) => {
 	const [ selectEl ] = await page.$x(
-		`//label[@class="components-base-control__label"][contains(text(),"${ label }")]/following-sibling::select[@class="components-select-control__input"]`
+		`//label[contains(@class,"components-base-control__label")][contains(text(),"${ label }")]/following-sibling::select[contains(@class,"components-select-control__input")]`
 	);
 	return await page.evaluate( ( el ) => el.value, selectEl );
 };

@@ -43,14 +43,14 @@ describe( 'column block Bootstrap 5', () => {
 		// Xxl column count option should exist
 		expect(
 			await page.$x(
-				'//label[@class="components-base-control__label"][contains(text(),"Xxl Column count")]'
+				'//label[contains(@class,"components-base-control__label")][contains(text(),"Xxl Column count")]'
 			)
 		).toHaveLength( 1 );
 
 		// Xxl equal-width option should exist
 		expect(
 			await page.$x(
-				'//label[@class="components-checkbox-control__label"][contains(text(),"Xxl equal-width")]'
+				'//label[contains(@class,"components-checkbox-control__label")][contains(text(),"Xxl equal-width")]'
 			)
 		).toHaveLength( 1 );
 	} );
