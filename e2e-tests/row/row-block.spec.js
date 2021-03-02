@@ -85,7 +85,7 @@ describe( 'row block', () => {
 		await page.click(
 			'.wp-bootstrap-blocks-template-selector-button > button[aria-label="3 Columns (1:1:1)"]'
 		);
-		await page.waitFor( 1000 );
+		await page.waitForTimeout( 1000 );
 		expect(
 			await page.$$(
 				'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/column"][data-size-md="4"]'
@@ -126,13 +126,13 @@ describe( 'row block', () => {
 		);
 		expect(
 			await page.$(
-				'.wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout > .block-list-appender'
+				'.wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout > .block-list-appender > button'
 			)
 		).not.toBeNull();
 
 		// Add column block by clicking the block list appender
 		await page.click(
-			'.wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout > .block-list-appender'
+			'.wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout > .block-list-appender > button'
 		);
 		const numberOfColumnBlocks = (
 			await page.$$(
