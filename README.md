@@ -96,7 +96,7 @@ You can copy the original template from `wp-bootstrap-blocks/src/templates/<bloc
 ## PHP Filters
 
 The plugin provides the following PHP filters.
-Please visit the following page to get more information about PHP filters: https://developer.wordpress.org/reference/functions/add_filter/.
+Please visit the following page to get more information about PHP filters: <https://developer.wordpress.org/reference/functions/add_filter/>.
 
 ### wp_bootstrap_blocks_template_path
 
@@ -453,7 +453,7 @@ function mytheme_enqueue_block_editor_assets() {
 add_action( 'enqueue_block_editor_assets', 'mytheme_enqueue_block_editor_assets' );
 ```
 
-Please visit the following page to get further instructions on how to use JavaScript filters: https://developer.wordpress.org/block-editor/developers/filters/block-filters/.
+Please visit the following page to get further instructions on how to use JavaScript filters: <https://developer.wordpress.org/block-editor/developers/filters/block-filters/>.
 
 ### wpBootstrapBlocks.button.styleOptions
 
