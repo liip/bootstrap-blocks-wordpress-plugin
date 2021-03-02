@@ -85,7 +85,7 @@ describe( 'row block', () => {
 		await page.click(
 			'.wp-bootstrap-blocks-template-selector-button > button[aria-label="3 Columns (1:1:1)"]'
 		);
-		await page.waitFor( 1000 );
+		await page.waitForTimeout( 1000 );
 		expect(
 			await page.$$(
 				'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/column"][data-size-md="4"]'
