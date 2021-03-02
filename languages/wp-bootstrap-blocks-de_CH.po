@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Bootstrap Blocks plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Bootstrap Blocks 3.1.2\n"
+"Project-Id-Version: Bootstrap Blocks 3.1.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-bootstrap-"
 "blocks\n"
-"POT-Creation-Date: 2020-11-01T09:43:16+00:00\n"
+"POT-Creation-Date: 2021-03-02T12:32:10+00:00\n"
 "PO-Revision-Date: 2020-10-18 22:25+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -86,142 +86,142 @@ msgstr "Die Option ist in der folgenden Konstante definiert: %s"
 msgid "%s does not exist."
 msgstr "%s existiert nicht."
 
-#: build/index.js:611 build/index.js:624
+#: build/index.js:631 build/index.js:636
 msgid "Button"
 msgstr "Button"
 
-#: build/index.js:624
+#: build/index.js:636
 msgid "Bootstrap Button"
 msgstr "Bootstrap Button"
 
-#: build/index.js:624 build/index.js:879 build/index.js:1298
-#: build/index.js:1679
+#: build/index.js:636 build/index.js:893 build/index.js:1313
+#: build/index.js:1802
 msgid "Bootstrap"
 msgstr "Bootstrap"
 
-#: build/index.js:726
+#: build/index.js:738
 msgid "Primary"
 msgstr "Primary"
 
-#: build/index.js:729
+#: build/index.js:741
 msgid "Secondary"
 msgstr "Secondary"
 
-#: build/index.js:755
+#: build/index.js:767
 msgid "Add text..."
 msgstr "Text hinzufügen..."
 
-#: build/index.js:765
+#: build/index.js:777
 msgid "Style"
 msgstr "Stil"
 
-#: build/index.js:774
+#: build/index.js:786
 msgid "Link settings"
 msgstr "Link-Einstellungen"
 
-#: build/index.js:776
+#: build/index.js:788
 msgid "Open in new tab"
 msgstr "In einem neuen Tab öffnen"
 
-#: build/index.js:780
+#: build/index.js:792
 msgid "Link rel"
 msgstr "Link rel"
 
-#: build/index.js:789
+#: build/index.js:801
 msgid "Change button alignment"
 msgstr "Ändere die Positionierung des Buttons"
 
-#: build/index.js:811
+#: build/index.js:823
 msgid "Apply"
 msgstr "Übernehmen"
 
-#: build/index.js:873 build/index.js:879
+#: build/index.js:887 build/index.js:893
 msgid "Column"
 msgstr "Column"
 
-#: build/index.js:879
+#: build/index.js:893
 msgid "Bootstrap Column"
 msgstr "Bootstrap Column"
 
-#: build/index.js:1034 build/index.js:1389 build/index.js:1879
+#: build/index.js:1048 build/index.js:1404 build/index.js:2002
 msgid "None"
 msgstr "Deaktiviert"
 
-#: build/index.js:1037 build/index.js:1378 build/index.js:1882
-#: build/index.js:1894
+#: build/index.js:1051 build/index.js:1393 build/index.js:2005
+#: build/index.js:2017
 msgid "Small"
 msgstr "Klein"
 
-#: build/index.js:1040 build/index.js:1381
+#: build/index.js:1054 build/index.js:1396
 msgid "Medium"
 msgstr "Mittel"
 
-#: build/index.js:1043 build/index.js:1384 build/index.js:1885
-#: build/index.js:1897
+#: build/index.js:1057 build/index.js:1399 build/index.js:2008
+#: build/index.js:2020
 msgid "Large"
 msgstr "Gross"
 
-#: build/index.js:1090
+#: build/index.js:1104
 msgid "Column size"
 msgstr "Anzahl Spalten"
 
-#: build/index.js:1093
+#: build/index.js:1107
 msgid "Xs Column count"
 msgstr "Xs Anzahl Spalten"
 
-#: build/index.js:1099
+#: build/index.js:1113
 msgid "Xs equal-width"
 msgstr "Xs gleiche Breite (equal-width)"
 
-#: build/index.js:1107
+#: build/index.js:1121
 msgid "Sm Column count"
 msgstr "Sm Anzahl Spalten"
 
-#: build/index.js:1113
+#: build/index.js:1127
 msgid "Sm equal-width"
 msgstr "Sm gleiche Breite (equal-width)"
 
-#: build/index.js:1121
+#: build/index.js:1135
 msgid "Md Column count"
 msgstr "Md Anzahl Spalten"
 
-#: build/index.js:1127
+#: build/index.js:1141
 msgid "Md equal-width"
 msgstr "Md gleiche Breite (equal-width)"
 
-#: build/index.js:1135
+#: build/index.js:1149
 msgid "Lg Column count"
 msgstr "Lg Anzahl Spalten"
 
-#: build/index.js:1141
+#: build/index.js:1155
 msgid "Lg equal-width"
 msgstr "Lg gleiche Breite (equal-width)"
 
-#: build/index.js:1149
+#: build/index.js:1163
 msgid "Xl Column count"
 msgstr "Xl Anzahl Spalten"
 
-#: build/index.js:1155
+#: build/index.js:1169
 msgid "Xl equal-width"
 msgstr "Xl gleiche Breite (equal-width)"
 
-#: build/index.js:1163
+#: build/index.js:1177
 msgid "Xxl Column count"
 msgstr "Xxl Anzahl Spalten"
 
-#: build/index.js:1169
+#: build/index.js:1183
 msgid "Xxl equal-width"
 msgstr "Xxl gleiche Breite (equal-width)"
 
-#: build/index.js:1177
+#: build/index.js:1191
 msgid "Background color"
 msgstr "Hintergrundfarbe"
 
-#: build/index.js:1203
+#: build/index.js:1217
 msgid "Center content vertically in row"
 msgstr "Zeileninhalt vertikal zentrieren"
 
-#: build/index.js:1210
+#: build/index.js:1224
 msgid ""
 "This setting only applies if there is no vertical alignment set on the "
 "parent row block."
@@ -229,55 +229,55 @@ msgstr ""
 "Diese Einstellung kann nur verwendet werden, wenn auf dem umschliessenden "
 "Row-Block keine vertikale Positionierung gesetzt ist."
 
-#: build/index.js:1212
+#: build/index.js:1226
 msgid "Padding (inside column)"
 msgstr "Padding (innerhalb der Spalte)"
 
-#: build/index.js:1215
+#: build/index.js:1229
 msgid "Size"
 msgstr "Grösse"
 
-#: build/index.js:1292 build/index.js:1298
+#: build/index.js:1308 build/index.js:1313
 msgid "Container"
 msgstr "Container"
 
-#: build/index.js:1298
+#: build/index.js:1313
 msgid "Bootstrap Container"
 msgstr "Bootstrap Container"
 
-#: build/index.js:1393
+#: build/index.js:1408
 msgid "Xl"
 msgstr "Xl"
 
-#: build/index.js:1396
+#: build/index.js:1411
 msgid "Lg"
 msgstr "Lg"
 
-#: build/index.js:1399
+#: build/index.js:1414
 msgid "Md"
 msgstr "Md"
 
-#: build/index.js:1402
+#: build/index.js:1417
 msgid "Sm"
 msgstr "Sm"
 
-#: build/index.js:1408
+#: build/index.js:1423
 msgid "Xxl"
 msgstr "Xxl"
 
-#: build/index.js:1414
+#: build/index.js:1429
 msgid "No breakpoint selected"
 msgstr "Kein Breakpoint ausgewählt"
 
-#: build/index.js:1441 build/index.js:1443
+#: build/index.js:1456 build/index.js:1458
 msgid "Fluid"
 msgstr "Fluid"
 
-#: build/index.js:1451
+#: build/index.js:1466
 msgid "Fluid Breakpoint"
 msgstr "Fluid Breakpoint"
 
-#: build/index.js:1460
+#: build/index.js:1475
 msgid ""
 "Fluid breakpoints only work with Bootstrap v4.4+. The container will be 100% "
 "wide until the specified breakpoint is reached, after which max-widths for "
@@ -288,75 +288,75 @@ msgstr ""
 "gewählten Breakpoint. Ab diesem Breakpoint gilt die jeweilige maximale "
 "Breite (max-width) des Containers."
 
-#: build/index.js:1462
+#: build/index.js:1477
 msgid "Margin"
 msgstr "Margin"
 
-#: build/index.js:1464
+#: build/index.js:1479
 msgid "Margin After"
 msgstr "Margin unterhalb vom Block"
 
-#: build/index.js:1673 build/index.js:1679
+#: build/index.js:1796 build/index.js:1802
 msgid "Row"
 msgstr "Row"
 
-#: build/index.js:1679
+#: build/index.js:1802
 msgid "Bootstrap Row"
 msgstr "Bootstrap Row"
 
-#: build/index.js:1788
+#: build/index.js:1911
 msgid "2 Columns (1:1)"
 msgstr "2 Spalten (1:1)"
 
-#: build/index.js:1807
+#: build/index.js:1930
 msgid "2 Columns (1:2)"
 msgstr "2 Spalten (1:2)"
 
-#: build/index.js:1826
+#: build/index.js:1949
 msgid "2 Columns (2:1)"
 msgstr "2 Spalten (2:1)"
 
-#: build/index.js:1845
+#: build/index.js:1968
 msgid "3 Columns (1:1:1)"
 msgstr "3 Spalten (1:1:1)"
 
-#: build/index.js:1871
+#: build/index.js:1994
 msgid "Custom"
 msgstr "Benutzerdefiniert"
 
-#: build/index.js:1890
+#: build/index.js:2013
 msgid "Bootstrap Default"
 msgstr "Bootstrap Standardwert"
 
-#: build/index.js:1902
+#: build/index.js:2025
 msgid "Bootstrap Default (None)"
 msgstr "Bootstrap Standardwert (Kein Abstand)"
 
-#: build/index.js:1969
+#: build/index.js:2092
 msgid "Align columns left"
 msgstr "Spalten links positionieren"
 
-#: build/index.js:1973 build/index.js:1986
+#: build/index.js:2096 build/index.js:2109
 msgid "Align columns center"
 msgstr "Spalten zentrieren"
 
-#: build/index.js:1977
+#: build/index.js:2100
 msgid "Align columns right"
 msgstr "Spalten rechts positionieren"
 
-#: build/index.js:1982
+#: build/index.js:2105
 msgid "Align columns top"
 msgstr "Spalten oben positionieren"
 
-#: build/index.js:1990
+#: build/index.js:2113
 msgid "Align columns bottom"
 msgstr "Spalten unten positionieren"
 
-#: build/index.js:1994
+#: build/index.js:2117
 msgid "Editor: Display columns stacked"
 msgstr "Editor: Spalten untereinander darstellen"
 
-#: build/index.js:1995
+#: build/index.js:2118
 msgid ""
 "Displays stacked columns in editor to enhance readability of block content. "
 "This option is only used in the editor and won't affect the output of the "
@@ -366,30 +366,30 @@ msgstr ""
 "verbessern. Diese Option wird lediglich für den Editor verwendet und "
 "verändert die Ausgabe des Blocks nicht."
 
-#: build/index.js:2003
+#: build/index.js:2126
 msgid "Change layout"
 msgstr "Layout ändern"
 
-#: build/index.js:2022
+#: build/index.js:2145
 msgid "Row options"
 msgstr "Zeilen Optionen"
 
-#: build/index.js:2024
+#: build/index.js:2147
 msgid "No Gutters"
 msgstr "Keine Abstände zwischen Spalten (No Gutters)"
 
-#: build/index.js:2032
+#: build/index.js:2155
 msgid "Horizontal Gutters"
 msgstr "Horizontale Abstände zwischen Spalten"
 
-#: build/index.js:2041
+#: build/index.js:2164
 msgid "Vertical Gutters"
 msgstr "Vertikale Abstände zwischen Spalten"
 
-#: build/index.js:2051
+#: build/index.js:2174
 msgid "Change horizontal alignment of columns"
 msgstr "Ändere die horizontale Positionierung der Spalten"
 
-#: build/index.js:2060
+#: build/index.js:2183
 msgid "Change vertical alignment of columns"
 msgstr "Ändere die vertikale Positionierung der Spalten"
