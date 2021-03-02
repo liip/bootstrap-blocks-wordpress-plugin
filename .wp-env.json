@@ -1,11 +1,11 @@
 {
-  "core": "https://wordpress.org/wordpress-5.6-RC1.zip",
-  "plugins": [ "." ],
-  "env": {
-    "tests": {
-      "mappings": {
-        "wp-content/plugins/wp-bootstrap-blocks-test-plugins": "./e2e-tests/plugins"
-      }
-    }
-  }
+	"core": "https://wordpress.org/wordpress-5.7-RC1.zip",
+	"plugins": [ "." ],
+	"env": {
+		"tests": {
+			"mappings": {
+				"wp-content/plugins/wp-bootstrap-blocks-test-plugins": "./e2e-tests/plugins"
+			}
+		}
+	}
 }
