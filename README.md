@@ -95,6 +95,9 @@ You can copy the original template from `wp-bootstrap-blocks/src/templates/<bloc
 
 ## PHP Filters
 
+The plugin provides the following PHP filters.
+Please visit the following page to get more information about PHP filters: https://developer.wordpress.org/reference/functions/add_filter/.
+
 ### wp_bootstrap_blocks_template_path
 
 Changes the default theme directory name (`wp-bootstrap-blocks/`).
@@ -435,6 +438,22 @@ function my_after_plugin_update( $new_version, $old_version ) {
 ```
 
 ## JavaScript Filters
+
+The plugin provides the following JavaScript filters.
+They can be used by enqueuing a custom JavaScript file which implements those filters.
+
+Example:
+
+If you have a script called `block-filters.js` inside your theme root you can enqueue it by adding the following code to your `functions.php` file.
+
+```php
+function mytheme_enqueue_block_editor_assets() {
+	wp_enqueue_script( 'block-filters', get_stylesheet_directory_uri() . '/block-filters.js', array( 'wp-hooks' ), '1.0.0', true );
+}
+add_action( 'enqueue_block_editor_assets', 'mytheme_enqueue_block_editor_assets' );
+```
+
+Please visit the following page to get further instructions on how to use JavaScript filters: https://developer.wordpress.org/block-editor/developers/filters/block-filters/.
 
 ### wpBootstrapBlocks.button.styleOptions
 
