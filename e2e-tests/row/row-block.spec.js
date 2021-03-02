@@ -126,13 +126,13 @@ describe( 'row block', () => {
 		);
 		expect(
 			await page.$(
-				'.wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout > .block-list-appender'
+				'.wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout > .block-list-appender > button'
 			)
 		).not.toBeNull();
 
 		// Add column block by clicking the block list appender
 		await page.click(
-			'.wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout > .block-list-appender'
+			'.wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout > .block-list-appender > button'
 		);
 		const numberOfColumnBlocks = (
 			await page.$$(
