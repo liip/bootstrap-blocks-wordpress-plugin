@@ -18,22 +18,22 @@
     "url": "https://github.com/liip/bootstrap-blocks-wordpress-plugin/issues"
   },
   "dependencies": {
-    "@wordpress/block-editor": "^5.2.0",
-    "@wordpress/blocks": "^6.25.0",
-    "@wordpress/components": "^12.0.0",
-    "@wordpress/compose": "^3.23.0",
-    "@wordpress/data": "^4.26.0",
-    "@wordpress/editor": "^9.25.0",
-    "@wordpress/element": "^2.19.0",
-    "@wordpress/hooks": "^2.11.0",
-    "@wordpress/i18n": "^3.17.0"
+    "@wordpress/block-editor": "^5.2.9",
+    "@wordpress/blocks": "^7.0.5",
+    "@wordpress/components": "^12.0.7",
+    "@wordpress/compose": "^3.24.4",
+    "@wordpress/data": "^4.26.7",
+    "@wordpress/editor": "^9.25.9",
+    "@wordpress/element": "^2.19.1",
+    "@wordpress/hooks": "^2.11.1",
+    "@wordpress/i18n": "^3.18.0"
   },
   "devDependencies": {
-    "@wordpress/base-styles": "^3.3.0",
-    "@wordpress/e2e-test-utils": "^4.16.0",
-    "@wordpress/env": "^3.0.0",
-    "@wordpress/scripts": "^12.6.0",
-    "lodash": "^4.17.20",
+    "@wordpress/base-styles": "^3.3.3",
+    "@wordpress/e2e-test-utils": "^5.0.3",
+    "@wordpress/env": "^3.0.2",
+    "@wordpress/scripts": "^13.0.3",
+    "lodash": "^4.17.21",
     "prettier": "npm:wp-prettier@2.2.1-beta-1"
   },
   "scripts": {
