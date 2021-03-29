@@ -25,6 +25,8 @@ import {
 	verticalAlignTop,
 } from '../icons';
 
+import { CUSTOM_TEMPLATE_NAME } from './block';
+
 import { isBootstrap5Active } from '../helper';
 
 const { InnerBlocks, InspectorControls, BlockControls, AlignmentToolbar } =
@@ -187,7 +189,7 @@ const enableCustomTemplate = applyFilters(
 );
 if ( enableCustomTemplate ) {
 	templates.push( {
-		name: 'custom',
+		name: CUSTOM_TEMPLATE_NAME,
 		title: __( 'Custom', 'wp-bootstrap-blocks' ),
 		icon: templateIconMissing,
 		templateLock: false,
