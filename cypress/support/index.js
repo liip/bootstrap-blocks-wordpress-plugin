@@ -13,4 +13,20 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-import 'cypress-e2e-test-utils'
+import 'cypress-xpath'
+import { register } from '@cypress/snapshot'
+
+import './commands/login-user'
+import './commands/visit-admin-page'
+import './commands/close-welcome-guide'
+import './commands/click-button'
+import './commands/click-block-toolbar-button'
+import './commands/open-sidebar-panel'
+import './commands/create-new-post'
+import './commands/open-global-block-inserter'
+import './commands/search-for-block'
+import './commands/insert-block'
+import './commands/post-content-matches-snapshot'
+import './commands/select-block-by-name'
+
+register();
