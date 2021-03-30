@@ -35,6 +35,7 @@
     "@wordpress/env": "^4.0.0",
     "@wordpress/scripts": "^14.0.1",
     "cypress": "^6.8.0",
+    "cypress-xpath": "^1.6.2",
     "lodash": "^4.17.21",
     "prettier": "npm:wp-prettier@2.2.1-beta-1"
   },
