@@ -13,6 +13,9 @@ import { createURL } from '../shared/create-url';
 Cypress.Commands.add( 'loginUser', ( username = WP_USERNAME, password = WP_PASSWORD ) => {
 	cy.visit( createURL( 'wp-login.php' ) )
 
+	// somehow we need to wait for some time before entering the credentials
+	cy.wait(500)
+
 	cy.get( '#user_login' )
 		.clear()
 		.type( username )
@@ -22,5 +25,5 @@ Cypress.Commands.add( 'loginUser', ( username = WP_USERNAME, password = WP_PASSW
 		.type( password )
 
 	cy.get( '#wp-submit' )
-		.click()
+		.click( { force: true } )
 } )

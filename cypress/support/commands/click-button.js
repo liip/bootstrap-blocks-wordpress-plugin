@@ -8,5 +8,5 @@ Cypress.Commands.add( 'clickButton', ( buttonText ) => {
 		.xpath(
 			`//button[contains(text(), '${ buttonText }')]`
 		)
-		.click()
+		.click( { force: true } )
 } )

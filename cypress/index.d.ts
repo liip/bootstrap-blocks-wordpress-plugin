@@ -11,6 +11,7 @@ interface CreateNewPostParams {
 declare namespace Cypress {
 	interface Chainable<Subject> {
 		clickBlockToolbarButton(label: string, type?: string): Chainable<void>
+		clickElementByText(elementExpression: string, text: string): Chainable<void>
 		clickButton(buttonText: string): Chainable<void>
 		closeWelcomeGuide(): Chainable<void>
 		createNewPost(createNewPostParams?: CreateNewPostParams): Chainable<void>

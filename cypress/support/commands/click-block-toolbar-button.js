@@ -7,10 +7,10 @@
 Cypress.Commands.add( 'clickBlockToolbarButton', ( label, type = 'ariaLabel' ) => {
 	const BLOCK_TOOLBAR_SELECTOR = 'block-editor-block-toolbar'
 	if ( type === 'ariaLabel' ) {
-		cy.get(`.${ BLOCK_TOOLBAR_SELECTOR } button[aria-label="${ label }"]`).click()
+		cy.get(`.${ BLOCK_TOOLBAR_SELECTOR } button[aria-label="${ label }"]`).click( { force: true } )
 	}
 
 	if ( type === 'content' ) {
-		cy.get(`//*[@class='${ BLOCK_TOOLBAR_SELECTOR }']//button[contains(text(), '${ label }')]`).click()
+		cy.get(`//*[@class='${ BLOCK_TOOLBAR_SELECTOR }']//button[contains(text(), '${ label }')]`).click( { force: true } )
 	}
 } )
