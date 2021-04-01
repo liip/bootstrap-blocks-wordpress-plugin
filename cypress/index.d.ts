@@ -22,5 +22,10 @@ declare namespace Cypress {
 		searchForBlock(searchTerm: string): Chainable<void>
 		selectBlockByName(name: string, index?: number): Chainable<void>
 		visitAdminPage(adminPath: string, query?: string): Chainable<void>
+		ensureSidebarOpened(): Chainable<void>
+
+		// project commands
+		insertRowBlock(): Chainable<void>
+		selectRowBlock(): Chainable<void>
 	}
 }

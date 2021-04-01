@@ -28,5 +28,9 @@ import './commands/search-for-block'
 import './commands/insert-block'
 import './commands/post-content-matches-snapshot'
 import './commands/select-block-by-name'
+import './commands/ensure-sidebar-opened'
+
+import './project-commands/insert-row-block'
+import './project-commands/select-row-block'
 
 register();

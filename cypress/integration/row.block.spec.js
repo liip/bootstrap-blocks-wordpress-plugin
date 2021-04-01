@@ -48,4 +48,23 @@ context('Row Block', () => {
 		).should('exist')
 		cy.postContentMatchesSnapshot()
 	} );
+
+	it.only( 'Should be possible to change column layout', () => {
+		cy.insertRowBlock();
+		cy.selectRowBlock();
+		cy.ensureSidebarOpened();
+
+		// Layout options should be visible
+		cy.get('.wp-bootstrap-blocks-template-selector-button').should( 'have.length', 5 );
+		cy.get('.wp-bootstrap-blocks-template-selector-button > button[aria-label="2 Columns (1:1)"].is-active').should( 'not.be.null' )
+		cy.get('.block-editor-block-list__block[data-type="wp-bootstrap-blocks/column"][data-size-md="6"]').should( 'have.length', 2 );
+
+		// Template should be applied
+		cy.get('.wp-bootstrap-blocks-template-selector-button > button[aria-label="3 Columns (1:1:1)"]').click()
+		cy.get('.block-editor-block-list__block[data-type="wp-bootstrap-blocks/column"][data-size-md="4"]').should('have.length', 3 );
+		cy.postContentMatchesSnapshot()
+
+		cy.get('.wp-bootstrap-blocks-template-selector-button > button[aria-label="2 Columns (2:1)"]').click();
+		cy.postContentMatchesSnapshot()
+	} );
 })
