@@ -33,6 +33,7 @@ declare namespace Cypress {
 		getSelectByLabel(label: string): Chainable<Element>
 		activatePlugin(slug: string): Chainable<void>
 		deactivatePlugin(slug: string): Chainable<void>
+		selectOptionIsAvailable(selectLabel: string, optionValue: string): Chainable<void>
 
 		// project commands
 		insertRowBlock(): Chainable<void>

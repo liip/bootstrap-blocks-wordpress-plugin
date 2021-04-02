@@ -39,6 +39,7 @@ import './commands/get-selected-option-by-select-label'
 import './commands/activate-plugin'
 import './commands/deactivate-plugin'
 import './commands/get-select-by-label'
+import './commands/select-option-is-available'
 
 import './project-commands/insert-row-block'
 import './project-commands/select-row-block'

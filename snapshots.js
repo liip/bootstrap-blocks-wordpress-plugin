@@ -42,5 +42,16 @@ module.exports = {
     "wp_bootstrap_blocks_row_default_attributes should override default attributes": {
       "1": "<!-- wp:wp-bootstrap-blocks/row -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":4} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":8} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
     }
+  },
+  "Row Block Filters Bootstrap 5": {
+    "wpBootstrapBlocks.row.horizontalGuttersOptions should add horizontal gutters option": {
+      "1": "<!-- wp:wp-bootstrap-blocks/row {\"noGutters\":false,\"horizontalGutters\":\"gx-4\"} -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":4} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":8} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
+    },
+    "wpBootstrapBlocks.row.verticalGuttersOptions should add vertical gutters option": {
+      "1": "<!-- wp:wp-bootstrap-blocks/row {\"noGutters\":false,\"verticalGutters\":\"gy-4\"} -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":4} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":8} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
+    },
+    "wp_bootstrap_blocks_row_default_attributes should override default attributes with Bootstrap 5": {
+      "1": "<!-- wp:wp-bootstrap-blocks/row {\"noGutters\":false} -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":4} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":8} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
+    }
   }
 }
