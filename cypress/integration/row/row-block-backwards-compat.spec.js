@@ -1,16 +1,16 @@
 /// <reference types="Cypress" />
 
-import rowContent100 from './row-block-content/row-1.0.0';
-import rowContent110 from './row-block-content/row-1.1.0';
-import rowContent140 from './row-block-content/row-1.4.0';
-import rowContentBootstrap5 from './row-block-content/row-bootstrap5';
+import rowContent100 from '../../support/row/row-block-content/row-1.0.0';
+import rowContent110 from '../../support/row/row-block-content/row-1.1.0';
+import rowContent140 from '../../support/row/row-block-content/row-1.4.0';
+import rowContentBootstrap5 from '../../support/row/row-block-content/row-bootstrap5';
 import {
 	testVersion100RowFeatures,
 	testVersion100ColumnFeatures,
 	testVersion110RowFeatures,
 	testVersion110ColumnFeatures,
 	testVersion140ColumnFeatures,
-} from './feature-tests';
+} from '../../support/row/feature-tests';
 
 context('Row Block Backwards Compatibility', () => {
 	beforeEach(() => {
