@@ -34,5 +34,13 @@ module.exports = {
     "Should be possible to change gutter sizes": {
       "1": "<!-- wp:wp-bootstrap-blocks/row {\"horizontalGutters\":\"gx-5\",\"verticalGutters\":\"gy-3\"} -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
     }
+  },
+  "Row Block Filters": {
+    "wpBootstrapBlocks.row.templates should add additional template": {
+      "1": "<!-- wp:wp-bootstrap-blocks/row {\"template\":\"1-66percent\"} -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":8} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
+    },
+    "wp_bootstrap_blocks_row_default_attributes should override default attributes": {
+      "1": "<!-- wp:wp-bootstrap-blocks/row -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":4} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":8} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
+    }
   }
 }
