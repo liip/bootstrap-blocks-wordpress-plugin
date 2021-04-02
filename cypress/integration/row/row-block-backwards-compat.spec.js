@@ -1,9 +1,9 @@
 /// <reference types="Cypress" />
 
-import rowContent100 from '../../e2e-tests/row/row-block-content/row-1.0.0';
-import rowContent110 from '../../e2e-tests/row/row-block-content/row-1.1.0';
-import rowContent140 from '../../e2e-tests/row/row-block-content/row-1.4.0';
-import rowContentBootstrap5 from '../../e2e-tests/row/row-block-content/row-bootstrap5';
+import rowContent100 from './row-block-content/row-1.0.0';
+import rowContent110 from './row-block-content/row-1.1.0';
+import rowContent140 from './row-block-content/row-1.4.0';
+import rowContentBootstrap5 from './row-block-content/row-bootstrap5';
 import {
 	testVersion100RowFeatures,
 	testVersion100ColumnFeatures,
