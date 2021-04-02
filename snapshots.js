@@ -118,5 +118,10 @@ module.exports = {
     "Should be possible to select padding": {
       "1": "<!-- wp:wp-bootstrap-blocks/row -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6,\"padding\":\"p-2\"} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
     }
+  },
+  "Column Block Bootstrap 5": {
+    "Should be possible to select column size for xxl breakpoint": {
+      "1": "<!-- wp:wp-bootstrap-blocks/row -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeXxl\":2,\"sizeMd\":6,\"equalWidthXxl\":true} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
+    }
   }
 }
