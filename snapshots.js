@@ -76,5 +76,13 @@ module.exports = {
       "1": "<!-- wp:wp-bootstrap-blocks/button {\"linkTarget\":\"_blank\",\"rel\":\"custom rel value\"} /-->",
       "2": "<!-- wp:wp-bootstrap-blocks/button {\"rel\":\"custom rel value\"} /-->"
     }
+  },
+  "Button Block Filters": {
+    "wpBootstrapBlocks.button.styleOptions should add style option": {
+      "1": "<!-- wp:wp-bootstrap-blocks/button {\"style\":\"brand\"} /-->"
+    },
+    "wp_bootstrap_blocks_button_default_attributes should override default attributes": {
+      "1": "<!-- wp:wp-bootstrap-blocks/button /-->"
+    }
   }
 }

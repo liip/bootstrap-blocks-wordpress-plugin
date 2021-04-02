@@ -32,6 +32,7 @@ declare namespace Cypress {
 		getSelectedOptionBySelectLabel(label: string): Chainable<Element>
 		getSelectByLabel(label: string): Chainable<Element>
 		getTextControlByLabel(label: string): Chainable<Element>
+		getToggleByLabel(label: string): Chainable<Element>
 		activatePlugin(slug: string): Chainable<void>
 		deactivatePlugin(slug: string): Chainable<void>
 		selectOptionIsAvailable(selectLabel: string, optionValue: string): Chainable<void>

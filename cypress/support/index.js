@@ -42,6 +42,7 @@ import './commands/get-select-by-label'
 import './commands/select-option-is-available'
 import './commands/get-text-control-by-label'
 import './commands/set-text-control-value-by-label'
+import './commands/get-toggle-by-label'
 
 import './project-commands/insert-row-block'
 import './project-commands/select-row-block'
