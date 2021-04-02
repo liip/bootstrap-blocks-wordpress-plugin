@@ -53,5 +53,28 @@ module.exports = {
     "wp_bootstrap_blocks_row_default_attributes should override default attributes with Bootstrap 5": {
       "1": "<!-- wp:wp-bootstrap-blocks/row {\"noGutters\":false} -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":4} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":8} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
     }
+  },
+  "Button Block": {
+    "Button block should be initialized with default attributes": {
+      "1": "<!-- wp:wp-bootstrap-blocks/button /-->"
+    },
+    "Should be possible to set link url and text": {
+      "1": "<!-- wp:wp-bootstrap-blocks/button {\"text\":\"Liip\"} /-->",
+      "2": "<!-- wp:wp-bootstrap-blocks/button {\"url\":\"https://liip.ch\",\"text\":\"Liip\"} /-->"
+    },
+    "Should be possible to select style": {
+      "1": "<!-- wp:wp-bootstrap-blocks/button {\"style\":\"secondary\"} /-->"
+    },
+    "Should be possible to change alignment": {
+      "1": "<!-- wp:wp-bootstrap-blocks/button {\"alignment\":\"center\"} /-->"
+    },
+    "Should be possible to enable and disable open in new tab": {
+      "1": "<!-- wp:wp-bootstrap-blocks/button {\"linkTarget\":\"_blank\",\"rel\":\"noreferrer noopener\"} /-->",
+      "2": "<!-- wp:wp-bootstrap-blocks/button /-->"
+    },
+    "Should keep rel value if set when open in new tab is enabled or disabled": {
+      "1": "<!-- wp:wp-bootstrap-blocks/button {\"linkTarget\":\"_blank\",\"rel\":\"custom rel value\"} /-->",
+      "2": "<!-- wp:wp-bootstrap-blocks/button {\"rel\":\"custom rel value\"} /-->"
+    }
   }
 }

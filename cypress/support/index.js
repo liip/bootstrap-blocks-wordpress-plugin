@@ -40,10 +40,14 @@ import './commands/activate-plugin'
 import './commands/deactivate-plugin'
 import './commands/get-select-by-label'
 import './commands/select-option-is-available'
+import './commands/get-text-control-by-label'
+import './commands/set-text-control-value-by-label'
 
 import './project-commands/insert-row-block'
 import './project-commands/select-row-block'
 import './project-commands/row-template-is-selected'
 import './project-commands/select-column-block'
+import './project-commands/insert-button-block'
+import './project-commands/select-button-block'
 
 register();

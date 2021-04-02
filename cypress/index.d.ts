@@ -31,14 +31,19 @@ declare namespace Cypress {
 		getCheckboxByLabel(label: string): Chainable<Element>
 		getSelectedOptionBySelectLabel(label: string): Chainable<Element>
 		getSelectByLabel(label: string): Chainable<Element>
+		getTextControlByLabel(label: string): Chainable<Element>
 		activatePlugin(slug: string): Chainable<void>
 		deactivatePlugin(slug: string): Chainable<void>
 		selectOptionIsAvailable(selectLabel: string, optionValue: string): Chainable<void>
+		setTextControlValueByLabel(label: string, value: string): Chainable<void>
 
 		// project commands
 		insertRowBlock(): Chainable<void>
 		selectRowBlock( index?: number ): Chainable<void>
 		rowTemplateIsSelected( label: string ): Chainable<void>
 		selectColumnBlock( rowIndex?: number, columnIndex?: number ): Chainable<void>
+		insertButtonBlock(): Chainable<void>
+		selectButtonBlock( index?: number ): Chainable<void>
+
 	}
 }
