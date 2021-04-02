@@ -30,8 +30,16 @@ import './commands/insert-block'
 import './commands/post-content-matches-snapshot'
 import './commands/select-block-by-name'
 import './commands/ensure-sidebar-opened'
+import './commands/set-post-content'
+import './commands/toolbar-option-is-active'
+import './commands/open-sidebar-panel-with-title'
+import './commands/get-input-by-label'
+import './commands/get-checkbox-by-label'
+import './commands/get-selected-option-by-select-label'
 
 import './project-commands/insert-row-block'
 import './project-commands/select-row-block'
+import './project-commands/row-template-is-selected'
+import './project-commands/select-column-block'
 
 register();
