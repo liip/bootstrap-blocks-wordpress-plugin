@@ -93,5 +93,13 @@ module.exports = {
       "1": "<!-- wp:wp-bootstrap-blocks/container {\"isFluid\":true} /-->",
       "2": "<!-- wp:wp-bootstrap-blocks/container {\"isFluid\":true,\"fluidBreakpoint\":\"lg\"} /-->"
     }
+  },
+  "Container Block Filters": {
+    "wp_bootstrap_blocks_container_default_attributes should override default attributes": {
+      "1": "<!-- wp:wp-bootstrap-blocks/container /-->"
+    },
+    "wpBootstrapBlocks.container.marginAfterOptions should add margin option": {
+      "1": "<!-- wp:wp-bootstrap-blocks/container {\"marginAfter\":\"mb-8\"} /-->"
+    }
   }
 }
