@@ -50,5 +50,7 @@ import './project-commands/row-template-is-selected'
 import './project-commands/select-column-block'
 import './project-commands/insert-button-block'
 import './project-commands/select-button-block'
+import './project-commands/insert-container-block'
+import './project-commands/select-container-block'
 
 register();

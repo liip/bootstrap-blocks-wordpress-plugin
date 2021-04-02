@@ -84,5 +84,14 @@ module.exports = {
     "wp_bootstrap_blocks_button_default_attributes should override default attributes": {
       "1": "<!-- wp:wp-bootstrap-blocks/button /-->"
     }
+  },
+  "Container Block": {
+    "Container block should be initialized with default attributes": {
+      "1": "<!-- wp:wp-bootstrap-blocks/container /-->"
+    },
+    "Should be possible to enable fluid option": {
+      "1": "<!-- wp:wp-bootstrap-blocks/container {\"isFluid\":true} /-->",
+      "2": "<!-- wp:wp-bootstrap-blocks/container {\"isFluid\":true,\"fluidBreakpoint\":\"lg\"} /-->"
+    }
   }
 }

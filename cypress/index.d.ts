@@ -11,7 +11,7 @@ interface CreateNewPostParams {
 declare namespace Cypress {
 	interface Chainable<Subject> {
 		clickBlockToolbarButton(label: string, type?: string): Chainable<void>
-		clickElementByText(elementExpression: string, text: string): Chainable<void>
+		clickElementByText(elementExpression: string, text: string, strict?: boolean): Chainable<void>
 		clickButton(buttonText: string): Chainable<void>
 		closeWelcomeGuide(): Chainable<void>
 		createNewPost(createNewPostParams?: CreateNewPostParams): Chainable<void>
@@ -45,6 +45,8 @@ declare namespace Cypress {
 		selectColumnBlock( rowIndex?: number, columnIndex?: number ): Chainable<void>
 		insertButtonBlock(): Chainable<void>
 		selectButtonBlock( index?: number ): Chainable<void>
+		insertContainerBlock(): Chainable<void>
+		selectContainerBlock( index?: number ): Chainable<void>
 
 	}
 }
