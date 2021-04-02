@@ -30,6 +30,9 @@ declare namespace Cypress {
 		getInputByLabel(label: string): Chainable<Element>
 		getCheckboxByLabel(label: string): Chainable<Element>
 		getSelectedOptionBySelectLabel(label: string): Chainable<Element>
+		getSelectByLabel(label: string): Chainable<Element>
+		activatePlugin(slug: string): Chainable<void>
+		deactivatePlugin(slug: string): Chainable<void>
 
 		// project commands
 		insertRowBlock(): Chainable<void>
