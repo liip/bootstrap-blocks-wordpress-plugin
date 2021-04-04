@@ -61,10 +61,10 @@ describe( 'Row Block Filters Bootstrap 5', () => {
 		cy.clickElementByText( 'label', 'No Gutters' );
 
 		// Horizontal Gutters should be selected
-		cy.getSelectedOptionBySelectLabel( 'Horizontal Gutters' ).should('have.value', 'gx-5' );
+		cy.getSelectByLabel( 'Horizontal Gutters' ).should('have.value', 'gx-5' );
 
 		// Vertical Gutters should be selected
-		cy.getSelectedOptionBySelectLabel( 'Vertical Gutters' ).should('have.value', 'gy-3' );
+		cy.getSelectByLabel( 'Vertical Gutters' ).should('have.value', 'gy-3' );
 
 		// Check if attributes are set correctly
 		cy.postContentMatchesSnapshot()

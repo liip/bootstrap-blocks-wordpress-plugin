@@ -29,7 +29,6 @@ declare namespace Cypress {
 		toolbarOptionIsActive(toolbarLabel: string, buttonText: string): Chainable<void>
 		getInputByLabel(label: string): Chainable<Element>
 		getCheckboxByLabel(label: string): Chainable<Element>
-		getSelectedOptionBySelectLabel(label: string): Chainable<Element>
 		getSelectByLabel(label: string): Chainable<Element>
 		getTextControlByLabel(label: string): Chainable<Element>
 		getToggleByLabel(label: string): Chainable<Element>

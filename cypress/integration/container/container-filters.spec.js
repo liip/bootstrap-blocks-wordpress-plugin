@@ -40,10 +40,10 @@ describe( 'Container Block Filters', () => {
 		cy.getCheckboxByLabel( 'Fluid' ).should('be.checked');
 
 		// Fluid Breakpoint should be selected
-		cy.getSelectedOptionBySelectLabel( 'Fluid Breakpoint' ).should('have.value', 'md' );
+		cy.getSelectByLabel( 'Fluid Breakpoint' ).should('have.value', 'md' );
 
 		// Margin should be selected
-		cy.getSelectedOptionBySelectLabel( 'Margin After' ).should('have.value', 'mb-3' );
+		cy.getSelectByLabel( 'Margin After' ).should('have.value', 'mb-3' );
 
 		// Check if attributes are set correctly
 		cy.postContentMatchesSnapshot()

@@ -18,7 +18,7 @@ describe( 'Container Block', () => {
 		cy.xpath('//select[@disabled]/parent::div/preceding-sibling::div/label[contains(text(),"Fluid Breakpoint")]').should('exist');
 
 		// Margin After should be set
-		cy.getSelectedOptionBySelectLabel( 'Margin After' ).should('have.value', 'mb-2');
+		cy.getSelectByLabel( 'Margin After' ).should('have.value', 'mb-2');
 
 		// Editor content should match snapshot
 		cy.postContentMatchesSnapshot()

@@ -77,7 +77,7 @@ describe( 'Column Block Filters', () => {
 
 		// Padding should be selected
 		cy.openSidebarPanelWithTitle( 'Padding (inside column)' );
-		cy.getSelectedOptionBySelectLabel( 'Size' ).should( 'have.value', 'p-3' );
+		cy.getSelectByLabel( 'Size' ).should( 'have.value', 'p-3' );
 
 		// Check if attributes are set correctly
 		cy.postContentMatchesSnapshot()

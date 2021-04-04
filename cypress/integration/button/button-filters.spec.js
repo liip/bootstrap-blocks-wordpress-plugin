@@ -43,7 +43,7 @@ describe( 'Button Block Filters', () => {
 		)
 
 		// Style should be selected
-		cy.getSelectedOptionBySelectLabel( 'Style' ).should('have.value', 'secondary');
+		cy.getSelectByLabel( 'Style' ).should('have.value', 'secondary');
 
 		// Text should be set
 		cy.get('[aria-label="Add text..."].block-editor-rich-text__editable').should( 'have.text', 'Liip' );

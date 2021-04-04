@@ -66,7 +66,7 @@ export const testVersion110ColumnFeatures = async () => {
 
 	// Padding should be selected
 	cy.openSidebarPanelWithTitle( 'Padding (inside column)' );
-	cy.getSelectedOptionBySelectLabel( 'Size' ).should( 'have.value', 'p-5' );
+	cy.getSelectByLabel( 'Size' ).should( 'have.value', 'p-5' );
 };
 
 export const testVersion140ColumnFeatures = () => {
