@@ -59,6 +59,7 @@
     "lint:php": "npm run wp-env run composer run-script lint",
     "test:e2e": "wp-scripts test-e2e -c ./e2e-tests/jest.config.js",
     "test:e2e-interactive": "wp-scripts test-e2e -c ./e2e-tests/jest.config.js --puppeteer-interactive",
+    "test:e2e-cypress": "npm run cy:run",
     "test:unit:js": "wp-scripts test-unit-js",
     "test:unit:php": "npm run wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/wp-bootstrap-blocks/phpunit.xml.dist --verbose'",
     "test:unit:php:ci": "npm run wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/bootstrap-blocks-wordpress-plugin/phpunit.xml.dist --verbose'",
