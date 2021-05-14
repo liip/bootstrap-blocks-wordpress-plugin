@@ -3,9 +3,9 @@ Contributors: liip, tschortsch
 Donate link: https://liip.ch/
 Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.0
-Tested up to: 5.7
+Tested up to: 5.7.2
 Requires PHP: 5.6
-Stable tag: 3.1.3
+Stable tag: 3.2.0
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -120,6 +120,11 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 1. Container block
 
 == Changelog ==
+
+= 3.2.0 =
+
+* [FEATURE] Ability to transform multiple selected blocks into a row block.
+* [COMPATIBILITY] Tested up to WordPress 5.7.2.
 
 = 3.1.3 =
 
