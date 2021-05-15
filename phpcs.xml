@@ -7,13 +7,13 @@
 
 	<file>./wp-bootstrap-blocks.php</file>
 	<file>./src</file>
-	<file>./e2e-tests</file>
+	<file>./e2e-test-plugins</file>
 	<file>./phpunit</file>
 
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>./src/*\.(inc|css|js)$</exclude-pattern>
-	<exclude-pattern>./e2e-tests/*\.(inc|css|js)$</exclude-pattern>
+	<exclude-pattern>./e2e-test-plugins/*\.(inc|css|js)$</exclude-pattern>
 	<exclude-pattern>./cypress/*</exclude-pattern>
 
 	<rule ref="WordPress">
