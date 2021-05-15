@@ -34,7 +34,7 @@
     "@wordpress/e2e-test-utils": "^5.1.0",
     "@wordpress/env": "^4.0.0",
     "@wordpress/scripts": "^14.0.1",
-    "cypress": "^6.8.0",
+    "cypress": "^7.3.0",
     "cypress-wp-test-utils": "^0.1.0",
     "cypress-xpath": "^1.6.2",
     "eslint-plugin-cypress": "^2.11.3",
