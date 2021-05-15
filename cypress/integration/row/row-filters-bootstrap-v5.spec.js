@@ -32,7 +32,7 @@ describe( 'Row Block Filters Bootstrap 5', () => {
 		// Horizontal Gutters option should be applied
 		cy.getSelectByLabel( 'Horizontal Gutters' ).select( 'gx-4' );
 
-		cy.postContentMatchesSnapshot()
+		cy.postContentMatchesSnapshot();
 	} );
 
 	it( 'wpBootstrapBlocks.row.verticalGuttersOptions should add vertical gutters option', () => {
@@ -49,7 +49,7 @@ describe( 'Row Block Filters Bootstrap 5', () => {
 		// Vertical Gutters option should be applied
 		cy.getSelectByLabel( 'Vertical Gutters' ).select( 'gy-4' );
 
-		cy.postContentMatchesSnapshot()
+		cy.postContentMatchesSnapshot();
 	} );
 
 	it( 'wp_bootstrap_blocks_row_default_attributes should override default attributes with Bootstrap 5', () => {
@@ -61,12 +61,18 @@ describe( 'Row Block Filters Bootstrap 5', () => {
 		cy.clickElementByText( 'label', 'No Gutters' );
 
 		// Horizontal Gutters should be selected
-		cy.getSelectByLabel( 'Horizontal Gutters' ).should('have.value', 'gx-5' );
+		cy.getSelectByLabel( 'Horizontal Gutters' ).should(
+			'have.value',
+			'gx-5'
+		);
 
 		// Vertical Gutters should be selected
-		cy.getSelectByLabel( 'Vertical Gutters' ).should('have.value', 'gy-3' );
+		cy.getSelectByLabel( 'Vertical Gutters' ).should(
+			'have.value',
+			'gy-3'
+		);
 
 		// Check if attributes are set correctly
-		cy.postContentMatchesSnapshot()
+		cy.postContentMatchesSnapshot();
 	} );
 } );

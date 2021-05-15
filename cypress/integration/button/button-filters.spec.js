@@ -2,17 +2,17 @@
 
 describe( 'Button Block Filters', () => {
 	before( () => {
-		cy.loginUser()
+		cy.loginUser();
 		cy.activatePlugin( 'wp-bootstrap-blocks-test-button-filters' );
 	} );
 
 	after( () => {
-		cy.loginUser()
+		cy.loginUser();
 		cy.deactivatePlugin( 'wp-bootstrap-blocks-test-button-filters' );
 	} );
 
 	beforeEach( () => {
-		cy.loginUser()
+		cy.loginUser();
 		cy.createNewPost();
 	} );
 
@@ -25,10 +25,10 @@ describe( 'Button Block Filters', () => {
 		cy.selectOptionIsAvailable( 'Style', 'brand' );
 
 		// Style option should be applied
-		cy.getSelectByLabel('Style').select( 'brand' );
+		cy.getSelectByLabel( 'Style' ).select( 'brand' );
 
 		// Editor content should match snapshot
-		cy.postContentMatchesSnapshot()
+		cy.postContentMatchesSnapshot();
 	} );
 
 	it( 'wp_bootstrap_blocks_button_default_attributes should override default attributes', () => {
@@ -40,24 +40,29 @@ describe( 'Button Block Filters', () => {
 		cy.toolbarOptionIsActive(
 			'Change button alignment',
 			'Align text center'
-		)
+		);
 
 		// Style should be selected
-		cy.getSelectByLabel( 'Style' ).should('have.value', 'secondary');
+		cy.getSelectByLabel( 'Style' ).should( 'have.value', 'secondary' );
 
 		// Text should be set
-		cy.get('[aria-label="Add text..."].block-editor-rich-text__editable').should( 'have.text', 'Liip' );
+		cy.get(
+			'[aria-label="Add text..."].block-editor-rich-text__editable'
+		).should( 'have.text', 'Liip' );
 
 		// URL should be set
-		cy.getInputByLabel( 'URL' ).should('have.value', 'https://liip.ch');
+		cy.getInputByLabel( 'URL' ).should( 'have.value', 'https://liip.ch' );
 
 		// Open in new tab is enabled
-		cy.getToggleByLabel( 'Open in new tab' ).should('be.checked');
+		cy.getToggleByLabel( 'Open in new tab' ).should( 'be.checked' );
 
 		// Rel should be set
-		cy.getTextControlByLabel( 'Link rel' ).should( 'have.value','custom rel'	);
+		cy.getTextControlByLabel( 'Link rel' ).should(
+			'have.value',
+			'custom rel'
+		);
 
 		// Check if attributes are set correctly
-		cy.postContentMatchesSnapshot()
+		cy.postContentMatchesSnapshot();
 	} );
 } );

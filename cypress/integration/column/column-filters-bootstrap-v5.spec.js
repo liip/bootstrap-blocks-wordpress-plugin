@@ -28,6 +28,6 @@ describe( 'Column Block Filters Bootstrap 5', () => {
 		cy.getInputByLabel( 'Xxl Column count' ).should( 'have.value', '5' );
 
 		// Check if attributes are set correctly
-		cy.postContentMatchesSnapshot()
+		cy.postContentMatchesSnapshot();
 	} );
 } );

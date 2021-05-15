@@ -12,25 +12,29 @@ import {
 	testVersion140ColumnFeatures,
 } from '../../support/row/feature-tests';
 
-context('Row Block Backwards Compatibility', () => {
-	beforeEach(() => {
-		cy.loginUser()
-		cy.createNewPost()
-	})
+context( 'Row Block Backwards Compatibility', () => {
+	beforeEach( () => {
+		cy.loginUser();
+		cy.createNewPost();
+	} );
 
-	it('v1.0.0 row block content should be compatible', () => {
+	it( 'v1.0.0 row block content should be compatible', () => {
 		cy.setPostContent( rowContent100 );
 
 		cy.ensureSidebarOpened();
 
 		// Row blocks should be successfully inserted
-		cy.get('.block-editor-block-list__block[data-type="wp-bootstrap-blocks/row"]').should('have.length', 2 );
-		cy.get('.block-editor-block-list__block[data-type="wp-bootstrap-blocks/column"]').should('have.length', 4 );
+		cy.get(
+			'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/row"]'
+		).should( 'have.length', 2 );
+		cy.get(
+			'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/column"]'
+		).should( 'have.length', 4 );
 
-		cy.postContentMatchesSnapshot()
+		cy.postContentMatchesSnapshot();
 
-		testVersion100RowFeatures()
-	})
+		testVersion100RowFeatures();
+	} );
 
 	it( 'v1.0.0 column block content should be compatible', () => {
 		cy.setPostContent( rowContent100 );
@@ -44,10 +48,14 @@ context('Row Block Backwards Compatibility', () => {
 		cy.ensureSidebarOpened();
 
 		// Row blocks should be successfully inserted
-		cy.get('.block-editor-block-list__block[data-type="wp-bootstrap-blocks/row"]').should('have.length', 3 );
-		cy.get('.block-editor-block-list__block[data-type="wp-bootstrap-blocks/column"]').should('have.length', 6 );
+		cy.get(
+			'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/row"]'
+		).should( 'have.length', 3 );
+		cy.get(
+			'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/column"]'
+		).should( 'have.length', 6 );
 
-		cy.postContentMatchesSnapshot()
+		cy.postContentMatchesSnapshot();
 
 		testVersion100RowFeatures();
 
@@ -82,11 +90,15 @@ context('Row Block Backwards Compatibility', () => {
 		cy.selectColumnBlock( 0, 0 );
 
 		// Check if row block could be inserted without error
-		cy.get('.block-editor-block-list__block[data-type="wp-bootstrap-blocks/row"]').should('exist')
-		cy.get('.block-editor-block-list__block[data-type="wp-bootstrap-blocks/column"]').should('have.length', 2)
+		cy.get(
+			'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/row"]'
+		).should( 'exist' );
+		cy.get(
+			'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/column"]'
+		).should( 'have.length', 2 );
 
 		// Check if Bootstrap 4 values are set in inspector controls
 		cy.openSidebarPanelWithTitle( 'Column size' );
-		cy.getInputByLabel( 'Md Column count' ).should('have.value', '8')
+		cy.getInputByLabel( 'Md Column count' ).should( 'have.value', '8' );
 	} );
-})
+} );

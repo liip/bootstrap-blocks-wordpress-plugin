@@ -37,6 +37,7 @@
     "cypress": "^6.8.0",
     "cypress-wp-test-utils": "^0.1.0",
     "cypress-xpath": "^1.6.2",
+    "eslint-plugin-cypress": "^2.11.3",
     "lodash": "^4.17.21",
     "prettier": "npm:wp-prettier@2.2.1-beta-1"
   },

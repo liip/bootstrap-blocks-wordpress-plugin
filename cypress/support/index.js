@@ -13,10 +13,10 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-import 'cypress-xpath'
-import { register } from '@cypress/snapshot'
-import { registerWpTestCommands } from 'cypress-wp-test-utils'
-import './commands'
+import 'cypress-xpath';
+import { register } from '@cypress/snapshot';
+import { registerWpTestCommands } from 'cypress-wp-test-utils';
+import './commands';
 
 register();
 registerWpTestCommands();

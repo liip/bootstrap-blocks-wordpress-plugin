@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-context('Row Block Bootstrap 5', () => {
+context( 'Row Block Bootstrap 5', () => {
 	before( () => {
 		cy.loginUser();
 		cy.activatePlugin( 'wp-bootstrap-blocks-test-bootstrap-v5' );
@@ -11,10 +11,10 @@ context('Row Block Bootstrap 5', () => {
 		cy.deactivatePlugin( 'wp-bootstrap-blocks-test-bootstrap-v5' );
 	} );
 
-	beforeEach(() => {
+	beforeEach( () => {
 		cy.loginUser();
-		cy.createNewPost()
-	})
+		cy.createNewPost();
+	} );
 
 	it( 'Should display Bootstrap v5 options', () => {
 		cy.insertRowBlock();
@@ -22,10 +22,14 @@ context('Row Block Bootstrap 5', () => {
 		cy.ensureSidebarOpened();
 
 		// Horizontal Gutters options should exist
-		cy.xpath('//label[contains(@class,"components-input-control__label")][contains(text(),"Horizontal Gutters")]').should('have.length', 1 );
+		cy.xpath(
+			'//label[contains(@class,"components-input-control__label")][contains(text(),"Horizontal Gutters")]'
+		).should( 'have.length', 1 );
 
 		// Vertical Gutters options should exist
-		cy.xpath('//label[contains(@class,"components-input-control__label")][contains(text(),"Vertical Gutters")]').should('have.length', 1 );
+		cy.xpath(
+			'//label[contains(@class,"components-input-control__label")][contains(text(),"Vertical Gutters")]'
+		).should( 'have.length', 1 );
 	} );
 
 	it( 'Should be possible to change gutter sizes', () => {
@@ -34,12 +38,12 @@ context('Row Block Bootstrap 5', () => {
 		cy.ensureSidebarOpened();
 
 		// Change horizontal gutter
-		cy.getSelectByLabel('Horizontal Gutters').select( 'gx-5' );
+		cy.getSelectByLabel( 'Horizontal Gutters' ).select( 'gx-5' );
 
 		// Change vertical gutter
 		cy.getSelectByLabel( 'Vertical Gutters' ).select( 'gy-3' );
 
-		cy.postContentMatchesSnapshot()
+		cy.postContentMatchesSnapshot();
 	} );
 
 	it( 'Should hide gutter options when no gutters is checked', () => {
@@ -51,9 +55,13 @@ context('Row Block Bootstrap 5', () => {
 		cy.clickElementByText( 'label', 'No Gutters' );
 
 		// Horizontal Gutters options should be hidden
-		cy.xpath('//label[contains(@class,"components-base-control__label")][contains(text(),"Horizontal Gutters")]').should('not.exist');
+		cy.xpath(
+			'//label[contains(@class,"components-base-control__label")][contains(text(),"Horizontal Gutters")]'
+		).should( 'not.exist' );
 
 		// Vertical Gutters options should be hidden
-		cy.xpath('//label[contains(@class,"components-base-control__label")][contains(text(),"Vertical Gutters")]').should('not.exist');
+		cy.xpath(
+			'//label[contains(@class,"components-base-control__label")][contains(text(),"Vertical Gutters")]'
+		).should( 'not.exist' );
 	} );
-})
+} );
