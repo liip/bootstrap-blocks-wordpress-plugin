@@ -29,10 +29,15 @@
     "@wordpress/i18n": "^3.18.0"
   },
   "devDependencies": {
+    "@cypress/snapshot": "^2.1.7",
     "@wordpress/base-styles": "^3.4.0",
     "@wordpress/e2e-test-utils": "^5.1.0",
     "@wordpress/env": "^4.0.0",
     "@wordpress/scripts": "^14.0.1",
+    "cypress": "^7.3.0",
+    "cypress-wp-test-utils": "^0.2.0",
+    "cypress-xpath": "^1.6.2",
+    "eslint-plugin-cypress": "^2.11.3",
     "lodash": "^4.17.21",
     "prettier": "npm:wp-prettier@2.2.1-beta-1"
   },
@@ -54,10 +59,12 @@
     "lint:md-js-fix": "wp-scripts lint-md-js --fix",
     "lint:pkg-json": "wp-scripts lint-pkg-json",
     "lint:php": "npm run wp-env run composer run-script lint",
-    "test:e2e": "wp-scripts test-e2e -c ./e2e-tests/jest.config.js",
-    "test:e2e-interactive": "wp-scripts test-e2e -c ./e2e-tests/jest.config.js --puppeteer-interactive",
+    "test:e2e": "npm run cy:run",
+    "test:e2e-interactive": "npm run cy:open",
     "test:unit:js": "wp-scripts test-unit-js",
     "test:unit:php": "npm run wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/wp-bootstrap-blocks/phpunit.xml.dist --verbose'",
-    "test:unit:php:ci": "npm run wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/bootstrap-blocks-wordpress-plugin/phpunit.xml.dist --verbose'"
+    "test:unit:php:ci": "npm run wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/bootstrap-blocks-wordpress-plugin/phpunit.xml.dist --verbose'",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open"
   }
 }

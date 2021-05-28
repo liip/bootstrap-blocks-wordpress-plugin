@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`column block filters Bootstrap 5 wp_bootstrap_blocks_column_default_attributes should override default attributes with Bootstrap 5 1`] = `
-"<!-- wp:wp-bootstrap-blocks/row -->
-<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
-
-<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
-<!-- /wp:wp-bootstrap-blocks/row -->"
-`;

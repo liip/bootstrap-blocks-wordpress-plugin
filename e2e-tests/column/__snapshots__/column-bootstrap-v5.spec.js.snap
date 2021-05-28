@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`column block Bootstrap 5 Should be possible to select column size for xxl breakpoint 1`] = `
-"<!-- wp:wp-bootstrap-blocks/row -->
-<!-- wp:wp-bootstrap-blocks/column {\\"sizeXxl\\":2,\\"sizeMd\\":6,\\"equalWidthXxl\\":true} /-->
-
-<!-- wp:wp-bootstrap-blocks/column {\\"sizeMd\\":6} /-->
-<!-- /wp:wp-bootstrap-blocks/row -->"
-`;

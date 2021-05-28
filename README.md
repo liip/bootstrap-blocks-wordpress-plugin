@@ -726,7 +726,7 @@ The following commands can be used to set up a local dev environment. See the of
 There are two types of tests for this plugin:
 
 * PHPUnit Tests: Used to validate generated block output. Since this plugin uses dynamic blocks which are rendered on the server side we need to test them with PHPUnit tests.
-* Puppeteer E2E Tests: Used to validate block behaviour in the editor.
+* Cypress E2E Tests: Used to validate block behaviour in the editor.
 
 #### PHPUnitTests
 
@@ -752,24 +752,12 @@ or the following command to run a specific test:
 npm run test:unit:php -- --filter 'my_test'
 ```
 
-#### Puppeteer E2E Tests
+#### Cypress E2E Tests
 
-The Puppeteer E2E Tests are stored in the `e2e-tests` directory.
+The Cypress E2E Tests are stored in the `cypress` directory.
 
 To run the tests use the following command:
 
 ```bash
 npm run test:e2e
-```
-
-or the following command to run a specific test:
-
-```bash
-npm run test:e2e -- -t 'my test'
-```
-
-To update the snapshots run the following command:
-
-```bash
-npm run test:e2e -- -u
 ```

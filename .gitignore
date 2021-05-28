@@ -9,3 +9,5 @@ build/*
 !build/settings.css
 composer.phar
 /release
+cypress/videos
+cypress/screenshots
