@@ -1,4 +1,4 @@
-import { getBlockByName, selectBlockByClientId } from '../shared/helper';
+import { getBlockByName, selectBlockByClientId } from 'cypress-wp-test-utils';
 
 Cypress.Commands.add(
 	'selectColumnBlock',
