@@ -125,6 +125,7 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 * [FEATURE] Ability to transform multiple selected blocks into a row block.
 * [COMPATIBILITY] Tested up to WordPress 5.7.2.
+* [DEVELOPMENT] Migrate E2E test to Cypress.
 
 = 3.1.3 =
 
