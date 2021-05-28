@@ -6,12 +6,12 @@ module.exports = {
 			// Use cypress/recommended plugin for cypress tests.
 			files: [ 'cypress/**/*.js' ],
 			extends: [ 'plugin:cypress/recommended' ],
+			rules: {
+				'jest/expect-expect': [
+					'error',
+					{ assertFunctionNames: [ 'expect', 'cy' ] },
+				],
+			},
 		},
 	],
-	rules: {
-		'jest/expect-expect': [
-			'error',
-			{ assertFunctionNames: [ 'expect', 'cy' ] },
-		],
-	},
 };
