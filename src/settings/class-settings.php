@@ -163,7 +163,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 			$settings_fields = array(
 				array(
 					'option_name' => self::BOOTSTRAP_VERSION_OPTION_NAME,
-					'label' => __( 'Bootstrap Version (experimental)', 'wp-bootstrap-blocks' ),
+					'label' => __( 'Bootstrap Version', 'wp-bootstrap-blocks' ),
 					'description' => __( 'Depending on the selected Bootstrap version the blocks will be rendered accordingly and version specific features will be available in the editor.', 'wp-bootstrap-blocks' ),
 					'type' => 'select',
 					'default' => self::BOOTSTRAP_VERSION_DEFAULT_VALUE,
