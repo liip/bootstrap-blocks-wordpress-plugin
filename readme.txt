@@ -123,10 +123,10 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 = 3.2.0 =
 
-* [FEATURE] Ability to transform multiple selected blocks into a row block. This feature only works with WordPress >= 5.6 and custom templates ([see `wpBootstrapBlocks.row.enableCustomTemplate` filter](https://github.com/liip/bootstrap-blocks-wordpress-plugin#wpbootstrapblocksrowenablecustomtemplate)) must be enabled.
+* [FEATURE] Ability to transform multiple selected blocks into a row block. This feature only works with WordPress >= 5.6. Additionally custom templates ([see `wpBootstrapBlocks.row.enableCustomTemplate` filter](https://github.com/liip/bootstrap-blocks-wordpress-plugin#wpbootstrapblocksrowenablecustomtemplate)) must be enabled (which is the default).
 * [COMPATIBILITY] Bootstrap 5 is not flagged experimental anymore.
 * [COMPATIBILITY] Tested up to WordPress 5.7.2.
-* [DEVELOPMENT] Migrate E2E test to Cypress.
+* [DEVELOPMENT] Migrate E2E tests to Cypress.
 
 = 3.1.3 =
 
