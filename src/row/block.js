@@ -16,8 +16,6 @@ import './style.scss';
 
 const { InnerBlocks } = BlockEditor || Editor; // Fallback to deprecated '@wordpress/editor' for backwards compatibility
 
-export const CUSTOM_TEMPLATE_NAME = 'custom';
-
 registerBlockType( 'wp-bootstrap-blocks/row', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
 	title: __( 'Row', 'wp-bootstrap-blocks' ), // Block title.

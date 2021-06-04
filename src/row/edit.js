@@ -25,12 +25,12 @@ import {
 	verticalAlignTop,
 } from '../icons';
 
-import { CUSTOM_TEMPLATE_NAME } from './block';
-
 import { isBootstrap5Active } from '../helper';
 
 const { InnerBlocks, InspectorControls, BlockControls, AlignmentToolbar } =
 	BlockEditor || Editor; // Fallback to deprecated '@wordpress/editor' for backwards compatibility
+
+export const CUSTOM_TEMPLATE_NAME = 'custom';
 
 const ALLOWED_BLOCKS = [ 'wp-bootstrap-blocks/column' ];
 
@@ -183,7 +183,7 @@ let templates = [
 templates = applyFilters( 'wpBootstrapBlocks.row.templates', templates );
 templates = addMissingTemplateIcons( templates );
 
-const enableCustomTemplate = applyFilters(
+export const enableCustomTemplate = applyFilters(
 	'wpBootstrapBlocks.row.enableCustomTemplate',
 	true
 );
