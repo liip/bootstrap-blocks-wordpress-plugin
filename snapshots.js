@@ -150,5 +150,21 @@ module.exports = {
     "wp_bootstrap_blocks_column_default_attributes should override default attributes": {
       "1": "<!-- wp:wp-bootstrap-blocks/row -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
     }
+  },
+  "Row Block Transforms": {
+    "Custom template enabled": {
+      "Should be possible to transform 2 blocks to row block": {
+        "1": "<!-- wp:wp-bootstrap-blocks/row {\"template\":\"custom\"} -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} -->\n<!-- wp:heading -->\n<h2></h2>\n<!-- /wp:heading -->\n<!-- /wp:wp-bootstrap-blocks/column -->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} -->\n<!-- wp:heading -->\n<h2></h2>\n<!-- /wp:heading -->\n<!-- /wp:wp-bootstrap-blocks/column -->\n<!-- /wp:wp-bootstrap-blocks/row -->"
+      },
+      "Should be possible to transform 3 blocks to row block": {
+        "1": "<!-- wp:wp-bootstrap-blocks/row {\"template\":\"custom\"} -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":4} -->\n<!-- wp:heading -->\n<h2></h2>\n<!-- /wp:heading -->\n<!-- /wp:wp-bootstrap-blocks/column -->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":4} -->\n<!-- wp:heading -->\n<h2></h2>\n<!-- /wp:heading -->\n<!-- /wp:wp-bootstrap-blocks/column -->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":4} -->\n<!-- wp:heading -->\n<h2></h2>\n<!-- /wp:heading -->\n<!-- /wp:wp-bootstrap-blocks/column -->\n<!-- /wp:wp-bootstrap-blocks/row -->"
+      },
+      "Should be possible to transform 4 blocks to row block": {
+        "1": "<!-- wp:wp-bootstrap-blocks/row {\"template\":\"custom\"} -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":3} -->\n<!-- wp:heading -->\n<h2></h2>\n<!-- /wp:heading -->\n<!-- /wp:wp-bootstrap-blocks/column -->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":3} -->\n<!-- wp:heading -->\n<h2></h2>\n<!-- /wp:heading -->\n<!-- /wp:wp-bootstrap-blocks/column -->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":3} -->\n<!-- wp:heading -->\n<h2></h2>\n<!-- /wp:heading -->\n<!-- /wp:wp-bootstrap-blocks/column -->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":3} -->\n<!-- wp:heading -->\n<h2></h2>\n<!-- /wp:heading -->\n<!-- /wp:wp-bootstrap-blocks/column -->\n<!-- /wp:wp-bootstrap-blocks/row -->"
+      },
+      "Columns should not be smaller than 3": {
+        "1": "<!-- wp:wp-bootstrap-blocks/row {\"template\":\"custom\"} -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":3} -->\n<!-- wp:heading -->\n<h2></h2>\n<!-- /wp:heading -->\n<!-- /wp:wp-bootstrap-blocks/column -->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":3} -->\n<!-- wp:heading -->\n<h2></h2>\n<!-- /wp:heading -->\n<!-- /wp:wp-bootstrap-blocks/column -->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":3} -->\n<!-- wp:heading -->\n<h2></h2>\n<!-- /wp:heading -->\n<!-- /wp:wp-bootstrap-blocks/column -->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":3} -->\n<!-- wp:heading -->\n<h2></h2>\n<!-- /wp:heading -->\n<!-- /wp:wp-bootstrap-blocks/column -->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":3} -->\n<!-- wp:heading -->\n<h2></h2>\n<!-- /wp:heading -->\n<!-- /wp:wp-bootstrap-blocks/column -->\n<!-- /wp:wp-bootstrap-blocks/row -->"
+      }
+    }
   }
 }
