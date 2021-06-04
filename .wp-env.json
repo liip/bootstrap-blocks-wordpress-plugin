@@ -1,5 +1,5 @@
 {
-	"core": "WordPress/WordPress#5.7",
+	"core": "https://wordpress.org/wordpress-5.7.2.zip",
 	"plugins": [ "." ],
 	"env": {
 		"tests": {
