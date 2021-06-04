@@ -9,6 +9,7 @@ import * as BlockEditor from '@wordpress/block-editor';
 import * as Editor from '@wordpress/editor';
 
 import edit from './edit';
+import transforms from './transforms';
 import { columns } from '../icons';
 import './editor.scss';
 import './style.scss';
@@ -29,6 +30,8 @@ registerBlockType( 'wp-bootstrap-blocks/row', {
 	supports: {
 		align: [ 'full' ],
 	},
+
+	transforms,
 
 	// attributes are defined server side with register_block_type(). This is needed to make default attributes available in the blocks render callback.
 

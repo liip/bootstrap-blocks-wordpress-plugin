@@ -3,15 +3,15 @@ Contributors: liip, tschortsch
 Donate link: https://liip.ch/
 Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.0
-Tested up to: 5.7
+Tested up to: 5.7.2
 Requires PHP: 5.6
-Stable tag: 3.1.3
+Stable tag: 3.2.0
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Bootstrap Gutenberg Blocks for WordPress. Supports Bootstrap 4 and **Bootstrap 5** (experimental). This plugin adds Bootstrap components and layout options as Gutenberg blocks.
+Bootstrap Gutenberg Blocks for WordPress. Supports Bootstrap v4 and v5. This plugin adds Bootstrap components and layout options as Gutenberg blocks.
 
 The full documentation of this plugin can be found on GitHub: [https://github.com/liip/bootstrap-blocks-wordpress-plugin#readme](https://github.com/liip/bootstrap-blocks-wordpress-plugin#readme)
 
@@ -58,7 +58,7 @@ Options:
 
 = Supported Bootstrap versions =
 
-This plugin supports Bootstrap v4 and v5 (experimental). The support for v5 is still flagged as experimental since this Bootstrap version is not officially released yet. The API could still change which could affect the options defined in this plugin.
+This plugin supports Bootstrap v4 and v5.
 
 The version can be selected in the plugin settings (Settings > Bootstrap Blocks) or by defining the `WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION` constant in the `wp-config.php` file:
 
@@ -102,7 +102,7 @@ To overwrite a block template create a folder called `wp-bootstrap-blocks/` in y
 
 = Which versions of Bootstrap are supported? =
 
-This plugin supports Bootstrap v4 and v5 (experimental).
+This plugin supports Bootstrap v4 and v5.
 
 = Is Bootstrap included? =
 
@@ -120,6 +120,13 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 1. Container block
 
 == Changelog ==
+
+= 3.2.0 =
+
+* [FEATURE] Ability to transform multiple selected blocks into a row block. This feature only works with WordPress >= 5.6. Additionally custom templates ([see `wpBootstrapBlocks.row.enableCustomTemplate` filter](https://github.com/liip/bootstrap-blocks-wordpress-plugin#wpbootstrapblocksrowenablecustomtemplate)) must be enabled (which is the default).
+* [COMPATIBILITY] Bootstrap 5 is not flagged experimental anymore.
+* [COMPATIBILITY] Tested up to WordPress 5.7.2.
+* [DEVELOPMENT] Migrate E2E tests to Cypress.
 
 = 3.1.3 =
 

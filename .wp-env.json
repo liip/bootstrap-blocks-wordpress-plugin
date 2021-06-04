@@ -1,11 +1,7 @@
 {
-	"core": "WordPress/WordPress#5.7",
+	"core": "https://wordpress.org/wordpress-5.7.2.zip",
 	"plugins": [ "." ],
-	"env": {
-		"tests": {
-			"mappings": {
-				"wp-content/plugins/wp-bootstrap-blocks-test-plugins": "./e2e-test-plugins"
-			}
-		}
+	"mappings": {
+		"wp-content/plugins/wp-bootstrap-blocks-test-plugins": "./e2e-test-plugins"
 	}
 }

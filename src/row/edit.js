@@ -30,6 +30,8 @@ import { isBootstrap5Active } from '../helper';
 const { InnerBlocks, InspectorControls, BlockControls, AlignmentToolbar } =
 	BlockEditor || Editor; // Fallback to deprecated '@wordpress/editor' for backwards compatibility
 
+export const CUSTOM_TEMPLATE_NAME = 'custom';
+
 const ALLOWED_BLOCKS = [ 'wp-bootstrap-blocks/column' ];
 
 const addMissingTemplateIcons = ( templates ) => {
@@ -181,13 +183,13 @@ let templates = [
 templates = applyFilters( 'wpBootstrapBlocks.row.templates', templates );
 templates = addMissingTemplateIcons( templates );
 
-const enableCustomTemplate = applyFilters(
+export const enableCustomTemplate = applyFilters(
 	'wpBootstrapBlocks.row.enableCustomTemplate',
 	true
 );
 if ( enableCustomTemplate ) {
 	templates.push( {
-		name: 'custom',
+		name: CUSTOM_TEMPLATE_NAME,
 		title: __( 'Custom', 'wp-bootstrap-blocks' ),
 		icon: templateIconMissing,
 		templateLock: false,
