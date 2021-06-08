@@ -82,6 +82,22 @@ if ( array_key_exists( 'className', $attributes ) && ! empty( $attributes['class
 	array_push( $classes, $attributes['className'] );
 }
 
+if ( array_key_exists( 'contentVerticalAlignment', $attributes ) && ! empty( $attributes['contentVerticalAlignment'] ) ) {
+	array_push( $column_content_classes, 'h-100' );
+	array_push( $column_content_classes, 'd-flex' );
+	array_push( $column_content_classes, 'flex-column' );
+
+	if ( 'top' === $attributes['contentVerticalAlignment'] ) {
+		array_push( $column_content_classes, 'justify-content-start' );
+	}
+	if ( 'center' === $attributes['contentVerticalAlignment'] ) {
+		array_push( $column_content_classes, 'justify-content-center' );
+	}
+	if ( 'bottom' === $attributes['contentVerticalAlignment'] ) {
+		array_push( $column_content_classes, 'justify-content-end' );
+	}
+}
+
 if ( array_key_exists( 'bgColor', $attributes ) && ! empty( $attributes['bgColor'] ) ) {
 	array_push( $column_content_classes, 'h-100' );
 	array_push( $column_content_classes, 'bg-' . $attributes['bgColor'] );
@@ -96,6 +112,8 @@ if ( array_key_exists( 'bgColor', $attributes ) && ! empty( $attributes['bgColor
 if ( array_key_exists( 'padding', $attributes ) && ! empty( $attributes['padding'] ) ) {
 	array_push( $column_content_classes, $attributes['padding'] );
 }
+
+$column_content_classes = array_unique( $column_content_classes );
 
 /**
  * Filters column block classes.

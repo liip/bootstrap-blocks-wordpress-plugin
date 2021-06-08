@@ -77,6 +77,9 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Column\Column_Block_Type', false ) ) 
 			'centerContent' => array(
 				'type' => 'boolean',
 			),
+			'contentVerticalAlignment' => array(
+				'type' => 'string',
+			),
 		);
 
 		/**
@@ -100,6 +103,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Column\Column_Block_Type', false ) ) 
 			'bgColor' => '',
 			'padding' => '',
 			'centerContent' => false,
+			'contentVerticalAlignment' => '',
 		);
 	}
 
