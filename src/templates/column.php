@@ -5,7 +5,7 @@
  * This template can be overridden by copying it to theme/wp-bootstrap-blocks/column.php.
  *
  * @package wp-bootstrap-blocks/templates/column
- * @version 3.0.0
+ * @version 3.3.0
  */
 
 /**
