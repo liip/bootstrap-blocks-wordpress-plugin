@@ -109,44 +109,6 @@ describe( 'Column Block', () => {
 			.should( 'have.attr', 'data-bg-color', 'secondary' );
 
 		cy.postContentMatchesSnapshot();
-
-		// Select center content vertically
-		cy.clickElementByText( 'label', 'Center content vertically in row' );
-		cy.get( '[data-type="wp-bootstrap-blocks/column"]' )
-			.first()
-			.should( 'have.attr', 'data-center-content', 'true' );
-
-		cy.postContentMatchesSnapshot();
-	} );
-
-	it( 'Should reset centerContent if bgColor gets removed', () => {
-		cy.insertRowBlock();
-		cy.ensureSidebarOpened();
-
-		// Select first column block
-		cy.selectColumnBlock();
-
-		// Select background color
-		cy.openSidebarPanelWithTitle( 'Background color' );
-		cy.get( 'button[aria-label="Color: secondary"]' ).click();
-
-		// Select center content vertically
-		cy.clickElementByText( 'label', 'Center content vertically in row' );
-
-		cy.get( '[data-type="wp-bootstrap-blocks/column"]' )
-			.first()
-			.should( 'have.attr', 'data-center-content', 'true' );
-
-		cy.postContentMatchesSnapshot();
-
-		// Remove background color
-		cy.get( 'button.components-circular-option-picker__clear' ).click();
-
-		cy.get( '[data-type="wp-bootstrap-blocks/column"]' )
-			.first()
-			.should( 'have.attr', 'data-center-content', 'false' );
-
-		cy.postContentMatchesSnapshot();
 	} );
 
 	it( 'Should be possible to select padding', () => {
@@ -163,6 +125,22 @@ describe( 'Column Block', () => {
 			.first()
 			.should( 'have.attr', 'data-padding', 'p-2' );
 
+		cy.postContentMatchesSnapshot();
+	} );
+
+	it( 'Should be possible to change content vertical alignment', () => {
+		cy.insertRowBlock();
+		cy.ensureSidebarOpened();
+
+		// Select first column block
+		cy.selectColumnBlock();
+
+		// Change content vertical alignment
+		cy.clickBlockToolbarButton( 'Change vertical alignment of content' );
+		cy.clickButton( 'Align content bottom' );
+		cy.get(
+			'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/column"][data-content-vertical-alignment="bottom"]'
+		).should( 'exist' );
 		cy.postContentMatchesSnapshot();
 	} );
 

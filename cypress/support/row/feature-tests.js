@@ -67,10 +67,10 @@ export const testVersion110ColumnFeatures = async () => {
 		.should( 'have.attr', 'data-bg-color', 'primary' );
 
 	// Check if center content option was migrated to content vertical alignment
-	cy.clickBlockToolbarButton( 'Change vertical alignment of content' );
-	cy.xpath(
-		'//button[contains(@class,"components-button") and contains(@class,"is-active") and contains(text(),"Align content center")]'
-	).should( 'exist' );
+	cy.toolbarOptionIsActive(
+		'Change vertical alignment of content',
+		'Align content bottom'
+	);
 
 	// Padding should be selected
 	cy.openSidebarPanelWithTitle( 'Padding (inside column)' );
