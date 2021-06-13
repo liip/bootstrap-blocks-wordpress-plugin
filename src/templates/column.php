@@ -29,7 +29,7 @@
  *   'equalWidthXs' (boolean) => Xs columns equal-width.
  *   'bgColor' (string) => Name of background color (eg. 'primary').
  *   'padding' (string) => Padding inside of column (eg. 'p-3').
- *   'centerContent' (boolean) => If true content should be centered in column (only needed if bgColor is set).
+ *   'contentVerticalAlignment' (string) => Vertical alignment of content.
  *   'className' (string) => Additional class names which should be added to block.
  * )
  */

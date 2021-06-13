@@ -115,11 +115,6 @@ class BootstrapColumnEdit extends Component {
 			contentVerticalAlignment,
 		} = attributes;
 
-		// If centerContent is enabled but no background-color is selected -> reset attribute
-		if ( ! bgColor && centerContent ) {
-			setAttributes( { centerContent: false } );
-		}
-
 		// Migrate deprecated centerContent to new contentVerticalAlignment attribute
 		if ( centerContent ) {
 			setAttributes( {
