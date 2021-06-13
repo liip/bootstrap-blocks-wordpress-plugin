@@ -459,6 +459,7 @@ class BootstrapRowEdit extends Component {
 						templateLock={ getColumnsTemplateLock(
 							selectedTemplateName
 						) }
+						orientation="horizontal"
 					/>
 				</div>
 			</Fragment>
