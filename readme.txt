@@ -5,7 +5,7 @@ Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.0
 Tested up to: 5.7.2
 Requires PHP: 5.6
-Stable tag: 3.2.0
+Stable tag: 3.3.0
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -120,6 +120,11 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 1. Container block
 
 == Changelog ==
+
+= 3.3.0 =
+
+* [FEATURE] Added possibility to vertically align the content in a `column` block from the block controls.
+* [DEPRECATED] The `centerContent` attribute of the `column` block is deprecated. If enabled it will automatically be migrated to the new `contentVerticalAlignment` attribute.
 
 = 3.2.0 =
 

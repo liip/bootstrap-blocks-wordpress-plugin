@@ -65,8 +65,11 @@ export const testVersion110ColumnFeatures = async () => {
 	)
 		.eq( 1 )
 		.should( 'have.attr', 'data-bg-color', 'primary' );
-	cy.getCheckboxByLabel( 'Center content vertically in row' ).should(
-		'be.checked'
+
+	// Check if center content option was migrated to content vertical alignment
+	cy.toolbarOptionIsActive(
+		'Change vertical alignment of content',
+		'Align content center'
 	);
 
 	// Padding should be selected

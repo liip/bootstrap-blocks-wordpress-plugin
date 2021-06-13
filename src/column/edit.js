@@ -16,8 +16,32 @@ import * as BlockEditor from '@wordpress/block-editor';
 import * as Editor from '@wordpress/editor';
 
 import { isBootstrap5Active } from '../helper';
+import {
+	verticalAlignBottom,
+	verticalAlignCenter,
+	verticalAlignTop,
+} from '../icons';
 
-const { InnerBlocks, InspectorControls } = BlockEditor || Editor; // Fallback to deprecated '@wordpress/editor' for backwards compatibility
+const { InnerBlocks, InspectorControls, BlockControls, AlignmentToolbar } =
+	BlockEditor || Editor; // Fallback to deprecated '@wordpress/editor' for backwards compatibility
+
+const contentVerticalAlignmentControls = [
+	{
+		icon: verticalAlignTop,
+		title: __( 'Align content top', 'wp-bootstrap-blocks' ),
+		align: 'top',
+	},
+	{
+		icon: verticalAlignCenter,
+		title: __( 'Align content center', 'wp-bootstrap-blocks' ),
+		align: 'center',
+	},
+	{
+		icon: verticalAlignBottom,
+		title: __( 'Align content bottom', 'wp-bootstrap-blocks' ),
+		align: 'bottom',
+	},
+];
 
 const ColumnSizeRangeControl = ( {
 	label,
@@ -88,11 +112,15 @@ class BootstrapColumnEdit extends Component {
 			bgColor,
 			padding,
 			centerContent,
+			contentVerticalAlignment,
 		} = attributes;
 
-		// If centerContent is enabled but no background-color is selected -> reset attribute
-		if ( ! bgColor && centerContent ) {
-			setAttributes( { centerContent: false } );
+		// Migrate deprecated centerContent to new contentVerticalAlignment attribute
+		if ( centerContent ) {
+			setAttributes( {
+				contentVerticalAlignment: 'center',
+				centerContent: false,
+			} );
 		}
 
 		return (
@@ -264,24 +292,6 @@ class BootstrapColumnEdit extends Component {
 							} }
 							disableCustomColors
 						/>
-						{ bgColor ? (
-							<CheckboxControl
-								label={ __(
-									'Center content vertically in row',
-									'wp-bootstrap-blocks'
-								) }
-								checked={ centerContent }
-								onChange={ ( isChecked ) =>
-									setAttributes( {
-										centerContent: isChecked,
-									} )
-								}
-								help={ __(
-									'This setting only applies if there is no vertical alignment set on the parent row block.',
-									'wp-bootstrap-blocks'
-								) }
-							/>
-						) : null }
 					</PanelBody>
 					<PanelBody
 						title={ __(
@@ -302,6 +312,21 @@ class BootstrapColumnEdit extends Component {
 						/>
 					</PanelBody>
 				</InspectorControls>
+				<BlockControls>
+					<AlignmentToolbar
+						value={ contentVerticalAlignment }
+						label={ __(
+							'Change vertical alignment of content',
+							'wp-bootstrap-blocks'
+						) }
+						onChange={ ( newContentVerticalAlignment ) =>
+							setAttributes( {
+								contentVerticalAlignment: newContentVerticalAlignment,
+							} )
+						}
+						alignmentControls={ contentVerticalAlignmentControls }
+					/>
+				</BlockControls>
 				<div className={ className }>
 					<InnerBlocks
 						templateLock={ false }

@@ -161,9 +161,19 @@ body:not(.branch-5-2):not(.branch-5-3) [data-type="wp-bootstrap-blocks/row"]:not
 		outline: 1px dashed $gray-600;
 	}
 
-	&[data-center-content="true"] {
+	&[data-content-vertical-alignment="top"],
+	&[data-content-vertical-alignment="center"],
+	&[data-content-vertical-alignment="bottom"] {
 		display: flex;
 		flex-direction: column;
+	}
+	&[data-content-vertical-alignment="top"] {
+		justify-content: flex-start;
+	}
+	&[data-content-vertical-alignment="center"] {
 		justify-content: center;
+	}
+	&[data-content-vertical-alignment="bottom"] {
+		justify-content: flex-end;
 	}
 }

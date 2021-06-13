@@ -78,13 +78,15 @@ describe( 'Column Block Filters', () => {
 			.first()
 			.should( 'have.attr', 'data-bg-color', 'primary' );
 
-		cy.getCheckboxByLabel( 'Center content vertically in row' ).should(
-			'be.checked'
-		);
-
 		// Padding should be selected
 		cy.openSidebarPanelWithTitle( 'Padding (inside column)' );
 		cy.getSelectByLabel( 'Size' ).should( 'have.value', 'p-3' );
+
+		// Content vertical alignment bottom should be selected
+		cy.toolbarOptionIsActive(
+			'Change vertical alignment of content',
+			'Align content bottom'
+		);
 
 		// Check if attributes are set correctly
 		cy.postContentMatchesSnapshot();

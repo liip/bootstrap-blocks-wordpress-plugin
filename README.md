@@ -280,8 +280,8 @@ Modify default attributes of the row block.
 * `$default_attributes` (`array`) Default attributes of row block.
     * `template` (`string`) Name of default template of row block (Default: `'1-1'`)
     * `noGutters` (`boolean`) Defines if noGutters option should be selected or not (Default: `false`)
-    * `alignment` (`string`) Default horizontal alignment of inner columns (Default: `''`)
-    * `verticalAlignment` (`string`) Default vertical alignment of inner columns (Default: `''`)
+    * `alignment` (`'left'` | `'center'` | `'right'`) Default horizontal alignment of inner columns (Default: `''`)
+    * `verticalAlignment` (`'top'` | `'center'` | `'bottom'`) Default vertical alignment of inner columns (Default: `''`)
     * `editorStackColumns` (`boolean`) Defines if editorStackColumns option should be selected by default or not (Default: `false`)
     * `horizontalGutters` (`string`) Default horizontal gutters size (Default: `''`)
     * `verticalGutters` (`string`) Default vertical gutters size (Default: `''`)
@@ -323,7 +323,7 @@ Modify default attributes of the column block.
     * `equalWidthSm` (`boolean`) Defines if equal-width sm option should be selected or not (Default: `false`)
     * `equalWidthXs` (`boolean`) Defines if equal-width xs option should be selected or not (Default: `false`)
     * `bgColor` (`string`) Background color of column (Default: `''`)
-    * `centerContent` (`boolean`) Defines if center content inside column should be selected or not (Default: `false`)
+    * `contentVerticalAlignment` (`'top'` | `'center'` | `'bottom'`) Default vertical alignment of content (Default: `''`)
     * `padding` (`string`) Padding inside column (Default: `''`)
 
 #### Usage
@@ -337,7 +337,7 @@ function my_column_default_attributes( $default_attributes ) {
     $default_attributes['equalWidthXl'] = true;
     $default_attributes['bgColor'] = 'primary';
     $default_attributes['padding'] = 'p-3';
-    $default_attributes['centerContent'] = true;
+    $default_attributes['contentVerticalAlignment'] = 'bottom';
     return $default_attributes;
 }
 ```

@@ -37,8 +37,8 @@ class WP_Bootstrap_Blocks_Column_Test extends WP_Bootstrap_Blocks_UnitTestCase {
 	/**
 	 * Tests column center content.
 	 */
-	public function test_column_center_content() {
-		$variant = 'center-content';
+	public function test_column_content_vertical_alignment() {
+		$variant = 'content-vertical-alignment';
 		list( $expected, $actual ) = $this->get_block_output( $variant );
 		$this->assertEquals( $expected, $actual );
 	}
