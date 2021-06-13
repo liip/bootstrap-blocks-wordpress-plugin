@@ -1,9 +1,10 @@
 /// <reference types="Cypress" />
 
-import rowContent100 from '../../support/row/row-block-content/row-1.0.0';
-import rowContent110 from '../../support/row/row-block-content/row-1.1.0';
-import rowContent140 from '../../support/row/row-block-content/row-1.4.0';
-import rowContentBootstrap5 from '../../support/row/row-block-content/row-bootstrap5';
+import rowContent100 from '../../fixtures/row-1.0.0';
+import rowContent110 from '../../fixtures/row-1.1.0';
+import rowContent140 from '../../fixtures/row-1.4.0';
+import rowContentBootstrap5 from '../../fixtures/row-bootstrap5';
+import rowContent320CenterContent from '../../fixtures/row-3.2.0-center-content';
 import {
 	testVersion100RowFeatures,
 	testVersion100ColumnFeatures,
@@ -100,5 +101,28 @@ context( 'Row Block Backwards Compatibility', () => {
 		// Check if Bootstrap 4 values are set in inspector controls
 		cy.openSidebarPanelWithTitle( 'Column size' );
 		cy.getInputByLabel( 'Md Column count' ).should( 'have.value', '8' );
+	} );
+
+	it( 'v3.2.0 content with center content option should be migrated to content vertical alignment', () => {
+		cy.setPostContent( rowContent320CenterContent );
+		cy.ensureSidebarOpened();
+
+		// Select 1. Column of 1. Row
+		cy.selectColumnBlock( 0, 0 );
+
+		// Check if row block could be inserted without error
+		cy.get(
+			'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/row"]'
+		).should( 'exist' );
+		cy.get(
+			'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/column"]'
+		).should( 'have.length', 2 );
+
+		// Check if center content option was migrated to content vertical alignment
+		cy.clickBlockToolbarButton( 'Change vertical alignment of content' );
+		cy.xpath(
+			'//button[contains(@class,"components-button") and contains(@class,"is-active") and contains(text(),"Align content center")]'
+		).should( 'exist' );
+		cy.postContentMatchesSnapshot();
 	} );
 } );
