@@ -103,7 +103,7 @@ context( 'Row Block Backwards Compatibility', () => {
 		cy.getInputByLabel( 'Md Column count' ).should( 'have.value', '8' );
 	} );
 
-	it( 'v3.2.0 content with center content option should be migrated to content vertical alignment', () => {
+	it( 'v3.2.0 column block content with center content option should be migrated to content vertical alignment', () => {
 		cy.setPostContent( rowContent320CenterContent );
 		cy.ensureSidebarOpened();
 
@@ -121,7 +121,7 @@ context( 'Row Block Backwards Compatibility', () => {
 		// Check if center content option was migrated to content vertical alignment
 		cy.toolbarOptionIsActive(
 			'Change vertical alignment of content',
-			'Align content bottom'
+			'Align content center'
 		);
 
 		cy.postContentMatchesSnapshot();

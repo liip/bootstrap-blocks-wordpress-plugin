@@ -69,7 +69,7 @@ export const testVersion110ColumnFeatures = async () => {
 	// Check if center content option was migrated to content vertical alignment
 	cy.toolbarOptionIsActive(
 		'Change vertical alignment of content',
-		'Align content bottom'
+		'Align content center'
 	);
 
 	// Padding should be selected
