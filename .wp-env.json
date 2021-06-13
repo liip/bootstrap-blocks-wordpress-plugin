@@ -1,6 +1,9 @@
 {
 	"core": "https://wordpress.org/wordpress-5.7.2.zip",
 	"plugins": [ "." ],
+	"themes": [
+		"./test-themes/bootstrap"
+	],
 	"mappings": {
 		"wp-content/plugins/wp-bootstrap-blocks-test-plugins": "./e2e-test-plugins"
 	}
