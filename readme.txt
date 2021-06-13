@@ -121,6 +121,11 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 == Changelog ==
 
+= 3.3.0 =
+
+* [FEATURE] Added possibility to vertically align the content in a `column` block from the block controls.
+* [DEPRECATED] The `centerContent` attribute of the `column` block is deprecated. If enabled it will automatically be migrated to the new `contentVerticalAlignment` attribute.
+
 = 3.2.0 =
 
 * [FEATURE] Ability to transform multiple selected blocks into a row block. This feature only works with WordPress >= 5.6. Additionally custom templates ([see `wpBootstrapBlocks.row.enableCustomTemplate` filter](https://github.com/liip/bootstrap-blocks-wordpress-plugin#wpbootstrapblocksrowenablecustomtemplate)) must be enabled (which is the default).
