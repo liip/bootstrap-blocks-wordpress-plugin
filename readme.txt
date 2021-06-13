@@ -125,6 +125,7 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 * [FEATURE] Added possibility to vertically align the content in a `column` block from the block controls.
 * [DEPRECATED] The `centerContent` attribute of the `column` block is deprecated. If enabled it will automatically be migrated to the new `contentVerticalAlignment` attribute.
+* Modified Templates: `column.php`
 
 = 3.2.0 =
 
