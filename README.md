@@ -33,7 +33,7 @@ Bootstrap Gutenberg Blocks for WordPress. Supports Bootstrap v4 and v5. This plu
 * Sizes for all breakpoints (xxl, xl, lg, md, sm, xs): How much space the column should use for the given breakpoint.
 * Equal width for all breakpoints (xxl, xl, lg, md, sm, xs): If enabled column will spread width evenly with other columns.
 * Background Color: Set background color to column.
-* Center content: Center content vertically in column. This option is only needed if a background color is set. Otherwise use the **Alignment** option of the outer `row` block.
+* Content vertical alignment: Align content vertically in column. This option is only needed if a background color is set. Otherwise use the **Alignment** option of the outer `row` block.
 * Padding: Define padding inside the column.
 
 ### Button
