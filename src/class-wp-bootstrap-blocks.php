@@ -127,7 +127,12 @@ class WP_Bootstrap_Blocks {
 		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_assets' ), 99 );
 
 		// Register custom block category
-		add_filter( 'block_categories', array( $this, 'register_custom_block_category' ), 10, 2 );
+		if ( class_exists( 'WP_Block_Editor_Context' ) ) {
+			// Class WP_Block_Editor_Context does only exist in WP >= 5.8
+			add_filter( 'block_categories_all', array( $this, 'register_custom_block_category' ), 10, 2 );
+		} else {
+			add_filter( 'block_categories', array( $this, 'register_custom_block_category_old' ), 10, 2 );
+		}
 
 		// Initialize translations
 		add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain' ) );
@@ -217,14 +222,37 @@ class WP_Bootstrap_Blocks {
 	/**
 	 * Register custom block category
 	 *
+	 * @param array[]                  $block_categories     Array of categories for block types.
+	 * @param \WP_Block_Editor_Context $block_editor_context The current block editor context.
+	 *
+	 * @return array
+	 */
+	public function register_custom_block_category( $block_categories, $block_editor_context ) {
+		return $this->add_custom_block_category( $block_categories );
+	}
+
+	/**
+	 * Register custom block category (Pre WP 5.8)
+	 *
 	 * @param array    $categories List of all registered categories.
 	 * @param \WP_Post $post    Current post object.
 	 *
 	 * @return array
 	 */
-	public function register_custom_block_category( $categories, $post ) {
+	public function register_custom_block_category_old( $categories, $post ) {
+		return $this->add_custom_block_category( $categories );
+	}
+
+	/**
+	 * Adds custom block category to given categories array
+	 *
+	 * @param array $block_categories List of all registered categories.
+	 *
+	 * @return array
+	 */
+	protected function add_custom_block_category( $block_categories ) {
 		return array_merge(
-			$categories,
+			$block_categories,
 			array(
 				array(
 					'slug' => 'wp-bootstrap-blocks',
