@@ -1,5 +1,5 @@
 {
-	"core": "https://wordpress.org/wordpress-5.7.2.zip",
+	"core": "WordPress/WordPress#5.8",
 	"plugins": [ "." ],
 	"themes": [
 		"./test-themes/bootstrap"
