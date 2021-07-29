@@ -5,7 +5,7 @@ Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.0
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 3.3.1
+Stable tag: 3.3.2
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -120,6 +120,10 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 1. Container block
 
 == Changelog ==
+
+= 3.3.2 =
+
+* [FIX] Remove deprecated `wp-editor` dependency in newer versions of WordPress to avoid deprecation notice in widget screen (WordPress >= 5.8).
 
 = 3.3.1 =
 
