@@ -26,7 +26,9 @@
     "@wordpress/editor": "^11.0.0",
     "@wordpress/element": "^4.0.0",
     "@wordpress/hooks": "^3.2.0",
-    "@wordpress/i18n": "^4.2.1"
+    "@wordpress/i18n": "^4.2.1",
+    "bootstrap": "^5.1.0",
+    "sass": "^1.38.2"
   },
   "devDependencies": {
     "@cypress/snapshot": "^2.1.7",
@@ -45,6 +47,7 @@
     "dev": "npm run start",
     "prebuild": "npm run check-engines",
     "build": "wp-scripts build src/index.js src/settings/settings.js",
+    "build-theme-assets": "sass test-themes/bootstrap/styles.scss test-themes/bootstrap/styles.css",
     "update-translations": "scripts/translations/extract-messages.sh && scripts/translations/update-translation-files.sh && scripts/translations/compile-translation-files.sh",
     "wp-env": "wp-env",
     "check-engines": "wp-scripts check-engines",

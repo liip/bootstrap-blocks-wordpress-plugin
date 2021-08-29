@@ -45,10 +45,15 @@ add_action( 'after_setup_theme', 'bootstrap_theme_setup' );
  */
 function bootstrap_scripts() {
 	if ( \WP_Bootstrap_Blocks\Settings::is_bootstrap_5_active() ) {
-		wp_enqueue_script( 'popper.js', 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js', array(), '2.9.2', true );
-		wp_enqueue_style( 'bootstrap5-styles', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css', array(), '5.0.1' );
-		wp_enqueue_script( 'bootstrap5-scripts', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js', array( 'popper.js' ), '5.0.1', true );
-
+		if ( \WP_Bootstrap_Blocks\Settings::is_css_grid_enabled() ) {
+			wp_enqueue_script( 'popper.js', 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js', array(), '2.9.2', true );
+			wp_enqueue_style( 'bootstrap5-styles', get_template_directory_uri() . '/styles.css', array(), '5.1.0' );
+			wp_enqueue_script( 'bootstrap5-scripts', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js', array( 'popper.js' ), '5.1.0', true );
+		} else {
+			wp_enqueue_script( 'popper.js', 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js', array(), '2.9.2', true );
+			wp_enqueue_style( 'bootstrap5-styles', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css', array(), '5.1.0' );
+			wp_enqueue_script( 'bootstrap5-scripts', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js', array( 'popper.js' ), '5.1.0', true );
+		}
 	} else {
 		wp_enqueue_script( 'jQuery', 'https://code.jquery.com/jquery-3.5.1.slim.min.js', array(), '3.5.1', true );
 		wp_enqueue_script( 'popper.js', 'https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js', array(), '1.16.1', true );
@@ -57,3 +62,15 @@ function bootstrap_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'bootstrap_scripts' );
+
+function bootstrap_register_sidebars() {
+	register_sidebar( array(
+		'name' => 'Home right sidebar',
+		'id' => 'home_right_1',
+		'before_widget' => '<div>',
+		'after_widget' => '</div>',
+		'before_title' => '<h2 class="rounded">',
+		'after_title' => '</h2>',
+	) );
+}
+add_action( 'widgets_init', 'bootstrap_register_sidebars' );
