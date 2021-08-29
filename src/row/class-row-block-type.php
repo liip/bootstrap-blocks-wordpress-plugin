@@ -8,6 +8,7 @@
 namespace WP_Bootstrap_Blocks\Row;
 
 use WP_Bootstrap_Blocks\Block_Type;
+use WP_Bootstrap_Blocks\Settings;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -69,6 +70,19 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Row\Row_Block_Type', false ) ) :
 			'horizontalGutters' => '',
 			'verticalGutters' => '',
 		);
+
+		/**
+		 * Get name of block template.
+		 *
+		 * @return string
+		 */
+		protected function get_template_name() {
+			$template_name = parent::get_template_name();
+			if ( Settings::is_css_grid_enabled() ) {
+				$template_name .= '-css-grid';
+			}
+			return $template_name;
+		}
 	}
 
 endif;

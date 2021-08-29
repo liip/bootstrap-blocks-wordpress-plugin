@@ -198,7 +198,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 				array(
 					'option_name' => self::ENABLE_CSS_GRID_OPTION_NAME,
 					'label' => __( 'Enable CSS grid (Experimental)', 'wp-bootstrap-blocks' ),
-					'description' => __( 'If enabled Bootstrap\'s CSS grid will be used instead of the default flexbox grid system. The CSS grid is supported with Bootstrap >= 5.1.0.', 'wp-bootstrap-blocks' ),
+					'description' => __( 'If enabled Bootstrap\'s CSS grid will be used instead of the default flexbox grid system. The CSS grid is supported with Bootstrap >= 5.1.0. The `$enable-cssgrid` Bootstrap setting has to be set to `true` if this option is enabled.', 'wp-bootstrap-blocks' ),
 					'type' => 'checkbox',
 					'default' => self::ENABLE_CSS_GRID_DEFAULT_VALUE,
 					'constant_name' => self::ENABLE_CSS_GRID_CONSTANT_NAME,
@@ -336,7 +336,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 			}
 
 			if ( array_key_exists( 'description', $field ) ) {
-				$html .= '<p class="description">' . $field['description'] . '</p>' . "\n";
+				$html .= '<p class="description">' . esc_html( $field['description'] ) . '</p>' . "\n";
 			}
 
 			if ( $is_option_constant_set ) {
@@ -379,21 +379,21 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 		}
 
 		/**
-		 * Get enable CSS grid option.
-		 *
-		 * @return boolean Enable CSS grid value from options.
-		 */
-		public static function is_css_grid_enabled() {
-			return boolval( self::get_option( self::ENABLE_CSS_GRID_OPTION_NAME, self::ENABLE_CSS_GRID_CONSTANT_NAME, self::ENABLE_CSS_GRID_DEFAULT_VALUE ) );
-		}
-
-		/**
 		 * Returns true when Bootstrap 5 is activated.
 		 *
 		 * @return bool
 		 */
 		public static function is_bootstrap_5_active() {
 			return version_compare( self::get_bootstrap_version(), '5', '>=' );
+		}
+
+		/**
+		 * Get enable CSS grid option.
+		 *
+		 * @return boolean Enable CSS grid value from options.
+		 */
+		public static function is_css_grid_enabled() {
+			return self::is_bootstrap_5_active() && boolval( self::get_option( self::ENABLE_CSS_GRID_OPTION_NAME, self::ENABLE_CSS_GRID_CONSTANT_NAME, self::ENABLE_CSS_GRID_DEFAULT_VALUE ) );
 		}
 
 		/**
