@@ -138,7 +138,7 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 = 4.0.0 =
 
-* [FEATURE] Add experimental support for Bootstraps [CSS grid](https://getbootstrap.com/docs/5.1/layout/css-grid/). The support is still experimental sicnce it's also marked as experimental in the Bootstarp library. To use it you need to enable in the plugins settings and the `$enable-cssgrid: true` has to be enabled in your Bootstrap variables file.
+* [FEATURE] Add experimental support for Bootstraps [CSS grid](https://getbootstrap.com/docs/5.1/layout/css-grid/). The support is still experimental since it's also marked as experimental in the Bootstarp library. To use it you need to enable it in the plugins settings and the `$enable-cssgrid: true` setting has to be enabled in your Bootstrap variables file.
 
 = 3.3.2 =
 
