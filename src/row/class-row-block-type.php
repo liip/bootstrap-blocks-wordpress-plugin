@@ -54,6 +54,9 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Row\Row_Block_Type', false ) ) :
 			'verticalGutters' => array(
 				'type' => 'string',
 			),
+			'cssGridGutters' => array(
+				'type' => 'string',
+			),
 		);
 
 		/**
@@ -69,6 +72,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Row\Row_Block_Type', false ) ) :
 			'editorStackColumns' => false,
 			'horizontalGutters' => '',
 			'verticalGutters' => '',
+			'cssGridGutters' => '',
 		);
 
 		/**

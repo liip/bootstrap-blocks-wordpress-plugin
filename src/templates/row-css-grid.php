@@ -4,7 +4,7 @@
  *
  * This template can be overridden by copying it to theme/wp-bootstrap-blocks/row-css-grid.php.
  *
- * @package wp-bootstrap-blocks/templates/row
+ * @package wp-bootstrap-blocks/templates/row-css-grid
  * @version 3.4.0
  */
 
@@ -17,10 +17,7 @@
  * @var $attributes array(
  *   'template' (string) => Name of selected template.
  *   'noGutters' (boolean) => Defines if no gutters should be applied or not.
- *   'alignment' (string) => Horizontal alignment of inner columns.
- *   'verticalAlignment' (string) => Vertical alignment of inner columns.
- *   'horizontalGutters' (string) => Size of horizontal gutters.
- *   'verticalGutters' (string) => Size of vertical gutters.
+ *   'cssGridGutters' (string) => Size of gutters (eg. '1rem').
  *   'align' (string) => If set to 'full' row should use full width of page.
  *   'className' (string) => Additional class names which should be added to block.
  * )
@@ -34,6 +31,8 @@
  */
 
 $classes = array( 'wp-bootstrap-blocks-row', 'grid' );
+$styles = '';
+
 if ( array_key_exists( 'className', $attributes ) && ! empty( $attributes['className'] ) ) {
 	array_push( $classes, $attributes['className'] );
 }
@@ -42,52 +41,31 @@ if ( array_key_exists( 'align', $attributes ) && 'full' === $attributes['align']
 }
 
 if ( array_key_exists( 'noGutters', $attributes ) && $attributes['noGutters'] ) {
-	if ( \WP_Bootstrap_Blocks\Settings::is_bootstrap_5_active() ) {
-		array_push( $classes, 'g-0' );
-	} else {
-		array_push( $classes, 'no-gutters' );
-	}
-} else {
-	if ( array_key_exists( 'horizontalGutters', $attributes ) && $attributes['horizontalGutters'] ) {
-		array_push( $classes, $attributes['horizontalGutters'] );
-	}
-	if ( array_key_exists( 'verticalGutters', $attributes ) && $attributes['verticalGutters'] ) {
-		array_push( $classes, $attributes['verticalGutters'] );
-	}
-}
-if ( array_key_exists( 'alignment', $attributes ) ) {
-	if ( 'left' === $attributes['alignment'] ) {
-		array_push( $classes, 'justify-content-start' );
-	}
-	if ( 'center' === $attributes['alignment'] ) {
-		array_push( $classes, 'justify-content-center' );
-	}
-	if ( 'right' === $attributes['alignment'] ) {
-		array_push( $classes, 'justify-content-end' );
-	}
-}
-if ( array_key_exists( 'verticalAlignment', $attributes ) ) {
-	if ( 'top' === $attributes['verticalAlignment'] ) {
-		array_push( $classes, 'align-items-start' );
-	}
-	if ( 'center' === $attributes['verticalAlignment'] ) {
-		array_push( $classes, 'align-items-center' );
-	}
-	if ( 'bottom' === $attributes['verticalAlignment'] ) {
-		array_push( $classes, 'align-items-end' );
-	}
+	$styles = '--bs-gap: 0;';
+} elseif ( array_key_exists( 'cssGridGutters', $attributes ) && $attributes['cssGridGutters'] ) {
+	$styles = '--bs-gap: ' . $attributes['cssGridGutters'] . ';';
 }
 
 /**
  * Filters row block classes.
  *
- * @since 1.5.0
+ * @since 3.4.0
  *
- * @param string $classes Classes which should be added to the block.
+ * @param array $classes Classes which should be added to the block.
  * @param array $attributes Block attributes.
  */
-$classes = apply_filters( 'wp_bootstrap_blocks_row_classes', $classes, $attributes );
+$classes = apply_filters( 'wp_bootstrap_blocks_row_css_grid_classes', $classes, $attributes );
+
+/**
+ * Filters row block inline styles.
+ *
+ * @since 3.4.0
+ *
+ * @param string $styles Inline styles which should be added to the block.
+ * @param array $attributes Block attributes.
+ */
+$styles = apply_filters( 'wp_bootstrap_blocks_row_css_grid_styles', $styles, $attributes );
 ?>
-<div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
+<div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>"<?php echo ! empty( $styles ) ? ' style="' . esc_attr( $styles ) . '"' : ''; ?>>
 	<?php echo $content; // phpcs:ignore ?>
 </div>

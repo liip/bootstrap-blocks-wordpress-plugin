@@ -25,7 +25,7 @@ import {
 	verticalAlignTop,
 } from '../icons';
 
-import { isBootstrap5Active } from '../helper';
+import { isBootstrap5Active, isCssGridEnabled } from '../helper';
 
 const { InnerBlocks, InspectorControls, BlockControls, AlignmentToolbar } =
 	BlockEditor || Editor; // Fallback to deprecated '@wordpress/editor' for backwards compatibility
@@ -247,6 +247,29 @@ verticalGuttersOptions = [
 	...verticalGuttersOptions,
 ];
 
+let cssGridGuttersOptions = [
+	{
+		label: __( 'Small', 'wp-bootstrap-blocks' ),
+		value: '1rem',
+	},
+	{
+		label: __( 'Large', 'wp-bootstrap-blocks' ),
+		value: '2rem',
+	},
+];
+cssGridGuttersOptions = applyFilters(
+	'wpBootstrapBlocks.row.cssGridGuttersOptions',
+	cssGridGuttersOptions
+);
+
+cssGridGuttersOptions = [
+	{
+		label: __( 'Bootstrap Default (None)', 'wp-bootstrap-blocks' ),
+		value: '',
+	},
+	...cssGridGuttersOptions,
+];
+
 const getColumnsTemplate = ( templateName ) => {
 	const template = templates.find( ( t ) => t.name === templateName );
 	return template ? template.template : [];
@@ -273,6 +296,7 @@ class BootstrapRowEdit extends Component {
 			editorStackColumns,
 			horizontalGutters,
 			verticalGutters,
+			cssGridGutters,
 		} = attributes;
 
 		const onTemplateChange = ( newSelectedTemplateName ) => {
@@ -394,63 +418,84 @@ class BootstrapRowEdit extends Component {
 								setAttributes( { noGutters: isChecked } )
 							}
 						/>
-						{ isBootstrap5Active() && ! noGutters && (
-							<Fragment>
+						{ ! noGutters &&
+							( isCssGridEnabled() ? (
 								<SelectControl
 									label={ __(
-										'Horizontal Gutters',
+										'Gutters',
 										'wp-bootstrap-blocks'
 									) }
-									value={ horizontalGutters }
-									options={ horizontalGuttersOptions }
+									value={ cssGridGutters }
+									options={ cssGridGuttersOptions }
 									onChange={ ( value ) => {
 										setAttributes( {
-											horizontalGutters: value,
+											cssGridGutters: value,
 										} );
 									} }
 								/>
-								<SelectControl
-									label={ __(
-										'Vertical Gutters',
-										'wp-bootstrap-blocks'
-									) }
-									value={ verticalGutters }
-									options={ verticalGuttersOptions }
-									onChange={ ( value ) => {
-										setAttributes( {
-											verticalGutters: value,
-										} );
-									} }
-								/>
-							</Fragment>
-						) }
+							) : (
+								isBootstrap5Active() && (
+									<Fragment>
+										<SelectControl
+											label={ __(
+												'Horizontal Gutters',
+												'wp-bootstrap-blocks'
+											) }
+											value={ horizontalGutters }
+											options={ horizontalGuttersOptions }
+											onChange={ ( value ) => {
+												setAttributes( {
+													horizontalGutters: value,
+												} );
+											} }
+										/>
+										<SelectControl
+											label={ __(
+												'Vertical Gutters',
+												'wp-bootstrap-blocks'
+											) }
+											value={ verticalGutters }
+											options={ verticalGuttersOptions }
+											onChange={ ( value ) => {
+												setAttributes( {
+													verticalGutters: value,
+												} );
+											} }
+										/>
+									</Fragment>
+								)
+							) ) }
 					</PanelBody>
 				</InspectorControls>
 				<BlockControls>
-					<AlignmentToolbar
-						value={ alignment }
-						label={ __(
-							'Change horizontal alignment of columns',
-							'wp-bootstrap-blocks'
-						) }
-						onChange={ ( newAlignment ) =>
-							setAttributes( { alignment: newAlignment } )
-						}
-						alignmentControls={ alignmentControls }
-					/>
-					<AlignmentToolbar
-						value={ verticalAlignment }
-						label={ __(
-							'Change vertical alignment of columns',
-							'wp-bootstrap-blocks'
-						) }
-						onChange={ ( newVerticalAlignment ) =>
-							setAttributes( {
-								verticalAlignment: newVerticalAlignment,
-							} )
-						}
-						alignmentControls={ verticalAlignmentControls }
-					/>
+					{ ! isCssGridEnabled() && (
+						<Fragment>
+							<AlignmentToolbar
+								value={ alignment }
+								label={ __(
+									'Change horizontal alignment of columns',
+									'wp-bootstrap-blocks'
+								) }
+								onChange={ ( newAlignment ) =>
+									setAttributes( { alignment: newAlignment } )
+								}
+								alignmentControls={ alignmentControls }
+							/>
+							<AlignmentToolbar
+								value={ verticalAlignment }
+								label={ __(
+									'Change vertical alignment of columns',
+									'wp-bootstrap-blocks'
+								) }
+								onChange={ ( newVerticalAlignment ) =>
+									setAttributes( {
+										verticalAlignment: newVerticalAlignment,
+									} )
+								}
+								alignmentControls={ verticalAlignmentControls }
+							/>
+						</Fragment>
+					) }
 				</BlockControls>
 				<div className={ className }>
 					<InnerBlocks
