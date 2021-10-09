@@ -205,6 +205,7 @@ class WP_Bootstrap_Blocks {
 			array(
 				'bootstrapVersion' => Settings::get_bootstrap_version(),
 				'isBootstrap5Active' => Settings::is_bootstrap_5_active(),
+				'isCssGridEnabled' => Settings::is_css_grid_enabled(),
 			)
 		);
 
