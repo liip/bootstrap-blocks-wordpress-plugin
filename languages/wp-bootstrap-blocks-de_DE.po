@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Bootstrap Blocks plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Bootstrap Blocks 3.3.2\n"
+"Project-Id-Version: Bootstrap Blocks 4.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-bootstrap-"
 "blocks\n"
 "POT-Creation-Date: 2021-06-13T14:01:24+00:00\n"

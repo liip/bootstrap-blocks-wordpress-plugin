@@ -5,7 +5,7 @@
  * This template can be overridden by copying it to theme/wp-bootstrap-blocks/column-css-grid.php.
  *
  * @package wp-bootstrap-blocks/templates/column-css-grid
- * @version 3.4.0
+ * @version 4.0.0
  */
 
 /**
@@ -98,7 +98,7 @@ $column_content_classes = array_unique( $column_content_classes );
 /**
  * Filters column block classes.
  *
- * @since 3.4.0
+ * @since 4.0.0
  *
  * @param array $classes Classes which should be added to the block.
  * @param array $attributes Block attributes.
@@ -108,7 +108,7 @@ $classes = apply_filters( 'wp_bootstrap_blocks_column_css_grid_classes', $classe
 /**
  * Filters column inner content classes.
  *
- * @since 3.4.0
+ * @since 4.0.0
  *
  * @param array $classes Classes which should be added to the content.
  * @param array $attributes Block attributes.
