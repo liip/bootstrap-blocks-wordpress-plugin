@@ -1,3 +1,4 @@
+@use "sass:math";
 @import "../assets/gutenberg";
 
 @mixin make-grid-columns($current-size-index: 1, $sizes: ("xxl", "xl", "lg", "md", "sm", "xs"), $grid-columns: 12) {
@@ -6,11 +7,11 @@
 
 		@for $i from 1 through $grid-columns {
 			&[data-size-#{$size}="#{$i}"] {
-				flex: 0 0 percentage($i / $grid-columns);
+				flex: 0 0 percentage(math.div($i, $grid-columns));
 				// Add a `max-width` to ensure content within each column does not blow out
 				// the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
 				// do not appear to require this.
-				max-width: percentage($i / $grid-columns);
+				max-width: percentage(math.div($i, $grid-columns));
 			}
 		}
 		&[data-size-#{$size}="0"] {
