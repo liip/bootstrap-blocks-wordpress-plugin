@@ -39,6 +39,7 @@ function row_filters_default_attributes( $default_attributes ) {
 	$default_attributes['editorStackColumns'] = true;
 	$default_attributes['horizontalGutters'] = 'gx-5';
 	$default_attributes['verticalGutters'] = 'gy-3';
+	$default_attributes['cssGridGutters'] = '1rem';
 	return $default_attributes;
 }
 add_filter( 'wp_bootstrap_blocks_row_default_attributes', 'row_filters_default_attributes', 10, 1 );
