@@ -2,7 +2,15 @@
 
 [![Build Status](https://github.com/liip/bootstrap-blocks-wordpress-plugin/workflows/Lint%20Test%20Deploy/badge.svg?branch=master)](https://github.com/liip/bootstrap-blocks-wordpress-plugin/actions?query=workflow%3A%22Lint+Test+Deploy%22+branch%3Amaster)
 
-Bootstrap Gutenberg Blocks for WordPress. Supports Bootstrap v4 and v5. This plugin adds Bootstrap components and layout options as Gutenberg blocks.
+Bootstrap Gutenberg Blocks for WordPress. This plugin adds Bootstrap components and layout options as Gutenberg blocks.
+
+## Features
+
+* Supports Bootstrap v5 and v4
+* Support for CSS grid (experimental)
+* Fully customizable with filters
+* Configuration via option page or programmatically with constants
+* Templates can be overwritten in your theme
 
 ## Available blocks
 
@@ -25,6 +33,7 @@ Bootstrap Gutenberg Blocks for WordPress. Supports Bootstrap v4 and v5. This plu
 * Editor stack columns: Displays stacked columns in the editor to enhance readability of block content.
 * Horizontal Gutters: Size of horizontal gutters.
 * Vertical Gutters: Size of vertical gutters.
+* CSS Grid Gutters: Size of gutters when CSS grid is used.
 
 ### Column
 
@@ -62,6 +71,12 @@ The version can be selected in the plugin settings (Settings > Bootstrap Blocks)
 * Bootstrap 5: `define( 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION', '5' );`
 
 Possible values right now are `'4'` or `'5'`. By default Bootstrap version **4** is selected.
+
+## CSS Grid (experimental)
+
+The [CSS grid](https://getbootstrap.com/docs/5.1/layout/css-grid/) (supported with Bootstrap >= 5.1.0) can be enabled in the plugin settings (Settings > Bootstrap Blocks) or by defining the `WP_BOOTSTRAP_BLOCKS_ENABLE_CSS_GRID` constant in the `wp-config.php` file:
+
+eg. `define( 'WP_BOOTSTRAP_BLOCKS_ENABLE_CSS_GRID', true );`
 
 ## Bootstrap library
 
