@@ -120,7 +120,7 @@ $column_content_classes = array_unique( $column_content_classes );
  *
  * @since 1.0.0
  *
- * @param string $classes Classes which should be added to the block.
+ * @param array $classes Classes which should be added to the block.
  * @param array $attributes Block attributes.
  */
 $classes = apply_filters( 'wp_bootstrap_blocks_column_classes', $classes, $attributes );
@@ -130,7 +130,7 @@ $classes = apply_filters( 'wp_bootstrap_blocks_column_classes', $classes, $attri
  *
  * @since 1.5.0
  *
- * @param string $classes Classes which should be added to the content.
+ * @param array $classes Classes which should be added to the content.
  * @param array $attributes Block attributes.
  */
 $column_content_classes = apply_filters( 'wp_bootstrap_blocks_column_content_classes', $column_content_classes, $attributes );

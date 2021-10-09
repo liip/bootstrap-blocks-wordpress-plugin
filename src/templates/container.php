@@ -52,7 +52,7 @@ if ( array_key_exists( 'className', $attributes ) && ! empty( $attributes['class
  *
  * @since 1.0.0
  *
- * @param string $classes Classes which should be added to the block.
+ * @param array $classes Classes which should be added to the block.
  * @param array $attributes Block attributes.
  */
 $classes = apply_filters( 'wp_bootstrap_blocks_container_classes', $classes, $attributes );
