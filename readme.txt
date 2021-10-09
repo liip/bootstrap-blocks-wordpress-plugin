@@ -82,6 +82,11 @@ The [CSS grid](https://getbootstrap.com/docs/5.1/layout/css-grid/) (supported wi
 
 eg. `define( 'WP_BOOTSTRAP_BLOCKS_ENABLE_CSS_GRID', true );`
 
+When the CSS grid is enabled the `row` and the `column` blocks will use custom templates for the rendering process:
+
+* Row: `row-css.grid.php`
+* Column: `column-css-grid.php`
+
 = Bootstrap library =
 
 Please be aware that this plugin does not include the Bootstrap library in your website. You need to do this by yourself. We decided not to include the library so that you can modify Bootstrap to your own needs before loading it.
@@ -139,6 +144,9 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 = 4.0.0 =
 
 * [FEATURE] Add experimental support for Bootstraps [CSS grid](https://getbootstrap.com/docs/5.1/layout/css-grid/). The support is still experimental since it's also marked as experimental in the Bootstarp library. To use it you need to enable it in the plugins settings and the `$enable-cssgrid: true` setting has to be enabled in your Bootstrap variables file.
+* [FEATURE] Introduce new JavaScript filter `wpBootstrapBlocks.row.cssGridGuttersOptions` for CSS grid. Please read the [documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin#javascript-filters) for further information.
+* [FEATURE] Introduce new PHP filters for CSS grid templates: `wp_bootstrap_blocks_row_css_grid_classes`, `wp_bootstrap_blocks_row_css_grid_styles`, `wp_bootstrap_blocks_column_css_grid_classes`, `wp_bootstrap_blocks_column_css_grid_content_classes`. Please read the [documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin#php-filters) for further information.
+* New Templates: `column-css-grid.php`, `row-css-grid.php`
 
 = 3.3.2 =
 
