@@ -72,7 +72,7 @@ The version can be selected in the plugin settings (Settings > Bootstrap Blocks)
 
 Possible values right now are `'4'` or `'5'`. By default Bootstrap version **4** is selected.
 
-## CSS Grid (experimental)
+## CSS Grid
 
 The [CSS grid](https://getbootstrap.com/docs/5.1/layout/css-grid/) (supported with Bootstrap >= 5.1.0) can be enabled in the plugin settings (Settings > Bootstrap Blocks) or by defining the `WP_BOOTSTRAP_BLOCKS_ENABLE_CSS_GRID` constant in the `wp-config.php` file:
 
@@ -82,6 +82,8 @@ When the CSS grid is enabled the `row` and the `column` blocks will use custom t
 
 * Row: `row-css.grid.php`
 * Column: `column-css-grid.php`
+
+The support is still experimental since it's also marked as experimental in the Bootstarp library. Please read the official [Bootstrap documentation](https://getbootstrap.com/docs/5.1/layout/css-grid/) to get more information on how to use it.
 
 ## Bootstrap library
 
