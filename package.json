@@ -61,7 +61,7 @@
     "lint:md-js-fix": "wp-scripts lint-md-js --fix",
     "lint:pkg-json": "wp-scripts lint-pkg-json",
     "lint:php": "npm run wp-env run composer run-script lint",
-    "test:e2e": "npm run cy:run",
+    "test:e2e": "cypress run",
     "test:e2e-interactive": "npm run cy:open",
     "test:unit:js": "wp-scripts test-unit-js",
     "test:unit:php": "npm run wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/wp-bootstrap-blocks/phpunit.xml.dist --verbose'",

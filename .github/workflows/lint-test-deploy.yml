@@ -34,6 +34,10 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        wp: [ '5.7', '5.8' ]
+
     steps:
       - uses: actions/checkout@v2
 
@@ -47,13 +51,17 @@ jobs:
           npm ci
           composer install
 
+      - name: "Configure environment with WP ${{ matrix.wp }}"
+        run: |
+          echo -e '{\n\t"core": "WordPress/WordPress#${{ matrix.wp }}"\n}' > ./.wp-env.override.json
+
       - name: Install WordPress
         run: |
           chmod -R 767 ./ # TODO: Possibly integrate in wp-env
           npm run wp-env start
 
       - name: Running JavaScript E2E tests
-        run: npm run test:e2e
+        run: npm run test:e2e -- --config '{"env":{"cypress-wp-test-utils":{"wpVersion":${{ matrix.wp }}}}}'
 
       - name: Running PHP unit tests
         run: npm run test:unit:php:ci
