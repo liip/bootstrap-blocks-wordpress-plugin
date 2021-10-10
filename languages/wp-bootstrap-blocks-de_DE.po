@@ -394,9 +394,8 @@ msgid "No Gutters"
 msgstr "Keine Abstände zwischen Spalten (No Gutters)"
 
 #: build/index.js:2204
-#, fuzzy
 msgid "Gutters"
-msgstr "Keine Abstände zwischen Spalten (No Gutters)"
+msgstr "Abstände zwischen Spalten"
 
 #: build/index.js:2213
 msgid "Horizontal Gutters"
