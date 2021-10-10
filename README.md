@@ -10,7 +10,7 @@ Bootstrap Gutenberg Blocks for WordPress. This plugin adds Bootstrap components 
 * Support for CSS grid (experimental)
 * Fully customizable with filters
 * Configuration via option page or programmatically with constants
-* Templates can be overwritten in your theme
+* Block templates can be overwritten in your theme
 
 ## Available blocks
 
