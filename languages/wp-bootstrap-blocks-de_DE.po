@@ -65,7 +65,7 @@ msgstr ""
 
 #: src/settings/class-settings.php:200
 msgid "Enable CSS grid (Experimental)"
-msgstr ""
+msgstr "CSS Grid aktivieren (Experimentell)"
 
 #: src/settings/class-settings.php:201
 msgid ""
@@ -73,6 +73,10 @@ msgid ""
 "grid system. The CSS grid is supported with Bootstrap >= 5.1.0. The `$enable-"
 "cssgrid` Bootstrap setting has to be set to `true` if this option is enabled."
 msgstr ""
+"Wenn diese Option aktiviert ist, verwendet Bootstrap das CSS Grid anstelle "
+"des Flexbox Grids. Das CSS Grid wird von Bootstrap >= 5.1.0 unterstützt. Die "
+"`$enable-cssgrid` Einstellung von Bootstrap muss dafür auf `true` gesetzt "
+"werden."
 
 #: src/settings/class-settings.php:212
 msgid "Main settings"
