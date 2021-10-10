@@ -3,15 +3,23 @@ Contributors: liip, tschortsch
 Donate link: https://liip.ch/
 Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.0
-Tested up to: 5.8
+Tested up to: 5.8.1
 Requires PHP: 5.6
-Stable tag: 3.3.2
+Stable tag: 4.0.0
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Bootstrap Gutenberg Blocks for WordPress. Supports Bootstrap v4 and v5. This plugin adds Bootstrap components and layout options as Gutenberg blocks.
+Bootstrap Gutenberg Blocks for WordPress. This plugin adds Bootstrap components and layout options as Gutenberg blocks.
+
+= Features =
+
+* Supports Bootstrap v5 and v4
+* Support for CSS grid (experimental)
+* Fully customizable with filters
+* Configuration via option page or programmatically with constants
+* Templates can be overwritten in your theme
 
 The full documentation of this plugin can be found on GitHub: [https://github.com/liip/bootstrap-blocks-wordpress-plugin#readme](https://github.com/liip/bootstrap-blocks-wordpress-plugin#readme)
 
@@ -36,6 +44,7 @@ Options:
 * Editor stack columns: Displays stacked columns in the editor to enhance readability of block content.
 * Horizontal Gutters: Size of horizontal gutters.
 * Vertical Gutters: Size of vertical gutters.
+* CSS Grid Gutters: Size of gutters when CSS grid is used.
 
 **Column**
 
@@ -66,6 +75,17 @@ The version can be selected in the plugin settings (Settings > Bootstrap Blocks)
 * Bootstrap 5: `define( 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION', '5' );`
 
 Possible values right now are `'4'` or `'5'`. By default Bootstrap version **4** is selected.
+
+= CSS Grid (experimental) =
+
+The [CSS grid](https://getbootstrap.com/docs/5.1/layout/css-grid/) (supported with Bootstrap >= 5.1.0) can be enabled in the plugin settings (Settings > Bootstrap Blocks) or by defining the `WP_BOOTSTRAP_BLOCKS_ENABLE_CSS_GRID` constant in the `wp-config.php` file:
+
+eg. `define( 'WP_BOOTSTRAP_BLOCKS_ENABLE_CSS_GRID', true );`
+
+When the CSS grid is enabled the `row` and the `column` blocks will use custom templates for the rendering process:
+
+* Row: `row-css.grid.php`
+* Column: `column-css-grid.php`
 
 = Bootstrap library =
 
@@ -120,6 +140,13 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 1. Container block
 
 == Changelog ==
+
+= 4.0.0 =
+
+* [FEATURE] Add experimental support for Bootstraps [CSS grid](https://getbootstrap.com/docs/5.1/layout/css-grid/). The support is still experimental since it's also marked as experimental in the Bootstarp library. To use it you need to enable it in the plugins settings and the `$enable-cssgrid: true` setting has to be enabled in your Bootstrap variables file.
+* [FEATURE] Introduce new JavaScript filter `wpBootstrapBlocks.row.cssGridGuttersOptions` for CSS grid. Please read the [documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin#javascript-filters) for further information.
+* [FEATURE] Introduce new PHP filters for CSS grid templates: `wp_bootstrap_blocks_row_css_grid_classes`, `wp_bootstrap_blocks_row_css_grid_styles`, `wp_bootstrap_blocks_column_css_grid_classes`, `wp_bootstrap_blocks_column_css_grid_content_classes`. Please read the [documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin#php-filters) for further information.
+* New Templates: `column-css-grid.php`, `row-css-grid.php`
 
 = 3.3.2 =
 

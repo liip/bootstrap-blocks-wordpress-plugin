@@ -1,5 +1,5 @@
 module.exports = {
-  "__version": "7.6.0",
+  "__version": "8.5.0",
   "Row Block": {
     "Row block should be available": {
       "1": "<!-- wp:wp-bootstrap-blocks/row -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
@@ -166,6 +166,19 @@ module.exports = {
       "Columns should not be smaller than 3": {
         "1": "<!-- wp:wp-bootstrap-blocks/row {\"template\":\"custom\"} -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":3} -->\n<!-- wp:heading -->\n<h2></h2>\n<!-- /wp:heading -->\n<!-- /wp:wp-bootstrap-blocks/column -->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":3} -->\n<!-- wp:heading -->\n<h2></h2>\n<!-- /wp:heading -->\n<!-- /wp:wp-bootstrap-blocks/column -->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":3} -->\n<!-- wp:heading -->\n<h2></h2>\n<!-- /wp:heading -->\n<!-- /wp:wp-bootstrap-blocks/column -->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":3} -->\n<!-- wp:heading -->\n<h2></h2>\n<!-- /wp:heading -->\n<!-- /wp:wp-bootstrap-blocks/column -->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":3} -->\n<!-- wp:heading -->\n<h2></h2>\n<!-- /wp:heading -->\n<!-- /wp:wp-bootstrap-blocks/column -->\n<!-- /wp:wp-bootstrap-blocks/row -->"
       }
+    }
+  },
+  "Row Block CSS grid": {
+    "Should be possible to change gutters size": {
+      "1": "<!-- wp:wp-bootstrap-blocks/row {\"cssGridGutters\":\"2rem\"} -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
+    }
+  },
+  "Row Block Filters CSS grid": {
+    "wpBootstrapBlocks.row.cssGridGuttersOptions should add gutters option": {
+      "1": "<!-- wp:wp-bootstrap-blocks/row {\"noGutters\":false,\"cssGridGutters\":\"1.5rem\"} -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":4} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":8} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
+    },
+    "wp_bootstrap_blocks_row_default_attributes should override default attributes with CSS grid": {
+      "1": "<!-- wp:wp-bootstrap-blocks/row {\"noGutters\":false} -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":4} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":8} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
     }
   }
 }

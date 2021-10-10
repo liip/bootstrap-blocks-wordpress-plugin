@@ -15,7 +15,7 @@ import { applyFilters } from '@wordpress/hooks';
 import * as BlockEditor from '@wordpress/block-editor';
 import * as Editor from '@wordpress/editor';
 
-import { isBootstrap5Active } from '../helper';
+import { isBootstrap5Active, isCssGridEnabled } from '../helper';
 import {
 	verticalAlignBottom,
 	verticalAlignCenter,
@@ -140,16 +140,18 @@ class BootstrapColumnEdit extends Component {
 							disabled={ equalWidthXs }
 							setAttributes={ setAttributes }
 						/>
-						<CheckboxControl
-							label={ __(
-								'Xs equal-width',
-								'wp-bootstrap-blocks'
-							) }
-							checked={ equalWidthXs }
-							onChange={ ( isChecked ) =>
-								setAttributes( { equalWidthXs: isChecked } )
-							}
-						/>
+						{ ! isCssGridEnabled() && (
+							<CheckboxControl
+								label={ __(
+									'Xs equal-width',
+									'wp-bootstrap-blocks'
+								) }
+								checked={ equalWidthXs }
+								onChange={ ( isChecked ) =>
+									setAttributes( { equalWidthXs: isChecked } )
+								}
+							/>
+						) }
 						<hr />
 						<ColumnSizeRangeControl
 							label={ __(
@@ -161,16 +163,18 @@ class BootstrapColumnEdit extends Component {
 							disabled={ equalWidthSm }
 							setAttributes={ setAttributes }
 						/>
-						<CheckboxControl
-							label={ __(
-								'Sm equal-width',
-								'wp-bootstrap-blocks'
-							) }
-							checked={ equalWidthSm }
-							onChange={ ( isChecked ) =>
-								setAttributes( { equalWidthSm: isChecked } )
-							}
-						/>
+						{ ! isCssGridEnabled() && (
+							<CheckboxControl
+								label={ __(
+									'Sm equal-width',
+									'wp-bootstrap-blocks'
+								) }
+								checked={ equalWidthSm }
+								onChange={ ( isChecked ) =>
+									setAttributes( { equalWidthSm: isChecked } )
+								}
+							/>
+						) }
 						<hr />
 						<ColumnSizeRangeControl
 							label={ __(
@@ -182,16 +186,18 @@ class BootstrapColumnEdit extends Component {
 							disabled={ equalWidthMd }
 							setAttributes={ setAttributes }
 						/>
-						<CheckboxControl
-							label={ __(
-								'Md equal-width',
-								'wp-bootstrap-blocks'
-							) }
-							checked={ equalWidthMd }
-							onChange={ ( isChecked ) =>
-								setAttributes( { equalWidthMd: isChecked } )
-							}
-						/>
+						{ ! isCssGridEnabled() && (
+							<CheckboxControl
+								label={ __(
+									'Md equal-width',
+									'wp-bootstrap-blocks'
+								) }
+								checked={ equalWidthMd }
+								onChange={ ( isChecked ) =>
+									setAttributes( { equalWidthMd: isChecked } )
+								}
+							/>
+						) }
 						<hr />
 						<ColumnSizeRangeControl
 							label={ __(
@@ -203,16 +209,18 @@ class BootstrapColumnEdit extends Component {
 							disabled={ equalWidthLg }
 							setAttributes={ setAttributes }
 						/>
-						<CheckboxControl
-							label={ __(
-								'Lg equal-width',
-								'wp-bootstrap-blocks'
-							) }
-							checked={ equalWidthLg }
-							onChange={ ( isChecked ) =>
-								setAttributes( { equalWidthLg: isChecked } )
-							}
-						/>
+						{ ! isCssGridEnabled() && (
+							<CheckboxControl
+								label={ __(
+									'Lg equal-width',
+									'wp-bootstrap-blocks'
+								) }
+								checked={ equalWidthLg }
+								onChange={ ( isChecked ) =>
+									setAttributes( { equalWidthLg: isChecked } )
+								}
+							/>
+						) }
 						<hr />
 						<ColumnSizeRangeControl
 							label={ __(
@@ -224,16 +232,18 @@ class BootstrapColumnEdit extends Component {
 							disabled={ equalWidthXl }
 							setAttributes={ setAttributes }
 						/>
-						<CheckboxControl
-							label={ __(
-								'Xl equal-width',
-								'wp-bootstrap-blocks'
-							) }
-							checked={ equalWidthXl }
-							onChange={ ( isChecked ) =>
-								setAttributes( { equalWidthXl: isChecked } )
-							}
-						/>
+						{ ! isCssGridEnabled() && (
+							<CheckboxControl
+								label={ __(
+									'Xl equal-width',
+									'wp-bootstrap-blocks'
+								) }
+								checked={ equalWidthXl }
+								onChange={ ( isChecked ) =>
+									setAttributes( { equalWidthXl: isChecked } )
+								}
+							/>
+						) }
 						{ isBootstrap5Active() && (
 							<Fragment>
 								<hr />
@@ -247,18 +257,20 @@ class BootstrapColumnEdit extends Component {
 									disabled={ equalWidthXxl }
 									setAttributes={ setAttributes }
 								/>
-								<CheckboxControl
-									label={ __(
-										'Xxl equal-width',
-										'wp-bootstrap-blocks'
-									) }
-									checked={ equalWidthXxl }
-									onChange={ ( isChecked ) =>
-										setAttributes( {
-											equalWidthXxl: isChecked,
-										} )
-									}
-								/>
+								{ ! isCssGridEnabled() && (
+									<CheckboxControl
+										label={ __(
+											'Xxl equal-width',
+											'wp-bootstrap-blocks'
+										) }
+										checked={ equalWidthXxl }
+										onChange={ ( isChecked ) =>
+											setAttributes( {
+												equalWidthXxl: isChecked,
+											} )
+										}
+									/>
+								) }
 							</Fragment>
 						) }
 					</PanelBody>

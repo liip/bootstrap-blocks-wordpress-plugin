@@ -54,6 +54,27 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 		const BOOTSTRAP_VERSION_DEFAULT_VALUE = '4';
 
 		/**
+		 * Name of enable CSS grid constant.
+		 *
+		 * @var string
+		 */
+		const ENABLE_CSS_GRID_CONSTANT_NAME = 'WP_BOOTSTRAP_BLOCKS_ENABLE_CSS_GRID';
+
+		/**
+		 * Name of enable CSS grid option.
+		 *
+		 * @var string
+		 */
+		const ENABLE_CSS_GRID_OPTION_NAME = self::OPTION_PREFIX . 'enable_css_grid';
+
+		/**
+		 * Default enable CSS grid value.
+		 *
+		 * @var boolean
+		 */
+		const ENABLE_CSS_GRID_DEFAULT_VALUE = false;
+
+		/**
 		 * The plugin assets directory.
 		 *
 		 * @var string
@@ -174,6 +195,15 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 					'constant_name' => self::BOOTSTRAP_VERSION_CONSTANT_NAME,
 					'disabled' => false,
 				),
+				array(
+					'option_name' => self::ENABLE_CSS_GRID_OPTION_NAME,
+					'label' => __( 'Enable CSS grid (Experimental)', 'wp-bootstrap-blocks' ),
+					'description' => __( 'If enabled Bootstrap\'s CSS grid will be used instead of the default flexbox grid system. The CSS grid is supported with Bootstrap >= 5.1.0. The `$enable-cssgrid` Bootstrap setting has to be set to `true` if this option is enabled.', 'wp-bootstrap-blocks' ),
+					'type' => 'checkbox',
+					'default' => self::ENABLE_CSS_GRID_DEFAULT_VALUE,
+					'constant_name' => self::ENABLE_CSS_GRID_CONSTANT_NAME,
+					'disabled' => ! self::is_bootstrap_5_active(),
+				),
 			);
 
 			// Add section to page
@@ -189,7 +219,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 
 			foreach ( $settings_fields as $field ) {
 				// Register field
-				register_setting( self::MENU_SLUG, self::BOOTSTRAP_VERSION_OPTION_NAME );
+				register_setting( self::MENU_SLUG, $field['option_name'] );
 
 				$field_args = array(
 					'field' => $field,
@@ -306,15 +336,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 			}
 
 			if ( array_key_exists( 'description', $field ) ) {
-				switch ( $field['type'] ) {
-					case 'checkbox':
-						$html .= '<span class="description">' . $field['description'] . '</span>' . "\n";
-						break;
-
-					default:
-						$html .= '<p class="description">' . $field['description'] . '</p>' . "\n";
-						break;
-				}
+				$html .= '<p class="description">' . esc_html( $field['description'] ) . '</p>' . "\n";
 			}
 
 			if ( $is_option_constant_set ) {
@@ -363,6 +385,15 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 		 */
 		public static function is_bootstrap_5_active() {
 			return version_compare( self::get_bootstrap_version(), '5', '>=' );
+		}
+
+		/**
+		 * Get enable CSS grid option.
+		 *
+		 * @return boolean Enable CSS grid value from options.
+		 */
+		public static function is_css_grid_enabled() {
+			return self::is_bootstrap_5_active() && boolval( self::get_option( self::ENABLE_CSS_GRID_OPTION_NAME, self::ENABLE_CSS_GRID_CONSTANT_NAME, self::ENABLE_CSS_GRID_DEFAULT_VALUE ) );
 		}
 
 		/**

@@ -44,7 +44,7 @@ if ( array_key_exists( 'style', $attributes ) && ! empty( $attributes['style'] )
  *
  * @since 1.0.0
  *
- * @param string $classes Classes which should be added to the wrapper block of the button.
+ * @param array $classes Classes which should be added to the wrapper block of the button.
  * @param array $attributes Block attributes.
  */
 $classes = apply_filters( 'wp_bootstrap_blocks_button_wrapper_classes', $classes, $attributes );

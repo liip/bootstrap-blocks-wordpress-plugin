@@ -6,3 +6,7 @@ export const getBootstrapVersion = () => {
 export const isBootstrap5Active = () => {
 	return wpBootstrapBlocks.isBootstrap5Active === '1';
 };
+
+export const isCssGridEnabled = () => {
+	return wpBootstrapBlocks.isCssGridEnabled === '1';
+};

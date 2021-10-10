@@ -32,5 +32,7 @@ get_header();
 
 	</section>
 
+	<?php dynamic_sidebar( 'home_right_1' ); ?>
+
 <?php
 get_footer();

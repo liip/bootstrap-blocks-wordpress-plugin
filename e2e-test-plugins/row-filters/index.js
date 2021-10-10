@@ -64,4 +64,20 @@
 		'row-filters/wp-bootstrap-blocks/row/verticalGuttersOptions',
 		customVerticalGuttersOption
 	);
+
+	// Add custom CSS grid gutters option
+	function customCssGridGuttersOption( cssGridGuttersOptions ) {
+		return [
+			...cssGridGuttersOptions,
+			{
+				label: 'Medium',
+				value: '1.5rem',
+			},
+		];
+	}
+	wp.hooks.addFilter(
+		'wpBootstrapBlocks.row.cssGridGuttersOptions',
+		'row-filters/wp-bootstrap-blocks/row/cssGridGuttersOptions',
+		customCssGridGuttersOption
+	);
 } )();

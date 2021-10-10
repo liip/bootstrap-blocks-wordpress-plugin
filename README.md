@@ -2,7 +2,15 @@
 
 [![Build Status](https://github.com/liip/bootstrap-blocks-wordpress-plugin/workflows/Lint%20Test%20Deploy/badge.svg?branch=master)](https://github.com/liip/bootstrap-blocks-wordpress-plugin/actions?query=workflow%3A%22Lint+Test+Deploy%22+branch%3Amaster)
 
-Bootstrap Gutenberg Blocks for WordPress. Supports Bootstrap v4 and v5. This plugin adds Bootstrap components and layout options as Gutenberg blocks.
+Bootstrap Gutenberg Blocks for WordPress. This plugin adds Bootstrap components and layout options as Gutenberg blocks.
+
+## Features
+
+* Supports Bootstrap v5 and v4
+* Support for CSS grid (experimental)
+* Fully customizable with filters
+* Configuration via option page or programmatically with constants
+* Templates can be overwritten in your theme
 
 ## Available blocks
 
@@ -25,6 +33,7 @@ Bootstrap Gutenberg Blocks for WordPress. Supports Bootstrap v4 and v5. This plu
 * Editor stack columns: Displays stacked columns in the editor to enhance readability of block content.
 * Horizontal Gutters: Size of horizontal gutters.
 * Vertical Gutters: Size of vertical gutters.
+* CSS Grid Gutters: Size of gutters when CSS grid is used.
 
 ### Column
 
@@ -62,6 +71,17 @@ The version can be selected in the plugin settings (Settings > Bootstrap Blocks)
 * Bootstrap 5: `define( 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION', '5' );`
 
 Possible values right now are `'4'` or `'5'`. By default Bootstrap version **4** is selected.
+
+## CSS Grid (experimental)
+
+The [CSS grid](https://getbootstrap.com/docs/5.1/layout/css-grid/) (supported with Bootstrap >= 5.1.0) can be enabled in the plugin settings (Settings > Bootstrap Blocks) or by defining the `WP_BOOTSTRAP_BLOCKS_ENABLE_CSS_GRID` constant in the `wp-config.php` file:
+
+eg. `define( 'WP_BOOTSTRAP_BLOCKS_ENABLE_CSS_GRID', true );`
+
+When the CSS grid is enabled the `row` and the `column` blocks will use custom templates for the rendering process:
+
+* Row: `row-css.grid.php`
+* Column: `column-css-grid.php`
 
 ## Bootstrap library
 
@@ -176,6 +196,44 @@ function my_custom_row_classes( $classes, $attributes ) {
 }
 ```
 
+### wp_bootstrap_blocks_row_css_grid_classes
+
+Change classes of row block when CSS grid is enabled.
+
+#### Parameters
+
+* `$classes` (`array`) Classes which are added to the block template.
+* `$attributes` (`array`) Attributes of the block.
+
+#### Usage
+
+```php
+add_filter( 'wp_bootstrap_blocks_row_css_grid_classes', 'my_custom_row_css_grid_classes', 10, 2 );
+
+function my_custom_row_css_grid_classes( $classes, $attributes ) {
+    return [ 'my', 'custom', 'classes' ];
+}
+```
+
+### wp_bootstrap_blocks_row_css_grid_styles
+
+Change inline styles of row block when CSS grid is enabled.
+
+#### Parameters
+
+* `$styles` (`string`) Inline styles which are added to the block template.
+* `$attributes` (`array`) Attributes of the block.
+
+#### Usage
+
+```php
+add_filter( 'wp_bootstrap_blocks_row_css_grid_styles', 'my_custom_row_css_grid_styles', 10, 2 );
+
+function my_custom_row_css_grid_styles( $styles, $attributes ) {
+    return '--bs-gap: 3rem;';
+}
+```
+
 ### wp_bootstrap_blocks_column_classes
 
 Change classes of column block.
@@ -195,6 +253,25 @@ function my_custom_column_classes( $classes, $attributes ) {
 }
 ```
 
+### wp_bootstrap_blocks_column_css_grid_classes
+
+Change classes of column block when CSS grid is enabled.
+
+#### Parameters
+
+* `$classes` (`array`) Classes which are added to the block template.
+* `$attributes` (`array`) Attributes of the block.
+
+#### Usage
+
+```php
+add_filter( 'wp_bootstrap_blocks_column_css_grid_classes', 'my_custom_column_css_grid_classes', 10, 2 );
+
+function my_custom_column_css_grid_classes( $classes, $attributes ) {
+    return [ 'my', 'custom', 'classes' ];
+}
+```
+
 ### wp_bootstrap_blocks_column_content_classes
 
 Change classes of the inner content of the column block.
@@ -210,6 +287,25 @@ Change classes of the inner content of the column block.
 add_filter( 'wp_bootstrap_blocks_column_content_classes', 'my_custom_column_content_classes', 10, 2 );
 
 function my_custom_column_content_classes( $classes, $attributes ) {
+    return [ 'my', 'custom', 'classes' ];
+}
+```
+
+### wp_bootstrap_blocks_column_css_grid_content_classes
+
+Change classes of the inner content of the column block when CSS grid is enabled.
+
+#### Parameters
+
+* `$classes` (`array`) Classes which are added to the block template.
+* `$attributes` (`array`) Attributes of the block.
+
+#### Usage
+
+```php
+add_filter( 'wp_bootstrap_blocks_column_css_grid_content_classes', 'my_custom_column_css_grid_content_classes', 10, 2 );
+
+function my_custom_column_css_grid_content_classes( $classes, $attributes ) {
     return [ 'my', 'custom', 'classes' ];
 }
 ```
@@ -285,6 +381,7 @@ Modify default attributes of the row block.
     * `editorStackColumns` (`boolean`) Defines if editorStackColumns option should be selected by default or not (Default: `false`)
     * `horizontalGutters` (`string`) Default horizontal gutters size (Default: `''`)
     * `verticalGutters` (`string`) Default vertical gutters size (Default: `''`)
+    * `cssGridGutters` (`string`) Default gutters size when CSS grid is enabled (Default: `''`)
 
 #### Usage
 
@@ -614,6 +711,28 @@ wp.hooks.addFilter(
 #### Parameters
 
 * `verticalGuttersOptions` (`Array`) Array of vertical gutters options.
+
+### wpBootstrapBlocks.row.cssGridGuttersOptions
+
+Modify available CSS grid gutters options for row block.
+
+#### Usage
+
+```javascript
+function myRowCssGridGuttersOptions( cssGridGuttersOptions ) {
+	cssGridGuttersOptions.push( { label: 'Medium', value: '1.5rem' } );
+	return cssGridGuttersOptions;
+}
+wp.hooks.addFilter(
+	'wpBootstrapBlocks.row.cssGridGuttersOptions',
+	'myplugin/wp-bootstrap-blocks/row/cssGridGuttersOptions',
+	myRowCssGridGuttersOptions
+);
+```
+
+#### Parameters
+
+* `cssGridGuttersOptions` (`Array`) Array of CSS grid gutters options.
 
 ### wpBootstrapBlocks.column.bgColors
 

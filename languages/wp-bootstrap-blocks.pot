@@ -2,21 +2,21 @@
 # This file is distributed under the GPL2+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Bootstrap Blocks 3.3.2\n"
+"Project-Id-Version: Bootstrap Blocks 4.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-bootstrap-blocks\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-06-13T14:01:24+00:00\n"
+"POT-Creation-Date: 2021-10-09T19:50:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 "X-Domain: wp-bootstrap-blocks\n"
 
 #. Plugin Name of the plugin
-#: src/class-wp-bootstrap-blocks.php:231
-#: src/settings/class-settings.php:139
+#: src/class-wp-bootstrap-blocks.php:258
+#: src/settings/class-settings.php:160
 msgid "Bootstrap Blocks"
 msgstr ""
 
@@ -36,42 +36,50 @@ msgstr ""
 msgid "https://liip.ch"
 msgstr ""
 
-#: src/class-wp-bootstrap-blocks.php:281
-#: src/class-wp-bootstrap-blocks.php:288
+#: src/class-wp-bootstrap-blocks.php:308
+#: src/class-wp-bootstrap-blocks.php:315
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
-#: src/settings/class-settings.php:139
-#: src/settings/class-settings.php:234
+#: src/settings/class-settings.php:160
+#: src/settings/class-settings.php:264
 msgid "Bootstrap Blocks Settings"
 msgstr ""
 
-#: src/settings/class-settings.php:150
+#: src/settings/class-settings.php:171
 msgid "Settings"
 msgstr ""
 
-#: src/settings/class-settings.php:166
+#: src/settings/class-settings.php:187
 msgid "Bootstrap Version"
 msgstr ""
 
-#: src/settings/class-settings.php:167
+#: src/settings/class-settings.php:188
 msgid "Depending on the selected Bootstrap version the blocks will be rendered accordingly and version specific features will be available in the editor."
 msgstr ""
 
-#: src/settings/class-settings.php:182
+#: src/settings/class-settings.php:200
+msgid "Enable CSS grid (Experimental)"
+msgstr ""
+
+#: src/settings/class-settings.php:201
+msgid "If enabled Bootstrap's CSS grid will be used instead of the default flexbox grid system. The CSS grid is supported with Bootstrap >= 5.1.0. The `$enable-cssgrid` Bootstrap setting has to be set to `true` if this option is enabled."
+msgstr ""
+
+#: src/settings/class-settings.php:212
 msgid "Main settings"
 msgstr ""
 
-#: src/settings/class-settings.php:230
+#: src/settings/class-settings.php:260
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: src/settings/class-settings.php:257
+#: src/settings/class-settings.php:287
 msgid "Field data missing."
 msgstr ""
 
 #. translators: %s contains constant name
-#: src/settings/class-settings.php:324
+#: src/settings/class-settings.php:346
 msgctxt "%s contains constant name"
 msgid "Option is defined in the following constant: %s"
 msgstr ""
@@ -93,7 +101,7 @@ msgstr ""
 #: build/index.js:638
 #: build/index.js:898
 #: build/index.js:1338
-#: build/index.js:1830
+#: build/index.js:1834
 msgid "Bootstrap"
 msgstr ""
 
@@ -156,14 +164,15 @@ msgstr ""
 
 #: build/index.js:1072
 #: build/index.js:1429
-#: build/index.js:2034
+#: build/index.js:2038
 msgid "None"
 msgstr ""
 
 #: build/index.js:1075
 #: build/index.js:1418
-#: build/index.js:2037
-#: build/index.js:2049
+#: build/index.js:2041
+#: build/index.js:2053
+#: build/index.js:2065
 msgid "Small"
 msgstr ""
 
@@ -174,8 +183,9 @@ msgstr ""
 
 #: build/index.js:1081
 #: build/index.js:1424
-#: build/index.js:2040
-#: build/index.js:2052
+#: build/index.js:2044
+#: build/index.js:2056
+#: build/index.js:2068
 msgid "Large"
 msgstr ""
 
@@ -301,96 +311,101 @@ msgstr ""
 msgid "Margin After"
 msgstr ""
 
-#: build/index.js:1824
-#: build/index.js:1830
+#: build/index.js:1828
+#: build/index.js:1834
 msgid "Row"
 msgstr ""
 
-#: build/index.js:1830
+#: build/index.js:1834
 msgid "Bootstrap Row"
 msgstr ""
 
-#: build/index.js:1943
+#: build/index.js:1947
 msgid "2 Columns (1:1)"
 msgstr ""
 
-#: build/index.js:1962
+#: build/index.js:1966
 msgid "2 Columns (1:2)"
 msgstr ""
 
-#: build/index.js:1981
+#: build/index.js:1985
 msgid "2 Columns (2:1)"
 msgstr ""
 
-#: build/index.js:2000
+#: build/index.js:2004
 msgid "3 Columns (1:1:1)"
 msgstr ""
 
-#: build/index.js:2026
+#: build/index.js:2030
 msgid "Custom"
 msgstr ""
 
-#: build/index.js:2045
+#: build/index.js:2049
 msgid "Bootstrap Default"
 msgstr ""
 
-#: build/index.js:2057
+#: build/index.js:2061
+#: build/index.js:2073
 msgid "Bootstrap Default (None)"
 msgstr ""
 
-#: build/index.js:2124
+#: build/index.js:2141
 msgid "Align columns left"
 msgstr ""
 
-#: build/index.js:2128
-#: build/index.js:2141
+#: build/index.js:2145
+#: build/index.js:2158
 msgid "Align columns center"
 msgstr ""
 
-#: build/index.js:2132
+#: build/index.js:2149
 msgid "Align columns right"
 msgstr ""
 
-#: build/index.js:2137
+#: build/index.js:2154
 msgid "Align columns top"
 msgstr ""
 
-#: build/index.js:2145
+#: build/index.js:2162
 msgid "Align columns bottom"
 msgstr ""
 
-#: build/index.js:2149
+#: build/index.js:2166
 msgid "Editor: Display columns stacked"
 msgstr ""
 
-#: build/index.js:2150
+#: build/index.js:2167
 msgid "Displays stacked columns in editor to enhance readability of block content. This option is only used in the editor and won't affect the output of the row."
 msgstr ""
 
-#: build/index.js:2158
+#: build/index.js:2175
 msgid "Change layout"
 msgstr ""
 
-#: build/index.js:2177
+#: build/index.js:2194
 msgid "Row options"
 msgstr ""
 
-#: build/index.js:2179
+#: build/index.js:2196
 msgid "No Gutters"
 msgstr ""
 
-#: build/index.js:2187
+#: build/index.js:2204
+msgid "Gutters"
+msgstr ""
+
+#: build/index.js:2213
 msgid "Horizontal Gutters"
 msgstr ""
 
-#: build/index.js:2196
+#: build/index.js:2222
 msgid "Vertical Gutters"
 msgstr ""
 
-#: build/index.js:2206
+#: build/index.js:2232
 msgid "Change horizontal alignment of columns"
 msgstr ""
 
-#: build/index.js:2215
+#: build/index.js:2241
 msgid "Change vertical alignment of columns"
 msgstr ""
