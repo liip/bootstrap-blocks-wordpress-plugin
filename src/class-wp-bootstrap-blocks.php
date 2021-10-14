@@ -7,6 +7,8 @@
 
 namespace WP_Bootstrap_Blocks;
 
+use WP_Bootstrap_Blocks\Accordion\Accordion_Block_Type;
+use WP_Bootstrap_Blocks\Accordion_Item\Accordion_Item_Block_Type;
 use WP_Bootstrap_Blocks\Button\Button_Block_Type;
 use WP_Bootstrap_Blocks\Column\Column_Block_Type;
 use WP_Bootstrap_Blocks\Container\Container_Block_Type;
@@ -113,6 +115,8 @@ class WP_Bootstrap_Blocks {
 		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/row/class-row-block-type.php';
 		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/column/class-column-block-type.php';
 		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/button/class-button-block-type.php';
+		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/accordion/class-accordion-block-type.php';
+		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/accordion-item/class-accordion-item-block-type.php';
 		require_once WP_BOOTSTRAP_BLOCKS_ABSPATH . 'src/settings/class-settings.php';
 	}
 
@@ -275,6 +279,8 @@ class WP_Bootstrap_Blocks {
 		new Row_Block_Type();
 		new Column_Block_Type();
 		new Button_Block_Type();
+		new Accordion_Block_Type();
+		new Accordion_Item_Block_Type();
 	}
 
 	/**
