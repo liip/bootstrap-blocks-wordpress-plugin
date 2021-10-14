@@ -32,21 +32,21 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Accordion_Item\Accordion_Item_Block_T
 		 * @var array
 		 */
 		protected $attributes = array(
-			'alignment' => array(
+			'alignment'      => array(
 				'type' => 'string',
 			),
-			'title' => array(
+			'title'          => array(
 				'type' => 'string',
 			),
-			'clientId' => array(
+			'clientId'       => array(
 				'type' => 'string',
 			),
-			'alwaysOpen' => array(
+			'alwaysOpen'     => array(
 				'type' => 'boolean',
 			),
-			'parentClientId' => [
+			'parentClientId' => array(
 				'type' => 'string',
-			]
+			),
 		);
 
 		/**
@@ -55,10 +55,10 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Accordion_Item\Accordion_Item_Block_T
 		 * @var array
 		 */
 		protected $default_attributes = array(
-			'alignment' => '',
-			'title' => '',
-			'clientId' => '',
-			'alwaysOpen' => false,
+			'alignment'      => '',
+			'title'          => '',
+			'clientId'       => '',
+			'alwaysOpen'     => false,
 			'parentClientId' => '',
 		);
 	}
