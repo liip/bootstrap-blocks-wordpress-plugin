@@ -32,7 +32,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Accordion\Accordion_Block_Type', fals
 		 * @var array
 		 */
 		protected $attributes = array(
-			'clientId' => array(
+			'clientId'   => array(
 				'type' => 'string',
 			),
 			'alwaysOpen' => array(
@@ -46,7 +46,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Accordion\Accordion_Block_Type', fals
 		 * @var array
 		 */
 		protected $default_attributes = array(
-			'clientId' => '',
+			'clientId'   => '',
 			'alwaysOpen' => false,
 		);
 	}

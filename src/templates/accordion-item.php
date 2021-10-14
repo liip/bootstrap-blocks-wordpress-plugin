@@ -28,30 +28,24 @@
  * @var $content string
  */
 
-$title = '';
-if (array_key_exists('title', $attributes)) {
-	$title = $attributes['title'];
-}
-
-
-$column_content_classes = apply_filters('wp_bootstrap_blocks_column_content_classes', '', $attributes);
-$accordionItemId ='btn-' .  $attributes['clientId'];
-$accordionItemContentId = 'content-' . $attributes['clientId'] ;
-$accordionId = 'accordion-' . $attributes['parentClientId'];
-$alwaysOpen =  $attributes['alwaysOpen'];
+$accordion_item_title      = ( array_key_exists( 'title', $attributes ) ) ? $attributes['title'] : '';
+$column_content_classes    = apply_filters( 'wp_bootstrap_blocks_column_content_classes', '', $attributes );
+$accordion_item_id         = 'btn-' . $attributes['clientId'];
+$accordion_item_content_id = 'content-' . $attributes['clientId'];
+$accordion_id              = 'accordion-' . $attributes['parentClientId'];
+$always_open               = $attributes['alwaysOpen'];
 
 
 ?>
 <div class="accordion-item">
-	<h2 class="accordion-header" id="<?php echo $accordionItemId; ?>">
+	<h2 class="accordion-header" id="<?php echo esc_attr( $accordion_item_id ); ?>">
 		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-				data-bs-target="#<?php echo $accordionItemContentId; ?>" aria-expanded="true"
-				aria-controls="<?php echo $accordionItemContentId; ?>">
-			<?php echo $title; ?>
+				data-bs-target="#<?php echo esc_attr( $accordion_item_content_id ); ?>" aria-expanded="true"
+				aria-controls="<?php echo esc_attr( $accordion_item_content_id ); ?>">
+			<?php echo $accordion_item_title; // phpcs:ignore ?>
 		</button>
 	</h2>
-	<div id="<?php echo $accordionItemContentId; ?>" class="accordion-collapse collapse"
-		 aria-labelledby="<?php echo $accordionItemId; ?>" <?php echo ($accordionId && !$alwaysOpen ) ? 'data-bs-parent="#' . $accordionId . '"' : '' ?>>
+	<div id="<?php echo esc_attr( $accordion_item_content_id ); ?>" class="accordion-collapse collapse" aria-labelledby="<?php echo esc_attr( $accordion_item_id ); ?>" <?php echo ( $accordion_id && ! $always_open ) ? 'data-bs-parent="#' . esc_attr( $accordion_id ) . '"' : ''; ?>>
 		<div
 			class="accordion-body">
 			<?php echo $content; // phpcs:ignore ?>
