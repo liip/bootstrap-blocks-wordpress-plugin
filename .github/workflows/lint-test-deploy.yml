@@ -61,7 +61,7 @@ jobs:
           npm run wp-env start
 
       - name: Running JavaScript E2E tests
-        run: npm run test:e2e'
+        run: npm run test:e2e
 
       - name: Running PHP unit tests
         run: npm run test:unit:php:ci
@@ -94,7 +94,7 @@ jobs:
           npm run wp-env start
 
       - name: Running JavaScript E2E tests
-        run: npm run test:e2e'
+        run: npm run test:e2e
 
       - name: Running PHP unit tests
         run: npm run test:unit:php:ci
