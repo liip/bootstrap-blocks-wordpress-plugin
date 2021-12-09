@@ -787,7 +787,7 @@ wp.hooks.addFilter(
 
 ### Requirements
 
-* Node.js >= 10.x
+* Node.js >= 16.x
 * Docker
 
 ### Installation
