@@ -20,8 +20,10 @@ describe( 'Column Block', () => {
 			'//div[contains(@class,"block-editor-inserter__no-results")]';
 		const noResultsSelectorWP55 =
 			'//div[contains(@class,"block-editor-inserter__content")]//div[contains(@class,"has-no-results")]';
+		const noResultsSelectorWP57 =
+			'//p[contains(@class,"block-directory-downloadable-blocks-panel__description") and contains(@class,"has-no-results")]';
 		cy.xpath(
-			`${ noResultsSelectorPreWP55 } | ${ noResultsSelectorWP55 }`
+			`${ noResultsSelectorPreWP55 } | ${ noResultsSelectorWP55 } | ${ noResultsSelectorWP57 }`
 		).should( 'exist' );
 	} );
 
