@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0643e85d3f6a52ec959a41bba9991a9a",
+    "content-hash": "ed5ec9ea6a013d55bf52c19269d1a77a",
     "packages": [],
     "packages-dev": [
         {
@@ -79,16 +79,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.5.8",
+            "version": "3.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "9d583721a7157ee997f235f327de038e7ea6dac4"
+                "reference": "f268ca40d54617c6e06757f83f699775c9b3ff2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/9d583721a7157ee997f235f327de038e7ea6dac4",
-                "reference": "9d583721a7157ee997f235f327de038e7ea6dac4",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/f268ca40d54617c6e06757f83f699775c9b3ff2e",
+                "reference": "f268ca40d54617c6e06757f83f699775c9b3ff2e",
                 "shasum": ""
             },
             "require": {
@@ -131,7 +131,7 @@
                 "source": "https://github.com/squizlabs/PHP_CodeSniffer",
                 "wiki": "https://github.com/squizlabs/PHP_CodeSniffer/wiki"
             },
-            "time": "2020-10-23T02:01:07+00:00"
+            "time": "2021-10-11T04:00:11+00:00"
         },
         {
             "name": "wp-coding-standards/wpcs",
@@ -186,16 +186,16 @@
         },
         {
             "name": "wp-phpunit/wp-phpunit",
-            "version": "5.6.2",
+            "version": "5.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-phpunit/wp-phpunit.git",
-                "reference": "f6b3fb65bccc0ff70b3bc7cc241935597dbd5562"
+                "reference": "0cefcc49fd8a7e8c2f8d755e314532441618aee5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-phpunit/wp-phpunit/zipball/f6b3fb65bccc0ff70b3bc7cc241935597dbd5562",
-                "reference": "f6b3fb65bccc0ff70b3bc7cc241935597dbd5562",
+                "url": "https://api.github.com/repos/wp-phpunit/wp-phpunit/zipball/0cefcc49fd8a7e8c2f8d755e314532441618aee5",
+                "reference": "0cefcc49fd8a7e8c2f8d755e314532441618aee5",
                 "shasum": ""
             },
             "type": "library",
@@ -230,7 +230,7 @@
                 "issues": "https://github.com/wp-phpunit/issues",
                 "source": "https://github.com/wp-phpunit/wp-phpunit"
             },
-            "time": "2021-02-04T18:24:14+00:00"
+            "time": "2021-11-10T19:49:29+00:00"
         }
     ],
     "aliases": [],
@@ -240,5 +240,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
