@@ -5,7 +5,7 @@ Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.0
 Tested up to: 5.8.1
 Requires PHP: 5.6
-Stable tag: 4.0.0
+Stable tag: 4.0.1
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -142,6 +142,11 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 1. Container block
 
 == Changelog ==
+
+= 4.0.1 =
+
+* [COMPATIBILITY] Tested up to WordPress 5.9.
+* [CHANGE] Remove `wp-polyfill` dependency.
 
 = 4.0.0 =
 
