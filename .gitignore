@@ -11,3 +11,4 @@ composer.phar
 /release
 cypress/videos
 cypress/screenshots
+.DS_Store
