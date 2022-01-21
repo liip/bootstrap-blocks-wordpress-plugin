@@ -86,7 +86,7 @@ jobs:
 
       - name: "Configure environment with WP 5.9"
         run: |
-          echo -e '{\n\t"core": "https://wordpress.org/wordpress-5.9-beta2.zip"\n}' > ./.wp-env.override.json
+          echo -e '{\n\t"core": "https://wordpress.org/wordpress-5.9-RC3.zip"\n}' > ./.wp-env.override.json
 
       - name: Install WordPress
         run: |
