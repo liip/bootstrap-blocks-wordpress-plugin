@@ -93,7 +93,7 @@ The support is still experimental since it's also marked as experimental in the 
 
 Please be aware that this plugin does not include the Bootstrap library in your website. You need to do this by yourself. We decided not to include the library so that you can modify Bootstrap to your own needs before loading it.
 
-You'll find an example how to include it in your theme's `function.php` in the [documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin#bootstrap-library).
+You'll find an example how to include it in your theme's `functions.php` in the [documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin#bootstrap-library).
 
 = Templates =
 
