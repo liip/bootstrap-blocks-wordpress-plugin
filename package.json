@@ -47,7 +47,7 @@
     "dev": "npm run start",
     "prebuild": "npm run check-engines",
     "build": "wp-scripts build src/index.js src/settings/settings.js",
-    "build-theme-assets": "sass test-themes/bootstrap/styles.scss test-themes/bootstrap/styles.css",
+    "build-theme-assets": "sass test-themes/bootstrap/bootstrap-with-cssgrid.scss test-themes/bootstrap/bootstrap-with-cssgrid.css",
     "update-translations": "scripts/translations/extract-messages.sh && scripts/translations/update-translation-files.sh && scripts/translations/compile-translation-files.sh",
     "wp-env": "wp-env",
     "check-engines": "wp-scripts check-engines",
