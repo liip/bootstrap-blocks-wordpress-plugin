@@ -36,7 +36,7 @@ jobs:
 
     strategy:
       matrix:
-        wp: [ '5.7', '5.8' ]
+        wp: [ '5.7', '5.8', '5.9' ]
 
     steps:
       - uses: actions/checkout@v2
@@ -66,46 +66,13 @@ jobs:
       - name: Running PHP unit tests
         run: npm run test:unit:php:ci
 
-  tests-wp-59:
-    name: Tests WordPress 5.9
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Use Node.js 16
-        uses: actions/setup-node@v1
-        with:
-          node-version: 16
-
-      - name: Install dependencies
-        run: |
-          npm ci
-          composer install
-
-      - name: "Configure environment with WP 5.9"
-        run: |
-          echo -e '{\n\t"core": "https://wordpress.org/wordpress-5.9-RC3.zip"\n}' > ./.wp-env.override.json
-
-      - name: Install WordPress
-        run: |
-          chmod -R 767 ./ # TODO: Possibly integrate in wp-env
-          npm run wp-env start
-
-      - name: Running JavaScript E2E tests
-        run: npm run test:e2e
-
-      - name: Running PHP unit tests
-        run: npm run test:unit:php:ci
-
   deploy-dry-run:
     name: '[DRY RUN] Deploy'
 
     # only run on master but not tags
     if: ${{ github.ref == 'refs/heads/master' && !startsWith(github.ref, 'refs/tags/') }}
 
-    needs: [ lint, tests, 'tests-wp-59' ]
+    needs: [ lint, tests ]
 
     runs-on: ubuntu-latest
 
@@ -124,7 +91,7 @@ jobs:
     # only run on tags
     if: startsWith(github.ref, 'refs/tags/')
 
-    needs: [ lint, tests, 'tests-wp-59' ]
+    needs: [ lint, tests ]
 
     runs-on: ubuntu-latest
 
