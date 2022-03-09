@@ -64,8 +64,16 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Block_Type', false ) ) :
 				}
 			}
 
+			global $wp_version;
+			$block_type = dirname( WP_BOOTSTRAP_BLOCKS_PLUGIN_FILE  ) . '/src/' . $this->get_block_name_without_namespace();
+
+			// Fallback for WP versions older than 5.8
+			if ( version_compare( $wp_version, '5.8', '<' ) ) {
+				$block_type = $this->name;
+			}
+
 			register_block_type(
-				$this->name,
+				$block_type,
 				array(
 					'render_callback' => array( $this, 'render_callback' ),
 					'attributes' => $this->attributes,
@@ -101,6 +109,15 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Block_Type', false ) ) :
 		 * @return string
 		 */
 		protected function get_template_name() {
+			return $this->get_block_name_without_namespace();
+		}
+
+		/**
+		 * Get name of block without namespace.
+		 *
+		 * @return string
+		 */
+		protected function get_block_name_without_namespace() {
 			// Remove namespace from block name.
 			$namespace_separator_position = strrpos( $this->name, '/' );
 			return false === $namespace_separator_position ? $this->name : substr( $this->name, $namespace_separator_position + 1 );
