@@ -1,5 +1,5 @@
 module.exports = {
-  "__version": "9.3.1",
+  "__version": "9.6.1",
   "Row Block": {
     "Row block should be available": {
       "1": "<!-- wp:wp-bootstrap-blocks/row -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
