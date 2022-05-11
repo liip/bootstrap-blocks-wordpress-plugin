@@ -86,7 +86,7 @@ jobs:
 
       - name: "Configure environment with WP 6.0"
         run: |
-          echo -e '{\n\t"core": "https://wordpress.org/wordpress-6.0-RC1.zip"\n}' > ./.wp-env.override.json
+          echo -e '{\n\t"core": "https://wordpress.org/wordpress-6.0-RC2.zip"\n}' > ./.wp-env.override.json
 
       - name: Install WordPress
         run: |
