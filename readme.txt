@@ -3,9 +3,9 @@ Contributors: liip, tschortsch
 Donate link: https://liip.ch/
 Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.0
-Tested up to: 5.9
+Tested up to: 6.0
 Requires PHP: 5.6
-Stable tag: 4.0.1
+Stable tag: 4.1.0
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -142,6 +142,12 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 1. Container block
 
 == Changelog ==
+
+= 4.1.0 =
+
+* [COMPATIBILITY] Tested up to WordPress 6.0.
+* [CHANGE] Prefix all block names with "Bootstrap" to make them distinguishable with other blocks.
+* [FIX] Manually set box-sizing attribute to blocks (was removed in WordPress 6.0).
 
 = 4.0.1 =
 

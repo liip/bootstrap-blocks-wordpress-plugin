@@ -39,9 +39,11 @@
 				> .editor-inner-blocks > .editor-block-list__layout {
 					display: flex;
 					flex-wrap: wrap;
+					box-sizing: border-box;
 
 					> [data-type="wp-bootstrap-blocks/column"] {
 						margin: 0;
+						box-sizing: border-box;
 
 						// Grid implementation
 						@include make-grid-columns();
