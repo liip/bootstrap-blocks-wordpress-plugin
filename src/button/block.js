@@ -12,7 +12,7 @@ import './editor.scss';
 
 registerBlockType( 'wp-bootstrap-blocks/button', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
-	title: __( 'Button', 'wp-bootstrap-blocks' ), // Block title.
+	title: __( 'Bootstrap Button', 'wp-bootstrap-blocks' ), // Block title.
 	icon: button,
 	category: 'wp-bootstrap-blocks', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
