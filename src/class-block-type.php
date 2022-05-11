@@ -65,7 +65,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Block_Type', false ) ) :
 			}
 
 			global $wp_version;
-			$block_type = dirname( WP_BOOTSTRAP_BLOCKS_PLUGIN_FILE  ) . '/src/' . $this->get_block_name_without_namespace();
+			$block_type = dirname( WP_BOOTSTRAP_BLOCKS_PLUGIN_FILE ) . '/src/' . $this->get_block_name_without_namespace();
 
 			// Fallback for WP versions older than 5.8
 			if ( version_compare( $wp_version, '5.8', '<' ) ) {
