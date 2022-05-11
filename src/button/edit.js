@@ -92,7 +92,7 @@ const BootstrapButtonEdit = ( {
 					placeholder={ __( 'Add text...', 'wp-bootstrap-blocks' ) }
 					value={ text }
 					onChange={ ( value ) => setAttributes( { text: value } ) }
-					formattingControls={ [] }
+					allowedFormats={ [] }
 					keepPlaceholderOnFocus
 				/>
 				<InspectorControls>
