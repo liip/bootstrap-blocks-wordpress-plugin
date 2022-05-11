@@ -147,7 +147,7 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 * [COMPATIBILITY] Tested up to WordPress 6.0.
 * [CHANGE] Prefix all block names with "Bootstrap" to make them distinguishable with other blocks.
-* [FIX] Manually set box-sizing attribute to blocks (was removed in WordPress 6.0).
+* [FIX] Manually set box-sizing attribute to blocks (has been removed in WordPress 6.0).
 
 = 4.0.1 =
 
