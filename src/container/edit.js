@@ -7,12 +7,9 @@ import {
 } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { applyFilters } from '@wordpress/hooks';
-import * as BlockEditor from '@wordpress/block-editor';
-import * as Editor from '@wordpress/editor';
+import { InnerBlocks, InspectorControls } from '@wordpress/block-editor';
 
 import { isBootstrap5Active } from '../helper';
-
-const { InnerBlocks, InspectorControls } = BlockEditor || Editor; // Fallback to deprecated '@wordpress/editor' for backwards compatibility
 
 let marginAfterOptions = [
 	{
@@ -86,8 +83,7 @@ const BootstrapContainerEdit = ( {
 } ) => {
 	const { isFluid, fluidBreakpoint, marginAfter } = attributes;
 	const { hasChildBlocks } = useSelect( ( select ) => {
-		const { getBlockOrder } =
-			select( 'core/block-editor' ) || select( 'core/editor' ); // Fallback to 'core/editor' for backwards compatibility
+		const { getBlockOrder } = select( 'core/block-editor' );
 
 		return {
 			hasChildBlocks: getBlockOrder( clientId ).length > 0,

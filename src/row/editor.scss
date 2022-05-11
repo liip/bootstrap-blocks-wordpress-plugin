@@ -35,8 +35,7 @@
 	@include break-small() {
 		&:not([data-editor-stack-columns="true"]) {
 			.wp-block-wp-bootstrap-blocks-row {
-				> .block-editor-inner-blocks > .block-editor-block-list__layout,
-				> .editor-inner-blocks > .editor-block-list__layout {
+				> .block-editor-inner-blocks > .block-editor-block-list__layout {
 					display: flex;
 					flex-wrap: wrap;
 					box-sizing: border-box;
@@ -61,30 +60,24 @@
 			}
 
 			// Horizontal alignment
-			&[data-alignment="left"] .wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout,
-			&[data-alignment="left"] .wp-block-wp-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
+			&[data-alignment="left"] .wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout {
 				justify-content: flex-start;
 			}
-			&[data-alignment="center"] .wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout,
-			&[data-alignment="center"] .wp-block-wp-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
+			&[data-alignment="center"] .wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout {
 				justify-content: center;
 			}
-			&[data-alignment="right"] .wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout,
-			&[data-alignment="right"] .wp-block-wp-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
+			&[data-alignment="right"] .wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout {
 				justify-content: flex-end;
 			}
 
 			// Vertical alignment
-			&[data-vertical-alignment="top"] .wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout,
-			&[data-vertical-alignment="top"] .wp-block-wp-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
+			&[data-vertical-alignment="top"] .wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout {
 				align-items: start;
 			}
-			&[data-vertical-alignment="center"] .wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout,
-			&[data-vertical-alignment="center"] .wp-block-wp-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
+			&[data-vertical-alignment="center"] .wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout {
 				align-items: center;
 			}
-			&[data-vertical-alignment="bottom"] .wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout,
-			&[data-vertical-alignment="bottom"] .wp-block-wp-bootstrap-blocks-row > .editor-inner-blocks > .editor-block-list__layout {
+			&[data-vertical-alignment="bottom"] .wp-block-wp-bootstrap-blocks-row > .block-editor-inner-blocks > .block-editor-block-list__layout {
 				align-items: flex-end;
 			}
 
@@ -95,8 +88,7 @@
 			 */
 			&[data-align="full"] {
 				.wp-block {
-					.block-editor-block-toolbar,
-					.editor-block-toolbar {
+					.block-editor-block-toolbar {
 						left: $block-padding;
 					}
 				}
@@ -106,7 +98,7 @@
 }
 
 // Fix column padding in WordPress >= 5.4 (block-editor-xy classes only exist in WordPress >= 5.2)
-body:not(.branch-5-2):not(.branch-5-3) [data-type="wp-bootstrap-blocks/row"]:not([data-editor-stack-columns="true"]):not([data-no-gutters="true"]):not([data-horizontal-gutters="gx-0"]) .wp-block-wp-bootstrap-blocks-row {
+body:not(.branch-5-3) [data-type="wp-bootstrap-blocks/row"]:not([data-editor-stack-columns="true"]):not([data-no-gutters="true"]):not([data-horizontal-gutters="gx-0"]) .wp-block-wp-bootstrap-blocks-row {
 	@include break-small() {
 		> .block-editor-inner-blocks > .block-editor-block-list__layout {
 			> [data-type="wp-bootstrap-blocks/column"] {

@@ -5,13 +5,10 @@
 // WordPress dependencies
 import { registerBlockType } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
-import * as BlockEditor from '@wordpress/block-editor';
-import * as Editor from '@wordpress/editor';
+import { InnerBlocks } from '@wordpress/block-editor';
 
 import edit, { bgColorOptions } from './edit';
 import { column } from '../icons';
-
-const { InnerBlocks } = BlockEditor || Editor; // Fallback to deprecated '@wordpress/editor' for backwards compatibility
 
 registerBlockType( 'wp-bootstrap-blocks/column', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
