@@ -2,7 +2,7 @@
 Contributors: liip, tschortsch
 Donate link: https://liip.ch/
 Tags: gutenberg, blocks, bootstrap
-Requires at least: 5.0
+Requires at least: 5.3
 Tested up to: 6.1
 Requires PHP: 5.6
 Stable tag: 4.3.1
@@ -142,6 +142,15 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 1. Container block
 
 == Changelog ==
+
+= 5.0.0 =
+
+Starting with this version the plugin only supports WordPress version >= 5.3.
+This step was needed to be able to catch up with the current development practices and remove a lot of deprecations.
+
+* [COMPATIBILITY] Dropped support for WordPress < 5.3.
+* [FEATURE] Added block.json meta file to describe and register blocks (supported in WordPress >= 5.8).
+* [CHANGE] Rewrite all blocks to functional components.
 
 = 4.3.1 =
 
