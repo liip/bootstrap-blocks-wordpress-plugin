@@ -5,7 +5,7 @@ Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.0
 Tested up to: 6.0
 Requires PHP: 5.6
-Stable tag: 4.1.0
+Stable tag: 4.2.0
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -142,6 +142,13 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 1. Container block
 
 == Changelog ==
+
+= 4.2.0 =
+
+* [FEATURE] Reflect noGutters and horizontalGutters options visually in editor  (WordPress >= 5.4).
+* [FIX] Add missing "Medium" size to vertical gutter options.
+* [FIX] Fix label of default css grid gutter option ("Medium" instead of "None").
+* [FIX] Only allow enabling CSS grid option if Bootstrap version is >= 5.
 
 = 4.1.0 =
 

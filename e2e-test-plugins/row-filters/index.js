@@ -38,8 +38,8 @@
 		return [
 			...horizontalGuttersOptions,
 			{
-				label: 'Medium',
-				value: 'gx-4',
+				label: 'Huge',
+				value: 'gx-10',
 			},
 		];
 	}
@@ -54,8 +54,8 @@
 		return [
 			...verticalGuttersOptions,
 			{
-				label: 'Medium',
-				value: 'gy-4',
+				label: 'Huge',
+				value: 'gy-10',
 			},
 		];
 	}
@@ -70,8 +70,8 @@
 		return [
 			...cssGridGuttersOptions,
 			{
-				label: 'Medium',
-				value: '1.5rem',
+				label: 'Huge',
+				value: '10rem',
 			},
 		];
 	}

@@ -218,7 +218,7 @@ horizontalGuttersOptions = applyFilters(
 
 horizontalGuttersOptions = [
 	{
-		label: __( 'Bootstrap Default', 'wp-bootstrap-blocks' ),
+		label: __( 'Bootstrap Default (Medium)', 'wp-bootstrap-blocks' ),
 		value: '',
 	},
 	...horizontalGuttersOptions,
@@ -228,6 +228,10 @@ let verticalGuttersOptions = [
 	{
 		label: __( 'Small', 'wp-bootstrap-blocks' ),
 		value: 'gy-3',
+	},
+	{
+		label: __( 'Medium', 'wp-bootstrap-blocks' ),
+		value: 'gy-4',
 	},
 	{
 		label: __( 'Large', 'wp-bootstrap-blocks' ),
@@ -264,7 +268,7 @@ cssGridGuttersOptions = applyFilters(
 
 cssGridGuttersOptions = [
 	{
-		label: __( 'Bootstrap Default (None)', 'wp-bootstrap-blocks' ),
+		label: __( 'Bootstrap Default (Medium)', 'wp-bootstrap-blocks' ),
 		value: '',
 	},
 	...cssGridGuttersOptions,
