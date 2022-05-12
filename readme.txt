@@ -145,6 +145,9 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 = 4.2.0 =
 
+**NOTICE:** Version 4.x of the plugin will be the last version to support WordPress versions lower than 5.3.
+If you're on a lower version of WordPress think about updating it if you still would like receive updates for this plugin.
+
 * [FEATURE] Reflect noGutters and horizontalGutters options visually in editor  (WordPress >= 5.4).
 * [FIX] Add missing "Medium" size to vertical gutter options.
 * [FIX] Fix label of default css grid gutter option ("Medium" instead of "None").
