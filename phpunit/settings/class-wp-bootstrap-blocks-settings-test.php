@@ -115,8 +115,9 @@ class WP_Bootstrap_Blocks_Settings_Test extends WP_UnitTestCase {
 		$enable_css_grid_option_value = get_option( Settings::ENABLE_CSS_GRID_OPTION_NAME );
 		$this->assertEquals( $constant_value, $enable_css_grid_option_value );
 
-		// Option value should be set to false if Bootstrap version < 5 even if constant is set to true
+		// Option value should be set to false if Bootstrap version < 5
 		update_option( Settings::BOOTSTRAP_VERSION_OPTION_NAME, '4' );
+		update_option( Settings::ENABLE_CSS_GRID_OPTION_NAME, true );
 		$this->assertEquals( false, get_option( Settings::ENABLE_CSS_GRID_OPTION_NAME ) );
 	}
 
