@@ -266,7 +266,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 			<div class="wrap" id="<?php echo esc_attr( self::MENU_SLUG ); ?>">
 				<h1><?php esc_html_e( 'Bootstrap Blocks Settings', 'wp-bootstrap-blocks' ); ?></h1>
 
-				<form method="post" action="options.php" enctype="multipart/form-data" data-cy="wp-bootstrap-blocks-settings-form">
+				<form method="post" action="options.php" enctype="multipart/form-data">
 					<?php
 					// Get settings fields
 					settings_fields( self::MENU_SLUG );

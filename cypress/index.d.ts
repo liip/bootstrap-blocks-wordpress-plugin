@@ -3,6 +3,7 @@
 declare namespace Cypress {
 	interface Chainable<Subject> {
 
+		getByCy(cyKey: string): Chainable<Element>;
 		postContentMatchesSnapshot(): Chainable<void>
 		insertRowBlock(): Chainable<void>
 		selectRowBlock( index?: number ): Chainable<void>

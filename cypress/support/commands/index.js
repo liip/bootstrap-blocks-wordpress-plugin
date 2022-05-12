@@ -1,3 +1,4 @@
+import './get-by-cy';
 import './insert-row-block';
 import './select-row-block';
 import './row-template-is-selected';
