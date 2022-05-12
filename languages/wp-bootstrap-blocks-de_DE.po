@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Bootstrap Blocks plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Bootstrap Blocks 4.1.0\n"
+"Project-Id-Version: Bootstrap Blocks 4.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-bootstrap-"
 "blocks\n"
-"POT-Creation-Date: 2022-05-11T07:32:45+00:00\n"
+"POT-Creation-Date: 2022-05-12T07:38:53+00:00\n"
 "PO-Revision-Date: 2020-10-18 22:25+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -109,8 +109,8 @@ msgstr "Bootstrap Button"
 msgid "Button"
 msgstr "Button"
 
-#: build/index.js:35 build/index.js:272 build/index.js:702 build/index.js:1168
-#: build/index.js:21 build/index.js:212 build/index.js:682 build/index.js:1044
+#: build/index.js:35 build/index.js:272 build/index.js:702 build/index.js:1169
+#: build/index.js:21 build/index.js:212 build/index.js:682 build/index.js:1045
 msgid "Bootstrap"
 msgstr "Bootstrap"
 
@@ -170,26 +170,27 @@ msgstr "Inhalt zentrieren"
 msgid "Align content bottom"
 msgstr "Inhalt unten positionieren"
 
-#: build/index.js:438 build/index.js:785 build/index.js:1365 build/index.js:369
-#: build/index.js:737 build/index.js:1271
+#: build/index.js:438 build/index.js:785 build/index.js:1368 build/index.js:369
+#: build/index.js:737 build/index.js:1274
 msgid "None"
 msgstr "Deaktiviert"
 
-#: build/index.js:441 build/index.js:774 build/index.js:1368
-#: build/index.js:1380 build/index.js:1392 build/index.js:370
-#: build/index.js:718 build/index.js:1275 build/index.js:1298
-#: build/index.js:1321
+#: build/index.js:441 build/index.js:774 build/index.js:1371
+#: build/index.js:1383 build/index.js:1398 build/index.js:370
+#: build/index.js:718 build/index.js:1278 build/index.js:1301
+#: build/index.js:1328
 msgid "Small"
 msgstr "Klein"
 
-#: build/index.js:444 build/index.js:777 build/index.js:371 build/index.js:722
+#: build/index.js:444 build/index.js:777 build/index.js:1386 build/index.js:371
+#: build/index.js:722 build/index.js:1305
 msgid "Medium"
 msgstr "Mittel"
 
-#: build/index.js:447 build/index.js:780 build/index.js:1371
-#: build/index.js:1383 build/index.js:1395 build/index.js:372
-#: build/index.js:726 build/index.js:1279 build/index.js:1302
-#: build/index.js:1325
+#: build/index.js:447 build/index.js:780 build/index.js:1374
+#: build/index.js:1389 build/index.js:1401 build/index.js:372
+#: build/index.js:726 build/index.js:1282 build/index.js:1309
+#: build/index.js:1332
 msgid "Large"
 msgstr "Gross"
 
@@ -320,70 +321,70 @@ msgstr "Margin"
 msgid "Margin After"
 msgstr "Margin unterhalb vom Block"
 
-#: build/index.js:1162 build/index.js:1168 build/index.js:1038
-#: build/index.js:1043
+#: build/index.js:1163 build/index.js:1169 build/index.js:1039
+#: build/index.js:1044
 msgid "Bootstrap Row"
 msgstr "Bootstrap Row"
 
-#: build/index.js:1168 build/index.js:1042
+#: build/index.js:1169 build/index.js:1043
 msgid "Row"
 msgstr "Row"
 
-#: build/index.js:1274 build/index.js:1115
+#: build/index.js:1277 build/index.js:1118
 msgid "2 Columns (1:1)"
 msgstr "2 Spalten (1:1)"
 
-#: build/index.js:1293 build/index.js:1148
+#: build/index.js:1296 build/index.js:1151
 msgid "2 Columns (1:2)"
 msgstr "2 Spalten (1:2)"
 
-#: build/index.js:1312 build/index.js:1181
+#: build/index.js:1315 build/index.js:1184
 msgid "2 Columns (2:1)"
 msgstr "2 Spalten (2:1)"
 
-#: build/index.js:1331 build/index.js:1214
+#: build/index.js:1334 build/index.js:1217
 msgid "3 Columns (1:1:1)"
 msgstr "3 Spalten (1:1:1)"
 
-#: build/index.js:1357 build/index.js:1262
+#: build/index.js:1360 build/index.js:1265
 msgid "Custom"
 msgstr "Benutzerdefiniert"
 
-#: build/index.js:1376 build/index.js:1290
-msgid "Bootstrap Default"
-msgstr "Bootstrap Standardwert"
+#: build/index.js:1379 build/index.js:1406 build/index.js:1293
+#: build/index.js:1343
+msgid "Bootstrap Default (Medium)"
+msgstr "Bootstrap Standardwert (Medium)"
 
-#: build/index.js:1388 build/index.js:1400 build/index.js:1313
-#: build/index.js:1336
+#: build/index.js:1394 build/index.js:1320
 msgid "Bootstrap Default (None)"
 msgstr "Bootstrap Standardwert (Kein Abstand)"
 
-#: build/index.js:1468 build/index.js:1393
+#: build/index.js:1474 build/index.js:1400
 msgid "Align columns left"
 msgstr "Spalten links positionieren"
 
-#: build/index.js:1472 build/index.js:1485 build/index.js:1398
-#: build/index.js:1416
+#: build/index.js:1478 build/index.js:1491 build/index.js:1405
+#: build/index.js:1423
 msgid "Align columns center"
 msgstr "Spalten zentrieren"
 
-#: build/index.js:1476 build/index.js:1403
+#: build/index.js:1482 build/index.js:1410
 msgid "Align columns right"
 msgstr "Spalten rechts positionieren"
 
-#: build/index.js:1481 build/index.js:1411
+#: build/index.js:1487 build/index.js:1418
 msgid "Align columns top"
 msgstr "Spalten oben positionieren"
 
-#: build/index.js:1489 build/index.js:1421
+#: build/index.js:1495 build/index.js:1428
 msgid "Align columns bottom"
 msgstr "Spalten unten positionieren"
 
-#: build/index.js:1493 build/index.js:1431
+#: build/index.js:1499 build/index.js:1438
 msgid "Editor: Display columns stacked"
 msgstr "Editor: Spalten untereinander darstellen"
 
-#: build/index.js:1494 build/index.js:1435
+#: build/index.js:1500 build/index.js:1442
 msgid ""
 "Displays stacked columns in editor to enhance readability of block content. "
 "This option is only used in the editor and won't affect the output of the "
@@ -393,34 +394,34 @@ msgstr ""
 "verbessern. Diese Option wird lediglich für den Editor verwendet und "
 "verändert die Ausgabe des Blocks nicht."
 
-#: build/index.js:1502 build/index.js:1448
+#: build/index.js:1508 build/index.js:1455
 msgid "Change layout"
 msgstr "Layout ändern"
 
-#: build/index.js:1521 build/index.js:1481
+#: build/index.js:1527 build/index.js:1488
 msgid "Row options"
 msgstr "Zeilen Optionen"
 
-#: build/index.js:1523 build/index.js:1484
+#: build/index.js:1529 build/index.js:1491
 msgid "No Gutters"
 msgstr "Keine Abstände zwischen Spalten (No Gutters)"
 
-#: build/index.js:1531 build/index.js:1493
+#: build/index.js:1537 build/index.js:1500
 msgid "Gutters"
 msgstr "Abstände zwischen Spalten"
 
-#: build/index.js:1540 build/index.js:1509
+#: build/index.js:1546 build/index.js:1516
 msgid "Horizontal Gutters"
 msgstr "Horizontale Abstände zwischen Spalten"
 
-#: build/index.js:1549 build/index.js:1522
+#: build/index.js:1555 build/index.js:1529
 msgid "Vertical Gutters"
 msgstr "Vertikale Abstände zwischen Spalten"
 
-#: build/index.js:1559 build/index.js:1544
+#: build/index.js:1565 build/index.js:1551
 msgid "Change horizontal alignment of columns"
 msgstr "Ändere die horizontale Positionierung der Spalten"
 
-#: build/index.js:1568 build/index.js:1555
+#: build/index.js:1574 build/index.js:1562
 msgid "Change vertical alignment of columns"
 msgstr "Ändere die vertikale Positionierung der Spalten"
