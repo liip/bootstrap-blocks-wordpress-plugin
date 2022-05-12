@@ -149,7 +149,7 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 If you're on a lower version of WordPress think about updating it if you still would like receive updates for this plugin.
 
 * [FEATURE] Reflect noGutters and horizontalGutters options visually in editor  (WordPress >= 5.4).
-* [FIX] Add missing "Medium" size to vertical gutter options.
+* [CHANGE] Add missing "Medium" size to vertical gutter options. If you're using the [`wpBootstrapBlocks.row.verticalGuttersOptions`](https://github.com/liip/bootstrap-blocks-wordpress-plugin#wpbootstrapblocksrowverticalguttersoptions) JavaScript filter to modify the options please check if the new option (`gy-4`) doesn't conflict with your custom options.
 * [FIX] Fix label of default css grid gutter option ("Medium" instead of "None").
 * [FIX] Only allow enabling CSS grid option if Bootstrap version is >= 5.
 
