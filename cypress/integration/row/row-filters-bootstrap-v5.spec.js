@@ -27,10 +27,10 @@ describe( 'Row Block Filters Bootstrap 5', () => {
 		cy.clickElementByText( 'label', 'No Gutters' );
 
 		// Additional horizontal gutters option should be available
-		cy.selectOptionIsAvailable( 'Horizontal Gutters', 'gx-4' );
+		cy.selectOptionIsAvailable( 'Horizontal Gutters', 'gx-10' );
 
 		// Horizontal Gutters option should be applied
-		cy.getSelectByLabel( 'Horizontal Gutters' ).select( 'gx-4' );
+		cy.getSelectByLabel( 'Horizontal Gutters' ).select( 'gx-10' );
 
 		cy.postContentMatchesSnapshot();
 	} );
@@ -44,10 +44,10 @@ describe( 'Row Block Filters Bootstrap 5', () => {
 		cy.clickElementByText( 'label', 'No Gutters' );
 
 		// Additional vertical gutters option should be available
-		cy.selectOptionIsAvailable( 'Vertical Gutters', 'gy-4' );
+		cy.selectOptionIsAvailable( 'Vertical Gutters', 'gy-10' );
 
 		// Vertical Gutters option should be applied
-		cy.getSelectByLabel( 'Vertical Gutters' ).select( 'gy-4' );
+		cy.getSelectByLabel( 'Vertical Gutters' ).select( 'gy-10' );
 
 		cy.postContentMatchesSnapshot();
 	} );
