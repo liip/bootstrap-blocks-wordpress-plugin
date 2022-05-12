@@ -145,10 +145,10 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 = 5.0.0 =
 
-Starting with this version the plugin only supports WordPress version >= 5.3.
+Starting with this version the plugin only supports WordPress versions >= 5.3.
 This step was needed to be able to catch up with the current development practices and remove a lot of deprecations.
 
-* [COMPATIBILITY] Dropped support for WordPress < 5.3.
+* **[COMPATIBILITY] Dropped support for WordPress < 5.3.** Please update your website if you still would like to receive updates for this plugin.
 * [FEATURE] Added block.json meta file to describe and register blocks (supported in WordPress >= 5.8).
 * [CHANGE] Rewrite all blocks to functional components.
 
