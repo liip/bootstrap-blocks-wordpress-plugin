@@ -106,7 +106,7 @@
 }
 
 // Fix column padding in WordPress >= 5.4 (block-editor-xy classes only exist in WordPress >= 5.2)
-body:not(.branch-5-2):not(.branch-5-3) [data-type="wp-bootstrap-blocks/row"]:not([data-editor-stack-columns="true"]) .wp-block-wp-bootstrap-blocks-row {
+body:not(.branch-5-2):not(.branch-5-3) [data-type="wp-bootstrap-blocks/row"]:not([data-editor-stack-columns="true"]):not([data-no-gutters="true"]):not([data-horizontal-gutters="gx-0"]) .wp-block-wp-bootstrap-blocks-row {
 	@include break-small() {
 		> .block-editor-inner-blocks > .block-editor-block-list__layout {
 			> [data-type="wp-bootstrap-blocks/column"] {
