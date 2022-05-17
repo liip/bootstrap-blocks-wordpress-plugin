@@ -110,7 +110,7 @@ mkdir -p $RELEASEPATH/assets/
 svn update --quiet $RELEASEPATH/assets --set-depth infinity
 echo "Clearing SVN repo assets so we can overwrite it"
 rm -rf $RELEASEPATH/assets/*
-echo "Copying assets fiels to SVN assets"
+echo "Copying assets files to SVN assets"
 cp -R $SOURCEPATH/.wordpress/* $RELEASEPATH/assets/
 
 echo "Updating WordPress plugin assets and committing"
