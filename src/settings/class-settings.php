@@ -124,6 +124,9 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 				// Filter saving of bootstrap version
 				add_filter( 'pre_update_option_' . self::BOOTSTRAP_VERSION_OPTION_NAME, array( __CLASS__, 'pre_update_option_bootstrap_version' ), 10, 2 );
 
+				// Filter saving of enable css grid option
+				add_filter( 'pre_update_option_' . self::ENABLE_CSS_GRID_OPTION_NAME, array( __CLASS__, 'pre_update_option_css_grid_enabled' ), 10, 2 );
+
 				// Enqueue settings stylesheet
 				add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue_styles' ) );
 
@@ -367,6 +370,20 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 		 */
 		public static function pre_update_option_bootstrap_version( $new_value, $old_value ) {
 			return defined( self::BOOTSTRAP_VERSION_CONSTANT_NAME ) ? strval( constant( self::BOOTSTRAP_VERSION_CONSTANT_NAME ) ) : $new_value;
+		}
+
+		/**
+		 * Only enable CSS grid if bootstrap version is >= 5 and always use constant value if set.
+		 *
+		 * @param string $new_value The new, unserialized option value.
+		 * @param string $old_value The old option value.
+		 *
+		 * @return string
+		 */
+		public static function pre_update_option_css_grid_enabled( $new_value, $old_value ) {
+			return self::is_bootstrap_5_active()
+				? defined( self::ENABLE_CSS_GRID_CONSTANT_NAME ) ? boolval( constant( self::ENABLE_CSS_GRID_CONSTANT_NAME ) ) : $new_value
+				: false;
 		}
 
 		/**

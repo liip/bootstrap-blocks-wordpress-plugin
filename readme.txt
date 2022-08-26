@@ -3,9 +3,9 @@ Contributors: liip, tschortsch
 Donate link: https://liip.ch/
 Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.0
-Tested up to: 5.8.1
+Tested up to: 6.0
 Requires PHP: 5.6
-Stable tag: 4.0.0
+Stable tag: 4.2.1
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,7 +93,7 @@ The support is still experimental since it's also marked as experimental in the 
 
 Please be aware that this plugin does not include the Bootstrap library in your website. You need to do this by yourself. We decided not to include the library so that you can modify Bootstrap to your own needs before loading it.
 
-You'll find an example how to include it in your theme's `function.php` in the [documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin#bootstrap-library).
+You'll find an example how to include it in your theme's `functions.php` in the [documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin#bootstrap-library).
 
 = Templates =
 
@@ -142,6 +142,31 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 1. Container block
 
 == Changelog ==
+
+= 4.2.1 =
+
+**NOTICE:** Version 4.x of the plugin will be the last version to support WordPress versions lower than 5.3.
+If you're on a lower version of WordPress think about updating it if you still would like receive updates for this plugin.
+
+* [FIX] Rename blocks to `<Blockname> (Bootstrap)` for better discoverability when searching for a block.
+
+= 4.2.0 =
+
+* [FEATURE] Reflect noGutters and horizontalGutters options visually in editor  (WordPress >= 5.4).
+* [CHANGE] Add missing "Medium" size to vertical gutter options. If you're using the [`wpBootstrapBlocks.row.verticalGuttersOptions`](https://github.com/liip/bootstrap-blocks-wordpress-plugin#wpbootstrapblocksrowverticalguttersoptions) JavaScript filter to modify the options please check if the new option (`gy-4`) doesn't conflict with your custom options.
+* [FIX] Fix label of default css grid gutter option ("Medium" instead of "None").
+* [FIX] Only allow enabling CSS grid option if Bootstrap version is >= 5.
+
+= 4.1.0 =
+
+* [COMPATIBILITY] Tested up to WordPress 6.0.
+* [CHANGE] Prefix all block names with "Bootstrap" to make them distinguishable with other blocks.
+* [FIX] Manually set box-sizing attribute to blocks (has been removed in WordPress 6.0).
+
+= 4.0.1 =
+
+* [COMPATIBILITY] Tested up to WordPress 5.9.
+* [CHANGE] Remove `wp-polyfill` dependency.
 
 = 4.0.0 =
 
@@ -286,11 +311,11 @@ This is a major update of the plugin. Please check if the mentioned **breaking c
 
 = 1.3.0 =
 
-In this release we changed the template structure for the `row` block form object to array (see [template update guide](https://github.com/liip/bootstrap-blocks-wordpress-plugin#update-template-structure-from-120-to-130)). With this change we try to move towards the new template structure which will be introduced by the `InnerBlocks` template selector feature.
+In this release we changed the template structure for the `row` block form object to array (see [template update guide](https://github.com/liip/bootstrap-blocks-wordpress-plugin/tree/1.3.0#update-template-structure-from-120-to-130)). With this change we try to move towards the new template structure which will be introduced by the `InnerBlocks` template selector feature.
 
 If you used the `wpBootstrapBlocks.row.templates` filter to modify the existing row templates please update your template structure accordingly (see [filter documentation](https://github.com/liip/bootstrap-blocks-wordpress-plugin#wpbootstrapblocksrowtemplates)). The old structure will still work but is deprecated.
 
-As soon as you have updated your template structure you need to disable the old object template structure with the [`wpBootstrapBlocks.row.useOldObjectTemplateStructure` filter](https://github.com/liip/bootstrap-blocks-wordpress-plugin#wpbootstrapblocksrowuseoldobjecttemplatestructure).
+As soon as you have updated your template structure you need to disable the old object template structure with the [`wpBootstrapBlocks.row.useOldObjectTemplateStructure` filter](https://github.com/liip/bootstrap-blocks-wordpress-plugin/tree/1.3.0#wpbootstrapblocksrowuseoldobjecttemplatestructure).
 
 * [IMPROVEMENT] Improve template selection in row block. Added possibility to set an icon for each template.
 * [IMPROVEMENT] Use withSelect / withDispatch HOCs in row block.

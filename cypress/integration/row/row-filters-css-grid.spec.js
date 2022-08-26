@@ -27,10 +27,10 @@ describe( 'Row Block Filters CSS grid', () => {
 		cy.clickElementByText( 'label', 'No Gutters' );
 
 		// Additional gutters option should be available
-		cy.selectOptionIsAvailable( 'Gutters', '1.5rem' );
+		cy.selectOptionIsAvailable( 'Gutters', '10rem' );
 
 		// Gutters option should be applied
-		cy.getSelectByLabel( 'Gutters' ).select( '1.5rem' );
+		cy.getSelectByLabel( 'Gutters' ).select( '10rem' );
 
 		cy.postContentMatchesSnapshot();
 	} );

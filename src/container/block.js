@@ -16,7 +16,7 @@ const { InnerBlocks } = BlockEditor || Editor; // Fallback to deprecated '@wordp
 
 registerBlockType( 'wp-bootstrap-blocks/container', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
-	title: __( 'Container', 'wp-bootstrap-blocks' ), // Block title.
+	title: __( 'Container (Bootstrap)', 'wp-bootstrap-blocks' ), // Block title.
 	icon: stack,
 	category: 'wp-bootstrap-blocks', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [

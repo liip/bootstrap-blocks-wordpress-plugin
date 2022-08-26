@@ -90,12 +90,12 @@ The support is still experimental since it's also marked as experimental in the 
 Please be aware that this plugin does not include the Bootstrap library in your website. You need to do this by yourself. 
 We decided not to include the library so that you can modify Bootstrap to your own needs before loading it.
 
-The easiest way to do this is to add the following to your theme's `function.php`:
+The easiest way to do this is to add the following to your theme's `functions.php`:
 
 ```php
 function mytheme_load_bootstrap() {
     if ( is_admin() ) {
-       return;
+        return;
     }
 
     wp_enqueue_style( 'bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', array(), '4.3.1' );
@@ -787,7 +787,7 @@ wp.hooks.addFilter(
 
 ### Requirements
 
-* Node.js >= 10.x
+* Node.js >= 16.x
 * Docker
 
 ### Installation

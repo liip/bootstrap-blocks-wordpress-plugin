@@ -7,18 +7,24 @@ describe( 'Column Block', () => {
 	} );
 
 	it( 'Column block should not be available in block inserter', () => {
+		// Intercept block directory request
+		cy.intercept(
+			'/index.php?rest_route=%2Fwp%2Fv2%2Fblock-directory%2Fsearch&term=*',
+			{
+				body: [],
+			}
+		);
 		cy.searchForBlock( 'Bootstrap Column' );
 
-		// eslint-disable-next-line jest/valid-expect-in-promise
-		cy.window().then( ( window ) => {
-			const noResultPreWP55 = window.document.querySelector(
-				'.block-editor-inserter__no-results'
-			);
-			const noResultWP55 = window.document.querySelector(
-				'.block-editor-inserter__content .has-no-results'
-			);
-			cy.wrap( noResultPreWP55 || noResultWP55 ).should( 'exist' );
-		} );
+		const noResultsSelectorPreWP55 =
+			'//div[contains(@class,"block-editor-inserter__no-results")]';
+		const noResultsSelectorWP55 =
+			'//div[contains(@class,"block-editor-inserter__content")]//div[contains(@class,"has-no-results")]';
+		const noResultsSelectorWP57 =
+			'//p[contains(@class,"block-directory-downloadable-blocks-panel__description") and contains(@class,"has-no-results")]';
+		cy.xpath(
+			`${ noResultsSelectorPreWP55 } | ${ noResultsSelectorWP55 } | ${ noResultsSelectorWP57 }`
+		).should( 'exist' );
 	} );
 
 	it( 'Column block should be initialized with default attributes', () => {
