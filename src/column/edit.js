@@ -320,7 +320,8 @@ const BootstrapColumnEdit = ( {
 					) }
 					onChange={ ( newContentVerticalAlignment ) =>
 						setAttributes( {
-							contentVerticalAlignment: newContentVerticalAlignment,
+							contentVerticalAlignment:
+								newContentVerticalAlignment,
 						} )
 					}
 					alignmentControls={ contentVerticalAlignmentControls }
