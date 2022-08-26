@@ -383,33 +383,37 @@ class BootstrapRowEdit extends Component {
 						title={ __( 'Change layout', 'wp-bootstrap-blocks' ) }
 					>
 						<ul className="wp-bootstrap-blocks-template-selector-list">
-							{ templates.map( (
-								template,
-								index // eslint-disable-line no-shadow
-							) => (
-								<li
-									className="wp-bootstrap-blocks-template-selector-button"
-									key={ index }
-								>
-									<IconButton
-										label={ template.title }
-										icon={ template.icon }
-										onClick={ () => {
-											onTemplateChange( template.name );
-										} }
-										className={
-											selectedTemplateName ===
-											template.name
-												? 'is-active'
-												: null
-										}
+							{ templates.map(
+								(
+									template,
+									index // eslint-disable-line no-shadow
+								) => (
+									<li
+										className="wp-bootstrap-blocks-template-selector-button"
+										key={ index }
 									>
-										<div className="wp-bootstrap-blocks-template-selector-button-label">
-											{ template.title }
-										</div>
-									</IconButton>
-								</li>
-							) ) }
+										<IconButton
+											label={ template.title }
+											icon={ template.icon }
+											onClick={ () => {
+												onTemplateChange(
+													template.name
+												);
+											} }
+											className={
+												selectedTemplateName ===
+												template.name
+													? 'is-active'
+													: null
+											}
+										>
+											<div className="wp-bootstrap-blocks-template-selector-button-label">
+												{ template.title }
+											</div>
+										</IconButton>
+									</li>
+								)
+							) }
 						</ul>
 					</PanelBody>
 					<PanelBody
