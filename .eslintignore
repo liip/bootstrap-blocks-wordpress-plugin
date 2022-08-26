@@ -4,3 +4,4 @@ build
 !.*.js
 snapshots.js
 cypress/index.d.ts
+release/
