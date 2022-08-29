@@ -82,12 +82,8 @@ fluidBreakpointOptions = [
 
 class BootstrapContainerEdit extends Component {
 	render() {
-		const {
-			attributes,
-			className,
-			setAttributes,
-			hasChildBlocks,
-		} = this.props;
+		const { attributes, className, setAttributes, hasChildBlocks } =
+			this.props;
 		const { isFluid, fluidBreakpoint, marginAfter } = attributes;
 
 		return (

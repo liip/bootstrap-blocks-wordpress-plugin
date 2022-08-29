@@ -90,12 +90,8 @@ paddingOptions = applyFilters(
 
 class BootstrapColumnEdit extends Component {
 	render() {
-		const {
-			attributes,
-			className,
-			setAttributes,
-			hasChildBlocks,
-		} = this.props;
+		const { attributes, className, setAttributes, hasChildBlocks } =
+			this.props;
 		const {
 			sizeXxl,
 			sizeXl,
@@ -333,7 +329,8 @@ class BootstrapColumnEdit extends Component {
 						) }
 						onChange={ ( newContentVerticalAlignment ) =>
 							setAttributes( {
-								contentVerticalAlignment: newContentVerticalAlignment,
+								contentVerticalAlignment:
+									newContentVerticalAlignment,
 							} )
 						}
 						alignmentControls={ contentVerticalAlignmentControls }

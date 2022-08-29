@@ -13,5 +13,7 @@
 	</testsuites>
 	<php>
 		<env name="WP_BOOTSTRAP_BLOCKS_RECORD" value="false" />
+		<env name="WP_TESTS_DIR" value="./phpunit" />
+		<env name="WP_PHPUNIT__TESTS_CONFIG" value="/wordpress-phpunit/wp-tests-config.php" />
 	</php>
 </phpunit>
