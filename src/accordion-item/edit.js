@@ -12,12 +12,8 @@ const { InnerBlocks, RichText } = BlockEditor || Editor; // Fallback to deprecat
 
 class BootstrapAccordionItemEdit extends Component {
 	render() {
-		const {
-			attributes,
-			hasSelectedBlock,
-			clientId,
-			setAttributes,
-		} = this.props;
+		const { attributes, hasSelectedBlock, clientId, setAttributes } =
+			this.props;
 		const { title } = attributes;
 
 		setAttributes( { clientId } );

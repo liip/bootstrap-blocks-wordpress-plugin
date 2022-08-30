@@ -2,7 +2,7 @@
 import { __ } from '@wordpress/i18n';
 import { CheckboxControl, PanelBody } from '@wordpress/components';
 import { Component, Fragment } from '@wordpress/element';
-import { withDispatch, withSelect } from '@wordpress/data';
+import { dispatch, withDispatch, withSelect } from '@wordpress/data';
 import { compose } from '@wordpress/compose';
 //import { applyFilters } from '@wordpress/hooks';
 
@@ -23,10 +23,17 @@ class BootstrapAccordionEdit extends Component {
 			clientId,
 			updateAlwaysOpen,
 			setAttributes,
+			items,
 		} = this.props;
 		const { alwaysOpen } = attributes;
 
 		setAttributes( { clientId } );
+		items.forEach( function ( child ) {
+			dispatch( 'core/block-editor' ).updateBlockAttributes(
+				child.clientId,
+				{ parentClientId: clientId }
+			);
+		} );
 
 		return (
 			<Fragment>
