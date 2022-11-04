@@ -1,5 +1,5 @@
 {
-	"core": "WordPress/WordPress#6.0.1",
+	"core": "WordPress/WordPress#6.1",
 	"plugins": [ "." ],
 	"themes": [
 		"./test-themes/bootstrap"
