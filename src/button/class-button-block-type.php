@@ -62,7 +62,7 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Button\Button_Block_Type', false ) ) 
 			'linkTarget' => '',
 			'rel' => '',
 			'text' => '',
-			'style' => '',
+			'style' => 'primary',
 			'alignment' => '',
 		);
 	}

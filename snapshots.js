@@ -1,5 +1,5 @@
 module.exports = {
-  "__version": "9.6.1",
+  "__version": "10.6.0",
   "Row Block": {
     "Row block should be available": {
       "1": "<!-- wp:wp-bootstrap-blocks/row -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
@@ -78,6 +78,12 @@ module.exports = {
     "Should keep rel value if set when open in new tab is enabled or disabled": {
       "1": "<!-- wp:wp-bootstrap-blocks/button {\"linkTarget\":\"_blank\",\"rel\":\"custom rel value\"} /-->",
       "2": "<!-- wp:wp-bootstrap-blocks/button {\"rel\":\"custom rel value\"} /-->"
+    },
+    "Style should be visible in UI": {
+      "1": "<!-- wp:wp-bootstrap-blocks/button {\"style\":\"secondary\"} /-->"
+    },
+    "Should add data attributes": {
+      "1": "<!-- wp:wp-bootstrap-blocks/button {\"style\":\"secondary\"} /-->"
     }
   },
   "Button Block Filters": {

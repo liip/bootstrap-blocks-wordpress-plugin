@@ -12,6 +12,7 @@ import {
 import { applyFilters } from '@wordpress/hooks';
 import * as BlockEditor from '@wordpress/block-editor';
 import * as Editor from '@wordpress/editor';
+import { colors } from '../constants';
 
 const {
 	RichText,
@@ -21,24 +22,29 @@ const {
 	AlignmentToolbar,
 } = BlockEditor || Editor; // Fallback to deprecated '@wordpress/editor' for backwards compatibility
 
+let styleOptions = [
+	{
+		label: __( 'Primary', 'wp-bootstrap-blocks' ),
+		value: 'primary',
+		color: colors.primary,
+	},
+	{
+		label: __( 'Secondary', 'wp-bootstrap-blocks' ),
+		value: 'secondary',
+		color: colors.secondary,
+	},
+];
+styleOptions = applyFilters(
+	'wpBootstrapBlocks.button.styleOptions',
+	styleOptions
+);
+
 const NEW_TAB_REL_DEFAULT_VALUE = 'noreferrer noopener';
 
 class BootstrapButtonEdit extends Component {
 	render() {
 		const { attributes, className, setAttributes, isSelected } = this.props;
 		const { url, linkTarget, rel, text, style, alignment } = attributes;
-
-		let styleOptions = [
-			{ label: __( 'Primary', 'wp-bootstrap-blocks' ), value: 'primary' },
-			{
-				label: __( 'Secondary', 'wp-bootstrap-blocks' ),
-				value: 'secondary',
-			},
-		];
-		styleOptions = applyFilters(
-			'wpBootstrapBlocks.button.styleOptions',
-			styleOptions
-		);
 
 		// Open in new tab behavior from core/button (source: https://github.com/WordPress/gutenberg/blob/master/packages/block-library/src/button/edit.js)
 		const onToggleOpenInNewTab = ( value ) => {
@@ -57,9 +63,30 @@ class BootstrapButtonEdit extends Component {
 			} );
 		};
 
+		// Prepare CSS rules for selected button style
+		let inlineStyle = {
+			backgroundColor:
+				styleOptions.length > 0 ? styleOptions[ 0 ].color : '',
+		};
+
+		if ( style ) {
+			const selectedButtonColor = styleOptions.find(
+				( styleOption ) => styleOption.value === style
+			);
+			if ( selectedButtonColor ) {
+				inlineStyle = {
+					backgroundColor: selectedButtonColor.color,
+				};
+			}
+		}
+
 		return (
 			<Fragment>
-				<div className={ className } data-alignment={ alignment }>
+				<div
+					className={ className }
+					data-alignment={ alignment }
+					style={ inlineStyle }
+				>
 					<RichText
 						// eslint-disable-next-line @wordpress/i18n-ellipsis
 						placeholder={ __(
