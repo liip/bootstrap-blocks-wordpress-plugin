@@ -149,8 +149,8 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 If you're on a lower version of WordPress think about updating it if you still would like receive updates for this plugin.
 
 * [COMPATIBILITY] Tested up to WordPress 6.1.
-* [CHANGE] Set default `style` attribute of the Button block to `primary`. This shouldn't be a breaking change since the template automatically added the `btn-primary` class if no `style` was selected.
-* [FEATURE] Add `color` attribute to the `styleOptions` to be able to display the buttons in the correct color in the backend. If you have changed the `styleOptions` via the JavaScript filter please add the according colors to your style objects.
+* [CHANGE] Set default `style` attribute of the Button block to `primary`. This shouldn't be a breaking change since the template already added the `btn-primary` class if no `style` was selected.
+* [FEATURE] Add `color` attribute to the `styleOptions` to be able to display the buttons in the correct color in the editor. If you have changed the `styleOptions` via the [`wpBootstrapBlocks.button.styleOptions`](https://github.com/liip/bootstrap-blocks-wordpress-plugin#wpbootstrapblocksbuttonstyleoptions) JavaScript filter please add the according colors to your style objects.
 
 = 4.2.1 =
 
