@@ -21,6 +21,7 @@ import {
 	verticalAlignCenter,
 	verticalAlignTop,
 } from '../icons';
+import { colors } from '../constants';
 
 const { InnerBlocks, InspectorControls, BlockControls, AlignmentToolbar } =
 	BlockEditor || Editor; // Fallback to deprecated '@wordpress/editor' for backwards compatibility
@@ -67,8 +68,8 @@ const ColumnSizeRangeControl = ( {
 };
 
 export let bgColorOptions = [
-	{ name: 'primary', color: '#007bff' },
-	{ name: 'secondary', color: '#6c757d' },
+	{ name: 'primary', color: colors.primary },
+	{ name: 'secondary', color: colors.secondary },
 ];
 
 bgColorOptions = applyFilters(

@@ -47,6 +47,52 @@ describe( 'Button Block', () => {
 		cy.postContentMatchesSnapshot();
 	} );
 
+	it( 'Style should be visible in UI', () => {
+		cy.insertButtonBlock();
+
+		// Check default button style
+		cy.get( '.wp-block-wp-bootstrap-blocks-button' ).should(
+			'have.attr',
+			'style',
+			'background-color: rgb(0, 123, 255);'
+		);
+
+		cy.selectButtonBlock();
+		cy.ensureSidebarOpened();
+
+		cy.getSelectByLabel( 'Style' ).select( 'secondary' );
+
+		// Style should be visible in UI
+		cy.get( '.wp-block-wp-bootstrap-blocks-button' ).should(
+			'have.attr',
+			'style',
+			'background-color: rgb(108, 117, 125);'
+		);
+
+		// Editor content should match snapshot
+		cy.postContentMatchesSnapshot();
+	} );
+
+	it( 'Should add data attributes', () => {
+		cy.insertButtonBlock();
+
+		cy.get(
+			'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/button"][data-style="primary"]'
+		).should( 'exist' );
+
+		cy.selectButtonBlock();
+		cy.ensureSidebarOpened();
+
+		cy.getSelectByLabel( 'Style' ).select( 'secondary' );
+
+		cy.get(
+			'.block-editor-block-list__block[data-type="wp-bootstrap-blocks/button"][data-style="secondary"]'
+		).should( 'exist' );
+
+		// Editor content should match snapshot
+		cy.postContentMatchesSnapshot();
+	} );
+
 	it( 'Should be possible to change alignment', () => {
 		cy.insertButtonBlock();
 		cy.selectButtonBlock();

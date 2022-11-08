@@ -25,7 +25,12 @@ registerBlockType( 'wp-bootstrap-blocks/button', {
 	// attributes are defined server side with register_block_type(). This is needed to make default attributes available in the blocks render callback.
 
 	getEditWrapperProps( attributes ) {
-		return { 'data-alignment': attributes.alignment };
+		const { alignment, style } = attributes;
+
+		return {
+			'data-alignment': alignment,
+			'data-style': style,
+		};
 	},
 
 	edit,

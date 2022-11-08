@@ -477,7 +477,7 @@ Modify default attributes of the button block.
         * `_blank`: Target attribute is set to `_blank`
     * `rel` (`string`) Default rel attribute of the link (Default: `''`)
     * `text` (`string`) Default text of the button (Default: `''`)
-    * `style` (`string`) Default style of the button (Default: `''`)
+    * `style` (`string`) Default style of the button (Default: `'primary'`)
     * `alignment` (`string`) Default alignment of the button (Default: `''`)
 
 #### Usage
@@ -562,7 +562,7 @@ Modify available button styles.
 
 ```javascript
 function myButtonStyleOptions( styleOptions ) {
-	styleOptions.push( { label: 'My Option', value: 'my-option' } );
+	styleOptions.push( { label: 'My Option', value: 'my-option', color: '#FF0000' } );
 	return styleOptions;
 }
 wp.hooks.addFilter(
