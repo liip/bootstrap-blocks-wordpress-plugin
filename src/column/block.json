@@ -11,5 +11,5 @@
 	],
 	"parent": ["wp-bootstrap-blocks/row"],
 	"textdomain": "wp-bootstrap-blocks",
-	"version": "4.1.0"
+	"version": "5.0.0"
 }
