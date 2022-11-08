@@ -3,9 +3,9 @@ Contributors: liip, tschortsch
 Donate link: https://liip.ch/
 Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.0
-Tested up to: 6.0
+Tested up to: 6.1
 Requires PHP: 5.6
-Stable tag: 4.2.1
+Stable tag: 4.3.0
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -143,10 +143,16 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 == Changelog ==
 
-= 4.2.1 =
+= 4.3.0 =
 
 **NOTICE:** Version 4.x of the plugin will be the last version to support WordPress versions lower than 5.3.
 If you're on a lower version of WordPress think about updating it if you still would like receive updates for this plugin.
+
+* [COMPATIBILITY] Tested up to WordPress 6.1.
+* [CHANGE] Set default `style` attribute of the Button block to `primary`. This shouldn't be a breaking change since the template automatically added the `btn-primary` class if no `style` was selected.
+* [FEATURE] Add `color` attribute to the `styleOptions` to be able to display the buttons in the correct color in the backend. If you have changed the `styleOptions` via the JavaScript filter please add the according colors to your style objects.
+
+= 4.2.1 =
 
 * [FIX] Rename blocks to `<Blockname> (Bootstrap)` for better discoverability when searching for a block.
 
