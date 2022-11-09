@@ -39,6 +39,7 @@ styleOptions = applyFilters(
 	styleOptions
 );
 
+const DEFAULT_COLOR = colors.primary;
 const NEW_TAB_REL_DEFAULT_VALUE = 'noreferrer noopener';
 
 class BootstrapButtonEdit extends Component {
@@ -66,14 +67,16 @@ class BootstrapButtonEdit extends Component {
 		// Prepare CSS rules for selected button style
 		let inlineStyle = {
 			backgroundColor:
-				styleOptions.length > 0 ? styleOptions[ 0 ].color : '',
+				styleOptions.length > 0
+					? styleOptions[ 0 ].color
+					: DEFAULT_COLOR,
 		};
 
 		if ( style ) {
 			const selectedButtonColor = styleOptions.find(
 				( styleOption ) => styleOption.value === style
 			);
-			if ( selectedButtonColor ) {
+			if ( selectedButtonColor?.color ) {
 				inlineStyle = {
 					backgroundColor: selectedButtonColor.color,
 				};

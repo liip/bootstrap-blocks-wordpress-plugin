@@ -1,7 +1,10 @@
 /* eslint-disable wrap-iife */
 ( function () {
 	function buttonFiltersStyleOptions( styleOptions ) {
-		return [ ...styleOptions, { label: 'Brand', value: 'brand' } ];
+		return [
+			...styleOptions,
+			{ label: 'Brand', value: 'brand', color: '#FF0000' },
+		];
 	}
 	wp.hooks.addFilter(
 		'wpBootstrapBlocks.button.styleOptions',
