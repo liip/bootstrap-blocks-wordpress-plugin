@@ -145,12 +145,12 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 
 = 4.3.1 =
 
+**NOTICE:** Version 4.x of the plugin will be the last version to support WordPress versions lower than 5.3.
+If you're on a lower version of WordPress think about updating it if you still would like receive updates for this plugin.
+
 * [FIX] Apply default color to button if `color` attribute is missing in `styleOptions`.
 
 = 4.3.0 =
-
-**NOTICE:** Version 4.x of the plugin will be the last version to support WordPress versions lower than 5.3.
-If you're on a lower version of WordPress think about updating it if you still would like receive updates for this plugin.
 
 * [COMPATIBILITY] Tested up to WordPress 6.1.
 * [CHANGE] Set default `style` attribute of the Button block to `primary`. This shouldn't be a breaking change since the template already added the `btn-primary` class if no `style` was selected.
