@@ -33,7 +33,7 @@ class WP_Bootstrap_Blocks {
 	 *
 	 * @var string
 	 */
-	public static $version = '4.3.0';
+	public static $version = '4.3.1';
 
 	/**
 	 * The plugin token.
