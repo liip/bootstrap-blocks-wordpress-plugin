@@ -562,7 +562,7 @@ Modify available button styles.
 
 ```javascript
 function myButtonStyleOptions( styleOptions ) {
-	styleOptions.push( { label: 'My Option', value: 'my-option', color: '#FF0000' } );
+	styleOptions.push( { label: 'My Option', value: 'my-option', bgColor: '#FF0000', color: '#FFFFFF } );
 	return styleOptions;
 }
 wp.hooks.addFilter(
