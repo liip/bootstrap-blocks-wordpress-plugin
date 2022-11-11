@@ -16,18 +16,20 @@ import {
 	BlockControls,
 	AlignmentToolbar,
 } from '@wordpress/block-editor';
-import { colors } from '../constants';
+import { bgColors, colors } from '../constants';
 
 let styleOptions = [
 	{
 		label: __( 'Primary', 'wp-bootstrap-blocks' ),
 		value: 'primary',
-		color: colors.primary,
+		bgColor: bgColors.primary,
+		color: colors.white
 	},
 	{
 		label: __( 'Secondary', 'wp-bootstrap-blocks' ),
 		value: 'secondary',
-		color: colors.secondary,
+		bgColor: bgColors.secondary,
+		color: colors.white
 	},
 ];
 styleOptions = applyFilters(
@@ -35,7 +37,8 @@ styleOptions = applyFilters(
 	styleOptions
 );
 
-const DEFAULT_COLOR = colors.primary;
+const DEFAULT_BG_COLOR = bgColors.primary;
+const DEFAULT_COLOR = colors.white;
 const NEW_TAB_REL_DEFAULT_VALUE = 'noreferrer noopener';
 
 const BootstrapButtonEdit = ( {
@@ -66,6 +69,8 @@ const BootstrapButtonEdit = ( {
 	// Prepare CSS rules for selected button style
 	let inlineStyle = {
 		backgroundColor:
+			styleOptions.length > 0 ? styleOptions[ 0 ].bgColor : DEFAULT_BG_COLOR,
+		color: 
 			styleOptions.length > 0 ? styleOptions[ 0 ].color : DEFAULT_COLOR,
 	};
 
@@ -73,9 +78,10 @@ const BootstrapButtonEdit = ( {
 		const selectedButtonColor = styleOptions.find(
 			( styleOption ) => styleOption.value === style
 		);
-		if ( selectedButtonColor?.color ) {
+		if ( selectedButtonColor?.bgColor && selectedButtonColor?.color ) {
 			inlineStyle = {
-				backgroundColor: selectedButtonColor.color,
+				backgroundColor: selectedButtonColor.bgColor,
+				color: selectedButtonColor.color
 			};
 		}
 	}
