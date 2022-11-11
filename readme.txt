@@ -74,7 +74,7 @@ The version can be selected in the plugin settings (Settings > Bootstrap Blocks)
 * Bootstrap 4 (default): `define( 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION', '4' );`
 * Bootstrap 5: `define( 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION', '5' );`
 
-Possible values right now are `'4'` or `'5'`. By default Bootstrap version **4** is selected.
+Possible values right now are `'4'` or `'5'`. By default Bootstrap version **5** is selected.
 
 = CSS Grid =
 
@@ -148,6 +148,7 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 Starting with this version the plugin only supports WordPress versions >= 5.3.
 This step was needed to be able to catch up with the current development practices and remove a lot of deprecations.
 
+* **Breaking Change** [CHANGE] The default Bootstrap version is now `5.x`. Please check in the settings if your using the appropriate version of Bootstrap after updating to this release.
 * **[COMPATIBILITY] Dropped support for WordPress < 5.3.** Please update your website if you still would like to receive updates for this plugin.
 * [FEATURE] Added block.json meta file to describe and register blocks (supported in WordPress >= 5.8).
 * [CHANGE] Rewrite all blocks to functional components.

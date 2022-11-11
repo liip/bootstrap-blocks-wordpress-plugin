@@ -12,11 +12,11 @@ describe( 'Settings page', () => {
 
 		cy.get(
 			'#wp-bootstrap-blocks_bootstrap_version option:selected'
-		).should( 'have.value', '4' );
+		).should( 'have.value', '5' );
 
 		cy.get( '#wp-bootstrap-blocks_enable_css_grid' )
 			.should( 'not.be.checked' )
-			.and( 'be.disabled' );
+			.and( 'be.enabled' );
 	} );
 
 	it( 'Should respect constants', () => {

@@ -47,18 +47,20 @@ describe( 'Container Block', () => {
 		cy.postContentMatchesSnapshot();
 	} );
 
-	it( 'Should not display xxl breakpoint options if run with Bootstrap 4', () => {
+	// Bootstrap 5 specific options
+
+	it( 'Should display xxl breakpoint', () => {
 		cy.insertContainerBlock();
 		cy.selectContainerBlock();
 		cy.ensureSidebarOpened();
 
 		cy.xpath(
 			`//label[contains(@class,"components-input-control__label")][contains(text(),"Fluid Breakpoint")]/parent::div/following-sibling::div/select[contains(@class,"components-select-control__input")]/option`
-		).should( 'have.length', 5 );
+		).should( 'have.length', 6 );
 
-		// xxl option should not exist
+		// xxl option should exist
 		cy.xpath(
 			`//label[contains(@class,"components-input-control__label")][contains(text(),"Fluid Breakpoint")]/parent::div/following-sibling::div/select[contains(@class,"components-select-control__input")]/option[@value='xxl']`
-		).should( 'not.exist' );
+		).should( 'have.length', 1 );
 	} );
 } );

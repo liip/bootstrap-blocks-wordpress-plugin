@@ -70,7 +70,7 @@ The version can be selected in the plugin settings (Settings > Bootstrap Blocks)
 * Bootstrap 4 (default): `define( 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION', '4' );`
 * Bootstrap 5: `define( 'WP_BOOTSTRAP_BLOCKS_BOOTSTRAP_VERSION', '5' );`
 
-Possible values right now are `'4'` or `'5'`. By default Bootstrap version **4** is selected.
+Possible values right now are `'4'` or `'5'`. By default Bootstrap version **5** is selected.
 
 ## CSS Grid
 
