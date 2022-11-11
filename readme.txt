@@ -150,7 +150,7 @@ This step was needed to be able to catch up with the current development practic
 
 * **Breaking Change** [CHANGE] The default Bootstrap version is now `5.x`. Please check in the settings if your using the appropriate version of Bootstrap after updating to this release.
 * **[COMPATIBILITY] Dropped support for WordPress < 5.3.** Please update your website if you still would like to receive updates for this plugin.
-* [FEATURE] Added block.json meta file to describe and register blocks (supported in WordPress >= 5.8).
+* [FEATURE] Added block.json meta files to describe and register blocks (supported in WordPress >= 5.8).
 * [CHANGE] Rewrite all blocks to functional components.
 
 = 4.3.1 =
