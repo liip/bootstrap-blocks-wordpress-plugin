@@ -150,7 +150,9 @@ describe( 'Column Block', () => {
 		cy.postContentMatchesSnapshot();
 	} );
 
-	it( 'Should not display xxl breakpoint options if run with Bootstrap 4', () => {
+	// Bootstrap 5 specific options
+
+	it( 'Should display xxl breakpoint options', () => {
 		cy.insertRowBlock();
 		cy.ensureSidebarOpened();
 
@@ -158,24 +160,36 @@ describe( 'Column Block', () => {
 		cy.selectColumnBlock();
 		cy.openSidebarPanelWithTitle( 'Column size' );
 
-		// Xl column count option should exist
-		cy.xpath(
-			'//label[contains(@class,"components-base-control__label")][contains(text(),"Xl Column count")]'
-		).should( 'exist' );
-
-		// Xxl column count option should not exist
+		// Xxl column count option should exist
 		cy.xpath(
 			'//label[contains(@class,"components-base-control__label")][contains(text(),"Xxl Column count")]'
-		).should( 'not.exist' );
-
-		// Xl equal-width option should exist
-		cy.xpath(
-			'//label[contains(@class,"components-checkbox-control__label")][contains(text(),"Xl equal-width")]'
 		).should( 'exist' );
 
-		// Xxl equal-width option should not exist
+		// Xxl equal-width option should exist
 		cy.xpath(
 			'//label[contains(@class,"components-checkbox-control__label")][contains(text(),"Xxl equal-width")]'
-		).should( 'not.exist' );
+		).should( 'exist' );
+	} );
+
+	it( 'Should be possible to select column size for xxl breakpoint', () => {
+		cy.insertRowBlock();
+		cy.ensureSidebarOpened();
+
+		// Select first column block
+		cy.selectColumnBlock();
+		cy.openSidebarPanelWithTitle( 'Column size' );
+
+		// Change column count
+		cy.get(
+			'input.components-input-control__input[aria-label="Xxl Column count"]'
+		).type( '2' );
+		cy.get( '[data-type="wp-bootstrap-blocks/column"]' )
+			.first()
+			.should( 'have.attr', 'data-size-xxl', '2' );
+
+		// Enable column equal-width
+		cy.clickElementByText( 'label', 'Xxl equal-width' );
+
+		cy.postContentMatchesSnapshot();
 	} );
 } );

@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 1,
+	"name": "wp-bootstrap-blocks/container",
+	"title": "Container",
+	"category": "wp-bootstrap-blocks",
+	"keywords": [
+		"Container",
+		"Bootstrap Container",
+		"Bootstrap"
+	],
+	"supports": {
+		"align": false
+	},
+	"textdomain": "wp-bootstrap-blocks",
+	"version": "5.0.0"
+}

@@ -8,12 +8,14 @@ import {
 	SVG,
 	Path,
 } from '@wordpress/components';
-import { Component, Fragment } from '@wordpress/element';
-import { withSelect, withDispatch } from '@wordpress/data';
-import { compose } from '@wordpress/compose';
+import { useSelect, useDispatch } from '@wordpress/data';
 import { applyFilters } from '@wordpress/hooks';
-import * as BlockEditor from '@wordpress/block-editor';
-import * as Editor from '@wordpress/editor';
+import {
+	InnerBlocks,
+	InspectorControls,
+	BlockControls,
+	AlignmentToolbar,
+} from '@wordpress/block-editor';
 
 import {
 	alignCenter,
@@ -26,9 +28,6 @@ import {
 } from '../icons';
 
 import { isBootstrap5Active, isCssGridEnabled } from '../helper';
-
-const { InnerBlocks, InspectorControls, BlockControls, AlignmentToolbar } =
-	BlockEditor || Editor; // Fallback to deprecated '@wordpress/editor' for backwards compatibility
 
 export const CUSTOM_TEMPLATE_NAME = 'custom';
 
@@ -283,266 +282,242 @@ const getColumnsTemplateLock = ( templateName ) => {
 	return template ? template.templateLock : false;
 };
 
-class BootstrapRowEdit extends Component {
-	render() {
-		const {
-			className,
-			attributes,
-			setAttributes,
-			columns,
-			updateBlockAttributes,
-		} = this.props;
-		const {
-			template: selectedTemplateName,
-			noGutters,
-			alignment,
-			verticalAlignment,
-			editorStackColumns,
-			horizontalGutters,
-			verticalGutters,
-			cssGridGutters,
-		} = attributes;
+const BootstrapRowEdit = ( {
+	className,
+	clientId,
+	attributes,
+	setAttributes,
+} ) => {
+	const {
+		template: selectedTemplateName,
+		noGutters,
+		alignment,
+		verticalAlignment,
+		editorStackColumns,
+		horizontalGutters,
+		verticalGutters,
+		cssGridGutters,
+	} = attributes;
 
-		const onTemplateChange = ( newSelectedTemplateName ) => {
-			const template = templates.find(
-				( t ) => t.name === newSelectedTemplateName
-			);
-			if ( template ) {
-				// Update sizes to fit with selected template
-				columns.forEach( ( column, index ) => {
-					if ( template.template.length > index ) {
-						const newAttributes = template.template[ index ][ 1 ];
-						updateBlockAttributes( column.clientId, newAttributes );
-					}
-				} );
+	const { columns } = useSelect( ( select ) => {
+		const { getBlocksByClientId } = select( 'core/block-editor' );
 
-				setAttributes( {
-					template: newSelectedTemplateName,
-				} );
-			}
+		return {
+			columns: getBlocksByClientId( clientId )[ 0 ]
+				? getBlocksByClientId( clientId )[ 0 ].innerBlocks
+				: [],
 		};
+	} );
 
-		const alignmentControls = [
-			{
-				icon: alignLeft,
-				title: __( 'Align columns left', 'wp-bootstrap-blocks' ),
-				align: 'left',
-			},
-			{
-				icon: alignCenter,
-				title: __( 'Align columns center', 'wp-bootstrap-blocks' ),
-				align: 'center',
-			},
-			{
-				icon: alignRight,
-				title: __( 'Align columns right', 'wp-bootstrap-blocks' ),
-				align: 'right',
-			},
-		];
+	const { updateBlockAttributes } = useDispatch( 'core/block-editor' );
 
-		const verticalAlignmentControls = [
-			{
-				icon: verticalAlignTop,
-				title: __( 'Align columns top', 'wp-bootstrap-blocks' ),
-				align: 'top',
-			},
-			{
-				icon: verticalAlignCenter,
-				title: __( 'Align columns center', 'wp-bootstrap-blocks' ),
-				align: 'center',
-			},
-			{
-				icon: verticalAlignBottom,
-				title: __( 'Align columns bottom', 'wp-bootstrap-blocks' ),
-				align: 'bottom',
-			},
-		];
+	const onTemplateChange = ( newSelectedTemplateName ) => {
+		const template = templates.find(
+			( t ) => t.name === newSelectedTemplateName
+		);
+		if ( template ) {
+			// Update sizes to fit with selected template
+			columns.forEach( ( column, index ) => {
+				if ( template.template.length > index ) {
+					const newAttributes = template.template[ index ][ 1 ];
+					updateBlockAttributes( column.clientId, newAttributes );
+				}
+			} );
 
-		return (
-			<Fragment>
-				<InspectorControls>
-					<PanelBody>
-						<CheckboxControl
+			setAttributes( {
+				template: newSelectedTemplateName,
+			} );
+		}
+	};
+
+	const alignmentControls = [
+		{
+			icon: alignLeft,
+			title: __( 'Align columns left', 'wp-bootstrap-blocks' ),
+			align: 'left',
+		},
+		{
+			icon: alignCenter,
+			title: __( 'Align columns center', 'wp-bootstrap-blocks' ),
+			align: 'center',
+		},
+		{
+			icon: alignRight,
+			title: __( 'Align columns right', 'wp-bootstrap-blocks' ),
+			align: 'right',
+		},
+	];
+
+	const verticalAlignmentControls = [
+		{
+			icon: verticalAlignTop,
+			title: __( 'Align columns top', 'wp-bootstrap-blocks' ),
+			align: 'top',
+		},
+		{
+			icon: verticalAlignCenter,
+			title: __( 'Align columns center', 'wp-bootstrap-blocks' ),
+			align: 'center',
+		},
+		{
+			icon: verticalAlignBottom,
+			title: __( 'Align columns bottom', 'wp-bootstrap-blocks' ),
+			align: 'bottom',
+		},
+	];
+
+	return (
+		<>
+			<InspectorControls>
+				<PanelBody>
+					<CheckboxControl
+						label={ __(
+							'Editor: Display columns stacked',
+							'wp-bootstrap-blocks'
+						) }
+						description={ __(
+							"Displays stacked columns in editor to enhance readability of block content. This option is only used in the editor and won't affect the output of the row.",
+							'wp-bootstrap-blocks'
+						) }
+						checked={ editorStackColumns }
+						onChange={ ( isChecked ) =>
+							setAttributes( {
+								editorStackColumns: isChecked,
+							} )
+						}
+					/>
+				</PanelBody>
+				<PanelBody
+					title={ __( 'Change layout', 'wp-bootstrap-blocks' ) }
+				>
+					<ul className="wp-bootstrap-blocks-template-selector-list">
+						{ templates.map(
+							(
+								template,
+								index // eslint-disable-line no-shadow
+							) => (
+								<li
+									className="wp-bootstrap-blocks-template-selector-button"
+									key={ index }
+								>
+									<IconButton
+										label={ template.title }
+										icon={ template.icon }
+										onClick={ () => {
+											onTemplateChange( template.name );
+										} }
+										className={
+											selectedTemplateName ===
+											template.name
+												? 'is-active'
+												: null
+										}
+									>
+										<div className="wp-bootstrap-blocks-template-selector-button-label">
+											{ template.title }
+										</div>
+									</IconButton>
+								</li>
+							)
+						) }
+					</ul>
+				</PanelBody>
+				<PanelBody title={ __( 'Row options', 'wp-bootstrap-blocks' ) }>
+					<CheckboxControl
+						label={ __( 'No Gutters', 'wp-bootstrap-blocks' ) }
+						checked={ noGutters }
+						onChange={ ( isChecked ) =>
+							setAttributes( { noGutters: isChecked } )
+						}
+					/>
+					{ ! noGutters &&
+						( isCssGridEnabled() ? (
+							<SelectControl
+								label={ __( 'Gutters', 'wp-bootstrap-blocks' ) }
+								value={ cssGridGutters }
+								options={ cssGridGuttersOptions }
+								onChange={ ( value ) => {
+									setAttributes( {
+										cssGridGutters: value,
+									} );
+								} }
+							/>
+						) : (
+							isBootstrap5Active() && (
+								<>
+									<SelectControl
+										label={ __(
+											'Horizontal Gutters',
+											'wp-bootstrap-blocks'
+										) }
+										value={ horizontalGutters }
+										options={ horizontalGuttersOptions }
+										onChange={ ( value ) => {
+											setAttributes( {
+												horizontalGutters: value,
+											} );
+										} }
+									/>
+									<SelectControl
+										label={ __(
+											'Vertical Gutters',
+											'wp-bootstrap-blocks'
+										) }
+										value={ verticalGutters }
+										options={ verticalGuttersOptions }
+										onChange={ ( value ) => {
+											setAttributes( {
+												verticalGutters: value,
+											} );
+										} }
+									/>
+								</>
+							)
+						) ) }
+				</PanelBody>
+			</InspectorControls>
+			<BlockControls>
+				{ ! isCssGridEnabled() && (
+					<>
+						<AlignmentToolbar
+							value={ alignment }
 							label={ __(
-								'Editor: Display columns stacked',
+								'Change horizontal alignment of columns',
 								'wp-bootstrap-blocks'
 							) }
-							description={ __(
-								"Displays stacked columns in editor to enhance readability of block content. This option is only used in the editor and won't affect the output of the row.",
+							onChange={ ( newAlignment ) =>
+								setAttributes( { alignment: newAlignment } )
+							}
+							alignmentControls={ alignmentControls }
+						/>
+						<AlignmentToolbar
+							value={ verticalAlignment }
+							label={ __(
+								'Change vertical alignment of columns',
 								'wp-bootstrap-blocks'
 							) }
-							checked={ editorStackColumns }
-							onChange={ ( isChecked ) =>
+							onChange={ ( newVerticalAlignment ) =>
 								setAttributes( {
-									editorStackColumns: isChecked,
+									verticalAlignment: newVerticalAlignment,
 								} )
 							}
+							alignmentControls={ verticalAlignmentControls }
 						/>
-					</PanelBody>
-					<PanelBody
-						title={ __( 'Change layout', 'wp-bootstrap-blocks' ) }
-					>
-						<ul className="wp-bootstrap-blocks-template-selector-list">
-							{ templates.map(
-								(
-									template,
-									index // eslint-disable-line no-shadow
-								) => (
-									<li
-										className="wp-bootstrap-blocks-template-selector-button"
-										key={ index }
-									>
-										<IconButton
-											label={ template.title }
-											icon={ template.icon }
-											onClick={ () => {
-												onTemplateChange(
-													template.name
-												);
-											} }
-											className={
-												selectedTemplateName ===
-												template.name
-													? 'is-active'
-													: null
-											}
-										>
-											<div className="wp-bootstrap-blocks-template-selector-button-label">
-												{ template.title }
-											</div>
-										</IconButton>
-									</li>
-								)
-							) }
-						</ul>
-					</PanelBody>
-					<PanelBody
-						title={ __( 'Row options', 'wp-bootstrap-blocks' ) }
-					>
-						<CheckboxControl
-							label={ __( 'No Gutters', 'wp-bootstrap-blocks' ) }
-							checked={ noGutters }
-							onChange={ ( isChecked ) =>
-								setAttributes( { noGutters: isChecked } )
-							}
-						/>
-						{ ! noGutters &&
-							( isCssGridEnabled() ? (
-								<SelectControl
-									label={ __(
-										'Gutters',
-										'wp-bootstrap-blocks'
-									) }
-									value={ cssGridGutters }
-									options={ cssGridGuttersOptions }
-									onChange={ ( value ) => {
-										setAttributes( {
-											cssGridGutters: value,
-										} );
-									} }
-								/>
-							) : (
-								isBootstrap5Active() && (
-									<Fragment>
-										<SelectControl
-											label={ __(
-												'Horizontal Gutters',
-												'wp-bootstrap-blocks'
-											) }
-											value={ horizontalGutters }
-											options={ horizontalGuttersOptions }
-											onChange={ ( value ) => {
-												setAttributes( {
-													horizontalGutters: value,
-												} );
-											} }
-										/>
-										<SelectControl
-											label={ __(
-												'Vertical Gutters',
-												'wp-bootstrap-blocks'
-											) }
-											value={ verticalGutters }
-											options={ verticalGuttersOptions }
-											onChange={ ( value ) => {
-												setAttributes( {
-													verticalGutters: value,
-												} );
-											} }
-										/>
-									</Fragment>
-								)
-							) ) }
-					</PanelBody>
-				</InspectorControls>
-				<BlockControls>
-					{ ! isCssGridEnabled() && (
-						<Fragment>
-							<AlignmentToolbar
-								value={ alignment }
-								label={ __(
-									'Change horizontal alignment of columns',
-									'wp-bootstrap-blocks'
-								) }
-								onChange={ ( newAlignment ) =>
-									setAttributes( { alignment: newAlignment } )
-								}
-								alignmentControls={ alignmentControls }
-							/>
-							<AlignmentToolbar
-								value={ verticalAlignment }
-								label={ __(
-									'Change vertical alignment of columns',
-									'wp-bootstrap-blocks'
-								) }
-								onChange={ ( newVerticalAlignment ) =>
-									setAttributes( {
-										verticalAlignment: newVerticalAlignment,
-									} )
-								}
-								alignmentControls={ verticalAlignmentControls }
-							/>
-						</Fragment>
+					</>
+				) }
+			</BlockControls>
+			<div className={ className }>
+				<InnerBlocks
+					allowedBlocks={ ALLOWED_BLOCKS }
+					template={ getColumnsTemplate( selectedTemplateName ) }
+					templateLock={ getColumnsTemplateLock(
+						selectedTemplateName
 					) }
-				</BlockControls>
-				<div className={ className }>
-					<InnerBlocks
-						allowedBlocks={ ALLOWED_BLOCKS }
-						template={ getColumnsTemplate( selectedTemplateName ) }
-						templateLock={ getColumnsTemplateLock(
-							selectedTemplateName
-						) }
-						orientation="horizontal"
-					/>
-				</div>
-			</Fragment>
-		);
-	}
-}
+					orientation="horizontal"
+				/>
+			</div>
+		</>
+	);
+};
 
-const applyWithSelect = withSelect( ( select, { clientId } ) => {
-	const { getBlocksByClientId } =
-		select( 'core/block-editor' ) || select( 'core/editor' ); // Fallback to 'core/editor' for backwards compatibility
-
-	const columns = getBlocksByClientId( clientId )[ 0 ]
-		? getBlocksByClientId( clientId )[ 0 ].innerBlocks
-		: [];
-
-	return {
-		columns,
-	};
-} );
-
-const applyWithDispatch = withDispatch( ( dispatch ) => {
-	const { updateBlockAttributes } =
-		dispatch( 'core/block-editor' ) || dispatch( 'core/editor' ); // Fallback to 'core/editor' for backwards compatibility
-
-	return {
-		updateBlockAttributes,
-	};
-} );
-
-export default compose(
-	applyWithSelect,
-	applyWithDispatch
-)( BootstrapRowEdit );
+export default BootstrapRowEdit;

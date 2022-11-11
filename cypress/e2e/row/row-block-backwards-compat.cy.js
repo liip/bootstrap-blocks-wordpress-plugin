@@ -16,10 +16,10 @@ import {
 context( 'Row Block Backwards Compatibility', () => {
 	beforeEach( () => {
 		cy.loginUser();
-		cy.createNewPost();
 	} );
 
 	it( 'v1.0.0 row block content should be compatible', () => {
+		cy.createNewPost();
 		cy.setPostContent( rowContent100 );
 
 		cy.ensureSidebarOpened();
@@ -38,6 +38,7 @@ context( 'Row Block Backwards Compatibility', () => {
 	} );
 
 	it( 'v1.0.0 column block content should be compatible', () => {
+		cy.createNewPost();
 		cy.setPostContent( rowContent100 );
 		cy.ensureSidebarOpened();
 
@@ -45,6 +46,7 @@ context( 'Row Block Backwards Compatibility', () => {
 	} );
 
 	it( 'v1.1.0 row block content should be compatible', () => {
+		cy.createNewPost();
 		cy.setPostContent( rowContent110 );
 		cy.ensureSidebarOpened();
 
@@ -64,6 +66,7 @@ context( 'Row Block Backwards Compatibility', () => {
 	} );
 
 	it( 'v1.1.0 column block content should be compatible', () => {
+		cy.createNewPost();
 		cy.setPostContent( rowContent110 );
 		cy.ensureSidebarOpened();
 
@@ -73,6 +76,7 @@ context( 'Row Block Backwards Compatibility', () => {
 	} );
 
 	it( 'v1.4.0 column block content should be compatible', () => {
+		cy.createNewPost();
 		cy.setPostContent( rowContent140 );
 		cy.ensureSidebarOpened();
 
@@ -84,6 +88,8 @@ context( 'Row Block Backwards Compatibility', () => {
 	} );
 
 	it( 'Bootstrap 4 works with Bootstrap 5 settings', () => {
+		cy.activatePlugin( 'wp-bootstrap-blocks-test-bootstrap-v4' );
+		cy.createNewPost();
 		cy.setPostContent( rowContentBootstrap5 );
 		cy.ensureSidebarOpened();
 
@@ -101,9 +107,11 @@ context( 'Row Block Backwards Compatibility', () => {
 		// Check if Bootstrap 4 values are set in inspector controls
 		cy.openSidebarPanelWithTitle( 'Column size' );
 		cy.getInputByLabel( 'Md Column count' ).should( 'have.value', '8' );
+		cy.deactivatePlugin( 'wp-bootstrap-blocks-test-bootstrap-v4' );
 	} );
 
 	it( 'v3.2.0 column block content with center content option should be migrated to content vertical alignment', () => {
+		cy.createNewPost();
 		cy.setPostContent( rowContent320CenterContent );
 		cy.ensureSidebarOpened();
 

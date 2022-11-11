@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 1,
+	"name": "wp-bootstrap-blocks/row",
+	"title": "Row",
+	"category": "wp-bootstrap-blocks",
+	"keywords": [
+		"Row",
+		"Bootstrap Row",
+		"Bootstrap"
+	],
+	"supports": {
+		"align": ["full"]
+	},
+	"textdomain": "wp-bootstrap-blocks",
+	"version": "5.0.0"
+}

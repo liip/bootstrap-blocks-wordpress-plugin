@@ -88,6 +88,10 @@ describe( 'Column Block Filters', () => {
 			'Align content bottom'
 		);
 
+		// Xxl Columm size value should be set
+		cy.openSidebarPanelWithTitle( 'Column size' );
+		cy.getInputByLabel( 'Xxl Column count' ).should( 'have.value', '5' );
+
 		// Check if attributes are set correctly
 		cy.postContentMatchesSnapshot();
 	} );

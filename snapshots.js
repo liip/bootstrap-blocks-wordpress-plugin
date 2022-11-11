@@ -1,5 +1,5 @@
 module.exports = {
-  "__version": "10.6.0",
+  "__version": "10.11.0",
   "Row Block": {
     "Row block should be available": {
       "1": "<!-- wp:wp-bootstrap-blocks/row -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
@@ -20,6 +20,9 @@ module.exports = {
     },
     "Should be possible to enable column layout in editor": {
       "1": "<!-- wp:wp-bootstrap-blocks/row {\"editorStackColumns\":true} -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
+    },
+    "Should be possible to change gutter sizes": {
+      "1": "<!-- wp:wp-bootstrap-blocks/row {\"horizontalGutters\":\"gx-5\",\"verticalGutters\":\"gy-3\"} -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
     }
   },
   "Row Block Backwards Compatibility": {
@@ -33,28 +36,19 @@ module.exports = {
       "1": "<!-- wp:wp-bootstrap-blocks/row {\"template\":\"2-1\"} -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":8,\"bgColor\":\"primary\",\"contentVerticalAlignment\":\"center\"} -->\n<!-- wp:paragraph -->\n<p>row 1 col 1</p>\n<!-- /wp:paragraph -->\n<!-- /wp:wp-bootstrap-blocks/column -->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":4} -->\n<!-- wp:paragraph -->\n<p>row 1 col 2</p>\n<!-- /wp:paragraph -->\n<!-- /wp:wp-bootstrap-blocks/column -->\n<!-- /wp:wp-bootstrap-blocks/row -->"
     }
   },
-  "Row Block Bootstrap 5": {
-    "Should be possible to change gutter sizes": {
-      "1": "<!-- wp:wp-bootstrap-blocks/row {\"horizontalGutters\":\"gx-5\",\"verticalGutters\":\"gy-3\"} -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
-    }
-  },
   "Row Block Filters": {
     "wpBootstrapBlocks.row.templates should add additional template": {
       "1": "<!-- wp:wp-bootstrap-blocks/row {\"template\":\"1-66percent\"} -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":8} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
     },
     "wp_bootstrap_blocks_row_default_attributes should override default attributes": {
-      "1": "<!-- wp:wp-bootstrap-blocks/row -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":4} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":8} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
-    }
-  },
-  "Row Block Filters Bootstrap 5": {
+      "1": "<!-- wp:wp-bootstrap-blocks/row -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":4} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":8} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->",
+      "2": "<!-- wp:wp-bootstrap-blocks/row {\"noGutters\":false} -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":4} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":8} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
+    },
     "wpBootstrapBlocks.row.horizontalGuttersOptions should add horizontal gutters option": {
       "1": "<!-- wp:wp-bootstrap-blocks/row {\"noGutters\":false,\"horizontalGutters\":\"gx-10\"} -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":4} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":8} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
     },
     "wpBootstrapBlocks.row.verticalGuttersOptions should add vertical gutters option": {
       "1": "<!-- wp:wp-bootstrap-blocks/row {\"noGutters\":false,\"verticalGutters\":\"gy-10\"} -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":4} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":8} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
-    },
-    "wp_bootstrap_blocks_row_default_attributes should override default attributes with Bootstrap 5": {
-      "1": "<!-- wp:wp-bootstrap-blocks/row {\"noGutters\":false} -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":4} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":8} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
     }
   },
   "Button Block": {
@@ -124,9 +118,7 @@ module.exports = {
     },
     "Should be possible to change content vertical alignment": {
       "1": "<!-- wp:wp-bootstrap-blocks/row -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6,\"contentVerticalAlignment\":\"bottom\"} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
-    }
-  },
-  "Column Block Bootstrap 5": {
+    },
     "Should be possible to select column size for xxl breakpoint": {
       "1": "<!-- wp:wp-bootstrap-blocks/row -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeXxl\":2,\"sizeMd\":6,\"equalWidthXxl\":true} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
     }
@@ -139,11 +131,6 @@ module.exports = {
       "1": "<!-- wp:wp-bootstrap-blocks/row -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6,\"padding\":\"p-8\"} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
     },
     "wp_bootstrap_blocks_column_default_attributes should override default attributes": {
-      "1": "<!-- wp:wp-bootstrap-blocks/row -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
-    }
-  },
-  "Column Block Filters Bootstrap 5": {
-    "wp_bootstrap_blocks_column_default_attributes should override default attributes with Bootstrap 5": {
       "1": "<!-- wp:wp-bootstrap-blocks/row -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} /-->\n<!-- /wp:wp-bootstrap-blocks/row -->"
     }
   },

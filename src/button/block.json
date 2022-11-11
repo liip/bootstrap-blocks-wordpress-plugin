@@ -1,0 +1,14 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 1,
+	"name": "wp-bootstrap-blocks/button",
+	"title": "Button",
+	"category": "wp-bootstrap-blocks",
+	"keywords": [
+		"Button",
+		"Bootstrap Button",
+		"Bootstrap"
+	],
+	"textdomain": "wp-bootstrap-blocks",
+	"version": "5.0.0"
+}
