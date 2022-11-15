@@ -23,13 +23,13 @@ let styleOptions = [
 		label: __( 'Primary', 'wp-bootstrap-blocks' ),
 		value: 'primary',
 		bgColor: bgColors.primary,
-		color: colors.white
+		textColor: colors.white,
 	},
 	{
 		label: __( 'Secondary', 'wp-bootstrap-blocks' ),
 		value: 'secondary',
 		bgColor: bgColors.secondary,
-		color: colors.white
+		textColor: colors.white,
 	},
 ];
 styleOptions = applyFilters(
@@ -38,7 +38,7 @@ styleOptions = applyFilters(
 );
 
 const DEFAULT_BG_COLOR = bgColors.primary;
-const DEFAULT_COLOR = colors.white;
+const DEFAULT_TEXT_COLOR = colors.white;
 const NEW_TAB_REL_DEFAULT_VALUE = 'noreferrer noopener';
 
 const BootstrapButtonEdit = ( {
@@ -66,22 +66,33 @@ const BootstrapButtonEdit = ( {
 		} );
 	};
 
+	// Fill empty color values with default values and check for usage of deprecated color attribute in styleOptions
+	const styleOptionsWithDefault = styleOptions.map( ( styleOption ) => ( {
+		...styleOption,
+		textColor: styleOption.textColor || DEFAULT_TEXT_COLOR,
+		bgColor: styleOption.bgColor || styleOption.color || DEFAULT_BG_COLOR, // Fallback to deprecated color attribute
+	} ) );
+
 	// Prepare CSS rules for selected button style
 	let inlineStyle = {
 		backgroundColor:
-			styleOptions.length > 0 ? styleOptions[ 0 ].bgColor : DEFAULT_BG_COLOR,
-		color: 
-			styleOptions.length > 0 ? styleOptions[ 0 ].color : DEFAULT_COLOR,
+			styleOptionsWithDefault.length > 0
+				? styleOptionsWithDefault[ 0 ].bgColor
+				: DEFAULT_BG_COLOR,
+		color:
+			styleOptionsWithDefault.length > 0
+				? styleOptionsWithDefault[ 0 ].textColor
+				: DEFAULT_TEXT_COLOR,
 	};
 
 	if ( style ) {
-		const selectedButtonColor = styleOptions.find(
+		const selectedButtonColor = styleOptionsWithDefault.find(
 			( styleOption ) => styleOption.value === style
 		);
-		if ( selectedButtonColor?.bgColor && selectedButtonColor?.color ) {
+		if ( selectedButtonColor?.bgColor && selectedButtonColor?.textColor ) {
 			inlineStyle = {
 				backgroundColor: selectedButtonColor.bgColor,
-				color: selectedButtonColor.color
+				color: selectedButtonColor.textColor,
 			};
 		}
 	}

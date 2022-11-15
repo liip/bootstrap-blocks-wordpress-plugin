@@ -47,14 +47,14 @@ describe( 'Button Block', () => {
 		cy.postContentMatchesSnapshot();
 	} );
 
-	it( 'Style should be visible in UI', () => {
+	it.only( 'Style should be visible in UI', () => {
 		cy.insertButtonBlock();
 
 		// Check default button style
 		cy.get( '.wp-block-wp-bootstrap-blocks-button' ).should(
 			'have.attr',
 			'style',
-			'background-color: rgb(0, 123, 255);'
+			'background-color: rgb(0, 123, 255); color: rgb(255, 255, 255);'
 		);
 
 		cy.selectButtonBlock();
@@ -66,7 +66,7 @@ describe( 'Button Block', () => {
 		cy.get( '.wp-block-wp-bootstrap-blocks-button' ).should(
 			'have.attr',
 			'style',
-			'background-color: rgb(108, 117, 125);'
+			'background-color: rgb(108, 117, 125); color: rgb(255, 255, 255);'
 		);
 
 		// Editor content should match snapshot
