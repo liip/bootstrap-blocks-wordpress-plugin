@@ -23,7 +23,7 @@ import {
 	verticalAlignCenter,
 	verticalAlignTop,
 } from '../icons';
-import { colors } from '../constants';
+import { bgColors } from '../constants';
 
 const contentVerticalAlignmentControls = [
 	{
@@ -67,8 +67,8 @@ const ColumnSizeRangeControl = ( {
 };
 
 export let bgColorOptions = [
-	{ name: 'primary', color: colors.primary },
-	{ name: 'secondary', color: colors.secondary },
+	{ name: 'primary', color: bgColors.primary },
+	{ name: 'secondary', color: bgColors.secondary },
 ];
 
 bgColorOptions = applyFilters(
