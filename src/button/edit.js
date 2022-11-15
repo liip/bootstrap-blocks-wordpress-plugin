@@ -67,11 +67,25 @@ const BootstrapButtonEdit = ( {
 	};
 
 	// Fill empty color values with default values and check for usage of deprecated color attribute in styleOptions
-	const styleOptionsWithDefault = styleOptions.map( ( styleOption ) => ( {
-		...styleOption,
-		textColor: styleOption.textColor || DEFAULT_TEXT_COLOR,
-		bgColor: styleOption.bgColor || styleOption.color || DEFAULT_BG_COLOR, // Fallback to deprecated color attribute
-	} ) );
+	let hasDeprecatedColorAttributes = false;
+	const styleOptionsWithDefault = styleOptions.map( ( styleOption ) => {
+		if ( styleOption.color ) {
+			hasDeprecatedColorAttributes = true;
+		}
+		return {
+			...styleOption,
+			textColor: styleOption.textColor || DEFAULT_TEXT_COLOR,
+			bgColor:
+				styleOption.bgColor || styleOption.color || DEFAULT_BG_COLOR, // Fallback to deprecated color attribute
+		};
+	} );
+
+	if ( hasDeprecatedColorAttributes ) {
+		// eslint-disable-next-line no-console
+		console.warn(
+			'[wpBootstrapBlocks.button.styleOptions filter] The color attribute in styleOptions is deprecated. Please us bgColor and textColor instead.'
+		);
+	}
 
 	// Prepare CSS rules for selected button style
 	let inlineStyle = {
