@@ -2,7 +2,7 @@
 import { __ } from '@wordpress/i18n';
 import {
 	Dashicon,
-	IconButton,
+	Button,
 	SelectControl,
 	PanelBody,
 	ToggleControl,
@@ -182,7 +182,7 @@ const BootstrapButtonEdit = ( {
 							setAttributes( { url: value } )
 						}
 					/>
-					<IconButton
+					<Button
 						icon="editor-break"
 						label={ __( 'Apply', 'wp-bootstrap-blocks' ) }
 						type="submit"
