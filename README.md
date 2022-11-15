@@ -562,7 +562,12 @@ Modify available button styles.
 
 ```javascript
 function myButtonStyleOptions( styleOptions ) {
-	styleOptions.push( { label: 'My Option', value: 'my-option', bgColor: '#FF0000', color: '#FFFFFF } );
+	styleOptions.push( {
+		label: 'My Option',
+		value: 'my-option',
+		bgColor: '#ff0000',
+		textColor: '#ffffff',
+	} );
 	return styleOptions;
 }
 wp.hooks.addFilter(
@@ -575,6 +580,13 @@ wp.hooks.addFilter(
 #### Parameters
 
 * `styleOptions` (`Array`) Array with button style options.
+
+Each `styleOption` object should have the following attributes:
+
+* `label` (`string`) Label displayed in the select box.
+* `value` (`string`) Value of the chosen option.
+* `bgColor` (`string`) Background color of button shown in the editor.
+* `textColor` (`string`) Text color of button shown in the editor.
 
 ### wpBootstrapBlocks.container.marginAfterOptions
 
@@ -597,6 +609,11 @@ wp.hooks.addFilter(
 #### Parameters
 
 * `marginAfterOptions` (`Array`) Array margin options.
+
+Each `marginAfterOption` object should have the following attributes:
+
+* `label` (`string`) Label displayed in the select box.
+* `value` (`string`) Value of the chosen option.
 
 ### wpBootstrapBlocks.row.templates
 
@@ -639,7 +656,7 @@ wp.hooks.addFilter(
 
 * `templates` (`array`) List of template objects.
 
-Each template has the following attributes:
+Each `template` object should have the following attributes:
 
 * `name` (`string`) Unique identifier of the template
 * `title` (`string`) Name of template
