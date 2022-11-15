@@ -146,6 +146,7 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 = 5.1.0 =
 
 * [CHANGE] Renamed `color` attribute of the `styleOptions` for the button block to `bgColor`. Additionally added `textColor` attribute to be able to change the text color of the button in the editor as well. If you are modifying the `styleOptions` via the [`wpBootstrapBlocks.button.styleOptions`](https://github.com/liip/bootstrap-blocks-wordpress-plugin#wpbootstrapblocksbuttonstyleoptions) JavaScript filter please add the according colors to your style objects.
+* [FIX] Remove usage of deprecated `IconButton` component (will be removed in WordPress 6.2).
 
 = 5.0.0 =
 
