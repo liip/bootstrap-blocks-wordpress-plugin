@@ -118,10 +118,10 @@ body:not(.branch-5-3) [data-type="wp-bootstrap-blocks/row"]:not([data-editor-sta
 	flex: 0 0 50%;
 	display: flex;
 
-	> .components-icon-button,
-	> .components-button.has-icon {
+	> .components-button {
 		flex-direction: column;
 		justify-content: center;
+		align-items: center;
 		width: 100%;
 		height: auto;
 		padding: 8px;
@@ -130,6 +130,8 @@ body:not(.branch-5-3) [data-type="wp-bootstrap-blocks/row"]:not([data-editor-sta
 		&.has-text svg {
 			margin-right: 0;
 			margin-bottom: 4px;
+			width: 40px;
+			height: 40px;
 		}
 
 		&.is-active,

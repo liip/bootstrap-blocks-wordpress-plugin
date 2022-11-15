@@ -5,7 +5,7 @@ Tags: gutenberg, blocks, bootstrap
 Requires at least: 5.3
 Tested up to: 6.1
 Requires PHP: 5.6
-Stable tag: 5.0.0
+Stable tag: 5.1.0
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -142,6 +142,11 @@ Please create a new GitHub issue and let us know: [https://github.com/liip/boots
 1. Container block
 
 == Changelog ==
+
+= 5.1.0 =
+
+* [CHANGE] Renamed `color` attribute of the `styleOptions` for the button block to `bgColor`. Additionally added `textColor` attribute to be able to change the text color of the button in the editor as well. If you are modifying the `styleOptions` via the [`wpBootstrapBlocks.button.styleOptions`](https://github.com/liip/bootstrap-blocks-wordpress-plugin#wpbootstrapblocksbuttonstyleoptions) JavaScript filter please add the according colors to your style objects.
+* [FIX] Remove usage of deprecated `IconButton` component (will be removed in WordPress 6.2).
 
 = 5.0.0 =
 

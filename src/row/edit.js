@@ -1,7 +1,7 @@
 // WordPress dependencies
 import { __ } from '@wordpress/i18n';
 import {
-	IconButton,
+	Button,
 	CheckboxControl,
 	PanelBody,
 	SelectControl,
@@ -400,7 +400,7 @@ const BootstrapRowEdit = ( {
 									className="wp-bootstrap-blocks-template-selector-button"
 									key={ index }
 								>
-									<IconButton
+									<Button
 										label={ template.title }
 										icon={ template.icon }
 										onClick={ () => {
@@ -416,7 +416,7 @@ const BootstrapRowEdit = ( {
 										<div className="wp-bootstrap-blocks-template-selector-button-label">
 											{ template.title }
 										</div>
-									</IconButton>
+									</Button>
 								</li>
 							)
 						) }

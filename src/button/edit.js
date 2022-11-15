@@ -2,7 +2,7 @@
 import { __ } from '@wordpress/i18n';
 import {
 	Dashicon,
-	IconButton,
+	Button,
 	SelectControl,
 	PanelBody,
 	ToggleControl,
@@ -16,18 +16,20 @@ import {
 	BlockControls,
 	AlignmentToolbar,
 } from '@wordpress/block-editor';
-import { colors } from '../constants';
+import { bgColors, colors } from '../constants';
 
 let styleOptions = [
 	{
 		label: __( 'Primary', 'wp-bootstrap-blocks' ),
 		value: 'primary',
-		color: colors.primary,
+		bgColor: bgColors.primary,
+		textColor: colors.white,
 	},
 	{
 		label: __( 'Secondary', 'wp-bootstrap-blocks' ),
 		value: 'secondary',
-		color: colors.secondary,
+		bgColor: bgColors.secondary,
+		textColor: colors.white,
 	},
 ];
 styleOptions = applyFilters(
@@ -35,7 +37,8 @@ styleOptions = applyFilters(
 	styleOptions
 );
 
-const DEFAULT_COLOR = colors.primary;
+const DEFAULT_BG_COLOR = bgColors.primary;
+const DEFAULT_TEXT_COLOR = colors.white;
 const NEW_TAB_REL_DEFAULT_VALUE = 'noreferrer noopener';
 
 const BootstrapButtonEdit = ( {
@@ -63,19 +66,47 @@ const BootstrapButtonEdit = ( {
 		} );
 	};
 
+	// Fill empty color values with default values and check for usage of deprecated color attribute in styleOptions
+	let hasDeprecatedColorAttributes = false;
+	const styleOptionsWithDefault = styleOptions.map( ( styleOption ) => {
+		if ( styleOption.color ) {
+			hasDeprecatedColorAttributes = true;
+		}
+		return {
+			...styleOption,
+			textColor: styleOption.textColor || DEFAULT_TEXT_COLOR,
+			bgColor:
+				styleOption.bgColor || styleOption.color || DEFAULT_BG_COLOR, // Fallback to deprecated color attribute
+		};
+	} );
+
+	if ( hasDeprecatedColorAttributes ) {
+		// eslint-disable-next-line no-console
+		console.warn(
+			'[wpBootstrapBlocks.button.styleOptions filter] The color attribute in styleOptions is deprecated. Please us bgColor and textColor instead.'
+		);
+	}
+
 	// Prepare CSS rules for selected button style
 	let inlineStyle = {
 		backgroundColor:
-			styleOptions.length > 0 ? styleOptions[ 0 ].color : DEFAULT_COLOR,
+			styleOptionsWithDefault.length > 0
+				? styleOptionsWithDefault[ 0 ].bgColor
+				: DEFAULT_BG_COLOR,
+		color:
+			styleOptionsWithDefault.length > 0
+				? styleOptionsWithDefault[ 0 ].textColor
+				: DEFAULT_TEXT_COLOR,
 	};
 
 	if ( style ) {
-		const selectedButtonColor = styleOptions.find(
+		const selectedButtonColor = styleOptionsWithDefault.find(
 			( styleOption ) => styleOption.value === style
 		);
-		if ( selectedButtonColor?.color ) {
+		if ( selectedButtonColor?.bgColor && selectedButtonColor?.textColor ) {
 			inlineStyle = {
-				backgroundColor: selectedButtonColor.color,
+				backgroundColor: selectedButtonColor.bgColor,
+				color: selectedButtonColor.textColor,
 			};
 		}
 	}
@@ -151,7 +182,7 @@ const BootstrapButtonEdit = ( {
 							setAttributes( { url: value } )
 						}
 					/>
-					<IconButton
+					<Button
 						icon="editor-break"
 						label={ __( 'Apply', 'wp-bootstrap-blocks' ) }
 						type="submit"

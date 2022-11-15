@@ -86,6 +86,12 @@ module.exports = {
     },
     "wp_bootstrap_blocks_button_default_attributes should override default attributes": {
       "1": "<!-- wp:wp-bootstrap-blocks/button /-->"
+    },
+    "Deprecated color attribute should be visible in UI": {
+      "1": "<!-- wp:wp-bootstrap-blocks/button {\"style\":\"brand-deprecated-color\"} /-->"
+    },
+    "Use default colors if textColor or bgColor attributes are missing in styleOption": {
+      "1": "<!-- wp:wp-bootstrap-blocks/button {\"style\":\"missing-colors\"} /-->"
     }
   },
   "Container Block": {
