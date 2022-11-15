@@ -47,7 +47,7 @@ describe( 'Button Block', () => {
 		cy.postContentMatchesSnapshot();
 	} );
 
-	it.only( 'Style should be visible in UI', () => {
+	it( 'Style should be visible in UI', () => {
 		cy.insertButtonBlock();
 
 		// Check default button style
