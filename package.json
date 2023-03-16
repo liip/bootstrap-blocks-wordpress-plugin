@@ -30,12 +30,12 @@
   },
   "devDependencies": {
     "@cypress/snapshot": "^2.1.7",
+    "@cypress/xpath": "^2.0.3",
     "@wordpress/base-styles": "^4.20.0",
     "@wordpress/env": "^5.14.0",
     "@wordpress/scripts": "^26.0.0",
     "cypress": "^12.8.1",
     "cypress-wp-test-utils": "^1.0.0",
-    "@cypress/xpath": "^2.0.3",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-prettier": "^4.2.1",
     "lodash": "^4.17.21",
