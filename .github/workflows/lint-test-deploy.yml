@@ -27,7 +27,7 @@ jobs:
       - name: Run PHP linter
         run: |
           npm run wp-env start
-          npm run lint:php
+          npm run lint:php:ci
 
   tests:
     name: Tests

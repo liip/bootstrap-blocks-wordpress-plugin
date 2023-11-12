@@ -61,13 +61,14 @@
     "lint:js-fix": "wp-scripts lint-js --fix",
     "lint:md-docs": "wp-scripts lint-md-docs",
     "lint:pkg-json": "wp-scripts lint-pkg-json",
-    "lint:php": "npm run wp-env run composer run-script lint",
+    "lint:php": "wp-env run --env-cwd='wp-content/plugins/wp-bootstrap-blocks' cli composer run-script lint",
+    "lint:php:ci": "wp-env run --env-cwd='wp-content/plugins/bootstrap-blocks-wordpress-plugin' cli composer run-script lint",
     "playwright": "playwright",
     "test:e2e": "wp-scripts test-playwright",
     "test:e2e-interactive": "wp-scripts test-playwright --ui",
     "test:unit:js": "wp-scripts test-unit-js",
-    "test:unit:php": "npm run wp-env run tests-cli phpunit -- -c /var/www/html/wp-content/plugins/wp-bootstrap-blocks/phpunit.xml.dist --verbose",
-    "test:unit:php:ci": "npm run wp-env run tests-cli phpunit -- '-c /var/www/html/wp-content/plugins/bootstrap-blocks-wordpress-plugin/phpunit.xml.dist --verbose'",
+    "test:unit:php": "wp-env run tests-cli phpunit -- -c /var/www/html/wp-content/plugins/wp-bootstrap-blocks/phpunit.xml.dist --verbose",
+    "test:unit:php:ci": "wp-env run tests-cli phpunit -- -c /var/www/html/wp-content/plugins/bootstrap-blocks-wordpress-plugin/phpunit.xml.dist --verbose",
     "cy:run": "cypress run",
     "cy:open": "cypress open"
   }
