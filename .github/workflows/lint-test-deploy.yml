@@ -51,13 +51,16 @@ jobs:
           npm ci
           composer install
 
+      - name: Install Playwright dependencies
+        run: |
+          npx playwright install chromium firefox webkit --with-deps
+
       - name: "Configure environment with WP ${{ matrix.wp }}"
         run: |
           echo -e '{\n\t"core": "WordPress/WordPress#${{ matrix.wp }}"\n}' > ./.wp-env.override.json
 
       - name: Install WordPress
         run: |
-          chmod -R 767 ./ # TODO: Possibly integrate in wp-env
           npm run wp-env start
 
       - name: Running JavaScript E2E tests
