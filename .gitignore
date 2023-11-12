@@ -13,6 +13,6 @@ cypress/videos
 cypress/screenshots
 .DS_Store
 /test-results/
-/playwright-report/
+/artifacts/
 /blob-report/
 /playwright/.cache/

@@ -64,7 +64,7 @@
     "lint:php": "npm run wp-env run composer run-script lint",
     "playwright": "playwright",
     "test:e2e": "wp-scripts test-playwright",
-    "test:e2e-interactive": "npm run cy:open",
+    "test:e2e-interactive": "wp-scripts test-playwright --ui",
     "test:unit:js": "wp-scripts test-unit-js",
     "test:unit:php": "npm run wp-env run tests-cli phpunit -- -c /var/www/html/wp-content/plugins/wp-bootstrap-blocks/phpunit.xml.dist --verbose",
     "test:unit:php:ci": "npm run wp-env run tests-cli phpunit -- '-c /var/www/html/wp-content/plugins/bootstrap-blocks-wordpress-plugin/phpunit.xml.dist --verbose'",
