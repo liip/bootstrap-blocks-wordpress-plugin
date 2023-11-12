@@ -132,6 +132,7 @@ test.describe( 'Button Block', () => {
 					name: 'Editor settings',
 				} )
 				.getByLabel( 'Open in new tab' )
+				.isChecked()
 		).toBeTruthy();
 
 		// Rel should be set
