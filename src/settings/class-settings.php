@@ -428,6 +428,5 @@ if ( ! class_exists( '\WP_Bootstrap_Blocks\Settings', false ) ) :
 		public static function get_option( $option_name, $constant_name, $default_value ) {
 			return defined( $constant_name ) ? constant( $constant_name ) : get_option( $option_name, $default_value );
 		}
-
 	}
 endif;

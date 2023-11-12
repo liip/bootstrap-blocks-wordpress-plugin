@@ -6,7 +6,7 @@
  */
 
 // Require composer dependencies.
-require_once dirname( dirname( __FILE__ ) ) . '/vendor/autoload.php';
+require_once dirname( __DIR__ ) . '/vendor/autoload.php';
 
 // Determine the tests directory (from a WP dev checkout).
 // Try the WP_TESTS_DIR environment variable first.
@@ -19,7 +19,7 @@ if ( ! $_tests_dir ) {
 
 // See if we're installed inside an existing WP dev instance.
 if ( ! $_tests_dir ) {
-	$_try_tests_dir = dirname( __FILE__ ) . '/../../../../../tests/phpunit';
+	$_try_tests_dir = __DIR__ . '/../../../../../tests/phpunit';
 	if ( file_exists( $_try_tests_dir . '/includes/functions.php' ) ) {
 		$_tests_dir = $_try_tests_dir;
 	}
@@ -40,7 +40,7 @@ define( 'GUTENBERG_LOAD_VENDOR_SCRIPTS', false );
  * Manually load the plugin being tested.
  */
 function _manually_load_plugin() {
-	require dirname( dirname( __FILE__ ) ) . '/wp-bootstrap-blocks.php';
+	require dirname( __DIR__ ) . '/wp-bootstrap-blocks.php';
 }
 tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );
 
@@ -48,4 +48,4 @@ tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );
 require $_tests_dir . '/includes/bootstrap.php';
 
 // Load plugin UnitTestCase
-require_once dirname( __FILE__ ) . '/wp-bootstrap-blocks-unittestcase.php';
+require_once __DIR__ . '/wp-bootstrap-blocks-unittestcase.php';

@@ -16,3 +16,4 @@ cypress/screenshots
 /artifacts/
 /blob-report/
 /playwright/.cache/
+.phpunit.result.cache

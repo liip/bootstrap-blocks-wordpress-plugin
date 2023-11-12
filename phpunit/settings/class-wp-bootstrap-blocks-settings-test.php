@@ -5,7 +5,7 @@
  * @package wp-bootstrap-blocks
  */
 
-use \WP_Bootstrap_Blocks\Settings;
+use WP_Bootstrap_Blocks\Settings;
 
 /**
  * Class WP_Bootstrap_Blocks_Settings_Test

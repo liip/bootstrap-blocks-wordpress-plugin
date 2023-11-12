@@ -20,5 +20,6 @@
 		<exclude name="Squiz.Commenting.InlineComment.InvalidEndChar" />
 		<exclude name="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned" />
 		<exclude name="Generic.Formatting.MultipleStatementAlignment.NotSameWarning" />
+		<exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed" />
 	</rule>
 </ruleset>
