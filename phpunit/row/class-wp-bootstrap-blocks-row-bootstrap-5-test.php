@@ -19,7 +19,7 @@ class WP_Bootstrap_Blocks_Row_Bootstrap_5_Test extends WP_Bootstrap_Blocks_UnitT
 	/**
 	 * Runs before each test
 	 */
-	public function setUp() {
+	public function setUp(): void {
 		parent::setUp();
 		// Enable Bootstrap 5
 		update_option( \WP_Bootstrap_Blocks\Settings::BOOTSTRAP_VERSION_OPTION_NAME, '5' );
@@ -28,7 +28,7 @@ class WP_Bootstrap_Blocks_Row_Bootstrap_5_Test extends WP_Bootstrap_Blocks_UnitT
 	/**
 	 * Runs after each test
 	 */
-	public function tearDown() {
+	public function tearDown(): void {
 		parent::tearDown();
 		delete_option( \WP_Bootstrap_Blocks\Settings::BOOTSTRAP_VERSION_OPTION_NAME );
 	}
