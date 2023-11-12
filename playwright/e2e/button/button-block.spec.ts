@@ -38,7 +38,6 @@ test.describe( 'Button Block', () => {
 	} );
 
 	test( 'Select style', async ( { editor, page } ) => {
-		// Style option should be applied
 		await editorSettingsSelectOption( editor, page, 'Style', 'Secondary' );
 
 		expect( await editor.getEditedPostContent() ).toMatchSnapshot(
