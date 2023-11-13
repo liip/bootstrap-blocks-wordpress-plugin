@@ -1,13 +1,11 @@
 const { test, expect } = require( '@wordpress/e2e-test-utils-playwright' );
 
 test.describe( 'Settings page', () => {
-	test.beforeEach( async ( { admin } ) => {
+	test( 'Default values are selected', async ( { admin, page } ) => {
 		await admin.visitAdminPage(
 			'options-general.php?page=wp-bootstrap-blocks_settings'
 		);
-	} );
 
-	test( 'Default values are selected', async ( { page } ) => {
 		expect(
 			await page
 				.locator( '#wp-bootstrap-blocks_bootstrap_version' )
@@ -22,9 +20,13 @@ test.describe( 'Settings page', () => {
 		await expect( enableCssGridCheckbox ).not.toBeDisabled();
 	} );
 
-	test( 'Respects constants', async ( { page, requestUtils } ) => {
+	test( 'Respects constants', async ( { admin, page, requestUtils } ) => {
 		await requestUtils.activatePlugin(
 			'wp-bootstrap-blocks-test-css-grid'
+		);
+
+		await admin.visitAdminPage(
+			'options-general.php?page=wp-bootstrap-blocks_settings'
 		);
 
 		await expect(
