@@ -14,11 +14,12 @@
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>./src/*\.(inc|css|js)$</exclude-pattern>
 	<exclude-pattern>./e2e-test-plugins/*\.(inc|css|js)$</exclude-pattern>
-	<exclude-pattern>./cypress/*</exclude-pattern>
+	<exclude-pattern>./playwright/*</exclude-pattern>
 
 	<rule ref="WordPress">
 		<exclude name="Squiz.Commenting.InlineComment.InvalidEndChar" />
 		<exclude name="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned" />
 		<exclude name="Generic.Formatting.MultipleStatementAlignment.NotSameWarning" />
+		<exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed" />
 	</rule>
 </ruleset>

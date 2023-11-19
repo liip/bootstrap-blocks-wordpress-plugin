@@ -18,28 +18,27 @@
     "url": "https://github.com/liip/bootstrap-blocks-wordpress-plugin/issues"
   },
   "dependencies": {
-    "@wordpress/block-editor": "^11.6.0",
-    "@wordpress/blocks": "^12.6.0",
-    "@wordpress/components": "^23.6.0",
-    "@wordpress/data": "^8.6.0",
-    "@wordpress/element": "^5.6.0",
-    "@wordpress/hooks": "^3.29.0",
-    "@wordpress/i18n": "^4.29.0",
-    "bootstrap": "^5.2.3",
-    "sass": "^1.59.3"
+    "@wordpress/block-editor": "^12.13.0",
+    "@wordpress/blocks": "^12.22.0",
+    "@wordpress/components": "^25.11.0",
+    "@wordpress/data": "^9.15.0",
+    "@wordpress/element": "^5.22.0",
+    "@wordpress/hooks": "^3.45.0",
+    "@wordpress/i18n": "^4.45.0",
+    "bootstrap": "^5.3.2",
+    "sass": "^1.69.5"
   },
   "devDependencies": {
-    "@cypress/snapshot": "^2.1.7",
-    "@cypress/xpath": "^2.0.3",
-    "@wordpress/base-styles": "^4.20.0",
-    "@wordpress/env": "^5.14.0",
-    "@wordpress/scripts": "^26.0.0",
-    "cypress": "^12.8.1",
-    "cypress-wp-test-utils": "^1.0.0",
-    "eslint-plugin-cypress": "^2.12.1",
-    "eslint-plugin-prettier": "^4.2.1",
+    "@playwright/test": "^1.39.0",
+    "@wordpress/base-styles": "^4.36.0",
+    "@wordpress/browserslist-config": "^5.28.0",
+    "@wordpress/e2e-test-utils-playwright": "^0.13.0",
+    "@wordpress/env": "^8.11.0",
+    "@wordpress/eslint-plugin": "^17.2.0",
+    "@wordpress/scripts": "^26.16.0",
+    "eslint-plugin-prettier": "^5.0.1",
     "lodash": "^4.17.21",
-    "prettier": "npm:wp-prettier@2.6.2"
+    "prettier": "npm:wp-prettier@3.0.3"
   },
   "scripts": {
     "start": "wp-scripts start src/index.js src/settings/settings.js",
@@ -57,13 +56,13 @@
     "lint:js-fix": "wp-scripts lint-js --fix",
     "lint:md-docs": "wp-scripts lint-md-docs",
     "lint:pkg-json": "wp-scripts lint-pkg-json",
-    "lint:php": "npm run wp-env run composer run-script lint",
-    "test:e2e": "cypress run",
-    "test:e2e-interactive": "npm run cy:open",
+    "lint:php": "wp-env run --env-cwd='wp-content/plugins/wp-bootstrap-blocks' cli composer run-script lint",
+    "lint:php:ci": "wp-env run --env-cwd='wp-content/plugins/bootstrap-blocks-wordpress-plugin' cli composer run-script lint",
+    "playwright": "playwright",
+    "test:e2e": "wp-scripts test-playwright",
+    "test:e2e-interactive": "wp-scripts test-playwright --ui",
     "test:unit:js": "wp-scripts test-unit-js",
-    "test:unit:php": "npm run wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/wp-bootstrap-blocks/phpunit.xml.dist --verbose'",
-    "test:unit:php:ci": "npm run wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/bootstrap-blocks-wordpress-plugin/phpunit.xml.dist --verbose'",
-    "cy:run": "cypress run",
-    "cy:open": "cypress open"
+    "test:unit:php": "wp-env run tests-cli phpunit -- -c /var/www/html/wp-content/plugins/wp-bootstrap-blocks/phpunit.xml.dist --verbose",
+    "test:unit:php:ci": "wp-env run tests-cli phpunit -- -c /var/www/html/wp-content/plugins/bootstrap-blocks-wordpress-plugin/phpunit.xml.dist --verbose"
   }
 }

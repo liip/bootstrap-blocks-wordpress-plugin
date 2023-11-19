@@ -27,7 +27,7 @@ jobs:
       - name: Run PHP linter
         run: |
           npm run wp-env start
-          npm run lint:php
+          npm run lint:php:ci
 
   tests:
     name: Tests
@@ -36,7 +36,7 @@ jobs:
 
     strategy:
       matrix:
-        wp: [ '5.7', '5.8', '5.9', '6.0', '6.1' ]
+        wp: [ '6.2', '6.3', '6.4' ]
 
     steps:
       - uses: actions/checkout@v3
@@ -51,13 +51,16 @@ jobs:
           npm ci
           composer install
 
+      - name: Install Playwright dependencies
+        run: |
+          npx playwright install chromium firefox webkit --with-deps
+
       - name: "Configure environment with WP ${{ matrix.wp }}"
         run: |
           echo -e '{\n\t"core": "WordPress/WordPress#${{ matrix.wp }}"\n}' > ./.wp-env.override.json
 
       - name: Install WordPress
         run: |
-          chmod -R 767 ./ # TODO: Possibly integrate in wp-env
           npm run wp-env start
 
       - name: Running JavaScript E2E tests
@@ -65,6 +68,13 @@ jobs:
 
       - name: Running PHP unit tests
         run: npm run test:unit:php:ci
+
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: artifacts/
+          retention-days: 7
 
   deploy-dry-run:
     name: '[DRY RUN] Deploy'

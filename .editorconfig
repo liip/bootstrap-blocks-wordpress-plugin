@@ -14,9 +14,12 @@ trim_trailing_whitespace = true
 indent_style = tab
 indent_size = 4
 
-[*.yml]
+[*.{yml,yaml}]
 indent_style = space
 indent_size = 2
 
-[*.md]
-trim_trailing_whitespace = false
+[*.{gradle,java,kt}]
+indent_style = space
+
+[packages/react-native-*/**.xml]
+indent_style = space

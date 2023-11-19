@@ -25,10 +25,10 @@
 	},
 	"require-dev": {
 		"squizlabs/php_codesniffer": "^3.7",
-		"wp-coding-standards/wpcs": "dev-develop",
-		"dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
-		"wp-phpunit/wp-phpunit": "^6.0",
-		"yoast/phpunit-polyfills": "^1.0"
+		"wp-coding-standards/wpcs": "^3.0",
+		"dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+		"wp-phpunit/wp-phpunit": "^6.3",
+		"yoast/phpunit-polyfills": "^2.0"
 	},
 	"minimum-stability": "dev",
 	"prefer-stable": true,

@@ -1,0 +1,3 @@
+<!-- wp:wp-bootstrap-blocks/row {"template":"1-66percent"} -->
+<!-- wp:wp-bootstrap-blocks/column {"sizeMd":8} /-->
+<!-- /wp:wp-bootstrap-blocks/row -->

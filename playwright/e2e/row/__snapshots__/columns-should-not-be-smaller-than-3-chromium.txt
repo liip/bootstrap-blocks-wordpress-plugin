@@ -1,0 +1,31 @@
+<!-- wp:wp-bootstrap-blocks/row {"template":"custom"} -->
+<!-- wp:wp-bootstrap-blocks/column {"sizeMd":3} -->
+<!-- wp:heading -->
+<h2 class="wp-block-heading"></h2>
+<!-- /wp:heading -->
+<!-- /wp:wp-bootstrap-blocks/column -->
+
+<!-- wp:wp-bootstrap-blocks/column {"sizeMd":3} -->
+<!-- wp:heading -->
+<h2 class="wp-block-heading"></h2>
+<!-- /wp:heading -->
+<!-- /wp:wp-bootstrap-blocks/column -->
+
+<!-- wp:wp-bootstrap-blocks/column {"sizeMd":3} -->
+<!-- wp:heading -->
+<h2 class="wp-block-heading"></h2>
+<!-- /wp:heading -->
+<!-- /wp:wp-bootstrap-blocks/column -->
+
+<!-- wp:wp-bootstrap-blocks/column {"sizeMd":3} -->
+<!-- wp:heading -->
+<h2 class="wp-block-heading"></h2>
+<!-- /wp:heading -->
+<!-- /wp:wp-bootstrap-blocks/column -->
+
+<!-- wp:wp-bootstrap-blocks/column {"sizeMd":3} -->
+<!-- wp:heading -->
+<h2 class="wp-block-heading"></h2>
+<!-- /wp:heading -->
+<!-- /wp:wp-bootstrap-blocks/column -->
+<!-- /wp:wp-bootstrap-blocks/row -->

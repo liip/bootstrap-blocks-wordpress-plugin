@@ -75,9 +75,9 @@ abstract class WP_Bootstrap_Blocks_UnitTestCase extends WP_UnitTestCase {
 		$filepath = $this->get_fixture_path( $variant, $state );
 		if ( ! file_exists( $filepath ) ) {
 			if ( self::OUTPUT_STATE_NAME === $state ) {
-				throw new Exception( 'Fixture file ' . $filepath . ' does not exist. Please record output fixture file first by setting the environment variable WP_BOOTSTRAP_BLOCKS_RECORD to true and running the tests again.' );
+				throw new Exception( 'Fixture file ' . esc_html( $filepath ) . ' does not exist. Please record output fixture file first by setting the environment variable WP_BOOTSTRAP_BLOCKS_RECORD to true and running the tests again.' );
 			} else {
-				throw new Exception( 'Fixture file ' . $filepath . ' does not exist. Please create it first.' );
+				throw new Exception( 'Fixture file ' . esc_html( $filepath ) . ' does not exist. Please create it first.' );
 			}
 		}
 		// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
@@ -94,7 +94,7 @@ abstract class WP_Bootstrap_Blocks_UnitTestCase extends WP_UnitTestCase {
 	 */
 	protected function create_fixture_if_needed( $variant, $content ) {
 		if ( getenv( 'WP_BOOTSTRAP_BLOCKS_RECORD' ) === '1' ) {
-			// phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_read_file_put_contents
+			// phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_file_put_contents
 			file_put_contents( $this->get_fixture_path( $variant, 'output' ), $content );
 		}
 	}

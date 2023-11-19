@@ -346,5 +346,4 @@ class WP_Bootstrap_Blocks {
 		delete_option( $this->token . '_version' );
 		update_option( $this->token . '_version', self::$version );
 	}
-
 }

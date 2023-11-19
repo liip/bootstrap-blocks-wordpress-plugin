@@ -1,0 +1,5 @@
+<!-- wp:wp-bootstrap-blocks/row {"template":"custom"} -->
+<!-- wp:wp-bootstrap-blocks/column {"sizeMd":6} /-->
+
+<!-- wp:wp-bootstrap-blocks/column {"sizeMd":6} /-->
+<!-- /wp:wp-bootstrap-blocks/row -->

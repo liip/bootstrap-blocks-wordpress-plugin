@@ -34,7 +34,7 @@ class WP_Bootstrap_Blocks_Functions_Test extends WP_UnitTestCase {
 		add_filter(
 			'wp_bootstrap_blocks_get_template',
 			function () {
-				return trailingslashit( dirname( __FILE__ ) ) . 'fixtures/templates/dummy.php';
+				return trailingslashit( __DIR__ ) . 'fixtures/templates/dummy.php';
 			}
 		);
 		$container_template = wp_bootstrap_blocks_get_template( 'container', array() );

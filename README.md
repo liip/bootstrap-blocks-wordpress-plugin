@@ -87,7 +87,7 @@ The support is still experimental since it's also marked as experimental in the 
 
 ## Bootstrap library
 
-Please be aware that this plugin does not include the Bootstrap library in your website. You need to do this by yourself. 
+Please be aware that this plugin does not include the Bootstrap library in your website. You need to do this by yourself.
 We decided not to include the library so that you can modify Bootstrap to your own needs before loading it.
 
 The easiest way to do this is to add the following to your theme's `functions.php`:
@@ -864,7 +864,7 @@ The following commands can be used to set up a local dev environment. See the of
 There are two types of tests for this plugin:
 
 * PHPUnit Tests: Used to validate generated block output. Since this plugin uses dynamic blocks which are rendered on the server side we need to test them with PHPUnit tests.
-* Cypress E2E Tests: Used to validate block behaviour in the editor.
+* Playwright E2E Tests: Used to validate block behaviour in the editor.
 
 #### PHPUnitTests
 
@@ -890,9 +890,9 @@ or the following command to run a specific test:
 npm run test:unit:php -- --filter 'my_test'
 ```
 
-#### Cypress E2E Tests
+#### Playwright E2E Tests
 
-The Cypress E2E Tests are stored in the `cypress` directory.
+The Playwright E2E Tests are stored in the `playwright` directory.
 
 To run the tests use the following command:
 
