@@ -58,7 +58,6 @@
     "lint:pkg-json": "wp-scripts lint-pkg-json",
     "lint:php": "wp-env run --env-cwd='wp-content/plugins/wp-bootstrap-blocks' cli composer run-script lint",
     "lint:php:ci": "wp-env run --env-cwd='wp-content/plugins/bootstrap-blocks-wordpress-plugin' cli composer run-script lint",
-    "playwright": "playwright",
     "test:e2e": "wp-scripts test-playwright",
     "test:e2e-interactive": "wp-scripts test-playwright --ui",
     "test:unit:js": "wp-scripts test-unit-js",
