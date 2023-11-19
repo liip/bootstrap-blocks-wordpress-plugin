@@ -9,8 +9,6 @@ build/*
 !build/settings.css
 composer.phar
 /release
-cypress/videos
-cypress/screenshots
 .DS_Store
 /test-results/
 /artifacts/

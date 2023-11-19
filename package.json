@@ -29,8 +29,6 @@
     "sass": "^1.69.5"
   },
   "devDependencies": {
-    "@cypress/snapshot": "^2.1.7",
-    "@cypress/xpath": "^2.0.3",
     "@playwright/test": "^1.39.0",
     "@wordpress/base-styles": "^4.36.0",
     "@wordpress/browserslist-config": "^5.28.0",
@@ -38,9 +36,6 @@
     "@wordpress/env": "^8.11.0",
     "@wordpress/eslint-plugin": "^17.2.0",
     "@wordpress/scripts": "^26.16.0",
-    "cypress": "^12.17.4",
-    "cypress-wp-test-utils": "^1.0.0",
-    "eslint-plugin-cypress": "^2.15.1",
     "eslint-plugin-prettier": "^5.0.1",
     "lodash": "^4.17.21",
     "prettier": "npm:wp-prettier@3.0.3"
@@ -68,8 +63,6 @@
     "test:e2e-interactive": "wp-scripts test-playwright --ui",
     "test:unit:js": "wp-scripts test-unit-js",
     "test:unit:php": "wp-env run tests-cli phpunit -- -c /var/www/html/wp-content/plugins/wp-bootstrap-blocks/phpunit.xml.dist --verbose",
-    "test:unit:php:ci": "wp-env run tests-cli phpunit -- -c /var/www/html/wp-content/plugins/bootstrap-blocks-wordpress-plugin/phpunit.xml.dist --verbose",
-    "cy:run": "cypress run",
-    "cy:open": "cypress open"
+    "test:unit:php:ci": "wp-env run tests-cli phpunit -- -c /var/www/html/wp-content/plugins/bootstrap-blocks-wordpress-plugin/phpunit.xml.dist --verbose"
   }
 }
