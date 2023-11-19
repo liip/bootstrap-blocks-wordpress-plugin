@@ -9,5 +9,5 @@ do
   echo "Success!"
   echo ""
   echo "Creating *.json file from $file..."
-  npm run wp-env run cli "wp i18n make-json $DOCKER_ROOT/$file --no-purge"
+  npm run wp-env run cli wp i18n make-json $DOCKER_ROOT/$file -- --no-purge
 done
