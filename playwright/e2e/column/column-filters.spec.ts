@@ -168,9 +168,11 @@ test.describe( 'Column Block - Filters', () => {
 		await editor.clickBlockToolbarButton(
 			'Change vertical alignment of content'
 		);
-		await page
-			.locator( 'button.is-active:text("Align content bottom")' )
-			.isVisible();
+		await expect(
+			await page.locator(
+				'button.is-active:text("Align content bottom")'
+			)
+		).toBeVisible();
 
 		// Check if attributes are set correctly
 		expect( await editor.getEditedPostContent() ).toMatchSnapshot(

@@ -98,9 +98,9 @@ test.describe( 'Button Block', () => {
 	} ) => {
 		// Alignment should be set
 		await editor.clickBlockToolbarButton( 'Change button alignment' );
-		await page
-			.locator( 'button.is-active:text("Align text center")' )
-			.isVisible();
+		await expect(
+			await page.locator( 'button.is-active:text("Align text center")' )
+		).toBeVisible();
 
 		// Text should be set
 		await expect(
