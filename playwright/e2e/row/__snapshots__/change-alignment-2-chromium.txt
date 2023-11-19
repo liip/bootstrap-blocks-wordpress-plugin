@@ -1,0 +1,5 @@
+<!-- wp:wp-bootstrap-blocks/row {"alignment":"right","verticalAlignment":"bottom"} -->
+<!-- wp:wp-bootstrap-blocks/column {"sizeMd":6} /-->
+
+<!-- wp:wp-bootstrap-blocks/column {"sizeMd":6} /-->
+<!-- /wp:wp-bootstrap-blocks/row -->

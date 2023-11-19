@@ -1,0 +1,7 @@
+<!-- wp:wp-bootstrap-blocks/row {"template":"1-1-1"} -->
+<!-- wp:wp-bootstrap-blocks/column {"sizeMd":4} /-->
+
+<!-- wp:wp-bootstrap-blocks/column {"sizeMd":4} /-->
+
+<!-- wp:wp-bootstrap-blocks/column {"sizeMd":4} /-->
+<!-- /wp:wp-bootstrap-blocks/row -->
